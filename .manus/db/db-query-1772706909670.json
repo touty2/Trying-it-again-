@@ -1,0 +1,9 @@
+{
+  "query": "DELETE FROM users WHERE email = 'test@test.com';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2f7ZhPqA8Apogim.root --database eCFawxg2mfbW7w9comJTv5 --execute DELETE FROM users WHERE email = 'test@test.com';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 199
+}
