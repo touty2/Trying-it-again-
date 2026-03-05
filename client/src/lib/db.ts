@@ -326,7 +326,7 @@ export function getDueStats(
 // ─── IndexedDB Setup ──────────────────────────────────────────────────────────
 
 const DB_NAME = "ChineseReaderDB";
-const DB_VERSION = 9; // v9: storyDecks store for story-specific deck memberships
+const DB_VERSION = 10; // v10: customDecks + deckCards stores for user-created deck management
 
 let dbInstance: IDBDatabase | null = null;
 
@@ -451,6 +451,16 @@ function openDB(): Promise<IDBDatabase> {
         const sdStore = db.createObjectStore("storyDecks", { keyPath: "id" });
         sdStore.createIndex("storyId", "storyId", { unique: false });
         sdStore.createIndex("wordId", "wordId", { unique: false });
+      }
+      // DB_VERSION 10: custom user-created decks
+      if (!db.objectStoreNames.contains("customDecks")) {
+        db.createObjectStore("customDecks", { keyPath: "id" });
+      }
+      // DB_VERSION 10: deck-card junction (which words belong to which custom deck)
+      if (!db.objectStoreNames.contains("deckCards")) {
+        const dcStore = db.createObjectStore("deckCards", { keyPath: "id" });
+        dcStore.createIndex("deckId", "deckId", { unique: false });
+        dcStore.createIndex("wordId", "wordId", { unique: false });
       }
     };
 
@@ -971,4 +981,155 @@ export const SegmentationOverrideDB = {
     for (const o of all) map[o.key] = o.splits;
     loadSegmentationOverrides(map);
   },
+};
+
+// ─── Custom Deck Types ────────────────────────────────────────────────────────
+
+export type DeckDirection = "forward" | "reverse" | "both";
+
+export interface CustomDeck {
+  /** nanoid — also used as the server-side deck id */
+  id: string;
+  name: string;
+  /** true for the single Main Deck (cannot be deleted or renamed) */
+  isMain: boolean;
+  /** included in combined review sessions */
+  included: boolean;
+  settings: {
+    direction: DeckDirection;
+    autoAddFromStories: boolean;
+  };
+  createdAt: number;
+  updatedAt: number;
+}
+
+export interface DeckCardEntry {
+  /** composite key: "{deckId}:{wordId}" */
+  id: string;
+  deckId: string;
+  wordId: string;
+  addedAt: number;
+}
+
+// ─── CustomDeckDB ─────────────────────────────────────────────────────────────
+
+export const CustomDeckDB = {
+  getAll: (): Promise<CustomDeck[]> =>
+    txAll("customDecks", "readonly", (s) => s.getAll()),
+
+  get: (id: string): Promise<CustomDeck | undefined> =>
+    tx<CustomDeck | undefined>("customDecks", "readonly", (s) => s.get(id)),
+
+  put: (deck: CustomDeck): Promise<IDBValidKey> =>
+    tx("customDecks", "readwrite", (s) => s.put(deck)),
+
+  delete: (id: string): Promise<undefined> =>
+    tx("customDecks", "readwrite", (s) => s.delete(id)),
+
+  /** Ensure the Main Deck exists. Returns it. */
+  ensureMainDeck: async (mainId: string): Promise<CustomDeck> => {
+    const existing = await CustomDeckDB.get(mainId);
+    if (existing) return existing;
+    const deck: CustomDeck = {
+      id: mainId,
+      name: "Main Deck",
+      isMain: true,
+      included: true,
+      settings: { direction: "forward", autoAddFromStories: true },
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
+    };
+    await CustomDeckDB.put(deck);
+    return deck;
+  },
+};
+
+// ─── DeckCardDB ───────────────────────────────────────────────────────────────
+
+export const DeckCardDB = {
+  getAll: (): Promise<DeckCardEntry[]> =>
+    txAll("deckCards", "readonly", (s) => s.getAll()),
+
+  getByDeck: (deckId: string): Promise<DeckCardEntry[]> =>
+    openDB().then(
+      (db) =>
+        new Promise((resolve, reject) => {
+          const transaction = db.transaction("deckCards", "readonly");
+          const store = transaction.objectStore("deckCards");
+          const index = store.index("deckId");
+          const req = index.getAll(deckId);
+          req.onsuccess = () => resolve(req.result ?? []);
+          req.onerror = () => reject(req.error);
+        })
+    ),
+
+  getByWord: (wordId: string): Promise<DeckCardEntry[]> =>
+    openDB().then(
+      (db) =>
+        new Promise((resolve, reject) => {
+          const transaction = db.transaction("deckCards", "readonly");
+          const store = transaction.objectStore("deckCards");
+          const index = store.index("wordId");
+          const req = index.getAll(wordId);
+          req.onsuccess = () => resolve(req.result ?? []);
+          req.onerror = () => reject(req.error);
+        })
+    ),
+
+  add: (deckId: string, wordId: string): Promise<IDBValidKey> => {
+    const entry: DeckCardEntry = {
+      id: `${deckId}:${wordId}`,
+      deckId,
+      wordId,
+      addedAt: Date.now(),
+    };
+    return tx("deckCards", "readwrite", (s) => s.put(entry));
+  },
+
+  remove: (deckId: string, wordId: string): Promise<undefined> =>
+    tx("deckCards", "readwrite", (s) => s.delete(`${deckId}:${wordId}`)),
+
+  has: (deckId: string, wordId: string): Promise<boolean> =>
+    tx<DeckCardEntry | undefined>("deckCards", "readonly", (s) =>
+      s.get(`${deckId}:${wordId}`)
+    ).then((r) => r !== undefined),
+
+  putAll: (entries: DeckCardEntry[]): Promise<void> =>
+    openDB().then(
+      (db) =>
+        new Promise((resolve, reject) => {
+          const transaction = db.transaction("deckCards", "readwrite");
+          const store = transaction.objectStore("deckCards");
+          let pending = entries.length;
+          if (pending === 0) { resolve(); return; }
+          for (const entry of entries) {
+            const req = store.put(entry);
+            req.onsuccess = () => { if (--pending === 0) resolve(); };
+            req.onerror = () => reject(req.error);
+          }
+        })
+    ),
+
+  /** Remove all entries for a deck (when deck is deleted). */
+  deleteByDeck: (deckId: string): Promise<void> =>
+    openDB().then(
+      (db) =>
+        new Promise((resolve, reject) => {
+          const transaction = db.transaction("deckCards", "readwrite");
+          const store = transaction.objectStore("deckCards");
+          const index = store.index("deckId");
+          const req = index.getAllKeys(deckId);
+          req.onsuccess = () => {
+            const keys = req.result;
+            let pending = keys.length;
+            if (pending === 0) { resolve(); return; }
+            for (const key of keys) {
+              const del = store.delete(key);
+              del.onsuccess = () => { if (--pending === 0) resolve(); };
+              del.onerror = () => reject(del.error);
+            }
+          };
+          req.onerror = () => reject(req.error);
+        })
+    ),
 };

@@ -15,6 +15,13 @@
       "when": 1772706240418,
       "tag": "0001_daffy_magdalene",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1772711738989,
+      "tag": "0002_outgoing_clint_barton",
+      "breakpoints": true
     }
   ]
 }

@@ -39,3 +39,10 @@
 - [x] Fix sync easeFactor validation rejecting cards below 1.3 minimum
 - [x] Make all settings preferences persistent (localStorage + cloud sync)
 - [x] Convert vocab/grammar/deck sections below stories into accordion format
+- [x] DB schema: add decks + deck_cards tables, push migration
+- [x] Server: DB helpers and tRPC procedures for deck CRUD and card assignment
+- [x] Client: extend AppContext and sync manager for decks
+- [x] UI: DecksSidebar component (slide-in, toggle, rename, delete, settings panel)
+- [x] UI: deck assignment popup when adding word from story
+- [x] UI: review logic combines selected decks into one session
+- [x] Tests for deck CRUD and assignment logic (9 tests passing)

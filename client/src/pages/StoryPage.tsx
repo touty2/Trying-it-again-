@@ -37,6 +37,8 @@ import { useTTS, splitSentences } from "@/hooks/useTTS";
 import { useAudioSettings } from "@/hooks/useAudioSettings";
 import { GrammarInStory } from "@/components/GrammarInStory";
 import { WordPopup } from "@/components/WordPopup";
+import { DeckAssignPopup } from "@/components/DeckAssignPopup";
+import { useDecks } from "@/hooks/useDecks";
 import type { Text } from "@/lib/db";
 
 // ─── Band Config ──────────────────────────────────────────────────────────────
@@ -425,8 +427,10 @@ function SegmentedText({ text, textId, activeSentenceIndex, allSentences, onSpea
 
 function RecommendedVocabInner({ wordIds, textId }: { wordIds: string[]; textId: string }) {
   const { addWordToDeck, isWordInDeck, settings } = useApp();
+  const decksMgr = useDecks();
   const [ignored, setIgnored] = useState<Set<string>>(new Set());
   const [addedSet, setAddedSet] = useState<Set<string>>(new Set());
+  const [pendingWord, setPendingWord] = useState<string | null>(null);
 
   const visible = wordIds.filter((entry) => !ignored.has(entry));
   if (visible.length === 0) return null;
@@ -445,6 +449,7 @@ function RecommendedVocabInner({ wordIds, textId }: { wordIds: string[]; textId:
   };
 
   return (
+    <>
     <div className="divide-y divide-border/40">
         {visible.map((entry) => {
           const info = resolveEntry(entry);
@@ -471,15 +476,21 @@ function RecommendedVocabInner({ wordIds, textId }: { wordIds: string[]; textId:
                     size="sm"
                     variant="outline"
                     className="gap-1.5 shrink-0"
-                    onClick={async () => {
-                      const result = await addWordToDeck(info.hanzi, textId);
-                      if (result.success) {
-                        setAddedSet((prev) => new Set([...Array.from(prev), info.hanzi]));
-                        toast.success(`Added "${info.hanzi}" to deck`);
-                      } else if (result.alreadyExists) {
-                        toast.info("Already in your deck");
-                      } else if (result.capReached && settings.showCapReachedPopup) {
-                        toast.warning(`Daily cap reached`);
+                    onClick={() => {
+                      // If only Main Deck exists, skip popup and add directly
+                      if (decksMgr.decks.filter((d) => !d.isMain).length === 0) {
+                        addWordToDeck(info.hanzi, textId).then((result) => {
+                          if (result.success) {
+                            setAddedSet((prev) => new Set([...Array.from(prev), info.hanzi]));
+                            toast.success(`Added "${info.hanzi}" to deck`);
+                          } else if (result.alreadyExists) {
+                            toast.info("Already in your deck");
+                          } else if (result.capReached && settings.showCapReachedPopup) {
+                            toast.warning(`Daily cap reached`);
+                          }
+                        });
+                      } else {
+                        setPendingWord(info.hanzi);
                       }
                     }}
                   >
@@ -498,6 +509,35 @@ function RecommendedVocabInner({ wordIds, textId }: { wordIds: string[]; textId:
           );
         })}
     </div>
+      {/* Deck assignment popup */}
+      {pendingWord && (
+        <DeckAssignPopup
+          open={!!pendingWord}
+          onClose={() => setPendingWord(null)}
+          decks={decksMgr.decks}
+          hanzi={pendingWord}
+          onConfirm={async (deckIds) => {
+            const word = pendingWord;
+            // Always add to main deck via AppContext (for SRS tracking)
+            const result = await addWordToDeck(word, textId);
+            // Also add to any additional custom decks
+            const customDeckIds = deckIds.filter((id) => {
+              const d = decksMgr.decks.find((dk) => dk.id === id);
+              return d && !d.isMain;
+            });
+            if (customDeckIds.length > 0) {
+              await decksMgr.addWordToDecks(word, customDeckIds);
+            }
+            if (result.success || result.alreadyExists) {
+              setAddedSet((prev) => new Set([...Array.from(prev), word]));
+              toast.success(`Added "${word}" to ${deckIds.length} deck${deckIds.length !== 1 ? "s" : ""}`);
+            } else if (result.capReached && settings.showCapReachedPopup) {
+              toast.warning(`Daily cap reached`);
+            }
+          }}
+        />
+      )}
+    </>
   );
 }
 

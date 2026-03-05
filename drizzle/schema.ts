@@ -233,6 +233,50 @@ export const storyDeckWords = mysqlTable(
 export type StoryDeckWord = typeof storyDeckWords.$inferSelect;
 export type InsertStoryDeckWord = typeof storyDeckWords.$inferInsert;
 
+// ─── Custom Decks ───────────────────────────────────────────────────────────────
+/**
+ * User-created named decks. One row per deck.
+ * isMain: true for the single "Main Deck" (auto-created on first sync).
+ * settings: JSON blob for per-deck options (direction, autoAddFromStories).
+ */
+export const decks = mysqlTable(
+  "decks",
+  {
+    id:          varchar("id", { length: 64 }).primaryKey(), // nanoid from client
+    userId:      int("userId").notNull(),
+    name:        varchar("name", { length: 128 }).notNull(),
+    isMain:      boolean("isMain").default(false).notNull(),
+    /** included: whether this deck is selected for combined review sessions */
+    included:    boolean("included").default(true).notNull(),
+    /** JSON: { direction: 'forward'|'reverse'|'both', autoAddFromStories: boolean } */
+    settings:    json("settings").$type<{ direction: "forward" | "reverse" | "both"; autoAddFromStories: boolean }>(),
+    createdAt:   timestamp("createdAt").defaultNow().notNull(),
+    updatedAt:   timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+  },
+  (table) => [uniqueIndex("uq_decks_user_id").on(table.userId, table.id)]
+);
+export type Deck = typeof decks.$inferSelect;
+export type InsertDeck = typeof decks.$inferInsert;
+
+/**
+ * Junction table: which words (by wordId) belong to which custom deck.
+ * wordId matches sync_flashcards.wordId and the client-side Word.id.
+ * SRS progress is NOT stored here — it lives in sync_flashcards.
+ */
+export const deckCards = mysqlTable(
+  "deck_cards",
+  {
+    id:       int("id").autoincrement().primaryKey(),
+    deckId:   varchar("deckId", { length: 64 }).notNull(),
+    userId:   int("userId").notNull(),
+    wordId:   varchar("wordId", { length: 128 }).notNull(),
+    addedAt:  timestamp("addedAt").defaultNow().notNull(),
+  },
+  (table) => [uniqueIndex("uq_deck_cards_deck_word").on(table.deckId, table.wordId)]
+);
+export type DeckCard = typeof deckCards.$inferSelect;
+export type InsertDeckCard = typeof deckCards.$inferInsert;
+
 // ─── Segmentation Overrides ───────────────────────────────────────────────────
 /**
  * Stores user-defined segmentation corrections.

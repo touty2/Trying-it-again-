@@ -21,6 +21,7 @@ import {
   Clock,
   Trash2,
   Shuffle,
+  Layers,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -46,6 +47,8 @@ import { useFlashcardDirection } from "@/hooks/useFlashcardDirection";
 import { CompletedWordDB } from "@/lib/db";
 import type { Flashcard, Word, TestingMode, FlashcardSource } from "@/lib/db";
 import { loadAndMergeSession, useDeckSessionPersistence, clearSession } from "@/hooks/useDeckSession";
+import { useDecks } from "@/hooks/useDecks";
+import { DecksSidebar } from "@/components/DecksSidebar";
 
 // ─── Direction Label ──────────────────────────────────────────────────────────
 
@@ -763,6 +766,20 @@ export default function Deck() {
   const notifyChange = useSyncNotify();
   const [location] = useLocation();
 
+  // ── Custom decks ──────────────────────────────────────────────────────────
+  const decksMgr = useDecks();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activeDeckId, setActiveDeckId] = useState<string | null>(null);
+
+  // Compute card counts per deck from decksMgr.deckCards
+  const deckCardCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const deck of decksMgr.decks) {
+      counts[deck.id] = decksMgr.getDeckWordIds(deck.id).length;
+    }
+    return counts;
+  }, [decksMgr.decks, decksMgr.deckCards]);
+
   // Parse story filter from URL: /deck?storyId=xxx&storyTitle=yyy
   const urlParams = useMemo(() => {
     const search = typeof window !== "undefined" ? window.location.search : "";
@@ -1009,6 +1026,16 @@ export default function Deck() {
             <Plus size={14} />
             Add Word
           </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setSidebarOpen(true)}
+            className="gap-1.5"
+            title="Manage decks"
+          >
+            <Layers size={14} />
+            Decks
+          </Button>
           <div className="flex rounded-lg border border-border overflow-hidden">
             <button
               onClick={() => setView("review")}
@@ -1146,6 +1173,16 @@ export default function Deck() {
       )}
 
       <ManualAddDialog open={showAddDialog} onClose={() => setShowAddDialog(false)} />
+
+      {/* Decks sidebar */}
+      <DecksSidebar
+        open={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+        decks={decksMgr}
+        deckCardCounts={deckCardCounts}
+        activeDeckId={activeDeckId}
+        onSelectDeck={setActiveDeckId}
+      />
     </div>
   );
 }

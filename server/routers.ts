@@ -1,4 +1,5 @@
 import { systemRouter } from "./_core/systemRouter";
+import { decksRouter } from "./routers/decks";
 import { publicProcedure, router } from "./_core/trpc";
 import { syncRouter } from "./routers/sync";
 import { grammarRouter } from "./routers/grammar";
@@ -25,6 +26,7 @@ export const appRouter = router({
   video: videoRouter,
   storyGrammar: storyGrammarRouter,
   vocabIgnored: vocabIgnoredRouter,
+  decks: decksRouter,
 });
 
 export type AppRouter = typeof appRouter;
