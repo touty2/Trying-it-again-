@@ -22,8 +22,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowLeft, Eye, EyeOff, X, Plus, Check, BookMarked, CheckCircle2,
   Headphones, Play, Pause, Square, SkipBack, SkipForward,
+  GraduationCap, BookOpen,
 } from "lucide-react";
 import StoryDeckPanel from "@/components/StoryDeckPanel";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useApp } from "@/contexts/AppContext";
@@ -421,7 +423,7 @@ function SegmentedText({ text, textId, activeSentenceIndex, allSentences, onSpea
 
 // ─── Recommended Vocabulary ───────────────────────────────────────────────────
 
-function RecommendedVocab({ wordIds, textId }: { wordIds: string[]; textId: string }) {
+function RecommendedVocabInner({ wordIds, textId }: { wordIds: string[]; textId: string }) {
   const { addWordToDeck, isWordInDeck, settings } = useApp();
   const [ignored, setIgnored] = useState<Set<string>>(new Set());
   const [addedSet, setAddedSet] = useState<Set<string>>(new Set());
@@ -443,13 +445,7 @@ function RecommendedVocab({ wordIds, textId }: { wordIds: string[]; textId: stri
   };
 
   return (
-    <div className="mt-10 pt-8 border-t border-border/40">
-      <div className="flex items-center gap-2 mb-5">
-        <BookMarked size={15} className="text-muted-foreground" />
-        <h4 className="text-sm font-semibold text-foreground">Recommended Vocabulary</h4>
-        <span className="text-xs text-muted-foreground ml-1">({visible.length} words)</span>
-      </div>
-      <div className="divide-y divide-border/40">
+    <div className="divide-y divide-border/40">
         {visible.map((entry) => {
           const info = resolveEntry(entry);
           const inDeck = isWordInDeck(info.hanzi) || addedSet.has(info.hanzi);
@@ -501,12 +497,11 @@ function RecommendedVocab({ wordIds, textId }: { wordIds: string[]; textId: stri
             </div>
           );
         })}
-      </div>
     </div>
   );
 }
 
-// ─── Story Page ───────────────────────────────────────────────────────────────
+// ─── Story Page ─────────────────────────────────────────────────────────────────
 
 export default function StoryPage() {
   const { id } = useParams<{ id: string }>();
@@ -716,21 +711,59 @@ export default function StoryPage() {
         )}
       </AnimatePresence>
 
-      {/* Recommended vocabulary */}
-      {text.recommendedVocabulary.length > 0 && (
-        <RecommendedVocab wordIds={text.recommendedVocabulary} textId={text.id} />
-      )}
+      {/* ── Bottom accordion: Vocab / Grammar / Deck ── */}
+      <Accordion type="multiple" className="mt-10 border border-border/50 rounded-xl overflow-hidden divide-y divide-border/50">
 
-      {/* Grammar in this story */}
-      <GrammarInStory
-        textId={text.id}
-        highlightOn={grammarHighlightOn}
-        onToggleHighlight={() => setGrammarHighlightOn((v) => !v)}
-        onPatternsChange={setGrammarPatterns}
-      />
+        {/* Vocabulary */}
+        {text.recommendedVocabulary.length > 0 && (
+          <AccordionItem value="vocab" className="border-0">
+            <AccordionTrigger className="px-5 py-3.5 hover:no-underline hover:bg-muted/30 transition-colors [&>svg]:ml-1">
+              <span className="flex items-center gap-2 text-sm font-semibold">
+                <BookMarked size={15} className="text-primary" />
+                Vocabulary
+                <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
+                  {text.recommendedVocabulary.length}
+                </span>
+              </span>
+            </AccordionTrigger>
+            <AccordionContent className="px-5 pb-2">
+              <RecommendedVocabInner wordIds={text.recommendedVocabulary} textId={text.id} />
+            </AccordionContent>
+          </AccordionItem>
+        )}
 
-      {/* Story Deck Panel */}
-      <StoryDeckPanel storyId={text.id} storyTitle={text.title} />
+        {/* Grammar */}
+        <AccordionItem value="grammar" className="border-0">
+          <AccordionTrigger className="px-5 py-3.5 hover:no-underline hover:bg-muted/30 transition-colors [&>svg]:ml-1">
+            <span className="flex items-center gap-2 text-sm font-semibold">
+              <GraduationCap size={15} className="text-primary" />
+              Grammar
+            </span>
+          </AccordionTrigger>
+          <AccordionContent className="px-0 pb-0">
+            <GrammarInStory
+              textId={text.id}
+              highlightOn={grammarHighlightOn}
+              onToggleHighlight={() => setGrammarHighlightOn((v) => !v)}
+              onPatternsChange={setGrammarPatterns}
+            />
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Story Deck */}
+        <AccordionItem value="deck" className="border-0">
+          <AccordionTrigger className="px-5 py-3.5 hover:no-underline hover:bg-muted/30 transition-colors [&>svg]:ml-1">
+            <span className="flex items-center gap-2 text-sm font-semibold">
+              <BookOpen size={15} className="text-primary" />
+              Story Deck
+            </span>
+          </AccordionTrigger>
+          <AccordionContent className="px-5 pb-2">
+            <StoryDeckPanel storyId={text.id} storyTitle={text.title} />
+          </AccordionContent>
+        </AccordionItem>
+
+      </Accordion>
 
       {/* Bottom back button */}
       <div className="mt-12 pt-8 border-t border-border/30">

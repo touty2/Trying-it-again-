@@ -37,3 +37,5 @@
 ## Changes
 - [x] Hide video learning feature from nav and routing (keep code intact)
 - [x] Fix sync easeFactor validation rejecting cards below 1.3 minimum
+- [x] Make all settings preferences persistent (localStorage + cloud sync)
+- [x] Convert vocab/grammar/deck sections below stories into accordion format

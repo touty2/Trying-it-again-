@@ -12,9 +12,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "wouter";
-import { GraduationCap, CheckCircle2, Circle, ExternalLink, Highlighter, ChevronDown, ChevronUp } from "lucide-react";
+import { CheckCircle2, Circle, ExternalLink, Highlighter } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { GrammarLessonModal } from "@/components/GrammarLessonModal";
 import { ALL_GRAMMAR_LESSONS, GrammarLesson } from "@/lib/grammarData";
 import { STORY_GRAMMAR_MAP } from "@/lib/storyGrammarMap";
@@ -85,7 +84,6 @@ export function GrammarInStory({ textId, highlightOn, onToggleHighlight, onPatte
   // Local studied state: Set of lessonIds studied in this story
   const [studiedSet, setStudiedSet] = useState<Set<string>>(new Set());
   const [modalLesson, setModalLesson] = useState<GrammarLesson | null>(null);
-  const [expanded, setExpanded] = useState(true);
 
   // Load studied state from IndexedDB on mount
   useEffect(() => {
@@ -133,22 +131,12 @@ export function GrammarInStory({ textId, highlightOn, onToggleHighlight, onPatte
   const studiedCount = lessons.filter((l) => studiedSet.has(l.id)).length;
 
   return (
-    <div className="mt-10 border border-border/60 rounded-xl overflow-hidden">
-      {/* ── Header ── */}
-      <div className="flex items-center justify-between px-4 py-3 bg-muted/30 border-b border-border/40">
-        <button
-          onClick={() => setExpanded((v) => !v)}
-          className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors"
-        >
-          <GraduationCap size={16} className="text-primary" />
-          Grammar in this story
-          <Badge variant="secondary" className="text-xs px-1.5 py-0 ml-1">
-            {studiedCount}/{lessons.length}
-          </Badge>
-          {expanded ? <ChevronUp size={14} className="text-muted-foreground" /> : <ChevronDown size={14} className="text-muted-foreground" />}
-        </button>
-
-        {/* Highlight toggle */}
+    <div>
+      {/* Highlight toggle */}
+      <div className="flex items-center justify-between px-4 py-2.5 border-b border-border/30">
+        <span className="text-xs text-muted-foreground">
+          {studiedCount}/{lessons.length} studied
+        </span>
         <button
           onClick={onToggleHighlight}
           className={[
@@ -165,8 +153,7 @@ export function GrammarInStory({ textId, highlightOn, onToggleHighlight, onPatte
       </div>
 
       {/* ── Cards ── */}
-      {expanded && (
-        <div className="divide-y divide-border/40">
+      <div className="divide-y divide-border/40">
           {lessons.map((lesson) => {
             const isStudied = studiedSet.has(lesson.id);
             const bandClass = BAND_ACCENT[lesson.band] ?? "text-muted-foreground bg-muted border-border";
@@ -251,7 +238,6 @@ export function GrammarInStory({ textId, highlightOn, onToggleHighlight, onPatte
             );
           })}
         </div>
-      )}
 
       {/* ── Lesson modal ── */}
       {modalLesson && (

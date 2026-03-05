@@ -116,6 +116,26 @@ function applyCloudPreferences(data: Record<string, unknown>): void {
       localStorage.setItem("grammarProgress", JSON.stringify(gp));
     } catch { /* ignore */ }
   }
+  // Restore app settings (daily caps, testing mode, card size, etc.) to IndexedDB
+  const s = data["cr-settings-v1"];
+  if (s && typeof s === "object") {
+    try {
+      const patch = s as Record<string, unknown>;
+      SettingsDB.get().then((current) => {
+        const merged = {
+          ...current,
+          ...(patch.dailyNewWordCap !== undefined      && { dailyNewWordCap:      patch.dailyNewWordCap as number | null }),
+          ...(patch.dailyReviewCap !== undefined       && { dailyReviewCap:       patch.dailyReviewCap as number | null }),
+          ...(patch.showCapReachedPopup !== undefined  && { showCapReachedPopup:  patch.showCapReachedPopup as boolean }),
+          ...(patch.testingMode !== undefined          && { testingMode:          patch.testingMode as string }),
+          ...(patch.cardSize !== undefined             && { cardSize:             patch.cardSize as 1 | 2 | 3 }),
+          ...(patch.enableReversibleCards !== undefined && { enableReversibleCards: patch.enableReversibleCards as boolean }),
+          ...(patch.flashcardSource !== undefined      && { flashcardSource:      patch.flashcardSource as string }),
+        };
+        SettingsDB.put(merged as Parameters<typeof SettingsDB.put>[0]);
+      }).catch(() => { /* best-effort */ });
+    } catch { /* ignore */ }
+  }
 }
 
 // ─── Hook ─────────────────────────────────────────────────────────────────────
@@ -459,10 +479,15 @@ export function useSyncManager(userId: number | null | undefined) {
 
       // Push preferences (includes typography, theme, audio, video sessions)
       const localPrefs = collectLocalPreferences();
+      // Push ALL settings fields so they restore on other devices
       localPrefs["cr-settings-v1"] = {
-        dailyNewWordCap:     localSettings.dailyNewWordCap,
+        dailyNewWordCap:      localSettings.dailyNewWordCap,
         dailyReviewCap:      localSettings.dailyReviewCap,
         showCapReachedPopup: localSettings.showCapReachedPopup,
+        testingMode:         localSettings.testingMode,
+        cardSize:            localSettings.cardSize,
+        enableReversibleCards: localSettings.enableReversibleCards,
+        flashcardSource:     localSettings.flashcardSource,
       };
       // Also include grammarProgress localStorage blob for cross-device restore
       try {
