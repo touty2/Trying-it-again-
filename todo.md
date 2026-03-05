@@ -33,3 +33,6 @@
 - [x] Cloud sync system for flashcards, grammar progress, story decks, segmentation overrides
 - [x] Customizable typography and theme settings with persistence
 - [x] Session persistence for flashcard reviews with queue restoration
+
+## Changes
+- [x] Hide video learning feature from nav and routing (keep code intact)

@@ -32,7 +32,7 @@ import LoginPage from "./pages/LoginPage";
 
 // ─── Feature Flags ────────────────────────────────────────────────────────────
 // Video feature enabled — user can paste transcripts manually.
-const ENABLE_VIDEO = true;
+const ENABLE_VIDEO = false;
 
 // ─── Nav Items ────────────────────────────────────────────────────────────────
 const ALL_NAV_ITEMS = [
