@@ -64,7 +64,9 @@ const FlashcardItemSchema = z.object({
   lapses: z.number().int().min(0).default(0),
   state: z.number().int().min(0).default(0),
   // Legacy compat fields (kept for backwards compatibility)
-  easeFactor: z.number().min(1.3).max(5.0).default(2.5),
+  // min(0): FSRS cards alias stability→easeFactor; stability starts at 0, so the
+  // SM-2 floor of 1.3 must not be enforced here.
+  easeFactor: z.number().min(0).default(2.5),
   interval: z.number().int().min(0).default(1),
   repetition: z.number().int().min(0).default(0),
   dueDate: z.number(),

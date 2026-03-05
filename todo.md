@@ -36,3 +36,4 @@
 
 ## Changes
 - [x] Hide video learning feature from nav and routing (keep code intact)
+- [x] Fix sync easeFactor validation rejecting cards below 1.3 minimum
