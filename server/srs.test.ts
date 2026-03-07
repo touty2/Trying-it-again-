@@ -1,20 +1,29 @@
 /**
- * SRS (Spaced Repetition System) Tests
+ * SRS Algorithm Tests
  *
- * Covers:
- *  1. SM-2 algorithm correctness (intervals, repetitions, ease factor)
- *  2. "Don't Know" (quality=0) requeue behaviour
- *  3. "Nearly" (quality=1) conservative interval growth
- *  4. "Know" (quality=2) standard SM-2 growth
- *  5. Ease factor bounds (min 1.3)
- *  6. Overdue card handling (no penalty for inactivity)
+ * Covers every behaviour specified in the requirements:
+ *  1. Don't Know resets repetition to 0 and schedules 1 day
+ *  2. Multiple Don't Know then Know → 1 day (sessionMissed flag)
+ *  3. Three consecutive Know → 1 day → 4 days → 10 days
+ *  4. After rep 3, intervals grow exponentially (prev × easeFactor)
+ *  5. Ease factor starts at 2.5, decreases on Don't Know (min 1.3)
+ *  6. Ease factor increases slightly on Know (max 5.0)
+ *  7. MAX_INTERVAL_DAYS cap (3650 days)
+ *  8. Session requeue logic (Don't Know requeues; Know removes from queue)
  */
 
-import { describe, it, expect } from "vitest";
-import { applySM2, toISODate, fromISODate } from "@shared/sm2";
-import type { SM2Card, SM2Quality } from "@shared/sm2";
+import { describe, expect, it } from "vitest";
+import {
+  applySM2,
+  calculateKnowInterval,
+  MAX_INTERVAL_DAYS,
+  toISODate,
+  fromISODate,
+  type SM2Card,
+  type SM2Quality,
+} from "../shared/sm2";
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function makeCard(overrides: Partial<SM2Card> = {}): SM2Card {
   const now = Date.now();
@@ -31,166 +40,229 @@ function makeCard(overrides: Partial<SM2Card> = {}): SM2Card {
   };
 }
 
-// ─── SM-2 Algorithm Tests ─────────────────────────────────────────────────────
+function applyKnow(card: SM2Card, sessionMissed = false): SM2Card {
+  return { ...card, ...applySM2(card, 2, sessionMissed) } as SM2Card;
+}
 
-describe("applySM2 — Don't Know (quality=0)", () => {
+function applyDontKnow(card: SM2Card): SM2Card {
+  return { ...card, ...applySM2(card, 0) } as SM2Card;
+}
+
+// ─── Don't Know behaviour ─────────────────────────────────────────────────────
+
+describe("Don't Know (quality=0)", () => {
   it("resets repetition to 0", () => {
-    const card = makeCard({ repetition: 3, interval: 10, easeFactor: 2.5 });
-    const result = applySM2(card, 0);
-    expect(result.repetition).toBe(0);
+    const card = makeCard({ repetition: 3, interval: 10 });
+    const updated = applyDontKnow(card);
+    expect(updated.repetition).toBe(0);
   });
 
-  it("resets interval to 1", () => {
-    const card = makeCard({ repetition: 3, interval: 10, easeFactor: 2.5 });
-    const result = applySM2(card, 0);
-    expect(result.interval).toBe(1);
+  it("sets interval to 1 day", () => {
+    const card = makeCard({ repetition: 3, interval: 10 });
+    const updated = applyDontKnow(card);
+    expect(updated.interval).toBe(1);
   });
 
-  it("reduces ease factor by 0.20", () => {
-    const card = makeCard({ easeFactor: 2.5 });
-    const result = applySM2(card, 0);
-    expect(result.easeFactor).toBeCloseTo(2.3, 5);
-  });
-
-  it("clamps ease factor to minimum 1.3", () => {
-    const card = makeCard({ easeFactor: 1.35 });
-    const result = applySM2(card, 0);
-    expect(result.easeFactor).toBe(1.3);
-  });
-
-  it("sets dueDate ~1 day in the future", () => {
+  it("schedules dueDate approximately 1 day from now", () => {
     const before = Date.now();
     const card = makeCard();
-    const result = applySM2(card, 0);
+    const updated = applyDontKnow(card);
     const after = Date.now();
     const oneDayMs = 24 * 60 * 60 * 1000;
-    expect(result.dueDate).toBeGreaterThanOrEqual(before + oneDayMs - 100);
-    expect(result.dueDate).toBeLessThanOrEqual(after + oneDayMs + 100);
+    expect(updated.dueDate).toBeGreaterThanOrEqual(before + oneDayMs - 100);
+    expect(updated.dueDate).toBeLessThanOrEqual(after + oneDayMs + 100);
+  });
+
+  it("decreases easeFactor by 0.20", () => {
+    const card = makeCard({ easeFactor: 2.5 });
+    const updated = applyDontKnow(card);
+    expect(updated.easeFactor).toBeCloseTo(2.3, 5);
+  });
+
+  it("clamps easeFactor to minimum 1.3", () => {
+    const card = makeCard({ easeFactor: 1.3 });
+    const updated = applyDontKnow(card);
+    expect(updated.easeFactor).toBe(1.3);
   });
 
   it("sets lastReviewed to approximately now", () => {
     const before = Date.now();
     const card = makeCard();
-    const result = applySM2(card, 0);
+    const updated = applyDontKnow(card);
     const after = Date.now();
-    expect(result.lastReviewed).toBeGreaterThanOrEqual(before);
-    expect(result.lastReviewed).toBeLessThanOrEqual(after + 10);
+    expect(updated.lastReviewed).toBeGreaterThanOrEqual(before);
+    expect(updated.lastReviewed).toBeLessThanOrEqual(after + 10);
   });
 
   it("sets nextReviewDate as ISO date string matching dueDate", () => {
     const card = makeCard();
-    const result = applySM2(card, 0);
-    expect(result.nextReviewDate).toBe(toISODate(result.dueDate!));
+    const updated = applyDontKnow(card);
+    expect(updated.nextReviewDate).toBe(toISODate(updated.dueDate));
   });
 });
 
-describe("applySM2 — Nearly (quality=1)", () => {
-  it("increments repetition by 1", () => {
-    const card = makeCard({ repetition: 2, interval: 6, easeFactor: 2.5 });
-    const result = applySM2(card, 1);
-    expect(result.repetition).toBe(3);
-  });
+// ─── Know — consecutive interval schedule ────────────────────────────────────
 
-  it("reduces ease factor by 0.15", () => {
-    const card = makeCard({ easeFactor: 2.5 });
-    const result = applySM2(card, 1);
-    expect(result.easeFactor).toBeCloseTo(2.35, 5);
-  });
-
-  it("clamps ease factor to minimum 1.3", () => {
-    const card = makeCard({ easeFactor: 1.4 });
-    const result = applySM2(card, 1);
-    expect(result.easeFactor).toBe(1.3);
-  });
-
-  it("uses interval=1 for first repetition", () => {
+describe("Know (quality=2) — consecutive interval schedule", () => {
+  it("rep 0 → 1: interval = 1 day", () => {
     const card = makeCard({ repetition: 0, interval: 1 });
-    const result = applySM2(card, 1);
-    expect(result.interval).toBe(1);
+    const updated = applyKnow(card);
+    expect(updated.repetition).toBe(1);
+    expect(updated.interval).toBe(1);
   });
 
-  it("uses interval=3 for second repetition", () => {
+  it("rep 1 → 2: interval = 4 days", () => {
     const card = makeCard({ repetition: 1, interval: 1 });
-    const result = applySM2(card, 1);
-    expect(result.interval).toBe(3);
+    const updated = applyKnow(card);
+    expect(updated.repetition).toBe(2);
+    expect(updated.interval).toBe(4);
   });
 
-  it("grows interval conservatively for rep≥3", () => {
-    const card = makeCard({ repetition: 2, interval: 6, easeFactor: 2.5 });
-    const result = applySM2(card, 1);
-    // max(6+1, round(6*1.2)) = max(7, 7) = 7
-    expect(result.interval).toBe(7);
+  it("rep 2 → 3: interval = 10 days", () => {
+    const card = makeCard({ repetition: 2, interval: 4 });
+    const updated = applyKnow(card);
+    expect(updated.repetition).toBe(3);
+    expect(updated.interval).toBe(10);
+  });
+
+  it("rep 3 → 4: interval = round(10 × newEF) — exponential growth begins", () => {
+    const card = makeCard({ repetition: 3, interval: 10, easeFactor: 2.5 });
+    const updated = applyKnow(card);
+    expect(updated.repetition).toBe(4);
+    const newEF = Math.min(5.0, 2.5 + 0.1); // 2.6
+    expect(updated.interval).toBe(Math.round(10 * newEF));
+  });
+
+  it("rep 4 → 5: continues exponential growth", () => {
+    const card = makeCard({ repetition: 4, interval: 26, easeFactor: 2.6 });
+    const updated = applyKnow(card);
+    expect(updated.repetition).toBe(5);
+    const newEF = Math.min(5.0, 2.6 + 0.1); // 2.7
+    expect(updated.interval).toBe(Math.round(26 * newEF));
   });
 });
 
-describe("applySM2 — Know (quality=2)", () => {
-  it("increments repetition by 1", () => {
-    const card = makeCard({ repetition: 2, interval: 6, easeFactor: 2.5 });
-    const result = applySM2(card, 2);
-    expect(result.repetition).toBe(3);
-  });
+// ─── Session-missed flag ──────────────────────────────────────────────────────
 
-  it("increases ease factor by 0.10", () => {
-    const card = makeCard({ easeFactor: 2.5 });
-    const result = applySM2(card, 2);
-    expect(result.easeFactor).toBeCloseTo(2.6, 5);
-  });
-
-  it("uses interval=1 for first repetition", () => {
-    const card = makeCard({ repetition: 0, interval: 1 });
-    const result = applySM2(card, 2);
-    expect(result.interval).toBe(1);
-  });
-
-  it("uses interval=6 for second repetition", () => {
+describe("sessionMissed flag", () => {
+  it("Know after session miss → interval 1 day (not 4) at rep=1", () => {
     const card = makeCard({ repetition: 1, interval: 1 });
-    const result = applySM2(card, 2);
-    expect(result.interval).toBe(6);
+    const updated = applyKnow(card, true);
+    expect(updated.interval).toBe(1);
   });
 
-  it("multiplies interval by easeFactor for rep≥3", () => {
-    const card = makeCard({ repetition: 2, interval: 6, easeFactor: 2.5 });
-    const result = applySM2(card, 2);
-    // newEF = 2.6, newInterval = round(6 * 2.6) = 16
-    expect(result.interval).toBe(Math.round(6 * 2.6));
+  it("Know after session miss → interval 1 day (not 10) at rep=2", () => {
+    const card = makeCard({ repetition: 2, interval: 4 });
+    const updated = applyKnow(card, true);
+    expect(updated.interval).toBe(1);
   });
 
-  it("grows ease factor over many correct reviews", () => {
+  it("Know after session miss → interval 1 day even at rep=3", () => {
+    const card = makeCard({ repetition: 3, interval: 10 });
+    const updated = applyKnow(card, true);
+    expect(updated.interval).toBe(1);
+  });
+
+  it("Know WITHOUT session miss at rep=1 → interval 4 days", () => {
+    const card = makeCard({ repetition: 1, interval: 1 });
+    const updated = applyKnow(card, false);
+    expect(updated.interval).toBe(4);
+  });
+
+  it("multiple Don't Know then Know: full session simulation", () => {
+    let card = makeCard({ repetition: 0, interval: 1 });
+
+    // First Don't Know
+    card = applyDontKnow(card);
+    expect(card.repetition).toBe(0);
+    expect(card.interval).toBe(1);
+
+    // Second Don't Know
+    card = applyDontKnow(card);
+    expect(card.repetition).toBe(0);
+    expect(card.interval).toBe(1);
+
+    // Now Know with sessionMissed=true (card was missed in this session)
+    const final = applyKnow(card, true);
+    expect(final.interval).toBe(1);
+    expect(final.repetition).toBe(1);
+  });
+});
+
+// ─── Ease factor ──────────────────────────────────────────────────────────────
+
+describe("easeFactor", () => {
+  it("starts at 2.5 for new cards", () => {
+    expect(makeCard().easeFactor).toBe(2.5);
+  });
+
+  it("increases by 0.1 on Know", () => {
+    const updated = applyKnow(makeCard({ easeFactor: 2.5 }));
+    expect(updated.easeFactor).toBeCloseTo(2.6, 5);
+  });
+
+  it("does not exceed 5.0 on Know", () => {
+    const updated = applyKnow(makeCard({ easeFactor: 5.0 }));
+    expect(updated.easeFactor).toBe(5.0);
+  });
+
+  it("decreases by 0.2 on Don't Know", () => {
+    const updated = applyDontKnow(makeCard({ easeFactor: 2.5 }));
+    expect(updated.easeFactor).toBeCloseTo(2.3, 5);
+  });
+
+  it("does not go below 1.3 on Don't Know", () => {
+    const updated = applyDontKnow(makeCard({ easeFactor: 1.4 }));
+    expect(updated.easeFactor).toBe(1.3);
+  });
+
+  it("grows over many consecutive Know responses", () => {
     let card = makeCard({ repetition: 0, interval: 1, easeFactor: 2.5 });
-    for (let i = 0; i < 10; i++) {
-      const updates = applySM2(card, 2);
-      card = { ...card, ...updates } as SM2Card;
-    }
+    for (let i = 0; i < 10; i++) card = applyKnow(card);
     expect(card.easeFactor).toBeGreaterThan(2.5);
   });
 });
 
-describe("applySM2 — Overdue card handling", () => {
-  it("does not penalise ease factor for overdue cards (inactivity is neutral)", () => {
-    const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
-    const card = makeCard({ dueDate: thirtyDaysAgo, repetition: 3, interval: 10, easeFactor: 2.5 });
-    const result = applySM2(card, 2);
-    expect(result.easeFactor).toBeGreaterThan(2.5);
+// ─── MAX_INTERVAL_DAYS cap ────────────────────────────────────────────────────
+
+describe("MAX_INTERVAL_DAYS cap", () => {
+  it("is 3650 days (10 years)", () => {
+    expect(MAX_INTERVAL_DAYS).toBe(3650);
   });
 
-  it("sets next due date from NOW, not from the original due date", () => {
-    const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
-    const card = makeCard({ dueDate: thirtyDaysAgo, repetition: 3, interval: 10, easeFactor: 2.5 });
-    const before = Date.now();
-    const result = applySM2(card, 2);
-    expect(result.dueDate).toBeGreaterThan(before);
+  it("interval never exceeds MAX_INTERVAL_DAYS", () => {
+    const card = makeCard({ repetition: 100, interval: 3000, easeFactor: 5.0 });
+    const updated = applyKnow(card);
+    expect(updated.interval).toBeLessThanOrEqual(MAX_INTERVAL_DAYS);
   });
 });
 
-describe("toISODate / fromISODate round-trip", () => {
+// ─── calculateKnowInterval unit tests ────────────────────────────────────────
+
+describe("calculateKnowInterval", () => {
+  // Uses PRE-Know repetition count (card.repetition before this Know response)
+  it("preKnowRep=0 (first ever success) → 1 day", () => expect(calculateKnowInterval(0, 1, 2.5, false)).toBe(1));
+  it("preKnowRep=1 (second success) → 4 days", () => expect(calculateKnowInterval(1, 1, 2.5, false)).toBe(4));
+  it("preKnowRep=2 (third success) → 10 days", () => expect(calculateKnowInterval(2, 4, 2.5, false)).toBe(10));
+  it("preKnowRep=3 → round(prev × ef)", () => expect(calculateKnowInterval(3, 10, 2.5, false)).toBe(25));
+  it("sessionMissed overrides all to 1 regardless of rep", () => {
+    expect(calculateKnowInterval(0, 1, 2.5, true)).toBe(1);
+    expect(calculateKnowInterval(1, 1, 2.5, true)).toBe(1);
+    expect(calculateKnowInterval(2, 4, 2.5, true)).toBe(1);
+    expect(calculateKnowInterval(10, 100, 5.0, true)).toBe(1);
+  });
+});
+
+// ─── Date helpers ─────────────────────────────────────────────────────────────
+
+describe("toISODate / fromISODate", () => {
   it("converts timestamp to ISO date string", () => {
     const ts = new Date("2025-06-15T00:00:00.000Z").getTime();
     expect(toISODate(ts)).toBe("2025-06-15");
   });
 
-  it("converts ISO date string back to start-of-day UTC timestamp", () => {
-    const iso = "2025-06-15";
-    const ts = fromISODate(iso);
+  it("converts ISO date string to start-of-day UTC timestamp", () => {
+    const ts = fromISODate("2025-06-15");
     expect(new Date(ts).toISOString()).toBe("2025-06-15T00:00:00.000Z");
   });
 
@@ -200,16 +272,9 @@ describe("toISODate / fromISODate round-trip", () => {
   });
 });
 
-// ─── Requeue Logic Tests ──────────────────────────────────────────────────────
+// ─── Session requeue simulation ───────────────────────────────────────────────
 
 describe("Session requeue logic (simulated)", () => {
-  /**
-   * Simulate the Deck.tsx requeue behaviour in pure JS:
-   *  - reviewQueue is an array of wordIds
-   *  - quality=0 appends the wordId to the end of the queue
-   *  - quality≥1 removes it from the requeued set
-   *  - Session ends when currentIdx >= reviewQueue.length
-   */
   function simulateSession(
     initialQueue: string[],
     getAnswer: (wordId: string, callCount: number) => SM2Quality
@@ -217,8 +282,8 @@ describe("Session requeue logic (simulated)", () => {
     let queue = [...initialQueue];
     let idx = 0;
     const requeued = new Set<string>();
-    const reviewedOrder: string[] = [];
     const callCounts: Record<string, number> = {};
+    const reviewedOrder: string[] = [];
 
     while (idx < queue.length) {
       const wordId = queue[idx];
@@ -238,29 +303,27 @@ describe("Session requeue logic (simulated)", () => {
     return { reviewedOrder, finalRequeuedSet: requeued };
   }
 
-  it("a 'Don't Know' card appears again at the end of the session", () => {
+  it("Don't Know card appears again at the end of the session", () => {
     const { reviewedOrder } = simulateSession(
       ["A", "B", "C"],
-      (wordId) => (wordId === "A" ? 0 : 2) // A wrong on first pass, right on second
+      (wordId) => (wordId === "A" ? 0 : 2)
     );
-    // A appears twice: first at index 0, then requeued after C
     expect(reviewedOrder).toEqual(["A", "B", "C", "A"]);
   });
 
-  it("a card keeps requeueing until answered with quality≥1", () => {
+  it("card keeps requeueing until answered correctly", () => {
     const { reviewedOrder } = simulateSession(
       ["A", "B"],
       (wordId, callCount) => {
-        if (wordId === "A" && callCount < 3) return 0; // wrong twice, right on 3rd
+        if (wordId === "A" && callCount < 3) return 0;
         return 2;
       }
     );
-    // A appears 3 times total, B appears once
     expect(reviewedOrder.filter((w) => w === "A")).toHaveLength(3);
     expect(reviewedOrder.filter((w) => w === "B")).toHaveLength(1);
   });
 
-  it("requeued set is empty when all cards are eventually answered correctly", () => {
+  it("requeued set is empty when all cards answered correctly", () => {
     const { finalRequeuedSet } = simulateSession(
       ["A", "B"],
       (wordId, callCount) => {
@@ -271,31 +334,18 @@ describe("Session requeue logic (simulated)", () => {
     expect(finalRequeuedSet.size).toBe(0);
   });
 
-  it("'Nearly' (quality=1) also removes card from requeued set", () => {
-    const { finalRequeuedSet } = simulateSession(
-      ["A", "B"],
-      (wordId, callCount) => {
-        if (wordId === "A" && callCount === 1) return 0; // wrong first time
-        if (wordId === "A" && callCount === 2) return 1; // nearly on second
-        return 2;
-      }
-    );
-    expect(finalRequeuedSet.size).toBe(0);
-  });
-
-  it("a 'Know' card is never requeued", () => {
+  it("Know card is never requeued", () => {
     const { reviewedOrder } = simulateSession(
       ["A", "B", "C"],
-      () => 2 // always Know
+      () => 2
     );
     expect(reviewedOrder).toEqual(["A", "B", "C"]);
   });
 
-  it("multiple different cards can be requeued simultaneously", () => {
+  it("multiple cards can be requeued simultaneously", () => {
     const { reviewedOrder } = simulateSession(
       ["A", "B", "C"],
       (wordId, callCount) => {
-        // Both A and B wrong on first pass, right on second
         if ((wordId === "A" || wordId === "B") && callCount === 1) return 0;
         return 2;
       }

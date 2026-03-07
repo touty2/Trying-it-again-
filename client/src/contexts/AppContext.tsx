@@ -65,8 +65,8 @@ interface AppState {
   getStoryDeckWordIds: (storyId: string) => Promise<string[]>;
   addManualWord: (word: Omit<Word, "id" | "createdAt">) => Promise<Word>;
   removeWord: (wordId: string) => Promise<void>;
-  /** Review a flashcard by its cardId with an FSRS rating (1=Again, 2=Hard, 3=Good, 4=Easy) */
-  reviewFlashcard: (cardId: string, rating: FSRSRating) => Promise<void>;
+  /** Review a flashcard by its cardId. rating: 0=Don't Know, 2=Know. sessionMissed: true if card was missed earlier this session. */
+  reviewFlashcard: (cardId: string, rating: FSRSRating, sessionMissed?: boolean) => Promise<void>;
   updateSettings: (settings: Settings) => Promise<void>;
   refreshAll: () => Promise<void>;
   isWordInDeck: (hanzi: string) => boolean;
@@ -336,17 +336,17 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setFlashcards((prev) => prev.filter((c) => c.wordId !== wordId));
   }, []);
 
-  const reviewFlashcard = useCallback(async (cardId: string, rating: FSRSRating): Promise<void> => {
+  const reviewFlashcard = useCallback(async (cardId: string, rating: FSRSRating, sessionMissed = false): Promise<void> => {
     const card = flashcardsRef.current.find((c) => c.cardId === cardId);
     if (!card) return;
 
     const wordId = card.wordId;
-    const updates = applyFSRS(card, rating);
+    const updates = applyFSRS(card, rating, sessionMissed);
     await FlashcardDB.update(cardId, updates);
     await ReviewLogDB.incrementReview();
 
-    // Track mistakes for Suggested Re-read (rating 1 = Again = don't know)
-    if (rating === 1) {
+    // Track mistakes for Suggested Re-read (rating 0 = Don't Know)
+    if (rating === 0) {
       const word = wordsRef.current.find((w) => w.id === wordId);
       await WordMistakeDB.recordMiss(wordId, word?.sourceTextId ?? null);
       setWordMistakes((prev) => {

@@ -65,7 +65,7 @@ function DirectionLabel({ direction }: { direction: "forward" | "reverse" }) {
 interface FlashCardProps {
   card: Flashcard;
   word: Word;
-  onReview: (rating: 1 | 2 | 3 | 4) => void;
+  onReview: (rating: 0 | 2) => void;
   direction: "forward" | "reverse";
   isRandom: boolean;
   isCompleted?: boolean;
@@ -123,7 +123,7 @@ function FlashCard({
     setFlipped((v) => !v);
   };
 
-  const handleReview = (rating: 1 | 2 | 3 | 4) => {
+  const handleReview = (rating: 0 | 2) => {
     setFlipped(false);
     setTimeout(() => onReview(rating), 150);
   };
@@ -137,7 +137,7 @@ function FlashCard({
       if (!flipped) {
         setFlipped(true);
       } else {
-        handleReview(3); // Good on spacebar
+        handleReview(2); // Know on spacebar
       }
     };
     window.addEventListener("keydown", onKey);
@@ -415,43 +415,25 @@ function FlashCard({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 12 }}
             transition={{ duration: 0.2 }}
-            className="mt-4 grid grid-cols-4 gap-2"
+            className="mt-4 grid grid-cols-2 gap-3"
           >
-            {/* Again — FSRS rating 1 */}
+            {/* Don't Know — rating 0 */}
             <button
-              onClick={() => handleReview(1)}
-              className="group flex flex-col items-center gap-1.5 py-3 px-1 rounded-xl border border-rose-200/80 dark:border-rose-700/40 bg-rose-50 dark:bg-rose-950/30 hover:bg-rose-100 dark:hover:bg-rose-900/40 hover:border-rose-300 dark:hover:border-rose-600/60 text-rose-600 dark:text-rose-400 shadow-xs hover:shadow-sm transition-all duration-150 active:scale-[0.96]"
+              onClick={() => handleReview(0)}
+              className="group flex flex-col items-center gap-1.5 py-4 px-2 rounded-xl border border-rose-200/80 dark:border-rose-700/40 bg-rose-50 dark:bg-rose-950/30 hover:bg-rose-100 dark:hover:bg-rose-900/40 hover:border-rose-300 dark:hover:border-rose-600/60 text-rose-600 dark:text-rose-400 shadow-xs hover:shadow-sm transition-all duration-150 active:scale-[0.96]"
             >
-              <RotateCcw size={15} className="transition-transform duration-150 group-hover:rotate-[-20deg]" />
-              <span className="text-xs font-semibold tracking-tight">Again</span>
-              <span className="text-[10px] font-medium text-rose-400/80 dark:text-rose-500/80">&lt;1d</span>
+              <RotateCcw size={18} className="transition-transform duration-150 group-hover:rotate-[-20deg]" />
+              <span className="text-sm font-semibold tracking-tight">Don't Know</span>
+              <span className="text-[10px] font-medium text-rose-400/80 dark:text-rose-500/80">1 day</span>
             </button>
-            {/* Hard — FSRS rating 2 */}
+            {/* Know — rating 2 */}
             <button
               onClick={() => handleReview(2)}
-              className="group flex flex-col items-center gap-1.5 py-3 px-1 rounded-xl border border-orange-200/80 dark:border-orange-700/40 bg-orange-50 dark:bg-orange-950/30 hover:bg-orange-100 dark:hover:bg-orange-900/40 hover:border-orange-300 dark:hover:border-orange-600/60 text-orange-600 dark:text-orange-400 shadow-xs hover:shadow-sm transition-all duration-150 active:scale-[0.96]"
+              className="group flex flex-col items-center gap-1.5 py-4 px-2 rounded-xl border border-emerald-200/80 dark:border-emerald-700/40 bg-emerald-50 dark:bg-emerald-950/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 hover:border-emerald-300 dark:hover:border-emerald-600/60 text-emerald-600 dark:text-emerald-400 shadow-xs hover:shadow-sm transition-all duration-150 active:scale-[0.96]"
             >
-              <Clock size={15} />
-              <span className="text-xs font-semibold tracking-tight">Hard</span>
-              <span className="text-[10px] font-medium text-orange-400/80 dark:text-orange-500/80">~1d</span>
-            </button>
-            {/* Good — FSRS rating 3 */}
-            <button
-              onClick={() => handleReview(3)}
-              className="group flex flex-col items-center gap-1.5 py-3 px-1 rounded-xl border border-emerald-200/80 dark:border-emerald-700/40 bg-emerald-50 dark:bg-emerald-950/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 hover:border-emerald-300 dark:hover:border-emerald-600/60 text-emerald-600 dark:text-emerald-400 shadow-xs hover:shadow-sm transition-all duration-150 active:scale-[0.96]"
-            >
-              <CheckCircle2 size={15} />
-              <span className="text-xs font-semibold tracking-tight">Good</span>
-              <span className="text-[10px] font-medium text-emerald-400/80 dark:text-emerald-500/80">~3d</span>
-            </button>
-            {/* Easy — FSRS rating 4 */}
-            <button
-              onClick={() => handleReview(4)}
-              className="group flex flex-col items-center gap-1.5 py-3 px-1 rounded-xl border border-sky-200/80 dark:border-sky-700/40 bg-sky-50 dark:bg-sky-950/30 hover:bg-sky-100 dark:hover:bg-sky-900/40 hover:border-sky-300 dark:hover:border-sky-600/60 text-sky-600 dark:text-sky-400 shadow-xs hover:shadow-sm transition-all duration-150 active:scale-[0.96]"
-            >
-              <Shuffle size={15} />
-              <span className="text-xs font-semibold tracking-tight">Easy</span>
-              <span className="text-[10px] font-medium text-sky-400/80 dark:text-sky-500/80">~7d</span>
+              <CheckCircle2 size={18} />
+              <span className="text-sm font-semibold tracking-tight">Know</span>
+              <span className="text-[10px] font-medium text-emerald-400/80 dark:text-emerald-500/80">next interval</span>
             </button>
           </motion.div>
         )}
@@ -910,34 +892,47 @@ export default function Deck() {
   );
 
   const handleReview = useCallback(
-    async (rating: 1 | 2 | 3 | 4) => {
+    async (rating: 0 | 2) => {
       if (!currentCardId) return;
+
+      if (rating === 0) {
+        // ── Don't Know ──────────────────────────────────────────────────────────
+        // Do NOT write to the database. Just move the card to the end of the
+        // session queue and flag it as missed. The card stays in the session
+        // until the user eventually clicks Know.
+        setRequeuedWordIds((prev) => new Set(Array.from(prev).concat(currentCardId)));
+        // Append the cardId to the END of the queue so the user sees it again later.
+        // We do NOT remove it from its current position — the queue grows by 1.
+        // This guarantees the session never falsely ends (currentIdx can never
+        // reach the new queue.length until all appended cards are also answered Know).
+        setReviewQueue((prev) => [...prev, currentCardId]);
+        // Don't increment sessionReviewed — this card isn't done yet
+        setCurrentIdx((prev) => prev + 1);
+        toast.info("Card moved to end — you'll see it again this session", { duration: 1800 });
+        notifyChange();
+        return;
+      }
+
+      // ── Know ────────────────────────────────────────────────────────────────
       const cap = settings.dailyReviewCap;
       if (cap !== null && todayReviews >= cap) {
         toast.warning(`Daily review cap (${cap}) reached!`);
         return;
       }
-      await reviewFlashcard(currentCardId, rating);
+      // sessionMissed = true if this card was missed at least once this session
+      const sessionMissed = requeuedWordIds.has(currentCardId);
+      await reviewFlashcard(currentCardId, 2, sessionMissed);
       setSessionReviewed((prev) => prev + 1);
-
-      if (rating === 1) {
-        // "Again" — requeue the card at the end of the session queue
-        setReviewQueue((prev) => [...prev, currentCardId]);
-        setRequeuedWordIds((prev) => new Set(Array.from(prev).concat(currentCardId)));
-        toast.info("Card requeued — you'll see it again this session", { duration: 1800 });
-      } else {
-        // Answered correctly — remove from requeued set if present
-        setRequeuedWordIds((prev) => {
-          const next = new Set(prev);
-          next.delete(currentCardId);
-          return next;
-        });
-      }
-
+      // Remove from the missed set now that it's been successfully reviewed
+      setRequeuedWordIds((prev) => {
+        const next = new Set(prev);
+        next.delete(currentCardId);
+        return next;
+      });
       setCurrentIdx((prev) => prev + 1);
       notifyChange();
     },
-    [currentCardId, reviewFlashcard, settings.dailyReviewCap, todayReviews, notifyChange]
+    [currentCardId, reviewFlashcard, requeuedWordIds, settings.dailyReviewCap, todayReviews, notifyChange]
   );
 
   const handleMarkCompleted = useCallback(async () => {

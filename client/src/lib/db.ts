@@ -13,7 +13,14 @@
  *  - Recognition card: "{wordId}-a"  (Chinese → English)
  *  - Production card:  "{wordId}-b"  (English → Chinese)
  */
-import { FSRS, Rating, State } from "fsrs-algorithm";
+import { applySM2 as _applySM2, toISODate as _toISODate, fromISODate as _fromISODate, type SM2Quality } from "../../../shared/sm2";
+// Dummy State enum kept for migration code below
+const State = { New: 0, Learning: 1, Review: 2, Relearning: 3 } as const;
+
+/** Convert a Unix timestamp (ms) to an ISO date string (YYYY-MM-DD) */
+export function toISODate(ts: number): string { return _toISODate(ts); }
+/** Convert an ISO date string (YYYY-MM-DD) to start-of-day UTC timestamp (ms) */
+export function fromISODate(iso: string): number { return _fromISODate(iso); }
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -167,94 +174,63 @@ export interface SegmentationOverride {
   updatedAt: number;
 }
 
-// ─── FSRS Algorithm ───────────────────────────────────────────────────────────
+// ─── SRS Algorithm ───────────────────────────────────────────────────────────
 
 /**
- * FSRS rating grades (maps to the 4-button UI):
- *   1 = Again  (Don't Know)  — resets to Relearning
- *   2 = Hard   (Nearly)      — short interval
- *   3 = Good   (Know)        — normal interval
- *   4 = Easy   (Very Easy)   — long interval
+ * Two-button rating system:
+ *   0 = Don't Know — resets repetition, schedules 1 day, requeues in session
+ *   2 = Know       — increments repetition, grows interval (1→4→10→exponential)
+ *
+ * sessionMissed: pass true if the card was answered "Don't Know" at least once
+ * earlier in the current session. When true and quality=2, the card is
+ * scheduled for 1 day instead of the normal interval.
  */
-export type FSRSRating = 1 | 2 | 3 | 4;
-
-/** @deprecated Use FSRSRating. SM2Quality kept for backwards-compat in tests. */
-export type SM2Quality = 0 | 1 | 2;
-
-/** Map legacy SM-2 quality to FSRS rating */
-export function sm2ToFSRS(q: SM2Quality): FSRSRating {
-  if (q === 0) return Rating.Again as FSRSRating;
-  if (q === 1) return Rating.Hard as FSRSRating;
-  return Rating.Good as FSRSRating;
-}
-
-/** Convert a Unix timestamp (ms) to an ISO date string (YYYY-MM-DD) */
-export function toISODate(ts: number): string {
-  return new Date(ts).toISOString().slice(0, 10);
-}
-
-/** Convert an ISO date string (YYYY-MM-DD) to start-of-day Unix timestamp (ms) */
-export function fromISODate(iso: string): number {
-  return new Date(iso + "T00:00:00.000Z").getTime();
-}
-
-const _fsrs = new FSRS();
+export type FSRSRating = 0 | 2; // 0=Don't Know, 2=Know
+export { SM2Quality };
 
 /**
- * Apply FSRS algorithm to a flashcard and return updated fields.
+ * Apply the SRS algorithm to a flashcard and return updated fields.
  *
- * Ratings:
- *   1 = Again  (Don't Know)  → short interval, relearning
- *   2 = Hard   (Nearly)      → slightly longer
- *   3 = Good   (Know)        → normal FSRS interval
- *   4 = Easy   (Very Easy)   → long interval
- *
- * Returns updated Flashcard fields (partial — merge with existing card).
+ * @param card - Current flashcard state
+ * @param rating - 0 = Don't Know, 2 = Know
+ * @param sessionMissed - True if the card was missed at least once this session
  */
-export function applyFSRS(card: Flashcard, rating: FSRSRating): Partial<Flashcard> {
-  const now = new Date();
-  // Build FSRS card object from stored state (library uses camelCase)
-  const fsrsCard = _fsrs.createEmptyCard();
-  fsrsCard.stability = card.stability;
-  fsrsCard.difficulty = card.difficulty;
-  fsrsCard.elapsedDays = card.elapsedDays;
-  fsrsCard.scheduledDays = card.scheduledDays;
-  fsrsCard.reps = card.reps;
-  fsrsCard.lapses = card.lapses;
-  fsrsCard.state = card.state as State;
-  if (card.lastReviewed) fsrsCard.lastReview = new Date(card.lastReviewed);
-  fsrsCard.due = card.lastReviewed ? new Date(card.lastReviewed) : now;
-
-  const result = _fsrs.schedule(fsrsCard, now);
-  let updated;
-  if (rating === Rating.Again) updated = result.again.card;
-  else if (rating === Rating.Hard) updated = result.hard.card;
-  else if (rating === Rating.Good) updated = result.good.card;
-  else updated = result.easy.card;
-
-  const newDueDate = updated.due instanceof Date ? updated.due.getTime() : Date.now();
-  const newInterval = updated.scheduledDays ?? 1;
+export function applyFSRS(card: Flashcard, rating: FSRSRating, sessionMissed = false): Partial<Flashcard> {
+  // Map Flashcard fields to SM2Card shape
+  const sm2Card = {
+    wordId: card.wordId,
+    easeFactor: card.easeFactor ?? 2.5,
+    interval: card.interval ?? card.scheduledDays ?? 1,
+    repetition: card.repetition ?? card.reps ?? 0,
+    dueDate: card.dueDate,
+    nextReviewDate: card.nextReviewDate,
+    lastReviewed: card.lastReviewed,
+    createdAt: card.createdAt,
+  };
+  const quality: SM2Quality = rating === 0 ? 0 : 2;
+  const updates = _applySM2(sm2Card, quality, sessionMissed);
   return {
-    stability: updated.stability,
-    difficulty: updated.difficulty,
-    elapsedDays: updated.elapsedDays ?? 0,
-    scheduledDays: newInterval,
-    reps: updated.reps,
-    lapses: updated.lapses,
-    state: updated.state,
-    dueDate: newDueDate,
-    nextReviewDate: toISODate(newDueDate),
-    lastReviewed: now.getTime(),
-    // Legacy compat aliases
-    repetition: updated.reps,
-    interval: newInterval,
-    easeFactor: updated.stability,
+    // SM2 fields
+    easeFactor: updates.easeFactor,
+    interval: updates.interval,
+    repetition: updates.repetition,
+    dueDate: updates.dueDate,
+    nextReviewDate: updates.nextReviewDate,
+    lastReviewed: updates.lastReviewed,
+    // Keep FSRS-named aliases in sync for display/list view
+    stability: updates.easeFactor,
+    scheduledDays: updates.interval,
+    reps: updates.repetition,
+    lapses: quality === 0 ? (card.lapses ?? 0) + 1 : (card.lapses ?? 0),
+    state: quality === 0 ? State.Relearning : (updates.repetition ?? 0) <= 1 ? State.Learning : State.Review,
+    elapsedDays: card.lastReviewed ? Math.floor((Date.now() - card.lastReviewed) / 86400000) : 0,
+    difficulty: card.difficulty ?? 5.0,
   };
 }
 
 /** @deprecated Use applyFSRS. Kept for backwards-compat in server tests. */
 export function applySM2(card: Flashcard, quality: SM2Quality): Partial<Flashcard> {
-  return applyFSRS(card, sm2ToFSRS(quality));
+  return applyFSRS(card, quality === 0 ? 0 : 2);
 }
 
 /**
@@ -264,22 +240,21 @@ export function applySM2(card: Flashcard, quality: SM2Quality): Partial<Flashcar
 export function createFSRSCard(wordId: string, cardType: CardType): Flashcard {
   const now = Date.now();
   const cardId = cardType === "recognition" ? `${wordId}-a` : `${wordId}-b`;
-  const empty = _fsrs.createEmptyCard();
   return {
     cardId,
     wordId,
     cardType,
-    stability: empty.stability,
-    difficulty: empty.difficulty,
+    stability: 2.5,
+    difficulty: 5.0,
     dueDate: now,
-    elapsedDays: empty.elapsedDays,
-    scheduledDays: empty.scheduledDays,
-    reps: empty.reps,
-    lapses: empty.lapses,
-    state: empty.state,
+    elapsedDays: 0,
+    scheduledDays: 1,
+    reps: 0,
+    lapses: 0,
+    state: State.New,
     lastReviewed: null,
     createdAt: now,
-    // Legacy compat aliases
+    // SM2 aliases
     repetition: 0,
     interval: 1,
     easeFactor: 2.5,
@@ -297,7 +272,7 @@ export function createFSRSCard(wordId: string, cardType: CardType): Flashcard {
  * Completed words (passed as a Set) are excluded from all counts.
  */
 export function getDueStats(
-  cards: Flashcard[],
+  cards: Pick<Flashcard, "wordId" | "dueDate" | "lastReviewed">[],
   completedWordIds: Set<string>
 ): { dueToday: number; overdue: number; newCards: number } {
   const todayStart = new Date();

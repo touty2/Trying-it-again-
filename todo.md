@@ -37,3 +37,23 @@
 - [ ] Admin panel / user management UI
 - [ ] YouTube API key integration for video transcript fetching
 - [ ] Export / import vocabulary data
+
+## SRS Algorithm Fix (implemented)
+
+- [x] Replace FSRS 4-button (Again/Hard/Good/Easy) with 2-button Know/Don't Know interface
+- [x] Don't Know resets repetition to 0, schedules 1 day, requeues card in session
+- [x] Session-aware sessionMissed flag: Don't Know then Know → 1 day (not 4)
+- [x] Correct interval schedule: rep1=1d → rep2=4d → rep3=10d → exponential (prev×EF)
+- [x] Ease factor: starts 2.5, +0.1 on Know (max 5.0), -0.2 on Don't Know (min 1.3)
+- [x] MAX_INTERVAL_DAYS cap at 3650 days (10 years)
+- [x] Cards never disappear — requeue until interval exceeds max
+- [x] Spacebar shortcut: flip card → Know (was "Good" rating 3, now rating 2)
+- [x] SRS algorithm tests written in server/srs.test.ts
+
+## SRS Session Queue Fix (in progress)
+
+- [x] Don't Know: move card to end of session queue (not just requeue, must use card object with missedInSession flag)
+- [x] Know: remove card from session, schedule using pre-Know repetition count
+- [x] missedInSession tracked per-card object in session queue (not derived from requeuedWordIds set)
+- [x] missedInSession=true on Know → set repetitions=1, interval=1 day
+- [x] Interval schedule uses pre-Know rep: rep=0→1d, rep=1→4d, rep=2→10d, rep≥3→prev×EF
