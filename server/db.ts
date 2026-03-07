@@ -165,6 +165,7 @@ export async function upsertSyncFlashcards(
       )
       .onDuplicateKeyUpdate({
         set: {
+          // Static fields: always update (word content can be corrected)
           wordId: sql`VALUES(wordId)`,
           cardType: sql`VALUES(cardType)`,
           hanzi: sql`VALUES(hanzi)`,
@@ -174,24 +175,33 @@ export async function upsertSyncFlashcards(
           otherMeanings: sql`VALUES(otherMeanings)`,
           examplePairsJson: sql`VALUES(examplePairsJson)`,
           addedManually: sql`VALUES(addedManually)`,
-          // FSRS fields
-          stability: sql`VALUES(stability)`,
-          difficulty: sql`VALUES(difficulty)`,
-          scheduledDays: sql`VALUES(scheduledDays)`,
-          elapsedDays: sql`VALUES(elapsedDays)`,
-          reps: sql`VALUES(reps)`,
-          lapses: sql`VALUES(lapses)`,
-          state: sql`VALUES(state)`,
-          // Legacy compat
-          easeFactor: sql`VALUES(easeFactor)`,
-          interval: sql`VALUES(\`interval\`)`,  // MySQL reserved keyword
-          repetition: sql`VALUES(repetition)`,
-          dueDate: sql`VALUES(dueDate)`,
-          lastReviewed: sql`VALUES(lastReviewed)`,
-          isCompleted: sql`VALUES(isCompleted)`,
-          completedAt: sql`VALUES(completedAt)`,
-          completedForward: sql`VALUES(completedForward)`,
-          completedReverse: sql`VALUES(completedReverse)`,
+          //
+          // ── Conflict resolution: last-review-wins ────────────────────────────
+          // SRS progress fields are only updated when the incoming lastReviewed
+          // is MORE RECENT than what is already stored. This prevents a stale
+          // sync from an older device from overwriting a newer review.
+          //
+          // Pattern: IF(VALUES(lastReviewed) > lastReviewed, VALUES(x), x)
+          // When lastReviewed is NULL on either side, COALESCE to 0 so the
+          // comparison still works correctly.
+          //
+          easeFactor:    sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(easeFactor),    easeFactor)`,
+          interval:      sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(\`interval\`),  \`interval\`)`,
+          repetition:    sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(repetition),    repetition)`,
+          dueDate:       sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(dueDate),       dueDate)`,
+          lastReviewed:  sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(lastReviewed),  lastReviewed)`,
+          isCompleted:   sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(isCompleted),   isCompleted)`,
+          completedAt:   sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(completedAt),   completedAt)`,
+          completedForward:  sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(completedForward),  completedForward)`,
+          completedReverse:  sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(completedReverse),  completedReverse)`,
+          // FSRS fields (also gated on lastReviewed)
+          stability:     sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(stability),     stability)`,
+          difficulty:    sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(difficulty),    difficulty)`,
+          scheduledDays: sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(scheduledDays), scheduledDays)`,
+          elapsedDays:   sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(elapsedDays),   elapsedDays)`,
+          reps:          sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(reps),          reps)`,
+          lapses:        sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(lapses),        lapses)`,
+          state:         sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(state),         state)`,
         },
       });
   }

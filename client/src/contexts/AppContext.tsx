@@ -16,6 +16,7 @@ import { nanoid } from "nanoid";
 import {
   FlashcardDB,
   ReviewLogDB,
+  CardReviewHistoryDB,
   SettingsDB,
   TextDB,
   WordDB,
@@ -341,9 +342,29 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     if (!card) return;
 
     const wordId = card.wordId;
+    const oldInterval = card.interval;
+    const oldRepetition = card.repetition;
+    const oldEaseFactor = card.easeFactor;
     const updates = applyFSRS(card, rating, sessionMissed);
     await FlashcardDB.update(cardId, updates);
     await ReviewLogDB.incrementReview();
+
+    // Log this review for retention analytics (fire-and-forget)
+    const word = wordsRef.current.find((w) => w.id === wordId);
+    CardReviewHistoryDB.add({
+      cardId,
+      wordId,
+      hanzi: word?.hanzi ?? "",
+      reviewedAt: Date.now(),
+      rating: rating === 0 ? 0 : 2,
+      sessionMissed,
+      oldInterval,
+      newInterval: updates.interval ?? oldInterval,
+      oldRepetition,
+      newRepetition: updates.repetition ?? oldRepetition,
+      oldEaseFactor,
+      newEaseFactor: updates.easeFactor ?? oldEaseFactor,
+    }).catch(() => { /* non-critical — ignore write errors */ });
 
     // Track mistakes for Suggested Re-read (rating 0 = Don't Know)
     if (rating === 0) {

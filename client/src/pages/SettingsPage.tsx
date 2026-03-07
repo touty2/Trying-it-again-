@@ -104,7 +104,105 @@ function CollapsibleSection({ id, icon, title, subtitle, isOpen, onToggle, child
   );
 }
 
-// ─── Cap Selector ─────────────────────────────────────────────────────────────
+// ─── Review Cap Slider ────────────────────────────────────────────────────────
+
+/**
+ * Slider-based daily review cap selector.
+ * Range: 10–500 cards/day, plus an "Unlimited" toggle.
+ * The slider snaps to steps of 10 up to 100, then 50 up to 500.
+ */
+const SLIDER_MIN = 10;
+const SLIDER_MAX = 500;
+
+/** Map a slider position (0–100) to a card count */
+function sliderPosToCount(pos: number): number {
+  // 0–50 maps to 10–100 (step 2 per unit → step ~1.8)
+  // 50–100 maps to 100–500 (step 8 per unit → step ~8)
+  if (pos <= 50) return Math.round(SLIDER_MIN + (pos / 50) * (100 - SLIDER_MIN));
+  return Math.round(100 + ((pos - 50) / 50) * (SLIDER_MAX - 100));
+}
+
+/** Map a card count to a slider position (0–100) */
+function countToSliderPos(count: number): number {
+  if (count <= 100) return ((count - SLIDER_MIN) / (100 - SLIDER_MIN)) * 50;
+  return 50 + ((count - 100) / (SLIDER_MAX - 100)) * 50;
+}
+
+interface ReviewCapSliderProps {
+  value: number | null;  // null = unlimited
+  onChange: (v: number | null) => void;
+  label: string;
+  description?: string;
+}
+
+function ReviewCapSlider({ value, onChange, label, description }: ReviewCapSliderProps) {
+  const isUnlimited = value === null;
+  // Slider position (0–100); default to 50 cards when enabling
+  const sliderPos = isUnlimited ? countToSliderPos(50) : countToSliderPos(Math.max(SLIDER_MIN, Math.min(SLIDER_MAX, value)));
+
+  const handleSliderChange = (vals: number[]) => {
+    const count = sliderPosToCount(vals[0]);
+    onChange(count);
+  };
+
+  const handleUnlimitedToggle = () => {
+    if (isUnlimited) {
+      // Enable cap — default to 50
+      onChange(50);
+    } else {
+      onChange(null);
+    }
+  };
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-1">
+        <p className="text-sm font-medium text-foreground">{label}</p>
+        <span className="text-sm font-semibold text-primary">
+          {isUnlimited ? "Unlimited" : `${value} / day`}
+        </span>
+      </div>
+      {description && (
+        <p className="text-xs text-muted-foreground mb-3">{description}</p>
+      )}
+      <div className="space-y-3">
+        <Slider
+          min={0}
+          max={100}
+          step={1}
+          value={[sliderPos]}
+          onValueChange={handleSliderChange}
+          disabled={isUnlimited}
+          className={isUnlimited ? "opacity-40" : ""}
+        />
+        <div className="flex justify-between text-[10px] text-muted-foreground">
+          <span>{SLIDER_MIN}</span>
+          <span>100</span>
+          <span>200</span>
+          <span>350</span>
+          <span>{SLIDER_MAX}+</span>
+        </div>
+        <button
+          onClick={handleUnlimitedToggle}
+          className={`flex items-center gap-2 text-sm px-3 py-1.5 rounded-md border transition-colors ${
+            isUnlimited
+              ? "bg-primary text-primary-foreground border-primary"
+              : "border-border text-muted-foreground hover:text-foreground hover:border-primary/50"
+          }`}
+        >
+          <span className={`w-3.5 h-3.5 rounded-full border-2 flex items-center justify-center ${
+            isUnlimited ? "border-primary-foreground" : "border-muted-foreground"
+          }`}>
+            {isUnlimited && <span className="w-1.5 h-1.5 rounded-full bg-primary-foreground" />}
+          </span>
+          Unlimited
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ─── Cap Selector (legacy — kept for new-words-per-day preset buttons) ────────
 
 const NEW_WORD_PRESETS = [10, 20, 30] as const;
 
@@ -782,10 +880,11 @@ export default function SettingsPage() {
           />
         </div>
         <div className="pt-4 border-t border-border/40">
-          <CapSelector
+          <ReviewCapSlider
             value={settings.dailyReviewCap}
             onChange={handleReviewCapChange}
             label="Reviews per day"
+            description="Limit how many cards you review each day. Oldest-due cards are always prioritised. Set to Unlimited to review all due cards."
           />
         </div>
 

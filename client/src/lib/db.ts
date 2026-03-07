@@ -301,7 +301,7 @@ export function getDueStats(
 // ─── IndexedDB Setup ──────────────────────────────────────────────────────────
 
 const DB_NAME = "ChineseReaderDB";
-const DB_VERSION = 10; // v10: customDecks + deckCards stores for user-created deck management
+const DB_VERSION = 11; // v11: cardReviewHistory store for per-review retention analytics
 
 let dbInstance: IDBDatabase | null = null;
 
@@ -436,6 +436,12 @@ function openDB(): Promise<IDBDatabase> {
         const dcStore = db.createObjectStore("deckCards", { keyPath: "id" });
         dcStore.createIndex("deckId", "deckId", { unique: false });
         dcStore.createIndex("wordId", "wordId", { unique: false });
+      }
+      // DB_VERSION 11: per-review history for retention analytics
+      if (!db.objectStoreNames.contains("cardReviewHistory")) {
+        const rhStore = db.createObjectStore("cardReviewHistory", { keyPath: "id", autoIncrement: true });
+        rhStore.createIndex("cardId", "cardId", { unique: false });
+        rhStore.createIndex("reviewedAt", "reviewedAt", { unique: false });
       }
     };
 
@@ -1129,4 +1135,106 @@ export const DeckCardDB = {
           req.onerror = () => reject(req.error);
         })
     ),
+};
+
+// ─── Card Review History ──────────────────────────────────────────────────────
+
+/**
+ * CardReviewHistoryEntry — one record per "Know" button press.
+ *
+ * Stored in IndexedDB "cardReviewHistory" (autoIncrement id).
+ * Used for retention analytics: you can query all reviews for a card,
+ * compute per-card retention curves, or export to CSV.
+ *
+ * Fields:
+ *   id          — autoIncrement PK (IndexedDB assigns this)
+ *   cardId      — FK to flashcards.cardId
+ *   wordId      — FK to words.id (denormalised for convenience)
+ *   hanzi       — the Chinese word (denormalised for readability)
+ *   reviewedAt  — Unix timestamp (ms) when Know was pressed
+ *   rating      — 0 = Don't Know (legacy), 2 = Know
+ *   sessionMissed — true if the card was missed earlier in the same session
+ *   oldInterval   — interval (days) before this review
+ *   newInterval   — interval (days) after this review
+ *   oldRepetition — repetition count before this review
+ *   newRepetition — repetition count after this review
+ *   oldEaseFactor — ease factor before this review
+ *   newEaseFactor — ease factor after this review
+ */
+export interface CardReviewHistoryEntry {
+  id?: number;          // autoIncrement — omit on insert
+  cardId: string;
+  wordId: string;
+  hanzi: string;
+  reviewedAt: number;   // UTC ms
+  rating: 0 | 2;
+  sessionMissed: boolean;
+  oldInterval: number;
+  newInterval: number;
+  oldRepetition: number;
+  newRepetition: number;
+  oldEaseFactor: number;
+  newEaseFactor: number;
+}
+
+export const CardReviewHistoryDB = {
+  /** Append a single review record. Returns the autoIncrement id. */
+  add: (entry: Omit<CardReviewHistoryEntry, "id">): Promise<number> =>
+    tx<IDBValidKey>("cardReviewHistory", "readwrite", (s) => s.add(entry)).then((k) => k as number),
+
+  /** Get all reviews for a specific card, sorted oldest-first. */
+  getByCardId: (cardId: string): Promise<CardReviewHistoryEntry[]> =>
+    openDB().then(
+      (db) =>
+        new Promise((resolve, reject) => {
+          const transaction = db.transaction("cardReviewHistory", "readonly");
+          const store = transaction.objectStore("cardReviewHistory");
+          const index = store.index("cardId");
+          const req = index.getAll(cardId);
+          req.onsuccess = () =>
+            resolve(
+              (req.result as CardReviewHistoryEntry[]).sort(
+                (a, b) => a.reviewedAt - b.reviewedAt
+              )
+            );
+          req.onerror = () => reject(req.error);
+        })
+    ),
+
+  /** Get all reviews within a date range (UTC ms). */
+  getByDateRange: (from: number, to: number): Promise<CardReviewHistoryEntry[]> =>
+    openDB().then(
+      (db) =>
+        new Promise((resolve, reject) => {
+          const transaction = db.transaction("cardReviewHistory", "readonly");
+          const store = transaction.objectStore("cardReviewHistory");
+          const index = store.index("reviewedAt");
+          const req = index.getAll(IDBKeyRange.bound(from, to));
+          req.onsuccess = () => resolve(req.result as CardReviewHistoryEntry[]);
+          req.onerror = () => reject(req.error);
+        })
+    ),
+
+  /** Get all reviews ever (for export / analytics). */
+  getAll: (): Promise<CardReviewHistoryEntry[]> =>
+    txAll("cardReviewHistory", "readonly", (s) => s.getAll()),
+
+  /** Count total reviews today. */
+  countToday: (): Promise<number> => {
+    const start = new Date();
+    start.setHours(0, 0, 0, 0);
+    const end = new Date();
+    end.setHours(23, 59, 59, 999);
+    return openDB().then(
+      (db) =>
+        new Promise((resolve, reject) => {
+          const transaction = db.transaction("cardReviewHistory", "readonly");
+          const store = transaction.objectStore("cardReviewHistory");
+          const index = store.index("reviewedAt");
+          const req = index.count(IDBKeyRange.bound(start.getTime(), end.getTime()));
+          req.onsuccess = () => resolve(req.result);
+          req.onerror = () => reject(req.error);
+        })
+    );
+  },
 };

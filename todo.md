@@ -67,3 +67,11 @@
 - [x] DB schema: sync_flashcards has BIGINT(ms) for dueDate and lastReviewed (correct)
 - [x] DB schema: composite index (userId, dueDate) and (userId, lastReviewed) added
 - [x] Tests: 21/21 date pipeline tests pass (srs.dates.test.ts)
+
+## SRS Remaining Items (in progress)
+
+- [x] Item 1: Backlog priority — overdue cards sorted oldest dueDate first (ascending) — verified correct
+- [x] Item 2: Ease factor clamping — never below 1.3 or above 5.0 — verified correct
+- [x] Item 3: Sync conflict resolution — GREATEST(lastReviewed) logic added to server/db.ts upsertSyncFlashcards
+- [x] Item 4: Daily review cap slider in Settings (10–500 + Unlimited) — ReviewCapSlider component added
+- [x] Item 5: Review logging — CardReviewHistoryDB added (IndexedDB v11), logged in AppContext.reviewFlashcard
