@@ -2,6 +2,7 @@ import {
   bigint,
   boolean,
   decimal,
+  index,
   int,
   json,
   mysqlEnum,
@@ -79,6 +80,10 @@ export const syncFlashcards = mysqlTable(
   (table) => [
     // Primary uniqueness is now on (userId, cardId) — each card has its own row
     uniqueIndex("uq_sync_flashcards_user_card").on(table.userId, table.cardId),
+    // Composite index for efficient getDueCards queries: find all cards due for a user
+    index("idx_sync_flashcards_user_due").on(table.userId, table.dueDate),
+    // Composite index for sync time queries: find most recently reviewed cards
+    index("idx_sync_flashcards_user_reviewed").on(table.userId, table.lastReviewed),
   ]
 );
 export type SyncFlashcard = typeof syncFlashcards.$inferSelect;

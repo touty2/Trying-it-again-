@@ -57,3 +57,13 @@
 - [x] missedInSession tracked per-card object in session queue (not derived from requeuedWordIds set)
 - [x] missedInSession=true on Know → set repetitions=1, interval=1 day
 - [x] Interval schedule uses pre-Know rep: rep=0→1d, rep=1→4d, rep=2→10d, rep≥3→prev×EF
+
+## SRS Date Pipeline Audit & Fix (in progress)
+
+- [x] sm2.ts: dueDate calculated as absolute UTC timestamp (now + interval * 86400000)
+- [x] db.ts: getDueCards compares dueDate <= Date.now() in UTC, sorts oldest-first
+- [x] db.ts: IndexedDB stores dueDate as numeric UTC timestamp (not relative offset)
+- [x] sync router: dueDate serialized/deserialized correctly (no timezone drift)
+- [x] DB schema: sync_flashcards has BIGINT(ms) for dueDate and lastReviewed (correct)
+- [x] DB schema: composite index (userId, dueDate) and (userId, lastReviewed) added
+- [x] Tests: 21/21 date pipeline tests pass (srs.dates.test.ts)

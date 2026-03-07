@@ -635,8 +635,32 @@ export const SettingsDB = {
 
 // ─── Review Log CRUD ──────────────────────────────────────────────────────────
 
+/**
+ * Returns today's date as a YYYY-MM-DD string in the user's LOCAL timezone.
+ * Using local time ensures review logs match the user's calendar day, not UTC.
+ * e.g. a user in UTC+8 reviewing at 11 PM local gets today's local date, not yesterday's UTC date.
+ */
 function todayStr(): string {
-  return new Date().toISOString().slice(0, 10);
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
+/**
+ * Subtract one calendar day from a YYYY-MM-DD string, using local time arithmetic.
+ * Avoids the UTC-parse bug: new Date("YYYY-MM-DD") parses as UTC midnight,
+ * which in UTC+ timezones gives the previous local day.
+ */
+function prevDayStr(dateStr: string): string {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const dt = new Date(y, m - 1, d); // local midnight — no UTC offset issue
+  dt.setDate(dt.getDate() - 1);
+  const ny = dt.getFullYear();
+  const nm = String(dt.getMonth() + 1).padStart(2, '0');
+  const nd = String(dt.getDate()).padStart(2, '0');
+  return `${ny}-${nm}-${nd}`;
 }
 
 export const ReviewLogDB = {
@@ -694,10 +718,8 @@ export const ReviewLogDB = {
       for (const log of sorted) {
         if (log.date === current) {
           streak++;
-          // go back one day
-          const d = new Date(current);
-          d.setDate(d.getDate() - 1);
-          current = d.toISOString().slice(0, 10);
+          // go back one calendar day using local-time arithmetic
+          current = prevDayStr(current);
         } else {
           break;
         }
