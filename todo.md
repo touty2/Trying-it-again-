@@ -1,48 +1,39 @@
-# Chinese Reader — Todo
+# Chinese Reader — Project TODO
 
-## Core Migration
-- [x] Install extra dependencies (fsrs-algorithm, bcryptjs, puppeteer-core, etc.)
-- [x] Migrate drizzle/schema.ts (all tables)
-- [x] Migrate drizzle/relations.ts
-- [x] Migrate server/db.ts (all query helpers)
-- [x] Migrate server/routers.ts + server/routers/* (grammar, sync, video, vocabIgnored, storyGrammar)
-- [x] Migrate server/storage.ts
-- [x] Migrate shared/const.ts, shared/sm2.ts, shared/types.ts
-- [x] Migrate client/src/const.ts
-- [x] Migrate client/src/lib/* (db.ts, fsrs.ts, segmentation.ts, tts.ts, storyGrammarMap.ts, videoLearning.ts, vocabData.ts, youtubeTranscript.ts, utils.ts, trpc.ts)
-- [x] Migrate client contexts (AppContext, AuthContext, GrammarProgressContext, SyncContext, ThemeContext, TypographyContext, ThemeSettingsContext)
-- [x] Migrate client hooks (useAudioSettings, useComposition, useFlashcardDirection, useGrammarProgress, useSyncManager, useTTS, useYouTubePlayer, useDeckSession)
-- [x] Migrate client pages (Dashboard, Deck, Sessions, StoryPage, VocabPage, GrammarPage, VideoLearningPage, SettingsPage, LoginPage, NotFound)
-- [x] Migrate client components (WordPopup, GrammarInStory, GrammarLessonModal, ErrorBoundary, ManusDialog, StoryDeckPanel)
-- [x] Migrate client/src/App.tsx (full nav + layout)
-- [x] Migrate client/src/main.tsx
-- [x] Migrate index.css and tailwind config
-- [x] Migrate vitest config and test files (fsrs, grammar, srs, segmentation, senses, nameDetection)
-- [x] Run pnpm db:push to apply schema migrations (12 tables)
-- [x] Run tests — 27 tests passing (auth.logout 3/3, grammar 3/3, fsrs 13/13, useDeckSession 8/8)
-- [x] Save checkpoint and deliver
+## Restored Features (from uploaded project)
 
-## Features
-- [x] User authentication with email/password (register + login)
-- [x] FSRS-based spaced repetition flashcard system with reversible cards (CN→EN / EN→CN)
-- [x] Story reading interface with word segmentation, popup definitions, grammar highlighting
-- [x] Story-specific flashcard decks
-- [x] Grammar lessons with progress tracking
-- [x] Vocabulary management with themed vocab and ignore functionality
-- [x] Video learning page with YouTube transcript integration
-- [x] Cloud sync system for flashcards, grammar progress, story decks, segmentation overrides
-- [x] Customizable typography and theme settings with persistence
-- [x] Session persistence for flashcard reviews with queue restoration
+- [x] Email/password authentication (register, login, logout, session via JWT cookie)
+- [x] Role-based access control (admin / user roles)
+- [x] Dashboard page with SRS stats (words in deck, learned, streak, due today, overdue, new)
+- [x] Flashcard deck system with FSRS spaced repetition algorithm
+- [x] Deck sessions page (review mode with forward/reverse card directions)
+- [x] Grammar lessons page with progress tracking
+- [x] In-story grammar highlighting (GrammarInStory component)
+- [x] Grammar lesson modal (GrammarLessonModal component)
+- [x] Story reading page with word popups (pinyin + definitions)
+- [x] Word popup component (WordPopup) with CEDICT dictionary integration
+- [x] Vocabulary management page (VocabPage) with ignored words tracking
+- [x] Video learning page (VideoLearningPage) with YouTube transcript integration
+- [x] Settings page with audio, theme, and typography customization
+- [x] Offline-first architecture using IndexedDB (Dexie) for local data storage
+- [x] Cloud sync via tRPC procedures (sync router)
+- [x] CEDICT dictionary integration (client-side, lib/cedict.ts)
+- [x] Text-to-speech (TTS) functionality (useTTS hook)
+- [x] Audio settings (useAudioSettings hook)
+- [x] Theme customization (ThemeContext, useThemeSettings)
+- [x] Typography settings (TypographyContext, useTypographySettings)
+- [x] Segmentation override support (user-defined word splits)
+- [x] Story deck panel (StoryDeckPanel component)
+- [x] Deck assignment popup (DeckAssignPopup component)
+- [x] Decks sidebar (DecksSidebar component)
+- [x] Comprehensive shadcn/ui component library
+- [x] Database schema: users, sync_flashcards, sync_preferences, sync_completed_texts, sync_vocab_ignored, sync_word_mistakes, sync_segmentation_overrides, grammar_progress, story_decks, story_deck_words, story_grammar_studied, password_reset_tokens, decks, deck_cards (15 tables total)
+- [x] Server routers: sync, grammar, video, storyGrammar, vocabIgnored, decks
+- [x] GitHub repository linked: touty2/Trying-it-again-
 
-## Changes
-- [x] Hide video learning feature from nav and routing (keep code intact)
-- [x] Fix sync easeFactor validation rejecting cards below 1.3 minimum
-- [x] Make all settings preferences persistent (localStorage + cloud sync)
-- [x] Convert vocab/grammar/deck sections below stories into accordion format
-- [x] DB schema: add decks + deck_cards tables, push migration
-- [x] Server: DB helpers and tRPC procedures for deck CRUD and card assignment
-- [x] Client: extend AppContext and sync manager for decks
-- [x] UI: DecksSidebar component (slide-in, toggle, rename, delete, settings panel)
-- [x] UI: deck assignment popup when adding word from story
-- [x] UI: review logic combines selected decks into one session
-- [x] Tests for deck CRUD and assignment logic (9 tests passing)
+## Pending / Future Work
+
+- [ ] Password reset flow (token table exists, REST endpoint not yet wired)
+- [ ] Admin panel / user management UI
+- [ ] YouTube API key integration for video transcript fetching
+- [ ] Export / import vocabulary data

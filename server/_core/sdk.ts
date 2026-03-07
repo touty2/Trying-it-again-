@@ -292,8 +292,8 @@ class SDKServer {
       throw ForbiddenError("User not found");
     }
 
-    // standalone auth: upsertUser is a no-op, skip openId update
-    await db.upsertUser({ id: user.id, lastSignedIn: signedInAt });
+    // In standalone auth mode, upsertUser is a no-op; skip openId reference
+    await db.upsertUser({ lastSignedIn: signedInAt } as Parameters<typeof db.upsertUser>[0]);
 
     return user;
   }
