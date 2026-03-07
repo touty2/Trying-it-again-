@@ -62,6 +62,7 @@ export const syncFlashcards = mysqlTable(
     elapsedDays:  int("elapsedDays").notNull().default(0),
     reps:         int("reps").notNull().default(0),
     lapses:       int("lapses").notNull().default(0),
+    isLeech:      boolean("isLeech").notNull().default(false),
     state:        int("state").notNull().default(0),
     // ── Legacy compat (kept for old clients) ──────────────────────────────────
     easeFactor: decimal("easeFactor", { precision: 5, scale: 2 }).notNull().default("2.50"),

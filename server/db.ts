@@ -103,6 +103,7 @@ type FlashcardSyncItem = {
   elapsedDays: number;
   reps: number;
   lapses: number;
+  isLeech: boolean;
   state: number;
   // Legacy compat
   easeFactor: number;
@@ -149,6 +150,7 @@ export async function upsertSyncFlashcards(
           elapsedDays: item.elapsedDays,
           reps: item.reps,
           lapses: item.lapses,
+          isLeech: item.isLeech,
           state: item.state,
           // Legacy compat
           easeFactor: String(item.easeFactor),
@@ -201,6 +203,7 @@ export async function upsertSyncFlashcards(
           elapsedDays:   sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(elapsedDays),   elapsedDays)`,
           reps:          sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(reps),          reps)`,
           lapses:        sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(lapses),        lapses)`,
+          isLeech:       sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(isLeech),       isLeech)`,
           state:         sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(state),         state)`,
         },
       });

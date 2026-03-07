@@ -13,7 +13,7 @@
  *  - Recognition card: "{wordId}-a"  (Chinese → English)
  *  - Production card:  "{wordId}-b"  (English → Chinese)
  */
-import { applySM2 as _applySM2, toISODate as _toISODate, fromISODate as _fromISODate, type SM2Quality } from "../../../shared/sm2";
+import { applySM2 as _applySM2, applyDontKnow as _applyDontKnow, toISODate as _toISODate, fromISODate as _fromISODate, type SM2Quality, LEECH_THRESHOLD } from "../../../shared/sm2";
 // Dummy State enum kept for migration code below
 const State = { New: 0, Learning: 1, Review: 2, Relearning: 3 } as const;
 
@@ -75,6 +75,7 @@ export interface Flashcard {
   scheduledDays: number;   // days scheduled at last review
   reps: number;            // total successful reviews
   lapses: number;          // total lapses (Again responses)
+  isLeech: boolean;         // true when lapses >= LEECH_THRESHOLD (5)
   state: number;           // FSRS State enum: 0=New,1=Learning,2=Review,3=Relearning
   lastReviewed: number | null; // Unix timestamp of last review
   createdAt: number;
@@ -206,9 +207,12 @@ export function applyFSRS(card: Flashcard, rating: FSRSRating, sessionMissed = f
     nextReviewDate: card.nextReviewDate,
     lastReviewed: card.lastReviewed,
     createdAt: card.createdAt,
+    lapses: card.lapses ?? 0,
+    isLeech: card.isLeech ?? false,
   };
   const quality: SM2Quality = rating === 0 ? 0 : 2;
   const updates = _applySM2(sm2Card, quality, sessionMissed);
+  const newLapses = quality === 0 ? (card.lapses ?? 0) + 1 : (card.lapses ?? 0);
   return {
     // SM2 fields
     easeFactor: updates.easeFactor,
@@ -221,10 +225,37 @@ export function applyFSRS(card: Flashcard, rating: FSRSRating, sessionMissed = f
     stability: updates.easeFactor,
     scheduledDays: updates.interval,
     reps: updates.repetition,
-    lapses: quality === 0 ? (card.lapses ?? 0) + 1 : (card.lapses ?? 0),
+    lapses: newLapses,
+    isLeech: newLapses >= LEECH_THRESHOLD,
     state: quality === 0 ? State.Relearning : (updates.repetition ?? 0) <= 1 ? State.Learning : State.Review,
     elapsedDays: card.lastReviewed ? Math.floor((Date.now() - card.lastReviewed) / 86400000) : 0,
     difficulty: card.difficulty ?? 5.0,
+  };
+}
+
+/**
+ * Apply a Don't Know response — only updates lapses and ease factor.
+ * Lightweight DB write for Don't Know: interval/dueDate remain unchanged.
+ */
+export function applyDontKnow(card: Flashcard): Partial<Flashcard> {
+  const sm2Card = {
+    wordId: card.wordId,
+    easeFactor: card.easeFactor ?? 2.5,
+    interval: card.interval ?? 1,
+    repetition: card.repetition ?? 0,
+    dueDate: card.dueDate,
+    nextReviewDate: card.nextReviewDate,
+    lastReviewed: card.lastReviewed,
+    createdAt: card.createdAt,
+    lapses: card.lapses ?? 0,
+    isLeech: card.isLeech ?? false,
+  };
+  const updates = _applyDontKnow(sm2Card);
+  return {
+    lapses: updates.lapses,
+    isLeech: updates.isLeech,
+    easeFactor: updates.easeFactor,
+    difficulty: updates.easeFactor, // keep FSRS alias in sync
   };
 }
 
@@ -251,6 +282,7 @@ export function createFSRSCard(wordId: string, cardType: CardType): Flashcard {
     scheduledDays: 1,
     reps: 0,
     lapses: 0,
+    isLeech: false,
     state: State.New,
     lastReviewed: null,
     createdAt: now,
@@ -354,6 +386,7 @@ function openDB(): Promise<IDBDatabase> {
               scheduledDays: Number(old.interval ?? 1),
               reps: Number(old.repetition ?? 0),
               lapses: 0,
+              isLeech: false,
               state: Number(old.repetition ?? 0) === 0 ? State.New : State.Review,
               lastReviewed: (old.lastReviewed as number | null) ?? null,
               createdAt: Number(old.createdAt ?? Date.now()),

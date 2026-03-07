@@ -75,3 +75,11 @@
 - [x] Item 3: Sync conflict resolution — GREATEST(lastReviewed) logic added to server/db.ts upsertSyncFlashcards
 - [x] Item 4: Daily review cap slider in Settings (10–500 + Unlimited) — ReviewCapSlider component added
 - [x] Item 5: Review logging — CardReviewHistoryDB added (IndexedDB v11), logged in AppContext.reviewFlashcard
+
+## SRS Learner-First Upgrade (in progress)
+
+- [x] Item 1: Failed cards reappear 2-3 cards later (insert at currentIdx+3 in Deck.tsx)
+- [x] Item 2: Leech detection — 5+ fails → isLeech=true, excluded from queue, shown in post-session leech section
+- [x] Item 3: Gradual interval growth + ±5% fuzziness for intervals ≥10d, ease clamped [1.3, 5.0]
+- [x] Item 4: MAX_INTERVAL_DAYS reduced to 365 (was 3650) — easy cards resurface at least annually
+- [x] Item 5: New cards (lastReviewed=null) placed first in session queue before due cards

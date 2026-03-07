@@ -62,6 +62,7 @@ const FlashcardItemSchema = z.object({
   elapsedDays: z.number().int().min(0).default(0),
   reps: z.number().int().min(0).default(0),
   lapses: z.number().int().min(0).default(0),
+  isLeech: z.boolean().default(false),
   state: z.number().int().min(0).default(0),
   // Legacy compat fields (kept for backwards compatibility)
   // min(0): FSRS cards alias stability→easeFactor; stability starts at 0, so the

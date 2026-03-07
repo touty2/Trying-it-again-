@@ -22,6 +22,7 @@ import {
   Trash2,
   Shuffle,
   Layers,
+  AlertTriangle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -852,6 +853,12 @@ export default function Deck() {
   }, [getDueCards, storyFilter, storyWordIds]);
 
   const dueCards = useMemo(() => getFilteredDueCards(), [getFilteredDueCards, flashcards, completedWordIds, storyWordIds]);
+
+  // Leech cards: excluded from normal queue, shown separately for manual review
+  const leechCards = useMemo(
+    () => flashcards.filter((c) => c.isLeech),
+    [flashcards]
+  );
   const currentCardId = reviewQueue[currentIdx];
   // Support both cardId-based queue (new FSRS) and wordId-based queue (legacy sessions)
   const currentCard = currentCardId
@@ -863,7 +870,11 @@ export default function Deck() {
 
   const startReview = useCallback(() => {
     clearSession();
-    const due = getFilteredDueCards().map((c) => c.cardId);
+    // New cards (never reviewed) first, then overdue sorted oldest-first
+    const all = getFilteredDueCards();
+    const newCards = all.filter((c) => !c.lastReviewed).map((c) => c.cardId);
+    const reviewCards = all.filter((c) => c.lastReviewed).map((c) => c.cardId);
+    const due = [...newCards, ...reviewCards];
     setReviewQueue(due);
     setCurrentIdx(0);
     setSessionReviewed(0);
@@ -897,18 +908,21 @@ export default function Deck() {
 
       if (rating === 0) {
         // ── Don't Know ──────────────────────────────────────────────────────────
-        // Do NOT write to the database. Just move the card to the end of the
-        // session queue and flag it as missed. The card stays in the session
-        // until the user eventually clicks Know.
+        // Write a lightweight DB update (lapses + ease factor only — no interval change).
+        // Then insert the card 2-3 positions ahead in the session queue for
+        // short-term relearning (not at the end of the whole queue).
+        await reviewFlashcard(currentCardId, 0);
         setRequeuedWordIds((prev) => new Set(Array.from(prev).concat(currentCardId)));
-        // Append the cardId to the END of the queue so the user sees it again later.
-        // We do NOT remove it from its current position — the queue grows by 1.
-        // This guarantees the session never falsely ends (currentIdx can never
-        // reach the new queue.length until all appended cards are also answered Know).
-        setReviewQueue((prev) => [...prev, currentCardId]);
+        // Insert 2-3 cards ahead (short-term relearning queue)
+        setReviewQueue((prev) => {
+          const insertAt = Math.min(currentIdx + 1 + 2, prev.length);
+          const next = [...prev];
+          next.splice(insertAt, 0, currentCardId);
+          return next;
+        });
         // Don't increment sessionReviewed — this card isn't done yet
         setCurrentIdx((prev) => prev + 1);
-        toast.info("Card moved to end — you'll see it again this session", { duration: 1800 });
+        toast.info("Card will reappear in 2-3 cards", { duration: 1800 });
         notifyChange();
         return;
       }
@@ -1082,7 +1096,33 @@ export default function Deck() {
               </Button>
             </div>
           ) : isSessionDone ? (
-            <SessionComplete reviewed={sessionReviewed} onReset={startReview} />
+            <>
+              <SessionComplete reviewed={sessionReviewed} onReset={startReview} />
+              {leechCards.length > 0 && (
+                <div className="mt-6 border border-amber-200 dark:border-amber-700/50 rounded-xl p-4 bg-amber-50/50 dark:bg-amber-900/10">
+                  <div className="flex items-center gap-2 mb-3">
+                    <AlertTriangle size={16} className="text-amber-600 dark:text-amber-400" />
+                    <span className="text-sm font-semibold text-amber-700 dark:text-amber-300">
+                      {leechCards.length} Leech Card{leechCards.length !== 1 ? "s" : ""} — Needs Attention
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    These cards have failed 5+ times and are paused from the normal queue. Review them separately or remove them.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {leechCards.map((c) => {
+                      const w = getWordById(c.wordId);
+                      return w ? (
+                        <span key={c.cardId} className="inline-flex items-center gap-1 text-xs bg-background border rounded px-2 py-1">
+                          <span className="font-medium">{w.hanzi}</span>
+                          <span className="text-muted-foreground">({c.lapses} fails)</span>
+                        </span>
+                      ) : null;
+                    })}
+                  </div>
+                </div>
+              )}
+            </>
           ) : currentWord && currentCard ? (
             <AnimatePresence mode="wait">
                 <motion.div

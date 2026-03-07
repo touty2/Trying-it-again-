@@ -436,6 +436,7 @@ export function useSyncManager(userId: number | null | undefined) {
               elapsedDays:      card.elapsedDays,
               reps:             card.reps,
               lapses:           card.lapses,
+              isLeech:          card.isLeech ?? false,
               state:            card.state,
               // Legacy compat fields (kept for old clients)
               easeFactor:       card.stability,

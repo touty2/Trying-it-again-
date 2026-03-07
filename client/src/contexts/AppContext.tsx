@@ -25,6 +25,7 @@ import {
   CompletedTextDB,
   StoryDeckDB,
   applyFSRS,
+  applyDontKnow,
   createFSRSCard,
   getDueStats,
   toISODate,
@@ -345,9 +346,18 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     const oldInterval = card.interval;
     const oldRepetition = card.repetition;
     const oldEaseFactor = card.easeFactor;
-    const updates = applyFSRS(card, rating, sessionMissed);
+
+    let updates: Partial<Flashcard>;
+    if (rating === 0) {
+      // Don't Know: lightweight write — only lapses + ease factor change.
+      // interval/dueDate are NOT changed here; they will be set when the user
+      // eventually clicks Know (with sessionMissed=true → 1 day).
+      updates = applyDontKnow(card);
+    } else {
+      updates = applyFSRS(card, rating, sessionMissed);
+    }
     await FlashcardDB.update(cardId, updates);
-    await ReviewLogDB.incrementReview();
+    if (rating === 2) await ReviewLogDB.incrementReview(); // only count Know as a completed review
 
     // Log this review for retention analytics (fire-and-forget)
     const word = wordsRef.current.find((w) => w.id === wordId);
@@ -408,6 +418,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     const due = flashcardsRef.current.filter((c) => {
       if (c.dueDate > now) return false;
       if (completedWordIdsRef.current.has(c.wordId)) return false;
+      if (c.isLeech) return false; // leech cards excluded from normal queue
       if (source === "both") return true;
       const word = wordsRef.current.find((w) => w.id === c.wordId);
       if (!word) return true;
