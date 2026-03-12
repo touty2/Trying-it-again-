@@ -292,10 +292,14 @@ class SDKServer {
       throw ForbiddenError("User not found");
     }
 
-    await db.upsertUser({
-      openId: user.openId,
-      lastSignedIn: signedInAt,
-    });
+    // In standalone mode, user may not have openId — skip upsert
+    const userOpenId = (user as Record<string, unknown>).openId as string | undefined;
+    if (userOpenId) {
+      await db.upsertUser({
+        openId: userOpenId,
+        lastSignedIn: signedInAt,
+      });
+    }
 
     return user;
   }
