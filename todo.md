@@ -63,3 +63,4 @@
 - [x] Add "Continue Reading" card to Dashboard showing last-read story
 - [x] Fix 经历 segmentation — ensure it is treated as one word, not split into 经 + 历
 - [x] Audit local dictionary — verify all entries have accurate, relevant definitions
+- [x] Full dictionary audit — correct segmentation, contextually accurate definitions, no missing entries for all story vocabulary
