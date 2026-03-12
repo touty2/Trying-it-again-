@@ -1077,10 +1077,13 @@ export default function SettingsPage() {
                 ) : (
                   <div className="space-y-2">
                     {/* Auto option */}
-                    <button
+                    <div
+                      role="button"
+                      tabIndex={0}
                       onClick={() => updateAudio({ preferredVoiceURI: null })}
+                      onKeyDown={(e) => e.key === 'Enter' && updateAudio({ preferredVoiceURI: null })}
                       className={[
-                        "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl border text-left transition-all duration-150",
+                        "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl border text-left transition-all duration-150 cursor-pointer",
                         !audio.preferredVoiceURI
                           ? "border-primary/50 bg-primary/5 ring-1 ring-primary/20"
                           : "border-border/60 bg-card hover:border-border hover:bg-muted/30",
@@ -1103,7 +1106,7 @@ export default function SettingsPage() {
                         </button>
                         {!audio.preferredVoiceURI && <span className="text-[10px] font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded">Active</span>}
                       </div>
-                    </button>
+                    </div>
 
                     {/* Voice cards */}
                     {displayVoices.map((v) => {
@@ -1111,11 +1114,14 @@ export default function SettingsPage() {
                       const isActive = audio.preferredVoiceURI === v.voiceURI;
                       const isPreviewing = previewingVoiceURI === v.voiceURI;
                       return (
-                        <button
+                        <div
                           key={v.voiceURI}
+                          role="button"
+                          tabIndex={0}
                           onClick={() => updateAudio({ preferredVoiceURI: v.voiceURI })}
+                          onKeyDown={(e) => e.key === 'Enter' && updateAudio({ preferredVoiceURI: v.voiceURI })}
                           className={[
-                            "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl border text-left transition-all duration-150",
+                            "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl border text-left transition-all duration-150 cursor-pointer",
                             isActive
                               ? "border-primary/50 bg-primary/5 ring-1 ring-primary/20"
                               : "border-border/60 bg-card hover:border-border hover:bg-muted/30",
@@ -1139,7 +1145,7 @@ export default function SettingsPage() {
                             </button>
                             {isActive && <span className="text-[10px] font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded">Active</span>}
                           </div>
-                        </button>
+                        </div>
                       );
                     })}
 
