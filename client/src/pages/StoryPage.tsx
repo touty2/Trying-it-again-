@@ -597,6 +597,13 @@ export default function StoryPage() {
 
   const text: Text | undefined = texts.find((t) => t.id === id);
 
+  // Track last-read story for Dashboard "Continue Reading" card
+  useEffect(() => {
+    if (text) {
+      localStorage.setItem("lastReadStoryId", text.id);
+    }
+  }, [text]);
+
   // ── Precompute sentences ONCE — single source of truth for TTS + highlight ──
   const allSentences = useMemo(() => {
     if (!text) return [];
@@ -668,7 +675,7 @@ export default function StoryPage() {
     return (
       <div className="max-w-3xl mx-auto px-6 py-12 text-center">
         <p className="text-muted-foreground mb-4">Story not found.</p>
-        <Button variant="outline" onClick={() => navigate("/")}>
+        <Button variant="outline" onClick={() => navigate("/sessions")}>
           <ArrowLeft size={14} className="mr-1.5" />
           Back to list
         </Button>
@@ -688,7 +695,7 @@ export default function StoryPage() {
     >
       {/* Back button */}
       <button
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/sessions")}
         className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8 group"
       >
         <ArrowLeft size={15} className="group-hover:-translate-x-0.5 transition-transform" />
@@ -863,7 +870,7 @@ export default function StoryPage() {
       {/* Bottom back button */}
       <div className="mt-12 pt-8 border-t border-border/30">
         <button
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/sessions")}
           className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors group"
         >
           <ArrowLeft size={15} className="group-hover:-translate-x-0.5 transition-transform" />

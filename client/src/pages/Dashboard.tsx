@@ -10,8 +10,9 @@
  *  - Band breakdown
  */
 
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useLocation } from "wouter";
 import {
   BookOpen,
   Flame,
@@ -24,6 +25,7 @@ import {
   RotateCcw,
   AlertCircle,
   Sparkles,
+  ChevronRight,
 } from "lucide-react";
 import { useApp } from "@/contexts/AppContext";
 import type { HskBand } from "@/lib/db";
@@ -147,12 +149,43 @@ export default function Dashboard() {
   // Daily cap progress
   const newWordCap = settings.dailyNewWordCap;
 
+  // Continue Reading — last story opened, persisted in localStorage
+  const [lastReadStoryId, setLastReadStoryId] = useState<string | null>(null);
+  useEffect(() => {
+    setLastReadStoryId(localStorage.getItem("lastReadStoryId"));
+  }, []);
+  const lastReadStory = lastReadStoryId ? texts.find((t) => t.id === lastReadStoryId) : null;
+  const [, navigate] = useLocation();
+
   return (
     <div>
       <div className="mb-6">
         <h2 className="text-xl font-bold text-foreground mb-1">Dashboard</h2>
         <p className="text-sm text-muted-foreground">Your learning progress at a glance.</p>
       </div>
+
+      {/* Continue Reading Card */}
+      {lastReadStory && (
+        <motion.button
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25 }}
+          onClick={() => navigate(`/story/${lastReadStory.id}`)}
+          className="w-full flex items-center justify-between rounded-xl border border-primary/30 bg-primary/5 hover:bg-primary/10 transition-colors px-5 py-4 mb-5 text-left group"
+        >
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-9 h-9 rounded-lg bg-primary/15 flex items-center justify-center shrink-0">
+              <BookOpen size={17} className="text-primary" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-primary/70 mb-0.5">Continue Reading</p>
+              <p className="text-sm font-semibold text-foreground truncate">{lastReadStory.englishTitle ?? lastReadStory.title}</p>
+              <p className="text-xs text-muted-foreground truncate">{lastReadStory.title}</p>
+            </div>
+          </div>
+          <ChevronRight size={16} className="text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
+        </motion.button>
+      )}
 
       {/* Stat Cards — Row 1: Core learning stats */}
       <div className="grid grid-cols-2 gap-3 mb-3 sm:grid-cols-4">
