@@ -176,6 +176,19 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     })();
   }, [refreshAll]);
 
+  // Refresh flashcards when the user returns to the tab (e.g. after leaving overnight)
+  // This ensures newly-due cards appear without requiring a full page reload.
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        // Only reload flashcard data (lightweight — no dictionary reload)
+        FlashcardDB.getAll().then((cards) => setFlashcards(cards));
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
+  }, []);
+
   const isWordInDeck = useCallback(
     (hanzi: string): boolean => {
       return wordsRef.current.some((w) => w.hanzi === hanzi);

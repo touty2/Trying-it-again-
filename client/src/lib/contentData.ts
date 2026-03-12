@@ -3515,7 +3515,7 @@ Food is a carrier of culture and a medium of emotion. A dish from home can evoke
 
 因此，保持对知识的敬畏和对未知的好奇，是一个终身学习者最重要的品质。在这个信息爆炸的时代，我们更需要培养这种能力：不是简单地接受和积累信息，而是学会质疑、辨别和深度思考，在知识的边界处，保持一颗永远好奇的心。
 
-那位科学家说，他最享受的，不是找到答案的那一刻，而是在寻找答案的过程中，那种与未知对话的感觉。每一个新的发现，都会打开更多的问题，而这些新的问题，又会引领他走向更深的探索。知识的边界，不是一堵墙，而是一片不断扩展的海岸线，每向前走一步，你就会看到更广阔的海洋。这种对知识的敬畏和好奇，是他作为科学家最重要的品质，也是他最宝贵的人生财富。`,
+知识的边界，不是一堵墙，而是一片不断扩展的海岸线。每向前走一步，你就会看到更广阔的海洋，也会遇到更多未曾预料的问题。正是这种无尽的探索，让求知的旅程永远充满惊喜。对知识保持敬畏与好奇，是人类最宝贵的品质之一。`,
     englishTranslation: `The ancient Greek philosopher Socrates had a famous saying: "The only thing I know is that I know nothing." At first hearing, this sounds like a modest expression, but in reality it reveals a profound epistemological truth: true wisdom begins with the recognition of one's own ignorance.
 
 In the history of human knowledge development, every major scientific breakthrough has been accompanied by the overturning and reconstruction of existing knowledge systems. Newtonian mechanics was once considered the ultimate theory for describing the physical world, until Einstein's theory of relativity revealed its limitations under conditions of high speed and strong gravitational fields. The emergence of quantum mechanics further fundamentally shook people's classical understanding of the material world. These examples tell us that the knowledge systems of any era cannot be complete — there are always blind spots and limitations we have not yet become aware of.
@@ -3585,7 +3585,7 @@ Ms. Lin said that the immigration experience gave her a completely new understan
 
 当然，打破沉默也需要一个宽容的社会环境。一个健康的社会，应该允许不同声音的存在，保护少数人表达不同意见的权利，而不是用舆论的压力来强迫所有人保持一致。
 
-那位作家说，他写这本书，是为了给那些沉默的大多数一个声音。他相信，每一个普通人的生活，都有其独特的价值和意义，都值得被记录和倾听。在那些宏大的历史叙事背后，是无数个普通人的喜怒哀乐，是他们的挣扎和坚持，是他们对美好生活的向往和追求。这些，才是历史最真实的底色，也是人类最深沉的共鸣。他希望，通过他的写作，能够让更多的人看到这些被忽视的生命，感受到它们的重量和温度。他们的声音，值得被听见。。`,
+每一个普通人的生活，都有其独特的价值和意义，都值得被记录和倾听。在那些宏大的历史叙事背后，是无数个普通人的喜怒哀乐，是他们的挣扎和坚持，是他们对美好生活的向往和追求。打破沉默，不只是个人的勇气，也是社会进步的必要条件。那些选择开口的人，为所有仍在沉默中挣扎的人，点亮了一盏灯。`,
     englishTranslation: `In any society, there exists a "silent majority" — those who have their own thoughts and judgments but, for various reasons, choose not to express them publicly. They are not without a voice; their voices are simply drowned out by those of a more active and more radical minority.
 
 Why do people choose silence? The reasons are multifaceted. First, there is fear of social pressure. In a group, publicly expressing opinions that differ from the mainstream often means bearing pressure and exclusion from the group. Many people would rather suppress their true thoughts than become a target of public criticism. Second, there is uncertainty about one's own judgment. When a person sees that most people around them hold a certain view, they involuntarily begin to doubt whether their own judgment is correct — this psychological phenomenon is called the "bandwagon effect."
@@ -3725,7 +3725,7 @@ The counselor said that establishing a sense of boundaries is a process that req
 
 科技与人文，不是对立的，而是相辅相成的。一个没有人文精神的科技，是危险的；一个脱离现实的人文，是无力的。只有两者的有机结合，才能推动人类文明向着更加美好的方向发展。
 
-那位科技哲学家说，科技与人文的张力，不是一个需要解决的问题，而是一种需要保持的创造性张力。正是这种张力，推动着人类不断地反思科技发展的方向，不断地追问：我们在创造什么？为了什么？对谁有益？这些问题，没有最终的答案，但提问本身，就是人类保持人性的重要方式。在科技高速发展的时代，保持这种人文的追问，比任何时候都更加重要。科技与人文的对话，是当代最重要的文化议题之一。这种对话，不只是学术层面的，更是每一个现代人都需要参与的。因为科技的发展，正在深刻地改变着我们的生活方式、思维方式和价值观念。如何在这种变化中，保持人的主体性和尊严，是每一个人都需要思考的问题。`,
+科技与人文的张力，不是一个需要消除的矛盾，而是一种需要珍视的创造性张力。正是这种张力，推动着人类不断追问：我们在创造什么？为了什么？对谁有益？这些问题，没有最终的答案，但提问本身，就是人类保持人性的重要方式。在科技高速发展的时代，科技与人文的对话，比任何时候都更加迫切，也更加重要。`,
     englishTranslation: `In contemporary university education, there is an increasingly obvious trend: science and engineering are receiving more and more attention, while the humanities are becoming increasingly marginalized. Many students and parents believe that in a technology-driven era, learning programming, data analysis, and artificial intelligence is the right choice, while "useless" subjects like literature, history, and philosophy are nothing but a waste of time.
 
 This view, I believe, is a dangerous short-sightedness. Technological development certainly requires large numbers of engineers and technical talent, but a healthy society equally needs people who can think about fundamental questions such as "how should we live," "what is justice," and "what purposes should technology serve." And these questions are precisely the core concerns of the humanities.
@@ -4233,7 +4233,7 @@ The relationship between language and thought is a profound and complex question
 
 我们这一代人，生活在人类历史上物质最为丰富、技术最为先进的时代，但同时也面临着气候变化、技术失控、社会极化等前所未有的挑战。如何在享受文明成果的同时，承担起守护文明的责任，是我们这一代人无法回避的历史使命。
 
-那位历史学家说，研究文明的脆弱性，不是为了让人们感到绝望，而是为了让人们更加珍惜和保护我们所拥有的文明成果。每一个时代，都面临着自己独特的挑战和威胁；每一代人，都有责任把文明的火炬传递下去。这种责任感，不是负担，而是一种崇高的使命。理解文明的脆弱性，恰恰是建立文明韧性的第一步。只有清醒地认识到文明可能崩溃，我们才会以足够的认真和敬畏，去维护和发展它。文明的韧性，来自于每一代人对文明价值的深刻认识和坚定守护。文明的守护，是每一代人共同的使命。`,
+理解文明的脆弱性，不是为了让人感到绝望，而是为了让人更加珍惜我们所拥有的一切。每一代人，都有责任把文明的火炬传递下去——不是作为负担，而是作为一种崇高的使命。清醒地认识到文明可能崩溃，恰恰是建立文明韧性的第一步。文明的守护，始于每一个人对当下的认真与敬畏。`,
     englishTranslation: `The historian Arnold Toynbee once pointed out that most civilizations that have appeared in human history have ultimately moved toward decline and extinction. This observation is an unsettling reminder for those living at the contemporary "peak of civilization": everything we enjoy today — stable social order, advanced science and technology, abundant material life — is not a historical inevitability but an extremely fragile achievement that requires the joint efforts of every generation to maintain and pass on.
 
 The fragility of civilization comes from multiple levels. At the material level, modern civilization is highly dependent on complex infrastructure and supply chains; once these systems are disrupted, the functioning of the entire society falls into paralysis. The 2003 North American blackout sent tens of millions of people back to an era without electricity within just a few hours, fully exposing modern civilization's extreme dependence on energy infrastructure.
@@ -4270,7 +4270,7 @@ That historian said that studying the fragility of civilization is not meant to 
 
 真正的孤独，不是空虚，而是充实；不是逃避，而是回归；不是软弱，而是一种深刻的内在力量。一个能够享受孤独的人，往往也是一个能够真正享受与他人在一起的人，因为他的社交，是出于真正的渴望，而不是出于对孤独的恐惧。
 
-那位作家说，他最好的作品，往往是在最孤独的时候写出来的。孤独，给了他一种特殊的清醒，让他能够看到在喧嚣中看不到的东西，听到在噪音中听不到的声音。他认为，在这个越来越害怕孤独的时代，重新发现孤独的价值，学会与自己相处，是一种重要的人生能力。这种能力，不只是对创作者有益，对每一个希望过有深度的生活的人，都是不可或缺的。孤独，是一种能力，也是一种选择。学会享受孤独，是走向内心自由的重要一步。`,
+在这个越来越害怕孤独的时代，重新发现孤独的价值，学会与自己相处，是一种重要的人生能力。这种能力，不只是对创作者有益，对每一个希望过有深度的生活的人，都是不可或缺的。孤独，是一种能力，也是一种选择。学会享受孤独，是走向内心自由的重要一步。`,
     englishTranslation: `In modern society, loneliness is often viewed as a condition needing a cure, a mark of social failure. We are encouraged to socialize, to build networks, to stay connected, as if being alone is a state to be avoided. However, a growing body of psychological research and philosophical reflection shows that solitude — true, voluntary solitude — is an indispensable component of human spiritual life.
 
 Solitude and isolation are two completely different concepts. Isolation is a forced, painful state — the absence of social connection; while solitude is a state of actively chosen time with oneself, an inward exploration. True solitude is not an escape from others but a return to oneself.
@@ -4307,7 +4307,7 @@ That writer said his best works were often written in his loneliest moments. Sol
 
 更根本的，是需要在社会层面重新思考，我们究竟想要一个什么样的社会。一个极度不平等的社会，即使在物质上是富裕的，也无法实现真正意义上的人类繁荣。因为人类的繁荣，不仅仅需要物质的满足，还需要尊严、公平和真正的机会平等。
 
-那位经济学家说，解决经济不平等，需要的不只是技术性的政策调整，更需要一种对公平和正义的深刻承诺。这种承诺，必须渗透到社会的各个层面——从政策制定者到普通公民，从企业家到工人，每个人都需要认识到，一个更加平等的社会，对所有人都更加有益。不平等不只是穷人的问题，它是整个社会的问题，它侵蚀着社会的凝聚力，阻碍着人类潜能的充分发挥。`,
+解决经济不平等，需要的不只是技术性的政策调整，更需要一种对公平和正义的深刻承诺。这种承诺，必须渗透到社会的各个层面——从政策制定者到普通公民，每个人都需要认识到，一个更加平等的社会，对所有人都更加有益。不平等不只是穷人的问题，它是整个社会的问题，侵蚀着社会的凝聚力，阻碍着人类潜能的充分发挥。`,
     englishTranslation: `Economic inequality is one of the most important social issues in today's world. According to various statistical data, the degree of inequality in global wealth distribution has continued to intensify over the past few decades, with the wealth held by a small number of super-rich individuals already exceeding the combined wealth of the majority of the world's population. This extreme inequality is not merely a moral issue — it also has far-reaching negative effects on social stability, democratic institutions, and economic efficiency.
 
 Regarding the roots of economic inequality, different economists and thinkers offer different explanations. Supporters of the free market believe that inequality is the natural result of market competition — a reasonable reward for individual talent and effort. Under this view, inequality is not only inevitable but also beneficial, because it provides incentives that drive people to create value.
@@ -4348,7 +4348,7 @@ That economist said that solving economic inequality requires not just technical
 
 告别的时候，陈先生送给我一句话，他说这是他一生外交经验的总结："理解，是一切和平的基础。"
 
-那位外交官说，他最深刻的认识，是人类在根本上的相似性远大于表面上的差异性。无论文化背景如何不同，人们对和平、安全、尊严和幸福的渴望是共同的。外交的艺术，就是在尊重差异的同时，找到这些共同的人性基础，并在此基础上建立合作和信任。他相信，只要人类能够保持这种对共同人性的认识，就没有任何冲突是无法通过对话和谈判来解决的。外交的艺术，在于在坚守原则的同时，保持对话的大门永远敞开。`,
+这句话，我一直记在心里。无论文化背景如何不同，人们对和平、安全、尊严和幸福的渴望是共同的。外交的艺术，就是在尊重差异的同时，找到这些共同的人性基础，并在此基础上建立合作与信任。只要人类能够保持这种对共同人性的认识，就没有任何冲突是无法通过对话来化解的。`,
     englishTranslation: `My mentor, retired diplomat Mr. Chen, served in diplomatic positions in multiple countries and personally witnessed many major events in international politics in the second half of the twentieth century. On his eightieth birthday, he accepted my interview and looked back on his long diplomatic career.
 
 "Diplomacy," he said, "is an art of understanding. Not understanding the other party's position, but understanding why they hold that position. Between these two, there is a fundamental difference."
@@ -4387,7 +4387,7 @@ That diplomat said his deepest insight was that humanity's fundamental similarit
 
 我认为，深度阅读的复兴，不仅仅是个人的选择，更是一种文化和教育的使命。在一个信息过载、注意力稀缺的时代，培养深度阅读的能力，是保护人类最宝贵的认知资产的必要举措。一个无法进行深度思考的社会，无论拥有多少信息，都无法真正地理解世界，也无法明智地应对它所面临的挑战。
 
-那位出版人说，他对阅读的未来是谨慎乐观的。虽然传统纸质书的市场在缩小，但阅读本身并没有消亡，它只是在以新的形式延续。更重要的是，他看到了一种新的阅读文化的兴起——更加多元、更加互动、更加包容。在这种新的阅读文化中，读者不只是被动的接受者，更是主动的参与者和创造者。这种转变，虽然带来了挑战，但也带来了前所未有的机遇。`,
+阅读的未来，值得谨慎乐观。虽然传统纸质书的市场在缩小，但阅读本身并没有消亡，它只是在以新的形式延续。更重要的是，一种新的阅读文化正在兴起——更加多元、更加互动、更加包容。在这种新的阅读文化中，读者不只是被动的接受者，更是主动的参与者和创造者。这种转变，虽然带来了挑战，但也带来了前所未有的机遇。`,
     englishTranslation: `Before the rise of digital media, reading — especially deep reading of long texts — was one of humanity's primary ways of acquiring knowledge and developing thinking ability. However, the widespread adoption of the internet and smartphones has fundamentally changed people's information consumption patterns. Fragmented content, short videos, and instant messaging are replacing deep reading and becoming the primary channels through which more and more people acquire information.
 
 This transformation has had far-reaching effects on human cognitive ability. Neuroscientist Maryanne Wolf points out in her research that deep reading is not merely a way of acquiring information — it is also a form of cognitive training that trains our attention, cultivates our empathy, strengthens our critical thinking ability, and stimulates our imagination. When we are immersed in a novel, we are actually engaged in a complex cognitive activity: constructing mental models of fictional worlds, understanding the motivations and emotions of different characters, and following the logic of the narrative to advance the story. These cognitive activities have irreplaceable value for the development and maintenance of the brain.
@@ -4422,7 +4422,7 @@ That publisher said he was cautiously optimistic about the future of reading. Al
 
 道德的进化，不是一个自动发生的过程，它需要每一代人的道德勇气和道德想象力——勇气去质疑那些被视为理所当然的做法，想象力去设想一个更加公正、更加包容的世界。
 
-那位哲学家说，道德进化的过程，是人类不断扩大道德关怀圈的过程。从最初只关心自己的家族，到关心自己的部落，到关心自己的民族，到关心全人类，甚至到关心其他物种和整个地球生态系统——这个扩展的过程，虽然缓慢而曲折，但方向是清晰的。他相信，这种道德进化，是人类最深层的本能之一，也是人类文明最重要的推动力之一。`,
+道德进化的过程，是人类不断扩大道德关怀圈的过程。从最初只关心自己的家族，到关心部落、民族，到关心全人类，甚至到关心其他物种和整个地球生态系统——这个扩展的过程，虽然缓慢而曲折，但方向是清晰的。这种道德进化，是人类最深层的本能之一，也是人类文明最重要的推动力之一。`,
     englishTranslation: `If we make a longitudinal comparison of moral concepts throughout human history, we find that morality is not unchanging — it is constantly evolving. Practices that were taken for granted in ancient times — slavery, discrimination against women, persecution of heretics — are today universally considered immoral, even criminal. This historical change in moral concepts raises a profound philosophical question: is morality objective and universal, or subjective and relative?
 
 Moral relativists believe that moral concepts are determined by specific cultural and historical contexts, and that no moral concept is universally valid. Under this view, we cannot judge historical behavior by today's moral standards, nor can we say that one culture's moral concepts are more "correct" than another's.
@@ -4459,7 +4459,7 @@ That philosopher said that the process of moral evolution is the process of huma
 
 家族企业的传承，不仅仅是一个商业问题，它也是一个关于家族认同、代际关系和价值观传递的深层次社会问题。如何在这些复杂的维度之间找到平衡，是每一个有志于基业长青的家族企业都必须认真思考的问题。
 
-那位企业顾问说，家族企业的传承困境，折射出的是一个更深层的问题：如何在保持企业文化和价值观的同时，适应不断变化的商业环境？这个问题，没有统一的答案，每个家族企业都需要根据自己的具体情况，找到适合自己的传承方式。但有一点是共同的：成功的传承，需要创始人的智慧、接班人的能力，以及整个家族的共识和支持。缺少任何一个，传承都可能失败。`,
+家族企业的传承困境，折射出的是一个更深层的问题：如何在保持企业文化和价值观的同时，适应不断变化的商业环境？这个问题，没有统一的答案，每个家族企业都需要根据自身情况，找到适合自己的传承方式。但有一点是共同的：成功的传承，需要创始人的智慧、接班人的能力，以及整个家族的共识和支持。缺少任何一个，传承都可能失败。`,
     englishTranslation: `In China's business world, family enterprises occupy a position of considerable importance. According to statistics, family enterprises account for more than eighty percent of China's private enterprises. However, there is a worrying phenomenon: large numbers of first-generation entrepreneurs encounter various difficulties in the process of passing their enterprises to the second generation, causing many once-glorious family enterprises to decline during generational succession.
 
 This difficulty has multiple roots. First, there is the issue of the capability gap between founders and successors. First-generation entrepreneurs typically fought their way through harsh market environments, relying on exceptional business intuition, tenacious willpower, and a sharp grasp of market opportunities to build their enterprises from scratch. Their children, on the other hand, typically grew up in privileged environments and received good educations, but lack the business acumen and crisis response capabilities that the first generation forged through adversity.
@@ -4494,7 +4494,7 @@ That business consultant said that the succession dilemma of family businesses r
 
 面对这些挑战，我认为，解决气候变化问题，需要一种新的道德框架：一种能够超越个人利益和国家利益的短视，将人类作为一个整体来思考，并且将未来几代人的利益纳入当代决策的框架。这种道德框架，不仅仅需要政治家和政策制定者的努力，更需要整个社会在价值观层面的深刻转变。
 
-那位气候科学家说，气候变化的伦理维度，要求我们重新思考人类与自然的关系，以及当代人与后代人的关系。我们不只是地球的使用者，更是地球的守护者；我们不只是对当代人负责，更是对未来几代人负责。这种责任感，需要体现在我们的每一个选择中——从个人的消费方式，到企业的经营策略，到国家的政策制定。气候变化，是对人类道德能力的终极考验，也是人类能否真正成为地球负责任的守护者的关键时刻。`,
+气候变化的伦理维度，要求我们重新思考人类与自然的关系，以及当代人与后代人的关系。我们不只是地球的使用者，更是地球的守护者；我们不只是对当代人负责，更是对未来几代人负责。这种责任感，需要体现在每一个选择中——从个人的消费方式，到企业的经营策略，到国家的政策制定。气候变化，是对人类道德能力的终极考验，也是人类能否真正成为地球负责任守护者的关键时刻。`,
     englishTranslation: `Climate change is one of the most complex moral challenges humanity has ever faced. Its complexity lies not only in its scientific and technical difficulty but also in the profound ethical questions it involves: intergenerational justice, international equity, and the relationship between individual responsibility and collective action.
 
 Intergenerational justice is one of the most central issues in climate change ethics. The main victims of climate change are not people today but future generations. Today's humanity, by burning fossil fuels and emitting large quantities of greenhouse gases, is overdrawing future environmental resources and transferring the costs of climate change to those not yet born. This intergenerational injustice is one of the most profound moral problems of climate change: do we have the right, for the sake of our own convenience and prosperity today, to deprive future generations of the right to a stable climate?
@@ -4568,7 +4568,7 @@ The multiplicity of identity is the common condition of modern people and also t
 
 林建的话，让我对建筑有了全新的理解。在他看来，建筑不仅仅是一种技术和艺术，更是一种伦理——关于人与自然、人与历史、人与人之间关系的伦理。
 
-那位建筑师说，他最深刻的认识，是建筑与人的关系是双向的：建筑塑造人，人也塑造建筑。一个好的建筑，不只是满足功能需求，更是在引导人们如何生活、如何互动、如何感受空间和时间。在这个意义上，建筑师不只是设计建筑的人，更是在设计人们的生活体验，设计一种可能的生活方式。这种责任，要求建筑师不只有技术能力，更要有人文关怀和社会责任感。`,
+建筑与人的关系是双向的：建筑塑造人，人也塑造建筑。一个好的建筑，不只是满足功能需求，更是在引导人们如何生活、如何互动、如何感受空间和时间。在这个意义上，建筑师不只是设计建筑的人，更是在设计人们的生活体验，设计一种可能的生活方式。林建的这种理解，让我对脚下的每一片土地、身边的每一堵墙，都有了新的感受。`,
     englishTranslation: `My friend Lin Jian is an architect with considerable international reputation. His works are known for their profound response to local culture and natural environment, having won numerous awards around the world. However, in a late-night long conversation, he revealed to me his complex feelings about the profession of architecture.
 
 "Architecture," he said, "is an art full of contradictions. It is one of the most enduring art forms — a good building can stand for hundreds of years and become a witness to an era; but at the same time, it is also one of the most constrained art forms — architects must find a fragile balance between the client's needs, budget constraints, technical feasibility, regulatory requirements, and their own artistic ideals."

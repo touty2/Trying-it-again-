@@ -992,6 +992,28 @@ export default function SettingsPage() {
           </div>
         </div>
 
+        {/* Story voice gender */}
+        <div className="pt-4 border-t border-border/40">
+          <p className="text-sm font-medium text-foreground mb-2">Story reading voice gender</p>
+          <p className="text-xs text-muted-foreground mb-3">Selects a male or female voice for story TTS playback. Applies when no specific voice is pinned below.</p>
+          <div className="flex gap-2">
+            {(["female", "male"] as const).map((g) => (
+              <button
+                key={g}
+                onClick={() => updateAudio({ storyVoiceGender: g })}
+                className={[
+                  "flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-semibold transition-all",
+                  audio.storyVoiceGender === g
+                    ? "bg-primary text-primary-foreground border-primary"
+                    : "border-border text-muted-foreground hover:border-primary/40 hover:text-foreground",
+                ].join(" ")}
+              >
+                {g === "female" ? "\u2640 Female" : "\u2642 Male"}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Slow flashcard toggle */}
         <div className="flex items-center justify-between pt-4 border-t border-border/40">
           <div>

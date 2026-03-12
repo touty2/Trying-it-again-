@@ -136,13 +136,23 @@ export function getBestZhVoice(
   if (typeof window === "undefined" || !window.speechSynthesis) return null;
   const voices = window.speechSynthesis.getVoices();
   if (voices.length === 0) return null;
-  // If user has manually pinned a voice URI, always honour it regardless of gender
-  if (preferredURI) {
-    const preferred = voices.find((v) => v.voiceURI === preferredURI);
-    if (preferred) return preferred;
-  }
   const zhVoices = voices.filter((v) => v.lang.startsWith("zh"));
   if (zhVoices.length === 0) return null;
+
+  // If user has manually pinned a voice URI, honour it ONLY if no gender
+  // preference is set OR the pinned voice matches the requested gender.
+  // This allows the gender toggle to override a pinned voice.
+  if (preferredURI) {
+    const preferred = zhVoices.find((v) => v.voiceURI === preferredURI);
+    if (preferred) {
+      // If no gender preference, always use pinned voice
+      if (!gender) return preferred;
+      // If pinned voice matches gender, use it
+      if (voiceMatchesGender(preferred, gender)) return preferred;
+      // Pinned voice doesn't match gender — fall through to gender-based selection
+    }
+  }
+
   // If a gender preference is set, try to find a matching voice first
   if (gender) {
     const genderVoices = zhVoices.filter((v) => voiceMatchesGender(v, gender));
@@ -151,6 +161,8 @@ export function getBestZhVoice(
     }
     // No gender-specific voice found — fall through to best available
   }
+
+  // Fallback: best available zh voice by score
   return zhVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a))[0];
 }
 
@@ -266,7 +278,8 @@ function speakPromise(
   text: string,
   voice: SpeechSynthesisVoice | null,
   rate: number,
-  token: { cancelled: boolean }
+  token: { cancelled: boolean },
+  onBoundary?: (charIndex: number) => void
 ): Promise<void> {
   return new Promise((resolve, reject) => {
     if (token.cancelled) { reject(new Error("cancelled")); return; }
@@ -284,6 +297,11 @@ function speakPromise(
     utt.onend = () => {
       if (!token.cancelled) resolve();
       else reject(new Error("cancelled"));
+    };
+    utt.onboundary = (e) => {
+      if (!token.cancelled && e.name === "word" && onBoundary) {
+        onBoundary(e.charIndex);
+      }
     };
     utt.onerror = (e) => {
       if (e.error === "interrupted" || e.error === "canceled") {
@@ -327,6 +345,8 @@ export interface TTSControls {
   engine: TTSEngine;
   hasSpeech: boolean;
   speed: number;
+  /** charIndex of the word boundary currently being spoken, -1 when idle */
+  activeCharIndex: number;
   playAll: (text: string) => void;
   playSentence: (sentences: string[], index: number) => void;
   speakWord: (text: string, rate?: number) => void;
@@ -348,12 +368,15 @@ export function useTTS(options?: {
   voiceGender?: "female" | "male";
   /** @deprecated — ignored, kept for API compatibility */
   serverVoice?: string;
+  /** Called on each word boundary event with the charIndex within the current sentence */
+  onWordBoundary?: (charIndex: number) => void;
 }): TTSControls {
   const [state, setState] = useState<PlaybackState>("idle");
   const [currentIdx, setCurrentIdx] = useState(0);
   const [sentences, setSentences] = useState<string[]>([]);
   const [speed, setSpeedState] = useState(options?.defaultSpeed ?? 1.0);
   const [hasSpeech, setHasSpeech] = useState(false);
+  const [activeCharIndex, setActiveCharIndex] = useState(-1);
 
   const stateRef = useRef<PlaybackState>("idle");
   const currentIdxRef = useRef(0);
@@ -362,6 +385,13 @@ export function useTTS(options?: {
   const preferredVoiceRef = useRef(options?.preferredVoiceURI ?? null);
   const voiceGenderRef = useRef(options?.voiceGender ?? null);
   const tokenRef = useRef<{ cancelled: boolean }>({ cancelled: false });
+  const onWordBoundaryRef = useRef(options?.onWordBoundary);
+  useEffect(() => { onWordBoundaryRef.current = options?.onWordBoundary; }, [options?.onWordBoundary]);
+  // Internal boundary handler that updates activeCharIndex state
+  const handleBoundary = useCallback((ci: number) => {
+    setActiveCharIndex(ci);
+    onWordBoundaryRef.current?.(ci);
+  }, []);
 
   useEffect(() => { preferredVoiceRef.current = options?.preferredVoiceURI ?? null; }, [options?.preferredVoiceURI]);
   useEffect(() => { voiceGenderRef.current = options?.voiceGender ?? null; }, [options?.voiceGender]);
@@ -438,7 +468,7 @@ export function useTTS(options?: {
           );
         }
         try {
-          await speakPromise(sents[i], voice, speedRef.current, token);
+          await speakPromise(sents[i], voice, speedRef.current, token, handleBoundary);
         } catch {
           break;
         }
@@ -452,9 +482,10 @@ export function useTTS(options?: {
         setState("idle"); stateRef.current = "idle";
         setCurrentIdx(0); currentIdxRef.current = 0;
         setSentences([]); sentencesRef.current = [];
+        setActiveCharIndex(-1);
       }
     },
-    [options]
+    [options, handleBoundary]
   );
 
   const playAll = useCallback(
@@ -518,6 +549,7 @@ export function useTTS(options?: {
     setState("idle"); stateRef.current = "idle";
     setCurrentIdx(0); currentIdxRef.current = 0;
     setSentences([]); sentencesRef.current = [];
+    setActiveCharIndex(-1);
   }, [newToken]);
 
   const next = useCallback(() => {
@@ -564,6 +596,7 @@ export function useTTS(options?: {
     engine: "browser" as TTSEngine,
     hasSpeech,
     speed,
+    activeCharIndex,
     playAll,
     playSentence,
     speakWord,

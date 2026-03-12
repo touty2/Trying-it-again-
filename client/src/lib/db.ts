@@ -298,8 +298,8 @@ export function createFSRSCard(wordId: string, cardType: CardType): Flashcard {
  * Categorise a set of flashcards into due-today, overdue, and new buckets.
  *
  * - overdue:  dueDate < start of today (missed reviews from previous days)
- * - dueToday: dueDate is today (scheduled for today)
- * - newCards: never reviewed (lastReviewed === null)
+ * - dueToday: dueDate is today (scheduled for today) OR never reviewed (new cards are always due)
+ * - newCards: never reviewed (lastReviewed === null) — subset of dueToday
  *
  * Completed words (passed as a Set) are excluded from all counts.
  */
@@ -319,7 +319,9 @@ export function getDueStats(
   for (const card of cards) {
     if (completedWordIds.has(card.wordId)) continue;
     if (card.lastReviewed === null) {
+      // New cards are always immediately due — count in both buckets
       newCards++;
+      dueToday++;
     } else if (card.dueDate < todayStartMs) {
       overdue++;
     } else if (card.dueDate < tomorrowStartMs) {

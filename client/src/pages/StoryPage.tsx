@@ -67,9 +67,11 @@ interface MiniPlayerProps {
   audioSettings: ReturnType<typeof useAudioSettings>;
   onClose: () => void;
   mode: "all" | "sentence";
+  /** Called when gender toggle is clicked — parent should restart playback with new voice */
+  onGenderChange?: (newGender: "female" | "male") => void;
 }
 
-function MiniPlayer({ tts, audioSettings, onClose, mode }: MiniPlayerProps) {
+function MiniPlayer({ tts, audioSettings, onClose, mode, onGenderChange }: MiniPlayerProps) {
   const { state, currentSentenceIndex, totalSentences, pause, resume, stop, next, prev, setSpeed, speed } = tts;
   const [showSpeeds, setShowSpeeds] = useState(false);
   const currentGender = audioSettings.settings.storyVoiceGender ?? "female";
@@ -82,6 +84,7 @@ function MiniPlayer({ tts, audioSettings, onClose, mode }: MiniPlayerProps) {
   const toggleGender = () => {
     const nextGender = currentGender === "female" ? "male" : "female";
     audioSettings.update({ storyVoiceGender: nextGender });
+    onGenderChange?.(nextGender);
   };
 
   return (
@@ -205,6 +208,8 @@ interface SegmentedTextProps {
   onSpeak: (text: string) => void;
   /** Set of Chinese strings to highlight as grammar patterns (amber wavy underline). */
   grammarPatterns?: Set<string>;
+  /** charIndex within the current sentence from onboundary event, -1 when idle */
+  activeCharIndex?: number;
 }
 
 /**
@@ -217,7 +222,7 @@ interface SegmentedTextProps {
  *  3. CSS for .tts-active is in index.css (background highlight).
  *  4. Scroll: scrollIntoView on the first span with the active index.
  */
-function SegmentedText({ text, textId, activeSentenceIndex, allSentences, onSpeak, grammarPatterns }: SegmentedTextProps) {
+function SegmentedText({ text, textId, activeSentenceIndex, allSentences, onSpeak, grammarPatterns, activeCharIndex = -1 }: SegmentedTextProps) {
   const [activeSegment, setActiveSegment] = useState<{
     segment: CedictSegment;
     position: { x: number; y: number };
@@ -245,19 +250,19 @@ function SegmentedText({ text, textId, activeSentenceIndex, allSentences, onSpea
     return () => clearInterval(interval);
   }, [dictReady]);
 
-  // ── Highlight via DOM class-toggle (no React re-render) ──────────────────
+  // ── Sentence-level highlight via DOM class-toggle (no React re-render) ─────
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    // Remove highlight from all previously highlighted spans
+    // Remove sentence highlight from all previously highlighted spans
     container.querySelectorAll<HTMLElement>(".tts-active").forEach((el) => {
       el.classList.remove("tts-active");
     });
 
     if (activeSentenceIndex < 0) return;
 
-    // Add highlight to all spans with the active sentence index
+    // Add sentence highlight to all spans with the active sentence index
     const selector = `[data-sentence-index="${activeSentenceIndex}"]`;
     const spans = container.querySelectorAll<HTMLElement>(selector);
     let firstEl: HTMLElement | null = null;
@@ -271,6 +276,32 @@ function SegmentedText({ text, textId, activeSentenceIndex, allSentences, onSpea
       (firstEl as HTMLElement).scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }, [activeSentenceIndex]);
+
+  // ── Word-level highlight via onboundary charIndex ─────────────────────────
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    // Remove word highlight from previously highlighted span
+    container.querySelectorAll<HTMLElement>(".tts-word-active").forEach((el) => {
+      el.classList.remove("tts-word-active");
+    });
+
+    if (activeCharIndex < 0 || activeSentenceIndex < 0) return;
+
+    // Find the span whose char range contains activeCharIndex
+    // Spans have data-char-start and data-char-end attributes (within-sentence offsets)
+    const sentenceSpans = container.querySelectorAll<HTMLElement>(
+      `[data-sentence-index="${activeSentenceIndex}"][data-char-start]`
+    );
+    sentenceSpans.forEach((el) => {
+      const start = parseInt(el.getAttribute("data-char-start") ?? "-1", 10);
+      const end = parseInt(el.getAttribute("data-char-end") ?? "-1", 10);
+      if (start >= 0 && activeCharIndex >= start && activeCharIndex < end) {
+        el.classList.add("tts-word-active");
+      }
+    });
+  }, [activeCharIndex, activeSentenceIndex]);
 
   const tapKeyRef = useRef(0);
 
@@ -363,6 +394,13 @@ function SegmentedText({ text, textId, activeSentenceIndex, allSentences, onSpea
               // Look up the sentence index for the first char of this segment
               const sentIdx = charToSentenceIndex[segGlobalStart] ?? -1;
 
+              // Compute char offset within the sentence (for word-level TTS highlight)
+              const sentStart = sentIdx >= 0
+                ? allSentences.slice(0, sentIdx).reduce((acc, s) => acc + s.length, 0)
+                : -1;
+              const charWithinSentStart = sentStart >= 0 ? segGlobalStart - sentStart : -1;
+              const charWithinSentEnd = charWithinSentStart >= 0 ? charWithinSentStart + seg.text.length : -1;
+
               const isChinese = /[\u4e00-\u9fff\u3400-\u4dbf]/.test(seg.text);
               const inDeck = isChinese && isWordInDeck(seg.text);
 
@@ -385,6 +423,8 @@ function SegmentedText({ text, textId, activeSentenceIndex, allSentences, onSpea
                 <span
                   key={sIdx}
                   data-sentence-index={sentIdx >= 0 ? sentIdx : undefined}
+                  data-char-start={charWithinSentStart >= 0 ? charWithinSentStart : undefined}
+                  data-char-end={charWithinSentEnd >= 0 ? charWithinSentEnd : undefined}
                   onClick={(e) => handleWordClick(seg, allSentences[sentIdx] ?? para, e)}
                   className={[
                     "cursor-pointer rounded px-0.5 transition-colors duration-200",
@@ -602,6 +642,20 @@ export default function StoryPage() {
     tts.speakWord(word);
   }, [tts]);
 
+  // When gender is toggled mid-playback, restart from the current sentence
+  // so the new voice takes effect immediately (voiceGenderRef updates but the
+  // already-queued utterance uses the old voice).
+  const handleGenderChange = useCallback(() => {
+    if (!text || tts.state === "idle") return;
+    const idx = tts.currentSentenceIndex;
+    if (listenMode === "sentence") {
+      // Small delay to let voiceGenderRef update before restarting
+      setTimeout(() => tts.playSentence(allSentences, idx), 50);
+    } else if (listenMode === "all") {
+      setTimeout(() => tts.playSentence(allSentences, idx), 50);
+    }
+  }, [text, tts, listenMode, allSentences]);
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-64">
@@ -715,6 +769,7 @@ export default function StoryPage() {
           text={text.chineseText}
           textId={text.id}
           activeSentenceIndex={activeSentenceIndex}
+          activeCharIndex={tts.state === "idle" ? -1 : tts.activeCharIndex}
           allSentences={allSentences}
           onSpeak={handleSpeak}
           grammarPatterns={grammarPatterns}
@@ -824,6 +879,7 @@ export default function StoryPage() {
             audioSettings={{ settings: audioSettings, update: updateAudioSettings, reset: () => {} }}
             onClose={handlePlayerClose}
             mode={listenMode}
+            onGenderChange={handleGenderChange}
           />
         )}
       </AnimatePresence>

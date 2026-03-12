@@ -51,3 +51,11 @@
 - [ ] Password reset flow (token table exists, email sending not configured)
 - [ ] Admin panel for user management
 - [ ] Export vocabulary to Anki/CSV
+
+## Targeted Fixes (User Request)
+- [x] Fix 1: Diagnose flashcard review queue — check due date calculation, overdue card inclusion, unintentional filters
+- [x] Fix 2: Patch dictionary completeness — fill missing definitions, correct inaccurate ones
+- [x] Fix 3: Fix story endings — cut irrelevant final paragraphs, add relevant conclusions for all stories
+- [x] Fix 4a: TTS word highlighting — highlight current word/phrase as it is spoken
+- [x] Fix 4b: TTS voice quality — add best Mandarin voices, Northern accent preferred, no Cantonese
+- [x] Fix 4c: TTS male voice toggle — ensure male voice works and is high quality

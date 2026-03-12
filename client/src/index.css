@@ -204,13 +204,30 @@
    Uses CSS custom properties so it respects the active theme.
    ─────────────────────────────────────────────────────────────────────────── */
 [data-sentence-index].tts-active {
-  background-color: hsl(var(--primary) / 0.12);
+  background-color: oklch(0.45 0.12 195 / 0.10);
   border-radius: 2px;
   transition: background-color 0.15s ease;
 }
 
 .dark [data-sentence-index].tts-active {
-  background-color: hsl(var(--primary) / 0.22);
+  background-color: oklch(0.55 0.12 195 / 0.18);
+}
+
+/* ── TTS word-level highlight ────────────────────────────────────────────────
+   Stronger highlight on the specific word currently being spoken.
+   Toggled via DOM class manipulation using onboundary charIndex.
+   ─────────────────────────────────────────────────────────────────────────── */
+[data-sentence-index].tts-word-active {
+  background-color: oklch(0.45 0.12 195 / 0.28) !important;
+  border-radius: 3px;
+  outline: 1.5px solid oklch(0.45 0.12 195 / 0.50);
+  outline-offset: 1px;
+  transition: background-color 0.06s ease;
+}
+
+.dark [data-sentence-index].tts-word-active {
+  background-color: oklch(0.55 0.12 195 / 0.38) !important;
+  outline-color: oklch(0.55 0.12 195 / 0.65);
 }
 
 /* ─── Grammar highlight (story text) ─────────────────────────────────────────

@@ -88,11 +88,25 @@ function buildLabeledDefs(hanzi: string, sentence?: string, isProperNameHint?: b
   const posHint = sentence ? getPosHint(hanzi, sentence) : null;
   const grammarLabel = getGrammarLabel(hanzi, ranked?.primary.raw ?? legacyInfo?.definition ?? "");
   const contextualLabel = getContextualLabel(hanzi, posHint, isProperName);
-  // For proper names with no CEDICT entry, show a placeholder so the definition list is never empty
-  const finalLabeled =
-    labeled.length === 0 && isProperName
-      ? [{ text: "Chinese personal name", label: "common" as import("@/lib/formatDefinitions").FrequencyLabel }]
-      : labeled;
+  // Fallback: if all meanings were filtered out but CEDICT has data, show the raw first meaning
+  // This handles words where all entries are surnames/archaic but the word still has a real meaning
+  let finalLabeled = labeled;
+  if (labeled.length === 0) {
+    if (isProperName) {
+      finalLabeled = [{ text: "Chinese personal name", label: "common" as import("@/lib/formatDefinitions").FrequencyLabel }];
+    } else if (ranked && ranked.primary.meanings.length > 0) {
+      // Show the raw first meaning from CEDICT even if it was filtered
+      const rawFirst = ranked.primary.meanings[0];
+      finalLabeled = [{ text: rawFirst, label: "common" as import("@/lib/formatDefinitions").FrequencyLabel }];
+    } else if (allReadings && allReadings.length > 0) {
+      // Last resort: show the raw definition string from the first reading
+      // getAllReadings returns [pinyin, definition] tuples
+      const rawDef = allReadings[0][1].split("/")[0].trim();
+      if (rawDef) finalLabeled = [{ text: rawDef, label: "common" as import("@/lib/formatDefinitions").FrequencyLabel }];
+    } else if (legacyInfo?.definition) {
+      finalLabeled = [{ text: legacyInfo.definition, label: "common" as import("@/lib/formatDefinitions").FrequencyLabel }];
+    }
+  }
   return { labeled: finalLabeled, primaryPinyin, grammarLabel, isProperName, contextualLabel };
 }
 

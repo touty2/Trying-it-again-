@@ -997,6 +997,24 @@ export default function Deck() {
     return () => clearTimeout(t);
   }, [sessionRestored]);
 
+  // When the user returns to this tab, merge any newly-due cards into the queue.
+  // This handles the case where cards became due while the tab was in the background.
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (document.visibilityState !== "visible") return;
+      // Only append newly-due cards; don't disrupt the current card position
+      setReviewQueue((prev) => {
+        const currentDue = getDueCards().map((c) => c.cardId);
+        const existingSet = new Set(prev);
+        const newlyDue = currentDue.filter((id) => !existingSet.has(id));
+        if (newlyDue.length === 0) return prev;
+        return [...prev, ...newlyDue];
+      });
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => document.removeEventListener("visibilitychange", handleVisibility);
+  }, [getDueCards]);
+
   return (
     <div>
       {/* Header */}
