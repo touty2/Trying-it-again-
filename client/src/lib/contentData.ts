@@ -1188,15 +1188,7 @@ The two of them agreed on a time and began planning the next trip. Liu Ming felt
 
 但是，她坚持下来了。半年以后，她减掉了十五公斤，血糖也恢复了正常。更重要的是，她感觉整个人精神多了，睡眠质量也变好了。
 
-小美的故事告诉我，改变不容易，但是只要有决心，坚持下去，就一定能看到效果。
-
-演出结束以后，观众们热烈鼓掌。演员们谢幕以后，走到后台，大家互相拥抱，庆祝演出成功。
-
-导演走过来，对大家说："你们今天表现得非常好。这次演出是我们团队共同努力的结果。"
-
-小艺找到了导演，说："谢谢您这段时间对我的指导，我学到了很多。"
-
-半年以后，她真的瘦了十斤，整个人变得更加自信，精神也比以前好多了。她说，减肥让她明白了一个道理：任何改变都需要时间和坚持，急于求成只会适得其反。`,
+小美的故事告诉我，改变不容易，但是只要有决心，坚持下去，就一定能看到效果。`,
     englishTranslation: `My friend Xiaomei started losing weight last year, and her experience was very inspiring to me.
 
 Xiaomei used to pay little attention to her diet and often ate a lot of high-calorie foods like fried chicken, french fries, and desserts. She also didn't like exercising — after work she would lie on the sofa watching TV or playing on her phone. Gradually, her weight kept increasing, and her body started showing some problems: she would get out of breath climbing stairs, and her lower back would ache after walking for a long time.
@@ -2589,8 +2581,6 @@ After that conversation, both father and son realized that communication is not 
 更深层次的担忧，来自于人工智能对人类自主性的潜在威胁。当我们越来越依赖人工智能来做决策的时候，我们是否会逐渐丧失独立思考和判断的能力？当人工智能变得比人类更聪明的时候，人类应该如何定义自己的价值和意义？
 
 我认为，面对人工智能的挑战，我们既不应该盲目乐观，也不应该过度恐惧。关键在于，我们需要在拥抱技术进步的同时，建立起相应的伦理框架和监管机制，确保人工智能的发展方向符合人类的整体利益，而不是被少数人所控制和利用。
-
-人工智能的发展，让我们不得不重新思考人类的独特价值。如果机器能够做很多原本只有人类才能做的事情，那么人类的不可替代性究竟体现在哪里？研究者认为，答案在于人类的情感、创造力和道德判断力。这些，是人工智能目前还无法真正复制的。因此，未来的教育，应该更加注重培养这些人类独有的能力，而不是那些可以被机器替代的技能。
 
 人工智能的发展，让我们不得不重新思考人类的独特价值。研究者认为，答案在于人类的情感、创造力和道德判断力——这些是人工智能目前还无法真正复制的。`,
     englishTranslation: `In recent years, the speed of artificial intelligence development has been breathtaking. From voice recognition to image generation, from autonomous driving to medical diagnosis, AI is penetrating every field of human life at an unprecedented pace. This technological revolution has brought both enormous opportunities and profound challenges.
@@ -4421,8 +4411,6 @@ Aging is the natural process of life and the shared fate of humanity. How we fac
 近年来，中国政府已经意识到这一问题的严重性，并采取了一系列措施来缩小城乡差距，包括加大对农村地区教育和医疗的投入，推进户籍制度改革，以及推动农村土地制度改革等。这些措施，在一定程度上改善了农村居民的生活条件，但是要从根本上解决城乡差距问题，仍然需要更加深入和系统性的制度改革。
 
 从更深层次来看，城乡差距问题，折射出中国社会在现代化进程中所面临的深层矛盾：如何在追求经济效率的同时，保障社会公平；如何在推进城镇化的同时，保护农村文化和农业生产；如何在全球化的背景下，保持中国农村社会的可持续发展。这些问题，没有简单的答案，但它们是中国实现真正意义上的现代化所必须面对和解决的核心挑战。
-
-城乡之间的鸿沟，不只是经济上的，更是文化上的、心理上的。弥合这道鸿沟，需要的不只是资源的重新分配，更需要城乡之间真正的相互理解和尊重。城市人需要理解农村生活的价值和智慧，农村人需要获得平等参与现代社会的机会和能力。这种双向的理解和赋权，才是真正弥合城乡鸿沟的根本途径。它需要政策的支持，更需要文化态度的改变，需要每一个人都愿意跨越那道无形的边界，真正地去了解和尊重另一种生活方式。弥合城乡鸿沟，是建设公平社会的重要一步。城乡之间的真正平等，需要几代人的共同努力，但每一步都值得去走。
 
 弥合城乡之间的鸿沟，需要城乡之间真正的相互理解和尊重。城市人需要理解农村生活的价值和智慧，农村人需要获得平等参与现代社会的机会。这种双向的理解，才是真正解决问题的基础。`,
     englishTranslation: `The urban-rural gap in China is one of the most important social issues in contemporary China. Despite the fact that China has experienced the largest-scale urbanization process in human history over the past few decades, with hundreds of millions of rural people entering cities, the income gap and public service gap between urban and rural areas remains very significant in certain respects.
