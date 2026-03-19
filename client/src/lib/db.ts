@@ -818,35 +818,6 @@ export const ReviewLogDB = {
     }),
 };
 
-// ─── Seed Data ────────────────────────────────────────────────────────────────
-
-/**
- * Seeds all 120 graded reading texts from the content module.
- * Always clears and re-seeds so content updates are picked up automatically.
- * User data (flashcards, words, review history, completed markers) is stored
- * in separate tables and is completely unaffected.
- */
-export async function seedSampleTexts(): Promise<void> {
-  // Always clear and re-seed stories so content updates are picked up automatically
-  const existing = await TextDB.getAll();
-  for (const t of existing) {
-    await TextDB.delete(t.id);
-  }
-  const { CONTENT_TEXTS } = await import("./contentData");
-  for (const ct of CONTENT_TEXTS) {
-    const text: Text = {
-      id: ct.id,
-      title: ct.title,
-      englishTitle: ct.englishTitle,
-      band: ct.band as HskBand,
-      chineseText: ct.chineseText,
-      englishTranslation: ct.englishTranslation,
-      recommendedVocabulary: ct.recommendedVocabulary ?? [],
-      createdAt: Date.now(),
-    };
-    await TextDB.put(text);
-  }
-}
 
 // ─── Word Mistake CRUD ────────────────────────────────────────────────────────
 

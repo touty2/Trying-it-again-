@@ -19,7 +19,6 @@ import {
   ReviewLogDB,
   CardReviewHistoryDB,
   SettingsDB,
-  TextDB,
   WordDB,
   WordMistakeDB,
   CompletedWordDB,
@@ -30,7 +29,6 @@ import {
   createFSRSCard,
   getDueStats,
   toISODate,
-  seedSampleTexts,
   type Flashcard,
   type Settings,
   type FSRSRating,
@@ -38,6 +36,7 @@ import {
   type Word,
   type WordMistake,
 } from "@/lib/db";
+import { CONTENT_TEXTS } from "@/lib/contentData";
 import { lookupWord } from "@/lib/dictionary";
 import { loadCedict, loadCedictMulti, cedictLookup, getAllReadings } from "@/lib/cedict";
 import { rankReadings } from "@/lib/definitionRanker";
@@ -96,7 +95,8 @@ export const AppContext = createContext<AppState | null>(null);
 // ─── Provider ─────────────────────────────────────────────────────────────────
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  const [texts, setTexts] = useState<Text[]>([]);
+  // Stories are served directly from contentData.ts — no IndexedDB caching needed
+  const texts: Text[] = CONTENT_TEXTS as Text[];
   const [words, setWords] = useState<Word[]>([]);
   const [flashcards, setFlashcards] = useState<Flashcard[]>([]);
   const [settings, setSettings] = useState<Settings>({
@@ -122,7 +122,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const wordsRef = useRef<Word[]>([]);
   wordsRef.current = words;
 
-  const textsRef = useRef<Text[]>([]);
+  const textsRef = useRef<Text[]>(texts);
   textsRef.current = texts;
 
   const flashcardsRef = useRef<Flashcard[]>([]);
@@ -141,9 +141,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   completedWordIdsRef.current = completedWordIds;
 
   const refreshAll = useCallback(async () => {
-    const [allTexts, allWords, allCards, s, todayLog, streakVal,
+    const [allWords, allCards, s, todayLog, streakVal,
            completedWords, completedTexts, mistakes] = await Promise.all([
-      TextDB.getAll(),
       WordDB.getAll(),
       FlashcardDB.getAll(),
       SettingsDB.get(),
@@ -153,7 +152,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       CompletedTextDB.getAll(),
       WordMistakeDB.getAll(),
     ]);
-    setTexts(allTexts);
     setWords(allWords);
     setFlashcards(allCards);
     setSettings(s);
@@ -168,9 +166,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     (async () => {
       setIsLoading(true);
-      // Load CC-CEDICT dictionary and seed DB in parallel
+      // Load CC-CEDICT dictionary
       await Promise.all([
-        seedSampleTexts(),
         loadCedict(),
         loadCedictMulti(),
       ]);

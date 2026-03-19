@@ -44,7 +44,7 @@ import { toast } from "sonner";
 import { useApp } from "@/contexts/AppContext";
 import { useSync } from "@/contexts/SyncContext";
 import { useAuth } from "@/_core/hooks/useAuth";
-import { SettingsDB, WordDB, FlashcardDB, ReviewLogDB, TextDB, CompletedTextDB, WordMistakeDB } from "@/lib/db";
+import { SettingsDB, WordDB, FlashcardDB, ReviewLogDB, CompletedTextDB, WordMistakeDB } from "@/lib/db";
 
 // ─── Collapsible Section ──────────────────────────────────────────────────────
 
@@ -550,10 +550,9 @@ export default function SettingsPage() {
   };
 
   const handleExport = async () => {
-    const [allWords, allCards, allTexts, logs, completedTexts, wordMistakes] = await Promise.all([
+    const [allWords, allCards, logs, completedTexts, wordMistakes] = await Promise.all([
       WordDB.getAll(),
       FlashcardDB.getAll(),
-      TextDB.getAll(),
       ReviewLogDB.getAll(),
       CompletedTextDB.getAll(),
       WordMistakeDB.getAll(),
@@ -563,7 +562,6 @@ export default function SettingsPage() {
       version: 2,
       words: allWords,
       flashcards: allCards,
-      texts: allTexts,
       reviewLogs: logs,
       completedTexts,
       wordMistakes,
