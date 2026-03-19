@@ -42,7 +42,7 @@ export async function loadCedict(): Promise<Map<string, CedictEntry>> {
   if (CEDICT) return CEDICT;
   if (loadPromise) return loadPromise;
 
-  loadPromise = fetch('https://d2xsxph8kpxj0f.cloudfront.net/310519663368668080/65DJs5pScaLeyJ3iREenot/cedict_b4890d0b.json')
+  loadPromise = fetch('https://d2xsxph8kpxj0f.cloudfront.net/310519663448161466/cVJgvEwdoSRTg6ab5xZDPN/cedict_9b05f186.json')
     .then((r) => r.json())
     .then((data: Record<string, [string, string]>) => {
       const map = new Map<string, CedictEntry>();
@@ -68,7 +68,7 @@ export async function loadCedictMulti(): Promise<Map<string, [string, string][]>
   if (CEDICT_MULTI) return CEDICT_MULTI;
   if (multiLoadPromise) return multiLoadPromise;
 
-  multiLoadPromise = fetch('https://d2xsxph8kpxj0f.cloudfront.net/310519663368668080/65DJs5pScaLeyJ3iREenot/cedict-multi_0ad91ddb.json')
+  multiLoadPromise = fetch('https://d2xsxph8kpxj0f.cloudfront.net/310519663448161466/cVJgvEwdoSRTg6ab5xZDPN/cedict-multi_d43182a8.json')
     .then((r) => r.json())
     .then((data: Record<string, [string, string][]>) => {
       const map = new Map<string, [string, string][]>();
