@@ -1,3 +1,4 @@
+// @refresh reset
 /**
  * SyncContext — provides cloud sync state and controls throughout the app.
  *

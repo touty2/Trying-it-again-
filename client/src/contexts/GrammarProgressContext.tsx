@@ -1,3 +1,4 @@
+// @refresh reset
 /**
  * GrammarProgressContext — single source of truth for grammar lesson completion.
  *

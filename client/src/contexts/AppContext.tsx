@@ -1,3 +1,4 @@
+// @refresh reset
 /**
  * App State Context
  * Design: Structured Scholar — central state management for all app data

@@ -1,3 +1,4 @@
+// @refresh reset
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useThemeSettings, type ThemeSettings, type AccentColor, type ReadingBg } from "@/hooks/useThemeSettings";
 
