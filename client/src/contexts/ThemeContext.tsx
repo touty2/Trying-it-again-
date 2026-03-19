@@ -1,4 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useThemeSettings, type ThemeSettings, type AccentColor, type ReadingBg } from "@/hooks/useThemeSettings";
+
+// ─── Original ThemeProvider (light/dark class toggle) ─────────────────────────
 
 type Theme = "light" | "dark";
 
@@ -62,3 +65,26 @@ export function useTheme() {
   }
   return context;
 }
+
+// ─── ThemeSettingsProvider (accent color + reading background) ────────────────
+
+interface ThemeSettingsContextValue {
+  settings: ThemeSettings;
+  update: (patch: Partial<ThemeSettings>) => void;
+  reset: () => void;
+}
+
+const ThemeSettingsContext = createContext<ThemeSettingsContextValue | null>(null);
+
+export function ThemeSettingsProvider({ children }: { children: React.ReactNode }) {
+  const value = useThemeSettings();
+  return <ThemeSettingsContext.Provider value={value}>{children}</ThemeSettingsContext.Provider>;
+}
+
+export function useThemeCtx(): ThemeSettingsContextValue {
+  const ctx = useContext(ThemeSettingsContext);
+  if (!ctx) throw new Error("useThemeCtx must be used inside ThemeSettingsProvider");
+  return ctx;
+}
+
+export type { AccentColor, ReadingBg };
