@@ -49,6 +49,7 @@ import { useFlashcardDirection } from "@/hooks/useFlashcardDirection";
 import { CompletedWordDB } from "@/lib/db";
 import type { Flashcard, Word, TestingMode, FlashcardSource } from "@/lib/db";
 import { loadAndMergeSession, useDeckSessionPersistence, clearSession } from "@/hooks/useDeckSession";
+import { toTonePinyin } from "@/lib/pinyin";
 import { useDecks } from "@/hooks/useDecks";
 import { DecksSidebar } from "@/components/DecksSidebar";
 
@@ -266,7 +267,7 @@ function FlashCard({
         >
           {word.hanzi}
         </p>
-        <p className="text-base text-primary font-medium">{word.pinyin}</p>
+        <p className="text-base text-primary font-medium">{toTonePinyin(word.pinyin)}</p>
       </div>
       <div className="px-6 pb-4 border-t border-border/30 pt-4 text-left">
         <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-2">Definition</p>
@@ -317,7 +318,7 @@ function FlashCard({
         >
           {word.hanzi}
         </p>
-        <p className="text-base text-primary font-medium">{word.pinyin}</p>
+        <p className="text-base text-primary font-medium">{toTonePinyin(word.pinyin)}</p>
       </div>
       <div className="px-6 pb-4 border-t border-border/30 pt-4 text-left">
         <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-2">Definition</p>
@@ -683,7 +684,7 @@ function WordListItem({
           {word.hanzi}
         </span>
         <div className="min-w-0">
-          <p className="text-sm text-primary font-medium truncate">{word.pinyin}</p>
+          <p className="text-sm text-primary font-medium truncate">{toTonePinyin(word.pinyin)}</p>
           <p className="text-xs text-muted-foreground truncate">{word.simpleDefinition}</p>
         </div>
       </div>

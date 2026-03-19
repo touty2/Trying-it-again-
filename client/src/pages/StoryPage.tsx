@@ -33,6 +33,7 @@ import { useSyncNotify } from "@/contexts/SyncContext";
 import { cedictSegment, cedictLookup, isCedictLoaded, getAllReadings, type CedictSegment } from "@/lib/cedict";
 import { lookupWord } from "@/lib/dictionary";
 import { rankReadings } from "@/lib/definitionRanker";
+import { toTonePinyin } from "@/lib/pinyin";
 import { useTTS, splitSentences } from "@/hooks/useTTS";
 import { useAudioSettings } from "@/hooks/useAudioSettings";
 import { GrammarInStory } from "@/components/GrammarInStory";
@@ -501,7 +502,7 @@ function RecommendedVocabInner({ wordIds, textId }: { wordIds: string[]; textId:
                   <span className="text-xl font--semibold text-foreground" style={{ fontFamily: "var(--reading-font-family, 'Noto Sans SC', sans-serif)" }}>
                     {info.hanzi}
                   </span>
-                  {info.pinyin && <span className="text-sm text-primary font-medium">{info.pinyin}</span>}
+                  {info.pinyin && <span className="text-sm text-primary font-medium">{toTonePinyin(info.pinyin)}</span>}
                 </div>
                 {info.def && <p className="text-sm text-muted-foreground mt-0.5 leading-snug">{info.def}</p>}
               </div>

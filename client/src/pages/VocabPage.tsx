@@ -35,6 +35,7 @@ import {
   LayoutGrid,
 } from "lucide-react";
 import { useTTS } from "@/hooks/useTTS";
+import { toTonePinyin } from "@/lib/pinyin";
 import { useAudioSettings } from "@/hooks/useAudioSettings";
 import { toast } from "sonner";
 
@@ -172,7 +173,7 @@ function WordCard({
           >
             {word.hanzi}
           </p>
-          <p className="text-[0.7rem] text-muted-foreground mt-0.5 leading-tight">{word.pinyin}</p>
+          <p className="text-[0.7rem] text-muted-foreground mt-0.5 leading-tight">{toTonePinyin(word.pinyin)}</p>
         </div>
 
         {/* POS + Definition */}
@@ -206,7 +207,7 @@ function WordCard({
           >
             {word.hanzi}
           </p>
-          <p className="text-[0.7rem] text-muted-foreground mt-0.5 leading-tight">{word.pinyin}</p>
+          <p className="text-[0.7rem] text-muted-foreground mt-0.5 leading-tight">{toTonePinyin(word.pinyin)}</p>
         </div>
         {actionButtons}
       </div>
@@ -595,7 +596,7 @@ export default function VocabPage() {
                           >
                             {word.hanzi}
                           </p>
-                          <p className="text-[0.7rem] text-muted-foreground mt-0.5">{word.pinyin}</p>
+                          <p className="text-[0.7rem] text-muted-foreground mt-0.5">{toTonePinyin(word.pinyin)}</p>
                         </div>
                         <div className="flex-1 min-w-0 pt-0.5">
                           <ul className="space-y-0.5">
@@ -636,7 +637,7 @@ export default function VocabPage() {
                           >
                             {word.hanzi}
                           </p>
-                          <p className="text-[0.7rem] text-muted-foreground mt-0.5">{word.pinyin}</p>
+                          <p className="text-[0.7rem] text-muted-foreground mt-0.5">{toTonePinyin(word.pinyin)}</p>
                         </div>
                         <div className="flex items-center gap-1">
                           <button

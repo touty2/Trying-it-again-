@@ -29,6 +29,7 @@ import {
 import { lookupWord } from "@/lib/dictionary";
 import { getGrammarLabel } from "@/lib/grammarLabel";
 import { rankReadings, getPosHint, getContextualLabel, splitMeanings } from "@/lib/definitionRanker";
+import { toTonePinyin } from "@/lib/pinyin";
 import { formatDefinitionsWithLabels, LABEL_STYLES } from "@/lib/formatDefinitions";
 import { SegmentationOverrideDB } from "@/lib/db";
 import { getBestZhVoice } from "@/hooks/useTTS";
@@ -301,7 +302,7 @@ export function WordPopup({
               </button>
             </div>
             {defs.primaryPinyin && (
-              <p className="text-sm text-primary font-medium mt-1 leading-tight">{defs.primaryPinyin}</p>
+              <p className="text-sm text-primary font-medium mt-1 leading-tight">{toTonePinyin(defs.primaryPinyin)}</p>
             )}
             <div className="flex flex-wrap gap-1 mt-1.5">
               {defs.grammarLabel && (
