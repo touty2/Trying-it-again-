@@ -12,7 +12,7 @@ interface ThemeContextType {
   switchable: boolean;
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -59,13 +59,8 @@ export function ThemeProvider({
   );
 }
 
-export function useTheme() {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error("useTheme must be used within ThemeProvider");
-  }
-  return context;
-}
+// ─── Hooks (re-exported from dedicated hook file for Vite Fast Refresh) ─────
+export { useTheme, useThemeCtx } from "@/hooks/useThemeHook";
 
 // ─── ThemeSettingsProvider (accent color + reading background) ────────────────
 
@@ -75,17 +70,13 @@ interface ThemeSettingsContextValue {
   reset: () => void;
 }
 
-const ThemeSettingsContext = createContext<ThemeSettingsContextValue | null>(null);
+export const ThemeSettingsContext = createContext<ThemeSettingsContextValue | null>(null);
 
 export function ThemeSettingsProvider({ children }: { children: React.ReactNode }) {
   const value = useThemeSettings();
   return <ThemeSettingsContext.Provider value={value}>{children}</ThemeSettingsContext.Provider>;
 }
 
-export function useThemeCtx(): ThemeSettingsContextValue {
-  const ctx = useContext(ThemeSettingsContext);
-  if (!ctx) throw new Error("useThemeCtx must be used inside ThemeSettingsProvider");
-  return ctx;
-}
+
 
 export type { AccentColor, ReadingBg };

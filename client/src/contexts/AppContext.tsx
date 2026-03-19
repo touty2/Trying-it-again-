@@ -91,7 +91,7 @@ interface AppState {
   getSuggestedRereadTexts: () => { text: Text; difficultCount: number }[];
 }
 
-const AppContext = createContext<AppState | null>(null);
+export const AppContext = createContext<AppState | null>(null);
 
 // ─── Provider ─────────────────────────────────────────────────────────────────
 
@@ -601,8 +601,5 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function useApp(): AppState {
-  const ctx = useContext(AppContext);
-  if (!ctx) throw new Error("useApp must be used within AppProvider");
-  return ctx;
-}
+// ─── Hook (re-exported from dedicated hook file for Vite Fast Refresh) ─────
+export { useApp } from "@/hooks/useApp";

@@ -74,7 +74,7 @@ interface GrammarProgressContextValue {
   mergeFromCloud: (rows: GrammarProgressEntry[]) => void;
 }
 
-const GrammarProgressContext = createContext<GrammarProgressContextValue | null>(null);
+export const GrammarProgressContext = createContext<GrammarProgressContextValue | null>(null);
 
 // ─── Provider ─────────────────────────────────────────────────────────────────
 
@@ -188,10 +188,5 @@ export function GrammarProgressProvider({ children }: { children: React.ReactNod
 
 // ─── Consumer hook ────────────────────────────────────────────────────────────
 
-export function useGrammarProgress(): GrammarProgressContextValue {
-  const ctx = useContext(GrammarProgressContext);
-  if (!ctx) {
-    throw new Error("useGrammarProgress must be used inside <GrammarProgressProvider>");
-  }
-  return ctx;
-}
+// ─── Hook (re-exported from dedicated hook file for Vite Fast Refresh) ─────
+export { useGrammarProgress } from "@/hooks/useGrammarProgressHook";

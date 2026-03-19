@@ -19,7 +19,7 @@ interface TypographyContextType {
   FONT_OPTIONS: typeof FONT_OPTIONS;
 }
 
-const TypographyContext = createContext<TypographyContextType | null>(null);
+export const TypographyContext = createContext<TypographyContextType | null>(null);
 
 export function TypographyProvider({ children }: { children: ReactNode }) {
   const { settings, update, reset, FONT_OPTIONS: fontOpts } = useTypographySettings();
@@ -30,11 +30,8 @@ export function TypographyProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export function useTypography(): TypographyContextType {
-  const ctx = useContext(TypographyContext);
-  if (!ctx) throw new Error("useTypography must be used within TypographyProvider");
-  return ctx;
-}
+// ─── Hook (re-exported from dedicated hook file for Vite Fast Refresh) ─────
+export { useTypography } from "@/hooks/useTypographyHook";
 
 export type { TypographySettings, ReadingFontFamily };
 export { getFontCSS };

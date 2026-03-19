@@ -16,7 +16,7 @@ import { useGrammarProgress } from "@/contexts/GrammarProgressContext";
 
 // ─── Context Types ────────────────────────────────────────────────────────────
 
-interface SyncContextValue {
+export interface SyncContextValue {
   syncState: SyncState;
   triggerSync: () => Promise<void>;
   /** Call after any user action to schedule a debounced sync (10s window). */
@@ -26,7 +26,7 @@ interface SyncContextValue {
   userId: number | null;
 }
 
-const SyncContext = createContext<SyncContextValue | null>(null);
+export const SyncContext = createContext<SyncContextValue | null>(null);
 
 // ─── Provider ─────────────────────────────────────────────────────────────────
 
@@ -54,20 +54,5 @@ export function SyncProvider({ children }: { children: ReactNode }) {
   );
 }
 
-// ─── Hook ─────────────────────────────────────────────────────────────────────
-
-export function useSync(): SyncContextValue {
-  const ctx = useContext(SyncContext);
-  if (!ctx) throw new Error("useSync must be used within <SyncProvider>");
-  return ctx;
-}
-
-/**
- * Lightweight hook for components that only need to notify the sync manager
- * of a change (e.g. after a flashcard review or text completion).
- * Does not subscribe to sync state, so it never causes re-renders.
- */
-export function useSyncNotify(): () => void {
-  const ctx = useContext(SyncContext);
-  return ctx?.notifyChange ?? (() => {});
-}
+// ─── Hooks (re-exported from dedicated hook file for Vite Fast Refresh) ─────
+export { useSync, useSyncNotify } from "@/hooks/useSync";
