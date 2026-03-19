@@ -336,6 +336,136 @@ const POS_KEYWORDS: Partial<Record<string, string[]>> = {
   verb:           ["to ", "verb"],
 };
 
+// ─── Pinyin frequency map ───────────────────────────────────────────────────
+// For common polyphonic characters, maps hanzi → the preferred pinyin reading
+// (in CC-CEDICT numeric tone format). The preferred reading receives a +800 score
+// boost so it reliably wins over the less common reading when no stronger
+// contextual signal (POS hint, function-word identity) is present.
+//
+// Only include words where one reading is overwhelmingly more common in everyday
+// speech. Words whose reading is fully determined by context (e.g. 的/地/得/了/着)
+// are handled by the function-word identity maps above and are omitted here.
+
+const PINYIN_FREQUENCY: Record<string, string> = {
+  // ── Verbs / adjectives with one dominant reading ──────────────────────────
+  "看": "kan4",      // to look/watch (kān = to look after, rare in speech)
+  "长": "chang2",   // long / to grow (zhǎng = to grow up, less common as standalone)
+  "重": "zhong4",   // heavy / important (chóng = again/repeat, less common standalone)
+  "好": "hao3",     // good (hào = to like/be fond of, much rarer)
+  "行": "xing2",    // to walk / OK (háng = row/profession, less common standalone)
+  "发": "fa1",      // to send / to develop (fà = hair, only in 头发)
+  "乐": "le4",      // happy / music (yuè = music, only in 音乐/乐器 compounds)
+  "数": "shu4",     // number / several (shǔ = to count, less common standalone)
+  "省": "sheng3",   // province / to save (xǐng = to introspect, rare)
+  "还": "hai2",     // still / also (huán = to return, much rarer standalone)
+  "觉": "jue2",     // to feel / to sense (jiào = sleep, only in 睡觉)
+  "种": "zhong3",   // kind / type / seed (zhòng = to plant, less common standalone)
+  "差": "cha4",     // bad / lacking (chā = difference; chāi = errand)
+  "为": "wei4",     // for / because of (wéi = to be/act as, less common standalone)
+  "空": "kong4",    // free time / empty (kōng = empty space/sky, context-dependent)
+  "假": "jia3",     // fake / holiday (jià = vacation, only in 放假/假期)
+  "处": "chu3",     // to deal with / place (chù = place/location, both common)
+  "当": "dang1",    // to serve as / when (dàng = appropriate/to pawn, less common)
+  "分": "fen1",     // to divide / minute (fèn = portion/share, less common standalone)
+  "更": "geng4",    // even more (gēng = to change/night watch, rare in speech)
+  "教": "jiao1",    // to teach (jiào = religion/to make, less common standalone)
+  "累": "lei4",     // tired (lěi = to accumulate; léi = rope, both rarer)
+  "难": "nan2",     // difficult (nàn = disaster/calamity, rare standalone)
+  "强": "qiang2",   // strong (qiǎng = to force; jiàng = stubborn, both rarer)
+  "少": "shao3",    // few / little (shào = young, only in 少年/少女)
+  "应": "ying1",    // should / to respond (yìng = to respond, both common)
+  "中": "zhong1",   // middle / China (zhòng = to hit/be hit by, much rarer standalone)
+  "大": "da4",      // big (dài = only in 大夫 dàifu, rare)
+  "地": "di4",      // ground / earth (de = structural particle, handled by ALWAYS_PART)
+  "都": "dou1",     // all / both (dū = capital city, rare standalone)
+  "过": "guo4",     // to pass / aspect marker (guō = surname only)
+  "和": "he2",      // and / together with (hé = same; huó = to mix; hè = to respond)
+  "话": "hua4",     // speech / words (huà = single reading, included for completeness)
+  "会": "hui4",     // can / will / meeting (kuài = accounting, rare standalone)
+  "家": "jia1",     // home / family (jiā = single dominant reading)
+  "间": "jian1",    // between / room (jiàn = gap/interval, less common standalone)
+  "角": "jiao3",    // corner / horn / jiao (coin) (jué = role, only in 角色)
+  "解": "jie3",     // to understand / to untie (jiè = to escort; xiè = surname)
+  "近": "jin4",     // near (jìn = single dominant reading)
+  "尽": "jin3",     // to the utmost (jìn = to exhaust/use up, both common)
+  "卷": "juan4",    // exam paper / volume (juǎn = to roll up, both common)
+  "开": "kai1",     // to open (kāi = single dominant reading)
+  "可": "ke3",      // can / may (kè = only in 可汗, rare)
+  "块": "kuai4",    // piece / lump / yuan (kuài = single dominant reading)
+  "来": "lai2",     // to come (lái = single dominant reading)
+  "老": "lao3",     // old (lǎo = single dominant reading)
+  "了": "le5",      // particle (liǎo = to finish, handled by ALWAYS_PART)
+  "量": "liang4",   // quantity / to measure (liáng = to measure, both common)
+  "没": "mei2",     // not have / no (mò = to sink, rare standalone)
+  "明": "ming2",    // bright / clear (míng = single dominant reading)
+  "那": "na4",      // that (nà = single dominant reading; nǎ = which, different char)
+  "年": "nian2",    // year (nián = single dominant reading)
+  "朋": "peng2",    // friend (péng = single dominant reading)
+  "期": "qi1",      // period / to expect (qī = single dominant reading)
+  "起": "qi3",      // to rise / to start (qǐ = single dominant reading)
+  "前": "qian2",    // front / before (qián = single dominant reading)
+  "钱": "qian2",    // money (qián = single dominant reading)
+  "切": "qie1",     // to cut (qiē = to cut; qiè = to correspond to, both common)
+  "亲": "qin1",     // parent / dear (qìng = in-law, only in 亲家)
+  "情": "qing2",    // feeling / emotion (qíng = single dominant reading)
+  "请": "qing3",    // please / to invite (qǐng = single dominant reading)
+  "去": "qu4",      // to go (qù = single dominant reading)
+  "然": "ran2",     // so / like that (rán = single dominant reading)
+  "人": "ren2",     // person (rén = single dominant reading)
+  "日": "ri4",      // day / sun (rì = single dominant reading)
+  "如": "ru2",      // like / as if (rú = single dominant reading)
+  "上": "shang4",   // up / above / to go up (shàng = dominant; shǎng = a while ago)
+  "身": "shen1",    // body (shēn = single dominant reading)
+  "什": "shen2",    // what (shén = single dominant reading)
+  "生": "sheng1",   // to give birth / student (shēng = dominant; xìng = surname only)
+  "时": "shi2",     // time / when (shí = dominant; shì = surname only)
+  "事": "shi4",     // matter / thing (shì = single dominant reading)
+  "是": "shi4",     // to be (shì = single dominant reading)
+  "手": "shou3",    // hand (shǒu = single dominant reading)
+  "说": "shuo1",    // to speak (shuō = single dominant reading)
+  "思": "si1",      // to think (sī = dominant; sāi = only in 于思, rare)
+  "所": "suo3",     // place / that which (suǒ = single dominant reading)
+  "听": "ting1",    // to listen (tīng = single dominant reading)
+  "同": "tong2",    // same / together (tóng = dominant; tòng = in 胡同, rare)
+  "头": "tou2",     // head (tóu = dominant; tou = suffix, neutral tone)
+  "外": "wai4",     // outside (wài = single dominant reading)
+  "文": "wen2",     // language / culture (wén = single dominant reading)
+  "问": "wen4",     // to ask (wèn = single dominant reading)
+  "我": "wo3",      // I / me (wǒ = single dominant reading)
+  "想": "xiang3",   // to think / to want (xiǎng = single dominant reading)
+  "小": "xiao3",    // small (xiǎo = single dominant reading)
+  "写": "xie3",     // to write (xiě = single dominant reading)
+  "学": "xue2",     // to study (xué = single dominant reading)
+  "颜": "yan2",     // color / face (yán = single dominant reading)
+  "要": "yao4",     // to want / must (yào = dominant; yāo = to invite, rare)
+  "也": "ye3",      // also (yě = single dominant reading)
+  "一": "yi1",      // one (yī = dominant; tone sandhi handled in speech)
+  "以": "yi3",      // by means of / already (yǐ = single dominant reading)
+  "意": "yi4",      // meaning / intention (yì = single dominant reading)
+  "因": "yin1",     // because / cause (yīn = single dominant reading)
+  "用": "yong4",    // to use (yòng = single dominant reading)
+  "有": "you3",     // to have (yǒu = single dominant reading)
+  "又": "you4",     // again / also (yòu = single dominant reading)
+  "与": "yu3",      // and / with (yǔ = dominant; yù = to participate, rare)
+  "语": "yu3",      // language (yǔ = single dominant reading)
+  "原": "yuan2",    // original / source (yuán = single dominant reading)
+  "月": "yue4",     // month / moon (yuè = single dominant reading)
+  "在": "zai4",     // at / in / to be at (zài = single dominant reading)
+  "怎": "zen3",     // how (zěn = single dominant reading)
+  "这": "zhe4",     // this (zhè = single dominant reading)
+  "知": "zhi1",     // to know (zhī = dominant; zhì = surname only)
+  "只": "zhi3",     // only / just (zhǐ = dominant; zhī = classifier for animals)
+  "子": "zi3",      // child / son (zǐ = dominant; zi = neutral tone suffix)
+  "自": "zi4",      // self (zì = single dominant reading)
+  "走": "zou3",     // to walk (zǒu = single dominant reading)
+  "做": "zuo4",     // to do / to make (zuò = single dominant reading)
+  // ── Common compounds where a character has a non-obvious reading ─────────────
+  "睡": "shui4",    // to sleep (shuì = single dominant reading)
+  "着": "zhe5",     // aspect particle (zháo = to touch; zhuó = to wear, both rarer)
+  "得": "de5",      // structural particle (dé = to get; děi = must, both common)
+  "的": "de5",      // structural particle (dí = indeed; dì = target, both rare)
+};
+
 // ─── Reading scorer ───────────────────────────────────────────────────────────
 
 /**
@@ -375,6 +505,19 @@ function scoreReading(
     // Extra boost: if the entire first meaning is very short and matches (e.g. "at/in/on")
     if (firstMeaning.length < 30 && keywords.some((kw) => firstLower.includes(kw))) {
       score += 100;
+    }
+  }
+
+  // ── Pinyin frequency boost ──────────────────────────────────────────────────
+  // If this hanzi has a known preferred reading, boost that reading by +800.
+  // This fires before POS hinting so it acts as a strong prior for polyphonic
+  // characters where one reading is overwhelmingly more common in everyday speech.
+  const preferredPinyin = PINYIN_FREQUENCY[hanzi];
+  if (preferredPinyin) {
+    // Normalize both sides: lowercase, strip spaces for comparison
+    const norm = (s: string) => s.toLowerCase().replace(/\s+/g, "");
+    if (norm(reading.pinyin) === norm(preferredPinyin)) {
+      score += 800;
     }
   }
 
