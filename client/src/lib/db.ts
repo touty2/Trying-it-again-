@@ -384,7 +384,7 @@ export function getDueStats(
 // ─── IndexedDB Setup ──────────────────────────────────────────────────────────
 
 const DB_NAME = "ChineseReaderDB";
-const DB_VERSION = 11; // v11: cardReviewHistory store for per-review retention analytics
+const DB_VERSION = 12; // v12: always re-seed stories from contentData on load
 
 let dbInstance: IDBDatabase | null = null;
 
@@ -822,14 +822,13 @@ export const ReviewLogDB = {
 
 /**
  * Seeds all 120 graded reading texts from the content module.
- * Uses DB_VERSION bump to re-seed when content is updated.
- * recommendedVocabulary stores raw hanzi strings (looked up in dictionary at runtime).
+ * Always clears and re-seeds so content updates are picked up automatically.
+ * User data (flashcards, words, review history, completed markers) is stored
+ * in separate tables and is completely unaffected.
  */
 export async function seedSampleTexts(): Promise<void> {
+  // Always clear and re-seed stories so content updates are picked up automatically
   const existing = await TextDB.getAll();
-  // Re-seed if we have fewer texts than the full content set (handles version upgrades)
-  if (existing.length >= 120) return;
-  // Clear old sample texts before re-seeding
   for (const t of existing) {
     await TextDB.delete(t.id);
   }
@@ -839,10 +838,10 @@ export async function seedSampleTexts(): Promise<void> {
       id: ct.id,
       title: ct.title,
       englishTitle: ct.englishTitle,
-      band: ct.band,
+      band: ct.band as HskBand,
       chineseText: ct.chineseText,
       englishTranslation: ct.englishTranslation,
-      recommendedVocabulary: ct.recommendedVocabulary, // hanzi strings
+      recommendedVocabulary: ct.recommendedVocabulary ?? [],
       createdAt: Date.now(),
     };
     await TextDB.put(text);
