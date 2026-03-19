@@ -94,8 +94,6 @@ They climbed the hill and could see the whole city from the top. Wang Xiaoyu sai
 
 下午，我们去了公园里的小商店，买了一些纪念品。我买了一个小熊猫玩具，妹妹买了一个风筝。我们在草地上放风筝，玩了很长时间。
 
-傍晚的时候，天开始变暗了，我们才依依不舍地离开公园，坐车回家。那是一个很快乐的周末，我希望下次还能再来。
-
 那天傍晚，我们才依依不舍地离开公园，坐公交车回家。一路上，妹妹还抱着她的风筝，不肯放手。那是一个让全家人都很开心的周末。`,
     englishTranslation: `Last weekend, I went to the park with my family. The weather was very nice that day — the sun was out and the wind wasn't strong. We set out at nine in the morning and took the bus.
 
@@ -130,8 +128,6 @@ Back home, Xiao Ming really did finish his homework before going to play. Mom wa
 我家离学校不太远，走路大概要二十分钟。我喜欢走路去学校，因为可以一边走，一边看路边的风景。春天的时候，路边的树开花了，很好看。
 
 到了学校，我先去教室放好书包，然后去操场跑步。学校要求我们每天早上跑步，我觉得这个习惯很好，跑完步以后，整个人感觉很精神。
-
-上课铃响了，我回到教室，坐好，准备上课。我喜欢上学，因为可以学到很多新东西，也可以见到朋友们。
 
 上课铃响了，我回到教室，坐好，准备上课。看着窗外阳光照在操场上，我觉得今天又是美好的一天。`,
     englishTranslation: `I wake up every morning at six-thirty. After the alarm goes off, I sometimes want to sleep a little longer, but I know I can't be late, so I get up right away.
@@ -178,7 +174,7 @@ Zhang Wei smiled and said, 'Right, we can come hiking every weekend and graduall
 
 妈妈觉得有点贵，问能不能再便宜一点。售货员说这已经是最低价了，不能再降了。妈妈想了想，说："好吧，就买这件。"
 
-付钱的时候，妈妈用手机扫码支付。我拿着新外套，心里很高兴。出了商场，妈妈说："天冷了要多穿衣服，不要感冒。"
+付钱的时候，妈妈用手机扫码支付。我拿着新外套，心里很高兴。
 
 "知道了，妈妈，谢谢你给我买新衣服！"我说。
 
@@ -231,8 +227,6 @@ Both of them laughed. They walked into the classroom together and sat side by si
 
 到了下午，我感觉好多了，烧也退了。妈妈说我明天可能还不能去学校，要在家多休息一天。我有点不开心，因为我不想落下功课，但是妈妈说健康最重要。
 
-晚上，王阿姨把今天做的菜都放在桌上，等家人回来。她的丈夫和儿子回来以后，看见这么多好吃的，都很高兴。儿子说："妈，你今天做了这么多！"
-
 晚上，我感觉好多了，烧也退了。妈妈坐在床边陪我说话，说只要我好好休息，明天就会更好。我闭上眼睛，心里很踏实。`,
     englishTranslation: `Last night, I started feeling unwell. My head hurt a little and my body felt hot. Mom used a thermometer to check, and said I had a fever — 38.5 degrees.
 
@@ -276,13 +270,7 @@ After the meal, Aunt Wang's son helped clear the dishes and washed up. Aunt Wang
 
 最后，我把鸡蛋放回锅里，和西红柿一起炒，加了盐和少量酱油，翻炒几下就好了。
 
-我把做好的菜端上桌，爸爸尝了一口，说："不错！第一次做就这么好，以后可以经常给我们做饭了！"我听了，心里非常高兴。
-
-回到家，小华把今天的事情告诉了妈妈。妈妈听完，说："你做得很好。以后遇到不认识的路，要先问人，不要一个人乱走。"
-
-小华点点头，说："我知道了。那个叔叔真的很好，他不但告诉了我路，还陪我走了一段。"
-
-爸爸尝了一口，说："不错！第一次做就这么好，以后可以经常给我们做饭了！"我听了，心里非常高兴，决定下次要学做更多的菜。`,
+我把做好的菜端上桌，爸爸尝了一口，说："不错！第一次做就这么好，以后可以经常给我们做饭了！"我听了，心里非常高兴。`,
     englishTranslation: `Last weekend, Mom taught me how to cook. I had always wanted to learn to cook because I thought food I made myself would taste better.
 
 Mom decided to teach me how to make stir-fried tomatoes and eggs — a very simple dish and one of my favorites.
@@ -370,8 +358,6 @@ When Xiao Qiang got home, following his teacher's advice, he rewrote the composi
 
 我们打着伞，走在雨中。路上有很多水坑，我们小心地绕开。虽然雨伞不是很大，我们还是有点湿，但是心里很开心，因为有朋友一起走路回家。
 
-到家以后，妈妈让我马上换上干衣服，还给我泡了一杯热茶。她说："下次出门前要先看天气预报，记得带伞。"
-
 到家以后，妈妈让我马上换上干衣服，还给我泡了一杯热茶。她说："下次出门前要先看天气预报，记得带伞。"我笑着说："知道了，妈妈。"心里对张伟很感激。`,
     englishTranslation: `This morning when I left home, the weather was still very nice and sunny. I didn't bring an umbrella because the weather forecast said it would be clear today.
 
@@ -415,8 +401,6 @@ That evening, he practiced alone on the sports field for a long time, not return
 
 我每天都要带豆豆出去散步。我们通常去附近的公园，豆豆很喜欢在草地上跑来跑去，追蝴蝶，闻花香。有时候它会遇到其他的小狗，它们会一起玩，非常热闹。
 
-养宠物需要很多时间和耐心，但是豆豆给我们带来了很多快乐。我很感谢有这样一个可爱的小伙伴。
-
 养宠物需要很多时间和耐心，但是豆豆给我们带来了很多快乐。每天放学回家，看见它摇着尾巴跑来迎接我，所有的疲惫都消失了。我很庆幸有这样一个可爱的小伙伴。`,
     englishTranslation: `My family has a small dog named Doudou. Doudou is a white dog with big ears and bright black eyes. It is very cute and is the favorite family member of our whole household.
 
@@ -457,10 +441,6 @@ Mom stroked her head and said, 'Get better soon. Once you're well, I'll take you
 我找了一个靠窗的位置坐下来，开始看书。窗外的阳光照进来，很温暖。我看了大概两个小时，感觉非常舒服。
 
 中午的时候，我有点饿了，就去图书馆旁边的小餐厅吃了午饭。吃完饭，我又回到图书馆，继续看书。
-
-下午四点，图书馆快关门了，我把书借出来，骑车回家。今天我看了很多页，觉得很充实。我决定以后每个周末都来图书馆。
-
-那天下午，陈老师把全班同学叫到一起，说了这件事。她说，同学之间要互相帮助，不能只顾自己。班上的同学听了，都很安静。
 
 下午四点，图书馆快关门了，我把书借出来，骑车回家。今天看了很多页，觉得很充实。我决定以后每个周末都来图书馆，把那两本书好好读完。`,
     englishTranslation: `Today is Saturday, and I decided to go to the library to read. I like the library because it's very quiet there and I can focus on reading.
@@ -503,10 +483,6 @@ Xiao Jun thought to himself: as long as you work hard, any difficulty can be ove
 
 地铁里有屏幕，显示下一站的名字。叔叔说要注意看屏幕，不然很容易坐过站。我认真地看着屏幕，数着还有几站。
 
-到站了，我们下了地铁。叔叔问我感觉怎么样，我说："很有意思！下次我可以自己坐了。"叔叔笑着说："那你要记住怎么换乘，这个城市的地铁线路很多。"
-
-旅行的最后一天，他们去了一个有名的老街。街上有很多小店，卖各种各样的东西。王刚买了一些当地的特产，准备带回去送给家人。
-
 到站了，我们下了地铁。叔叔问我感觉怎么样，我说："很有意思！下次我可以自己坐了。"叔叔笑着说："好，那下次你来接我试试。"我信心满满地点了点头。`,
     englishTranslation: `My hometown is in the countryside. Last month, I came to a big city for the first time to live with my uncle. Everything in the city felt fresh and exciting to me, though I was also a little unaccustomed to it.
 
@@ -548,13 +524,7 @@ On the train home, he opened his notebook and wrote down everything he had exper
 
 第二天，我带他去参观了我们城市的一些有名的地方，比如博物馆、老街和公园。他说我们城市很漂亮，和他住的城市很不一样。
 
-陈浩在我家住了三天，然后回去了。送他去火车站的时候，我们都有点难过。他说："下次你来我那里玩，我也带你到处看看。"我说好，我们约好了，明年暑假我去找他。
-
-下午，李华把整理好的房间给妈妈看。妈妈进来一看，非常高兴，说："哇，你做得真好！比妈妈整理得还整齐。"
-
-李华有点不好意思，说："我只是把东西都放到了它们应该在的地方。"
-
-送他去火车站的时候，我们都有点难过。他说："下次你来我那里玩，我也带你到处看看。"我说好，我们约好了明年暑假见。看着火车缓缓开走，我心里既难过又期待。`,
+陈浩在我家住了三天，然后回去了。送他去火车站的时候，我们都有点难过。他说："下次你来我那里玩，我也带你到处看看。"我说好，我们约好了明年暑假见。看着火车缓缓开走，我心里既难过又期待。`,
     englishTranslation: `Last week, my good friend Chen Hao called me and said he was coming to visit our city, asking if I could accompany him around. I was of course very happy and said no problem.
 
 Chen Hao was my classmate from elementary school. We hadn't seen each other for three years. He now lives in another city, and we mainly keep in touch through text messages and video chats.
@@ -594,10 +564,6 @@ From that day on, Li Hua tidied his desk and room every night before bed. He fou
 学了两个星期以后，我可以在水里漂浮了，也学会了基本的腿部动作。教练说我进步很快，让我很有信心。
 
 一个月以后，我已经可以游二十米了。虽然游得不是很快，但是我非常高兴，因为我终于学会了游泳。
-
-现在每个周末我都去游泳，感觉这是一项很好的运动，不但可以锻炼身体，还可以让人放松。我希望以后能游得更好。
-
-那天晚上，小美把这件事告诉了爸爸。爸爸听完，说："你做得对。帮助别人是好事，但是也要注意安全。"
 
 现在每个周末我都去游泳，感觉这是一项很好的运动，不但可以锻炼身体，还可以让人放松。教练说，只要坚持练习，我一定能游得更快、更好。`,
     englishTranslation: `This summer, I decided to learn how to swim. I had never been able to swim, and every time I went to the beach or a swimming pool, I could only play in the shallow end, watching others swim back and forth in the deep end with envy.
@@ -640,8 +606,6 @@ Her father smiled and said, 'You really are a kind child. Remember — in life, 
 
 新家附近有一个很大的超市，买东西很方便。还有一个公园，可以去散步。但是新家离我的学校比较远，我需要坐公交车去学校，要花大概三十分钟。
 
-刚搬来的时候，我有点不习惯，因为周围的环境都是新的，邻居也都不认识。但是过了几天，我慢慢地习惯了，也开始认识了一些新邻居。我相信在新家会有很多新的好事情发生。
-
 刚搬来的时候，我有点不习惯，因为周围的环境都是新的，邻居也都不认识。但是过了几天，我慢慢地习惯了，也开始认识了一些新邻居。我相信，在新家一定会有很多美好的事情发生。`,
     englishTranslation: `Last month, our family moved to a new home. The new home is much bigger than the old one — three bedrooms, a living room, a kitchen, and two bathrooms. I got my own room and was very happy.
 
@@ -680,8 +644,6 @@ Xiao Ming felt his father was absolutely right and decided that from then on, wh
 妈妈还买了春联和福字，贴在门上。红色的春联上写着吉祥的话，福字要倒着贴，因为"福倒"和"福到"的发音一样，意思是福气来了。
 
 除夕那天晚上，全家人坐在一起吃年夜饭。桌上有很多菜，有鱼、饺子、红烧肉、炒蔬菜，还有汤。爷爷说，年夜饭一定要有鱼，因为"鱼"和"余"的发音一样，意思是年年有余。
-
-吃完年夜饭，我们一起看春节晚会。到了十二点，外面开始放烟花，噼里啪啦的声音响了很久。我站在窗边，看着天空中五颜六色的烟花，心里充满了快乐。
 
 吃完年夜饭，我们一起看春节晚会。到了十二点，外面开始放烟花，噼里啪啦的声音响了很久。我站在窗边，看着天空中五颜六色的烟花，心里充满了快乐，觉得这是一年中最美好的夜晚。`,
     englishTranslation: `Spring Festival is approaching, and our family has started preparing for the New Year. Every year I look forward to Spring Festival because I get to wear new clothes, eat delicious food, and receive red envelopes.
@@ -730,10 +692,6 @@ Li Xue said, 'I was scared at first too, but practicing together with everyone, 
 
 买完书，我找了一家便利店，借了充电器给手机充电。手机有电以后，我用地图找到了回家的路。从那以后，我出门前一定会先给手机充满电，还会提前查好路线。
 
-那天下午，小龙把猫带到了宠物医院。医生检查以后，说猫只是普通的感冒，打了一针，开了一些药。小龙问医生要怎么喂药，医生仔细地告诉了他。
-
-回到家，小龙按照医生说的方法给猫喂了药。猫不喜欢吃药，一直挣扎，但小龙很有耐心，最后还是成功了。
-
 从那以后，我出门的时候都会提前看好地图，记住要走的路线。迷路虽然让我有点害怕，但也让我明白，遇到困难的时候，只要冷静下来想办法，就一定能找到出路。`,
     englishTranslation: `Last Sunday, I went out shopping alone and got lost. It was my first time going to that area by myself, and I wasn't very familiar with the roads.
 
@@ -779,10 +737,6 @@ His mother watched Xiao Long and said, 'You've taken very good care of the cat. 
 
 除了画画，我还喜欢看书和听音乐。看书可以让我了解很多新知识，听音乐可以让我放松心情。我觉得有爱好是很重要的，因为爱好可以让生活变得更有趣、更丰富。
 
-那天晚上，小文把这件事告诉了奶奶。奶奶听完，点点头说："你做得对。钱是可以再挣的，但是诚实是最重要的。"
-
-小文问："奶奶，如果我没有把钱还回去，会怎么样？"
-
 我很喜欢自己的这些爱好。它们让我的生活变得丰富多彩，也让我认识了很多有相同兴趣的朋友。我想，人生中有几件自己真正热爱的事情，是很幸运的。`,
     englishTranslation: `I have many hobbies, but my favorite is drawing. Since I was little, I've loved drawing all kinds of things with pencils and crayons — animals, landscapes, and people.
 
@@ -825,8 +779,6 @@ Grandma smiled and said, 'That's the benefit of honesty. An honest person is res
 李奶奶给我倒了一杯水，问我叫什么名字，在哪里上学。我们聊了一会儿，她告诉我她年轻的时候是一名老师，教了三十多年的书。
 
 从那以后，我经常去看望李奶奶，帮她买东西、打扫房间，有时候也陪她聊天。妈妈说我做得很好，帮助老人是应该的。
-
-李奶奶也很喜欢我，有时候会给我做好吃的点心。她说有我这个小邻居，她不觉得孤独了。我觉得帮助别人是一件很快乐的事。
 
 李奶奶也很喜欢我，有时候会给我做好吃的点心。她说有我这个小邻居，她不觉得孤独了。我觉得帮助别人是一件很快乐的事，以后我会继续多来看望她。`,
     englishTranslation: `The elderly woman who lives upstairs is named Grandma Li. She is already in her seventies, lives alone, and her children all work in other cities.
@@ -875,14 +827,6 @@ Xiao Hong borrowed the book and happily went home with her mother. That evening,
 
 回学校的路上，老师问我们有什么感想。我说："我觉得做志愿者很有意义，帮助别人的同时，自己也感到很快乐。"
 
-那天晚上，全家人坐在一起，听爷爷讲他年轻时候的故事。爷爷说，他那时候生活很苦，但是大家都很努力，互相帮助。
-
-小明问："爷爷，那时候有电视吗？"
-
-爷爷笑着说："没有，那时候连电都不稳定。我们晚上就在油灯下面看书。"
-
-小明觉得很难想象，说："那一定很不方便。"
-
 那次志愿活动结束后，我回到家，心里有一种说不出的满足感。帮助了别人，自己也感到快乐。我决定以后还要继续参加志愿活动，为社会做更多有意义的事情。`,
     englishTranslation: `Last month, I participated in a volunteer activity. It was my first time volunteering, and I was both excited and a little nervous.
 
@@ -930,8 +874,6 @@ Xiao Ming listened and felt that he had sometimes been careless about studying i
 
 妈妈进来看我，发现我还没睡着，就坐在床边陪我说话。她说："你已经认真复习了，要相信自己。考试只是检查你学了什么，不是评价你这个人。"
 
-听了妈妈的话，我慢慢地放松了，不一会儿就睡着了。
-
 听了妈妈的话，我慢慢地放松了，不一会儿就睡着了。第二天走进考场，我深呼吸了一下，告诉自己：认真努力过了，就没有遗憾。`,
     englishTranslation: `Final exams are next week, and I've started studying seriously. These exams are very important because the grades will affect my overall score.
 
@@ -977,15 +919,7 @@ Teacher Lin overheard and came over, saying, 'Xiao Ming is right — teamwork is
 
 我为小张感到高兴。他的经历让我也开始思考自己的职业发展，我觉得人应该勇于追求自己真正想要的东西，而不是只满足于现状。
 
-面试结束以后，林晓走出公司大楼，在外面的长椅上坐了一会儿。她回想着刚才的每一个问题，觉得有几个地方回答得不够好。她有点担心，不知道自己能不能通过。
-
-三天以后，她接到了公司的电话，说她通过了面试，可以来上班了。林晓高兴得跳了起来，立刻打电话告诉了妈妈。
-
-妈妈说："我就知道你可以的！你这段时间准备得很认真。"
-
-林晓说："妈妈，谢谢你一直支持我。我一定会努力工作的。"
-
-上班的第一天，林晓早早地到了公司，认真地听同事介绍工作内容。她知道，新的生活已经开始了。`,
+我为小张感到高兴。他的经历让我也开始思考自己的职业发展。我觉得，人应该勇于追求自己真正想要的东西，只要认真准备，勇敢迈出这一步，往往会有意想不到的收获。`,
     englishTranslation: `My colleague Xiao Zhang has been thinking about changing jobs recently. He has been working at his current company for three years. Although the salary is decent, he feels the daily work is too repetitive with little room for growth, so he wants to find a more challenging position.
 
 Xiao Zhang told me his thoughts and asked whether I thought he should change jobs. I said it depended on his own situation — changing jobs has both benefits and risks. The benefits are that he could learn new things, meet new colleagues, and possibly earn a higher salary. But the risks are that the new company might not be as good as the current one, and he would need to readjust to a new environment at first, which would be tiring.
@@ -1026,15 +960,7 @@ On her first day at work, Lin Xiao arrived at the company early and listened car
 
 我问他更喜欢城市还是农村，他想了想说："两个地方各有各的好。我喜欢城市的便利和机会，但是我也想念农村的安静和人情味。也许将来我会找一个能结合两者优点的地方生活。"
 
-活动结束以后，志愿者们一起在公园门口拍了一张合影。大家都很开心，说这次活动很有意义。
-
-张华说："下次还有这样的活动，我一定还来。"
-
-旁边的一个志愿者说："我们每个月都有一次这样的活动，你可以加入我们的群，以后一起参加。"
-
-张华加入了志愿者群。从那以后，他每个月都参加志愿活动，帮助了很多需要帮助的人。他觉得，做志愿者不只是帮助了别人，也让自己变得更加充实和快乐。
-
-有时候，他也会把这些经历写在日记里，记录下每一次帮助别人时的感受。`,
+我问他更喜欢城市还是农村，他想了想说："两个地方各有各的好。我喜欢城市的便利和机会，但是我也想念农村的安静和人情味。"我觉得他说得很有道理。也许，每个人心里都有一个自己最向往的生活方式，找到它，才是最重要的。`,
     englishTranslation: `My younger cousin came from the countryside to study at university in the city, and it's been almost a year. He says the difference between city and rural life is enormous, making him feel both excited and somewhat out of place.
 
 In the countryside, his home was surrounded by fields and mountains, the air was fresh, neighbors all knew each other, and the pace of life was relatively slow. But in the city, there are tall buildings everywhere, people come and go on the streets, everyone walks quickly, and it seems like everyone is very busy.
@@ -1077,10 +1003,6 @@ Sometimes he would also write about these experiences in his diary, recording ho
 
 两个小时以后，修车的人来了，很快就把车修好了。我们继续上路，虽然晚了几个小时到达丽江，但是我们都觉得这次意外反而是旅行中最特别的经历。有时候，计划之外的事情，才是最难忘的。
 
-考试结束以后，王强走出考场，感觉整个人都轻松了。他和同学们聊了聊，发现大家对这次考试的感觉都差不多，有几道题比较难，但总体来说还可以。
-
-成绩出来的那天，王强考了八十五分，比上次高了十分。他很高兴，但也知道还有很多地方需要提高。
-
 那次意外的旅行，虽然一开始让我有些不安，但最后变成了一段难忘的经历。有时候，打乱计划的事情，反而会带来意想不到的收获。`,
     englishTranslation: `Last month, my friends and I traveled to Yunnan. The plan was well-made, but some unexpected things happened along the way.
 
@@ -1122,12 +1044,6 @@ Wang Qiang felt his father was right. He decided that from then on, he would not
 
 总的来说，网上购物是一种很方便的购物方式，但是需要有一定的经验和判断力，才能避免上当受骗。
 
-搬家以后，陈阿姨发现新小区的邻居们都很友好。楼上的张叔叔经常帮她拿快递，对面的李阿姨有时候会给她送一些自己做的点心。
-
-陈阿姨也尽量回报邻居们的好意。她做了好吃的东西，会给邻居们送一些。有一次，楼下的老人生病了，她帮忙去买了药。
-
-慢慢地，她觉得新的小区比以前住的地方更有人情味。她对女儿说："我以前担心搬家以后会不适应，现在看来，只要自己主动和邻居交往，到哪里都能找到好邻居。"
-
 网络购物给生活带来了很多便利，但有时候收到货物发现和图片不一样，也会让人有些失望。我觉得网上购物要选择信誉好的商家，下单前认真看评论，这样才能买到满意的东西。`,
     englishTranslation: `More and more people enjoy shopping online these days, and I am one of them. Online shopping has many advantages, but also some disadvantages — I think it's worth thinking about carefully.
 
@@ -1166,12 +1082,6 @@ Her daughter smiled and said, 'Mom, you really are good at handling relationship
 有一次，我们一起去吃火锅。服务员用中文问他要什么，他用中文回答了，服务员听懂了，还夸他中文说得好。大卫非常高兴，说这是他学中文以来最有成就感的一次经历。
 
 我觉得大卫学中文的精神值得我学习。他不怕困难，每天坚持练习，这种努力和耐心是学好任何语言都需要的。
-
-那天下午，赵老师让同学们把自己的计划写下来，贴在教室的墙上。同学们写了各种各样的计划，有人想学一门乐器，有人想每天跑步，有人想学做饭。
-
-一个月以后，赵老师让大家汇报自己的进展。大部分同学都坚持下来了，但也有几个人说中途放弃了。
-
-赵老师说："坚持下来的同学，你们做到了。放弃的同学，不要灰心，找到原因，重新开始。重要的不是结果，而是你有没有真正努力过。"
 
 看着大卫越来越自信地说中文，我也很受鼓舞。学习一门语言需要时间和耐心，但只要坚持下去，一定能看到进步。我们约好以后要继续互相帮助、共同进步。`,
     englishTranslation: `I have a foreign friend named David who comes from England and is currently studying Chinese in China. We met at a language exchange event — he helps me practice English and I help him practice Chinese.
@@ -1216,13 +1126,24 @@ Xiao Lin went home and told her mother what the teacher had said. Her mother sai
 
 我知道，这就是父亲的爱，简单，却深沉。
 
-那天晚上，刘明把这次旅行的照片整理了一下，发到了朋友圈。很多朋友看了，都说那个地方很漂亮，问他是怎么去的，要多少钱。
+收到爸爸的礼物，我心里充满了感激。这份礼物不只是一件东西，更是爸爸对我的关心和爱。我决定好好珍惜，把它放在最重要的地方。
 
-刘明一一回答了大家的问题，还写了一篇游记，把路线、住宿和饮食都详细地介绍了一遍。
+--- hsk3-2-07: A Weight-Loss Story ---
+我的朋友小美去年开始减肥，她的经历让我很受启发。
 
-他的一个朋友看了游记，说："你写得真详细，我下个月也想去，能不能跟你一起？"
+小美以前不太注意饮食，经常吃很多高热量的食物，比如炸鸡、薯条和甜点。她也不喜欢运动，下班以后就躺在沙发上看电视或者玩手机。慢慢地，她的体重越来越重，身体也开始出现了一些问题，比如爬楼梯会喘气，走路走久了会腰疼。
 
-收到爸爸的礼物，我心里充满了感激。这份礼物不只是一件东西，更是爸爸对我的关心和爱。我决定好好珍惜，把它放在最重要的地方。`,
+有一天，她去医院做体检，医生告诉她她的血糖有点高，需要控制饮食，增加运动量。这让她非常担心，决定认真减肥。
+
+小美开始改变自己的生活方式。首先，她控制了饮食，减少了油腻和甜的食物，多吃蔬菜和水果，每天保证喝足够的水。其次，她开始每天运动，先从散步开始，慢慢增加到慢跑，后来又加入了健身房，每周去三次。
+
+刚开始的时候，她觉得很难坚持。有时候工作很累，不想去运动；有时候看见好吃的东西，很想吃，但是又要忍住。她说最难的不是运动本身，而是改变多年养成的习惯。
+
+但是，她坚持下来了。半年以后，她减掉了十五公斤，血糖也恢复了正常。更重要的是，她感觉整个人精神多了，睡眠质量也变好了。
+
+小美的故事告诉我，改变不容易，但是只要有决心，坚持下去，就一定能看到效果。
+
+半年以后，她真的瘦了十斤，整个人变得更加自信，精神也比以前好多了。她说，减肥让她明白了一个道理：任何改变都需要时间和坚持，急于求成只会适得其反。`,
     englishTranslation: `My father is a person who is not good at expressing his feelings. He rarely says things like "I love you" or "I'm proud of you," but he expresses his love for me through his actions.
 
 When I was young, my father got up early every day to take me to school and waited for me to come home in the evening. He was very busy at work and often had to work overtime, but no matter how late it was, he would always wait for me to come home and then ask how my day at school had been.
@@ -1322,12 +1243,6 @@ That evening, Xiao Yi went home and sat in front of the mirror, thinking for a l
 
 这件事让我明白，误会很容易产生，但是只要及时沟通，就可以解决。
 
-那天下午，小华把自己画的画拿给美术老师看。老师仔细看了一会儿，说："你的想象力很丰富，颜色用得也很大胆。但是有几个地方的比例不太对，你看这里……"
-
-老师指出了几个问题，小华认真地听，把老师说的都记在了本子上。
-
-回到家，小华按照老师的建议，重新画了一遍。这次他特别注意了比例的问题，画出来的效果好多了。
-
 那次误会解开以后，他们的友谊反而变得更加牢固了。有时候，一次坦诚的沟通，比很多年的相处更能拉近两个人的距离。`,
     englishTranslation: `Last month, my best friend Aqiang and I nearly had a falling-out because of a misunderstanding.
 
@@ -1373,9 +1288,7 @@ Xiao Hua was very happy to see the teacher's reply and decided to practice drawi
 
 初中毕业以后，我去了另一个城市上高中，和王老师见面的机会越来越少了。但是我一直记得她说过的一句话："写作是思想的镜子，你怎么写，就说明你怎么想。"
 
-这句话影响了我很多年，让我养成了认真思考、认真写作的习惯。我非常感谢王老师。
-
-初中毕业以后，我去了另一个城市上高中，和王老师见面的机会越来越少了。但我一直记得她说过的那句话："写作是思想的镜子。"这句话影响了我很多年，让我养成了认真思考、认真写作的习惯。我非常感谢王老师。`,
+这句话影响了我很多年，让我养成了认真思考、认真写作的习惯。我非常感谢王老师。`,
     englishTranslation: `Over the years I've been in school, I've met many teachers, but the one who has influenced me the most is my middle school Chinese language teacher, Teacher Wang.
 
 Teacher Wang is a woman in her forties with a very pleasant voice, full of passion when she teaches. She didn't just teach us Chinese language knowledge — more importantly, she taught us how to think and how to express our own ideas.
@@ -1417,12 +1330,6 @@ His mother smiled and said, 'As long as you're willing to change, it's never too
 另外，手机上有很多让人上瘾的游戏和短视频，很容易让人浪费大量的时间。我有一个同学，因为太喜欢玩手机游戏，影响了学习，成绩下降了很多。
 
 我觉得手机本身没有好坏，关键是我们怎么使用它。合理地使用手机，可以让生活更方便；但是如果不加控制，就会成为手机的奴隶。
-
-那天下午，王华把自己的想法告诉了爸爸。爸爸听完，沉默了一会儿，然后说："你想清楚了吗？换专业不是小事，你现在的专业学了两年了。"
-
-王华说："我想清楚了。我对现在的专业真的没有兴趣，每天上课都很痛苦。但是每次做设计的时候，我都很投入。"
-
-爸爸说："那你去了解一下转专业的手续，看看有什么条件。如果可以转，我支持你。"
 
 智能手机给我们的生活带来了很多便利，但也带来了一些新的问题。关键在于我们如何使用它。就像任何工具一样，善用则有益，滥用则有害。学会合理安排使用手机的时间，才能真正享受科技带来的好处。`,
     englishTranslation: `Today, mobile phones have become an indispensable part of our lives. We use them to make calls, send messages, read news, shop, and navigate — almost everything can be done with a phone. However, phones have also brought some problems to our lives.
@@ -1466,12 +1373,6 @@ When the new semester began, he was full of motivation every day, feeling that h
 我深呼吸了一下，开始演讲。说了第一句话以后，我慢慢地找到了感觉，越说越流利，越说越有信心。我讲到外公生病的时候，台下有人在点头，这让我感到很受鼓励。
 
 演讲结束，台下响起了掌声。我鞠了一躬，走下台，心里既轻松又激动。虽然我没有得第一名，但是我克服了对演讲的恐惧，这对我来说是最大的收获。
-
-那天晚上，小明把这件事告诉了妈妈。妈妈说："你做得对，但是以后遇到这种情况，要先告诉老师，不要自己解决。"
-
-小明说："我知道了，但是当时我看见他们欺负小同学，就忍不住了。"
-
-妈妈说："你的心是好的，但是方法要对。有时候，告诉大人比自己动手更有效。"
 
 那次演讲之后，他受到了很多同学的鼓励。他意识到，只要勇敢地开口，自己的声音是可以被听见的。从那以后，他在课堂上变得更加积极，不再像以前那样默默坐在角落里了。`,
     englishTranslation: `Last semester, I participated in the school's speech competition. It was my first time giving a speech in front of so many people, and it left an unforgettable impression on me.
@@ -1517,8 +1418,6 @@ From then on, the relationships among classmates improved greatly, and everyone 
 我觉得节约用水不只是个人的事，而是每个人的责任。如果每个人都能从小事做起，减少浪费，那么我们就可以为保护地球的水资源做出贡献。
 
 水是生命之源，我们应该珍惜每一滴水。
-
-那天晚上，陈华在日记里写下了这一天的经历。他写道：今天是我第一次参加马拉松，虽然没有跑完全程，但是我坚持跑了三十公里，这对我来说已经是很大的进步了。
 
 从那以后，我们全家都养成了节约用水的好习惯。妈妈说，每个人做一点点小事，加在一起就是很大的改变。保护环境，要从身边的小事做起。`,
     englishTranslation: `Last week, our school held a themed class meeting about conserving water. The teacher showed us some data that shocked me greatly.
@@ -1614,14 +1513,6 @@ The next day, Xiao Gang really did return the book and apologized. Xiao Lin felt
 
 现在，我已经通过了钢琴十级考试。每次演奏的时候，我都感到很骄傲。我很庆幸当年没有放弃，因为钢琴已经成为了我生命中非常重要的一部分。
 
-那天下午，王阿姨把做好的饺子端上桌，全家人坐下来一起吃。大家都说好吃，孩子们吃了一个又一个，停不下来。
-
-王阿姨的婆婆说："你包的饺子越来越好了，皮薄馅多，和我年轻时候包的一样好。"
-
-王阿姨听了，心里很高兴，说："这是您教我的，我只是跟着您学。"
-
-婆婆笑着说："你已经青出于蓝了。"
-
 那天傍晚，她把那首曲子完整地弹了下来，没有停顿，没有出错。老师在电话里说："你做到了。"她放下手机，看着窗外渐渐暗下来的天空，觉得所有的努力都是值得的。`,
     englishTranslation: `I started learning piano at age six, and it's been eight years now. Over these eight years, I've experienced a lot — both joy and pain.
 
@@ -1663,14 +1554,6 @@ After the meal, the children helped clear the table and everyone washed dishes t
 
 外婆今年七十五岁了，身体还很好，但是走路已经没有以前那么快了。每次我离开的时候，她都站在门口送我，一直看着我走远。我知道，她的厨房里装满了她对我的爱，那些味道，是我永远忘不了的记忆。
 
-那天下午，小红把自己的想法告诉了爸爸。爸爸说："你想参加这个比赛，我支持你。但是要记住，比赛的结果不是最重要的，重要的是你在准备过程中学到了什么。"
-
-小红点点头，说："我知道，我会认真准备的。"
-
-接下来的两个月，小红每天放学以后都在练习。她查了很多资料，写了很多稿子，改了一遍又一遍。
-
-比赛那天，她站在台上，虽然有点紧张，但是说得很流利。最后，她得了二等奖。
-
 奶奶的厨房，是我童年最温暖的地方。那些味道，那些声音，那些一起做饭的时光，已经深深地刻在我的记忆里。长大以后，每次闻到熟悉的香气，我都会想起奶奶和她的厨房。`,
     englishTranslation: `Every time I go back to my grandmother's house, my favorite thing is to sit in the kitchen and watch her cook. Her kitchen is not large, but it is always filled with wonderful aromas that make you feel warm and happy.
 
@@ -1711,14 +1594,6 @@ Her father said, 'You did it — I'm proud of you.' Xiao Hong felt this was the 
 旅行中，我遇到了很多有趣的人。有一个来自广州的背包客，我们一起租了自行车，骑车去了郊外的一个小村子，和当地的藏族人一起吃了一顿饭，喝了酥油茶，非常难忘。
 
 一个人旅行，让我学会了独立解决问题，也让我更加了解自己。那次旅行是我人生中最宝贵的经历之一，我永远不会忘记。
-
-那天晚上，刘华把这件事告诉了室友。室友说："你应该和他好好谈谈，说清楚你的感受。"
-
-刘华说："我怕他会觉得我太小气。"
-
-室友说："不会的，你只是在维护自己的权益。如果你不说，他会以为你不在意。"
-
-第二天，刘华找到了那个同学，平静地说："我想跟你说一件事。上次你用了我的东西，没有提前问我，我有点不舒服。以后能不能提前说一声？"
 
 这是我第一次独自出行，虽然遇到了一些小困难，但每一个都被我解决了。回到家，我感觉自己比出发前更加自信了。原来，有些事情，只有自己去经历了，才会明白自己有多大的能力。`,
     englishTranslation: `During the summer vacation after graduating from university, I decided to travel alone — it was my first time going on a trip by myself. I chose to go to Tibet because the scenery there was something I had always dreamed of seeing.
@@ -1765,12 +1640,6 @@ Liu Hua said thank you and felt much lighter inside. He felt that many misunders
 
 后来，我买了一部新手机，也学会了定期把照片备份到云端。虽然那张和外公的合影找不回来了，但是我把对外公的记忆永远保存在了心里。
 
-那天下午，小明把自己的计划告诉了妈妈。妈妈说："你想学钢琴，我支持你。但是学乐器需要坚持，不能三天打鱼两天晒网。"
-
-小明说："我知道，我一定会坚持的。"
-
-妈妈帮他报了一个钢琴班，每周上两节课。开始的时候，小明觉得很难，手指不听使唤，弹出来的声音也不好听。但是他没有放弃，每天都练习。
-
 有些失去是无法挽回的，但生活还是要继续向前。那些曾经拥有的美好，并没有真正消失，它们变成了记忆，变成了我们的一部分，一直陪伴着我们。`,
     englishTranslation: `Last month, I accidentally lost my phone. This made me very sad, but it also made me think a lot.
 
@@ -1816,12 +1685,6 @@ Xiao Ming played the piece for his mother, and she said happily, 'You really did
 
 我觉得，改变从自己开始，只要每个人都愿意做一点点，世界就会变得更美好。
 
-那天晚上，小美把这件事告诉了爸爸。爸爸说："你做得对，诚实是最重要的。就算结果不好，也比说谎要好。"
-
-小美说："但是我很担心老师会批评我。"
-
-爸爸说："老师会理解的。犯了错不可怕，可怕的是不承认错误。"
-
 从那次活动以后，我更加关注身边的环境问题。我开始认真地做垃圾分类，出门自带水杯，少用一次性塑料袋。虽然这些都是小事，但我相信，每个人的一小步，加在一起就是地球的一大步。`,
     englishTranslation: `Last weekend, I participated in a community environmental protection activity — going to a nearby park with neighbors to pick up litter. It was my first time participating in such an activity, and it left a deep impression on me.
 
@@ -1864,14 +1727,6 @@ Xiao Mei felt the weight lift from her heart. She felt that although honesty som
 读完这本书以后，我对自己的生活有了新的看法。以前，我经常为一些小事烦恼，觉得生活很难。但是和福贵相比，我的烦恼真的很小。我开始学会感恩，感谢自己拥有健康的身体、爱我的家人和好朋友。
 
 我把这本书推荐给了很多朋友，他们读完以后，也都说受到了很大的触动。我觉得，一本好书可以改变一个人看世界的方式，这就是文学的力量。
-
-那天下午，张华把这件事告诉了同学李明。李明说："你应该去参加，这是一个很好的机会。就算没有选上，也是一次很好的经历。"
-
-张华说："但是我没有什么特别的才艺。"
-
-李明说："你不是会写诗吗？你可以朗诵一首自己写的诗。"
-
-张华想了想，觉得这个主意不错。他花了几天时间，写了一首关于家乡的诗，然后认真地练习朗诵。
 
 从那以后，我养成了认真读书的习惯。我意识到，一本好书不只是故事，更是一扇窗，让你看到不同的世界，看到更多的可能性。我很感激遇到了那本书，它改变了我看待世界的方式。`,
     englishTranslation: `In high school, I read a book called "To Live," and it had a profound influence on me, giving me a new understanding of life and suffering.
@@ -1916,14 +1771,6 @@ Although he didn't win a prize, he felt that being able to share his own work wi
 
 现在，我学会了在答应别人之前，先想一想自己是否真的有能力和时间做到。如果做不到，我会礼貌地拒绝，并且说明原因。我觉得，这样对大家都更好。
 
-那天晚上，小林把这件事告诉了奶奶。奶奶说："你做得对。帮助家人是应该的，但是也要注意自己的身体，不要太累了。"
-
-小林说："我没事，我很高兴能帮上忙。"
-
-奶奶说："你长大了，懂事了。以前你还是个什么都不会做的小孩子，现在已经能帮家里做这么多事情了。"
-
-小林有点不好意思，说："奶奶，你过奖了。"
-
 学会说"不"，并不意味着变得自私，而是学会了尊重自己。当你清楚地知道自己的边界，别人也会更加尊重你。这是我花了很长时间才明白的道理，但明白以后，生活轻松了很多。`,
     englishTranslation: `I used to be a person who couldn't refuse others. No matter what request someone made, I would agree, because I was afraid that refusing would make the other person unhappy and make them think I wasn't good enough.
 
@@ -1967,8 +1814,6 @@ Xiao Lin thought about it and decided that from then on, she would help her fami
 
 因此，如何在推进城市化的同时，解决好这些伴随而来的问题，是政府和社会需要认真思考的重要课题。
 
-王明有时候会想，城市化到底给人们带来了什么？经济上的改善是显而易见的，但那种失去根的感觉，那种在人群中的孤独，又该如何计算？他没有答案，但他知道，这个问题值得每一个城市人认真思考。也许，真正的家园，不只是一个地理位置，而是一种内心的归属感。找到这种归属感，是每一个现代人都需要完成的功课。城市，是现代文明的结晶，也是现代人困境的缩影。如何在城市化的浪潮中，保持内心的根与归属，是每一代人都需要面对的课题。这是每个城市人的课题。
-
 王明有时候会想，城市化到底给人们带来了什么？经济上的改善是显而易见的，但那种失去根的感觉，又该如何面对？他没有答案，但他知道，这个问题值得每一个城市人认真思考。`,
     englishTranslation: `In recent years, China's urbanization process has been accelerating, with more and more rural populations flooding into cities in search of better job opportunities and living conditions. This trend has brought rapid economic development, but at the same time, it has also generated a series of problems that cannot be ignored.
 
@@ -1999,8 +1844,6 @@ Wang Ming sometimes wondered what urbanization had really brought people. The ec
 我认为，这两种教育方式并不是完全对立的，而是可以相互补充的。扎实的基础知识是创新的前提，没有知识积累，创新就是无源之水。但是，如果只注重知识的灌输，忽视了学生的个性发展和创造力培养，那么培养出来的学生可能缺乏应对未来挑战的能力。
 
 最理想的教育，应该是在保证基础知识教学质量的同时，给学生足够的空间去探索、去创造、去犯错、去成长。这需要教育者、家长和社会共同努力，改变对"成功"的单一定义。
-
-小雨把这个发现告诉了林老师。老师笑着说，这正是他想让学生们明白的道理。知识不是孤立存在的，它与生活紧密相连。当你能够把课本上的知识用到真实的生活中时，你才真正理解了它。从那以后，小雨开始用一种全新的眼光看待学习，不再只是为了考试而学，而是为了理解世界、改善生活而学。这种转变，让她的学习变得更有意义，也更有乐趣。学习的最高境界，不是掌握知识，而是爱上学习本身。当一个人真正爱上学习，他就会主动寻找知识，主动思考问题，这种内在的驱动力，是任何外部激励都无法替代的。
 
 小雨把这个发现告诉了林老师。老师笑着说，这正是他想让学生们明白的道理：知识不是孤立存在的，它与生活紧密相连。当你能把课本上的知识用到真实的生活中，你才真正理解了它。`,
     englishTranslation: `In the field of education, the debate between exam-oriented education and quality education has a long history. Supporters and opponents each have their own reasons, and to this day there is still no answer that satisfies everyone.
@@ -2037,8 +1880,6 @@ Xiao Yu told Teacher Lin about her discovery. The teacher smiled and said this w
 
 我想，如果每个人都能在别人需要帮助的时候伸出手，这个世界一定会更美好。
 
-那次经历让小李明白，善意是可以传递的。一个陌生人的帮助，改变了他对这座城市的看法，也让他决定，以后遇到需要帮助的人，他也会毫不犹豫地伸出援手。他相信，如果每个人都愿意为陌生人做一点点好事，这个世界会变得温暖很多。这种简单的信念，成为了他生活中的一个重要原则，也让他在日后的生活中，收获了许多意想不到的友谊和温暖。善意，是这个世界上最廉价也最珍贵的东西。它不需要花费金钱，却能够给人带来巨大的温暖和力量。每一个选择善意的人，都在让这个世界变得更美好。
-
 那次经历让小李明白，善意是可以传递的。一个陌生人的帮助，改变了他对这座城市的看法。他决定，以后遇到需要帮助的人，他也会伸出援手。`,
     englishTranslation: `It was a cold winter, and I had just arrived in Beijing not long before, still very unfamiliar with the city. That day, I went to an interview alone. Due to unfamiliarity with the route and a subway delay, I was clearly about to be late and felt very anxious.
 
@@ -2074,8 +1915,6 @@ That experience made Xiao Li understand that kindness can be passed on. A strang
 
 我认为，压力和动力之间的关系，就像弓弦和箭的关系。弓弦拉得太松，箭射不出去；拉得太紧，弦会断。只有找到合适的张力，才能让箭飞得又远又准。生活中的压力也是如此，适度的压力是前进的动力，过度的压力则是阻碍。
 
-小李的经历告诉我们，压力管理是一种需要学习和练习的技能。它不是天生的，也不是一蹴而就的，而是在不断的尝试和调整中慢慢掌握的。每个人的最佳压力区间不同，找到自己的节奏，学会在压力和放松之间保持平衡，是现代人必须掌握的生活技能。只有这样，才能在快节奏的现代生活中，既保持高效，又不失去内心的平静。压力与动力之间的平衡，是一门艺术。找到这个平衡点，需要自我认知、实践经验和不断调整。但一旦找到，你就会发现，生活可以既充实又从容，既高效又快乐。
-
 小李的经历告诉我们，压力管理是一种需要学习的技能。每个人的最佳状态不同，找到自己的节奏，学会在努力和休息之间保持平衡，才能走得更远。`,
     englishTranslation: `The pace of modern life is getting faster and faster, and the pressure people bear is growing ever greater. Work pressure, financial pressure, family pressure... it seems everyone is gasping under the weight of stress. But is pressure really only a negative thing?
 
@@ -2104,8 +1943,6 @@ Xiao Li's experience tells us that stress management is a skill that needs to be
 我认为，对待传统文化，我们既不应该固步自封，拒绝任何变化；也不应该全盘否定，把传统当作包袱丢弃。正确的态度是在尊重和传承的基础上，进行创造性的转化和创新性的发展。
 
 只有这样，传统节日才能在现代社会中找到自己的位置，真正成为连接过去与未来的文化纽带。
-
-陈奶奶说，她最希望的，是让孙子们记住这些节日背后的故事和意义，而不只是享受假期和美食。她相信，一个懂得感恩、懂得珍惜传统的人，在面对生活的挑战时，会有更强的内心力量。传统节日，不只是过去的遗产，更是未来的根基。只要这些节日的精神还在，中华文化就会继续传承下去，无论世界如何变化。传统节日，是一个民族的集体记忆，也是连接过去与未来的文化纽带。在全球化的今天，保护和传承这些节日，不只是文化责任，更是维护民族认同和文化多样性的重要方式。
 
 陈奶奶说，她最希望的，是让孙子们记住这些节日背后的故事和意义，而不只是享受假期和美食。传统节日，是连接过去与未来的纽带，只要还有人记得，它就不会消失。`,
     englishTranslation: `With the deepening of globalization, Western holidays such as Christmas, Halloween, and Valentine's Day have become increasingly popular in China, especially among young people. At the same time, some traditional Chinese festivals are gradually being forgotten, and some people even believe that traditional festivals are outdated and no longer worth preserving.
@@ -2137,8 +1974,6 @@ Grandma Chen said her greatest hope was for her grandchildren to remember the st
 这番话让我受益匪浅。从那以后，我改变了心态，不再把批评当作否定，而是当作学习的机会。我开始主动向有经验的同事请教，遇到不懂的问题及时提问，而不是装作自己已经明白了。
 
 半年以后，我的工作能力有了明显的提升，和同事之间的关系也越来越融洽。我意识到，职场成长需要时间，需要耐心，更需要一颗开放的心。
-
-半年后，小张已经完全适应了职场生活。他学会了如何在坚持自己想法的同时，也尊重团队的决定；如何在保持热情的同时，也保持耐心。他意识到，职场不只是一个工作的地方，更是一个学习如何与人相处、如何在复杂的环境中找到自己位置的地方。这些经验，是任何学校都无法教给他的，而它们将伴随他整个职业生涯。职场，是一所没有毕业的学校。每一天，都有新的课题需要学习，新的挑战需要应对。保持谦逊和好奇心，是在职场中持续成长的最重要的态度。
 
 半年后，我的工作能力有了明显的提升，和同事之间的关系也越来越融洽。我意识到，职场成长需要时间和耐心，最重要的是保持一颗开放学习的心。`,
     englishTranslation: `When I first entered the workplace, I thought that with the knowledge and skills I had learned in university, I could quickly get up to speed and produce results. However, reality gave me quite a shock.
@@ -2173,8 +2008,6 @@ Half a year later, Xiao Zhang had fully adapted to workplace life. He had learne
 
 现在，我在一家公司工作，但是我没有放弃创业的梦想。我相信，有了这次失败的经验，下一次我会做得更好。
 
-那次失败，虽然痛苦，但给了小赵最宝贵的教育。他学到了市场调研的重要性，学到了现金流管理的关键，也学到了团队合作的复杂性。更重要的是，他学到了如何在失败中保持尊严，如何从错误中提取价值。两年后，他带着这些经验，重新开始了创业之路，这一次，他走得更加稳健，也更加自信。失败，是创业路上不可避免的一部分。真正的创业者，不是那些从未失败的人，而是那些在失败后能够重新站起来，带着新的智慧继续前行的人。每一次失败，都是下一次成功的基石。
-
 那次失败，虽然痛苦，但给了我最宝贵的教育。我学到了市场调研的重要性，学到了团队合作的复杂性，也学到了如何在失败中保持尊严。两年后，我带着这些经验重新出发。`,
     englishTranslation: `Three years ago, I started a business with two friends and opened an online bookstore. All three of us loved reading and felt it was a project that was both meaningful and had market prospects. However, a year later, our bookstore closed, and the venture ended in failure.
 
@@ -2207,8 +2040,6 @@ That failure, though painful, gave Xiao Zhao the most valuable education. He lea
 当然，读书的方式也很重要。不加选择地乱读，不如有针对性地精读几本好书。读书的时候要思考，要与自己的经历和思考相结合，而不是仅仅把书中的内容当作信息来接收。
 
 总而言之，在任何时代，读书都是一种值得坚持的好习惯。
-
-王老师说，他读过的最好的书，往往不是那些给他提供答案的书，而是那些让他产生更多问题的书。好书的价值，不在于它告诉你什么，而在于它让你思考什么。阅读，是一场与作者的对话，也是一场与自己的对话。在这个对话中，你不只是在获取信息，更是在建构自己的思想体系，在寻找自己的人生答案。这种深度阅读的能力，是现代人最需要培养的能力之一。阅读，是一种最经济的投资，也是一种最持久的享受。一本好书，可以陪伴你一生，在你需要的时候，给你力量、智慧和慰藉。养成阅读的习惯，是给自己最好的礼物。
 
 王老师说，他读过最好的书，往往不是那些给他提供答案的书，而是让他产生更多问题的书。阅读，是一场与作者的对话，也是一场与自己的对话。`,
     englishTranslation: `In this era of information explosion, many people feel that reading is no longer so important, because through phones and the internet, you can access all kinds of information at any time. However, I believe that the significance of reading lies not only in obtaining information — it has deeper value.
@@ -2243,8 +2074,6 @@ Teacher Wang said the best books he had read were often not those that gave him 
 
 这段跨越年龄的友谊，让我明白了一个道理：真正的友谊不受年龄、背景的限制，只要两个人能够相互尊重、相互学习，就能建立起深厚的情谊。
 
-那段友谊，让小林明白，真正的友谊不需要相同的背景或相似的经历，它只需要相互的尊重和真诚的关心。李爷爷给了他一种不同的人生视角，让他看到了年轻人容易忽视的东西：时间的宝贵，经验的价值，以及慢下来感受生活的重要性。这些，是他从同龄朋友那里无法得到的礼物，也是他一生中最珍贵的收获之一。真正的友谊，跨越年龄、背景和经历的差异，建立在相互尊重和真诚关心的基础上。这样的友谊，是人生中最宝贵的财富，也是面对困难时最坚实的支撑。这段友谊，是他生命中最珍贵的礼物之一。
-
 那段跨越年龄的友谊，让小林明白了一个道理：真正的友谊不受年龄限制，只要能够相互尊重、相互学习，就能建立深厚的情谊。李爷爷给了他一种不同的人生视角，这是从同龄朋友那里无法得到的。`,
     englishTranslation: `My friendship with Old Chen is, to put it plainly, a little unusual. He is twenty years older than me — a retired senior engineer at my work unit, while I was a newly hired young person.
 
@@ -2277,8 +2106,6 @@ That friendship made Xiao Lin understand that true friendship does not require t
 改善睡眠质量，需要从多方面入手。保持规律的作息时间，睡前避免使用电子设备，营造舒适的睡眠环境，以及适当的运动，都有助于提高睡眠质量。
 
 总之，充足的睡眠不是浪费时间，而是对健康最重要的投资之一。
-
-医生说，睡眠不只是身体的休息，更是大脑的整理和修复时间。在睡眠中，大脑会整理白天接收到的信息，巩固记忆，清除代谢废物。长期睡眠不足，不只会影响工作效率，还会增加患各种疾病的风险。张先生听了这些，终于下定决心改变自己的生活方式。他开始规律作息，减少夜间使用手机，三个月后，他的工作效率反而提高了，身体状况也明显改善。好的睡眠，不只是身体的需要，更是心理健康的基础。在快节奏的现代生活中，学会保护自己的睡眠，是一种对自己负责任的态度，也是保持长期高效工作的重要策略。
 
 医生说，睡眠是大脑整理和修复的时间。长期睡眠不足，不只影响工作效率，还会损害健康。张先生听了这些，终于下定决心改变生活方式，开始规律作息。`,
     englishTranslation: `Modern people generally suffer from insufficient sleep. Busy work, academic pressure, abundant entertainment activities... various reasons lead to more and more people sleeping less than seven hours per day. However, the harm of long-term sleep deprivation to health is far more serious than many people imagine.
@@ -2313,8 +2140,6 @@ The doctor said that sleep is not just physical rest but also the brain's time f
 
 然而，我也知道，老房子终究会老去，而生活必须向前。也许有一天，这栋老房子会被拆除，但是它留给我们的记忆，将永远留在我们的心里。
 
-那栋老房子最终还是被拆了。但在拆除之前，李阿姨把能带走的东西都带走了——那些老照片，那些手写的信件，那把奶奶用了几十年的椅子。她说，房子可以拆，但记忆不会消失。那些在老房子里度过的岁月，那些笑声和泪水，已经永远刻在了她和家人的心里。新房子会有新的故事，但老房子的故事，也会一直流传下去。老房子里的记忆，是一个家族历史的缩影。那些斑驳的墙壁，那些吱呀作响的地板，都承载着几代人的喜怒哀乐。即使房子不在了，那些记忆，也会永远活在心里，成为家族精神的一部分。记忆，永远比建筑更持久。
-
 那栋老房子最终还是被拆了。但在拆除之前，李阿姨把能带走的东西都带走了——老照片，手写的信件，奶奶用了几十年的椅子。她说，房子可以拆，但记忆不会消失。`,
     englishTranslation: `Last month, I returned to my hometown, which I had been away from for ten years, to visit my aging parents. Walking into that familiar alley and seeing that somewhat dilapidated old house, a feeling that was hard to put into words welled up in my heart.
 
@@ -2345,8 +2170,6 @@ The old house was eventually demolished. But before it was torn down, Auntie Li 
 那么，为什么网络谣言如此容易传播呢？一方面，是因为人们在面对不确定性时，往往倾向于相信最坏的情况；另一方面，社交媒体的算法会优先推送引发强烈情绪反应的内容，而谣言往往具有耸人听闻的特点，更容易引发情绪反应，从而获得更多的传播。
 
 要减少网络谣言的危害，需要多方共同努力。平台应该加强内容审核，及时删除和标注谣言；政府和权威机构应该及时发布准确的信息，填补信息真空；而作为普通用户，我们每个人都应该提高媒体素养，在转发信息之前，先核实信息的来源和真实性。
-
-那次经历让小刘明白，在信息时代，批判性思维是一种生存技能。面对海量的信息，我们不能不加思考地全盘接受，而要学会质疑、核实和分析。他开始养成一个习惯：在转发任何信息之前，先花几分钟核实一下来源。他相信，如果每个人都能做到这一点，网络谣言就会少很多，社会的信息环境也会更加健康。在信息时代，每个人都是信息的接收者，也是信息的传播者。这种双重身份，赋予了我们更大的责任：在享受信息自由流通的同时，也要承担起核实信息、不传播谣言的责任。这是现代公民的基本素养。
 
 那次经历让小刘明白，在信息时代，批判性思维是一种生存技能。面对海量信息，他开始养成一个习惯：在转发任何信息之前，先花几分钟核实来源。`,
     englishTranslation: `In today's era of highly developed social media, information spreads faster than ever before. However, at the same time, online rumors are also spreading at an alarming rate, causing serious harm to individuals and society.
@@ -2379,8 +2202,6 @@ That experience made Xiao Liu understand that in the information age, critical t
 
 回程的路上，我一直在想，医疗资源分配不均的问题，是一个需要全社会共同关注和努力解决的重要问题。
 
-那次义诊，让李医生更加坚定了自己的职业选择。他意识到，医学不只是一门技术，更是一种服务。当他看到那些因为得到及时治疗而重新露出笑容的患者时，他感到了一种深深的满足感——那种满足感，是任何金钱都无法买到的。他决定，以后每年都要参加义诊活动，用自己的专业知识，为更多需要帮助的人服务。医疗，是一种特殊的服务，它关乎人的生命和健康。每一位医生，都肩负着沉重的责任和崇高的使命。而义诊，是医生用自己的专业技能，回馈社会的一种方式，也是医学人道主义精神的体现。
-
 那次义诊，让李医生更加坚定了自己的职业选择。当他看到那些得到及时治疗后重新露出笑容的患者时，他感到了一种深深的满足感。他决定，以后每年都要参加义诊活动。`,
     englishTranslation: `Last month, I participated in a rural medical outreach activity organized by the hospital. It was my first time participating in such an activity since starting work, and it gave me a more direct understanding of rural healthcare conditions, while also making me deeply appreciate the meaning of the medical profession.
 
@@ -2411,8 +2232,6 @@ That volunteer medical clinic made Dr. Li even more certain of his career choice
 不同的人对音乐有不同的偏好，这与个人的性格、经历和文化背景都有关系。有人喜欢古典音乐的严谨和深沉，有人喜欢流行音乐的轻松和活泼，有人喜欢民族音乐的质朴和厚重。这种多样性，正是音乐的魅力所在。
 
 我认为，在快节奏的现代生活中，每个人都应该给自己留一点时间，静静地听一首喜欢的音乐，让音乐帮助我们与内心深处的自己对话，找回那份难得的宁静。
-
-音乐老师说，音乐的伟大之处，在于它能够跨越语言和文化的障碍，直接触动人心。一首好的音乐，不需要翻译，不需要解释，它能够让来自不同背景的人，在同一个旋律中，感受到同样的情感。这种共鸣，是人类共同的语言，也是音乐最深刻的价值所在。小芳决定，无论生活多么忙碌，她都要保留音乐在生命中的位置，因为它是她与内心世界保持连接的重要方式。音乐，是人类灵魂的语言。它能够表达语言无法表达的情感，能够触动语言无法触动的心灵。在音乐中，我们找到了彼此，找到了自己，也找到了那种超越日常生活的美与感动。
 
 音乐老师说，音乐的伟大之处在于它能跨越语言和文化，直接触动人心。小芳决定，无论生活多忙，都要留出时间来听音乐，让音乐帮助她与内心深处的自己对话。`,
     englishTranslation: `Music is a wonderful language — it requires no words, yet it can directly touch the human heart and evoke strong emotional resonance. Whether it's a cheerful melody or a melancholy tune, music has a magical power that can make people instantly feel joy, sadness, longing, or calm.
@@ -2445,8 +2264,6 @@ The music teacher said that the greatness of music lies in its ability to transc
 
 他的故事让我思考，选择没有绝对的对错，重要的是在做出选择之后，全力以赴，不留遗憾。很多时候，让我们后悔的不是我们做出的选择，而是我们没有为自己的选择全力付出。
 
-多年后，小陈回顾那个选择，仍然觉得是正确的。那条没有选择的路，也许会有另一种精彩，但他走的这条路，让他成为了今天的自己。他学会了一个道理：选择没有绝对的对错，重要的是在选择之后，全力以赴地走好自己选择的路。每一个选择，都是一个新的开始，都值得用全部的热情和努力去对待。人生中的每一个选择，都是一次自我定义的机会。我们选择什么，放弃什么，反映了我们的价值观和人生优先级。学会做出符合自己内心的选择，并为自己的选择负责，是成熟的重要标志。每个选择，都值得被尊重。
-
 多年后，小陈回顾那个选择，仍然觉得是正确的。他学会了一个道理：选择没有绝对的对错，重要的是在选择之后，全力以赴地走好自己选择的路。`,
     englishTranslation: `Every important choice we face in life means giving up something else. This trade-off is often one of the most difficult tests in life.
 
@@ -2478,8 +2295,6 @@ Years later, looking back on that choice, Xiao Chen still felt it had been the r
 
 因此，我们应该更加重视语言的使用，学会用温暖、准确、有建设性的语言与他人交流，同时也要注意自己内心的语言，用积极的自我对话来激励自己，而不是用消极的语言来打击自己。
 
-那次演讲之后，小周对语言有了全新的认识。他开始更加注意自己说话的方式，更加谨慎地选择词语，更加注意语气和表达方式对他人的影响。他意识到，语言不只是沟通的工具，更是塑造关系、影响他人的力量。学会用语言建设而不是破坏，用语言鼓励而不是打击，是每个人都需要修炼的重要功课。语言的力量，不只体现在它能够传递信息，更体现在它能够塑造现实。我们用什么样的语言描述世界，就会看到什么样的世界。学会用积极、建设性的语言思考和表达，是改变生活的重要方式。
-
 那次演讲之后，小周开始更加注意自己说话的方式，更加谨慎地选择词语。他意识到，语言不只是沟通的工具，更是塑造关系的力量。学会用语言鼓励而不是打击，是他想一生坚持的事。`,
     englishTranslation: `Language is humanity's most important communication tool, but many people don't realize that language is not merely a medium for transmitting information — it also has the power to shape reality. The way we speak greatly influences the way we think about problems and also affects our relationships with others.
 
@@ -2510,8 +2325,6 @@ After that speech, Xiao Zhou had a completely new understanding of language. He 
 在那个下午，我想了很多。我想到了自己过去一年里的得与失，想到了自己真正想要的是什么，想到了那些一直被忙碌遮蔽的内心声音。
 
 回来以后，我感觉整个人都不一样了。那次旅行没有改变我的生活，但是它改变了我看待生活的方式。有时候，我们需要暂时离开，才能看清楚自己真正在哪里。
-
-那次独自旅行，是小何给自己最好的礼物。他学会了在陌生的环境中保持冷静，学会了依靠自己解决问题，也学会了享受独处的时光。更重要的是，他在旅途中遇到了各种各样的人，听到了各种各样的故事，这些经历拓宽了他的视野，也丰富了他的内心世界。他回来时，感觉自己变了，变得更加成熟，也更加自信。独自旅行，是一种特殊的自我教育方式。在陌生的环境中，你会发现自己真正的性格和能力，也会发现自己真正的需求和渴望。这种自我发现的旅程，往往比任何课堂教育都更加深刻和持久。
 
 那次独自旅行，是小何给自己最好的礼物。他学会了在陌生环境中保持冷静，学会了依靠自己解决问题，也学会了享受独处的时光。他回来时，感觉整个人都不一样了。`,
     englishTranslation: `Last winter, I set out alone on a journey, with Shangri-La in Yunnan as my destination. This trip had no plan at all — I simply packed a backpack, bought a one-way ticket, and set off.
@@ -2546,8 +2359,6 @@ That solo journey was the best gift Xiao He had given himself. He learned to sta
 
 家庭教育的边界，在于爱与尊重的平衡。
 
-那次谈话之后，母女俩的关系有了明显的改善。妈妈开始更多地倾听小敏的想法，而不是直接给出指令；小敏也开始更多地理解妈妈的担心，而不是简单地反抗。她们都意识到，家庭教育的核心，不是控制，而是沟通；不是要求孩子按照父母的期望生活，而是帮助孩子找到自己的方向。这种认识，让她们的关系变得更加平等和温暖。家庭教育的最终目标，是培养一个能够独立思考、独立生活、对社会有贡献的人。这个目标，需要父母在爱与规则之间、在保护与放手之间，找到微妙的平衡。这种平衡，没有统一的答案，需要每个家庭根据自己的情况不断探索。
-
 那次谈话之后，母女俩的关系有了明显的改善。妈妈开始更多地倾听小敏的想法，小敏也开始更多地理解妈妈的担心。她们都意识到，家庭教育的核心不是控制，而是沟通。`,
     englishTranslation: `In China, family education has always been a topic of great concern. Many parents regard their children's education as their top priority, sparing no effort to create the best learning conditions for their children, hoping they will stand out from the crowd. However, this highly invested approach to family education sometimes also brings problems worth reflecting on.
 
@@ -2581,8 +2392,6 @@ After that conversation, the relationship between mother and daughter clearly im
 
 那次偶然的相遇，让我认识了两位非常有趣的人，也让我对文学和翻译有了新的认识。我想，生活中很多美好的事情，都是在意想不到的时候发生的。
 
-那次意外的相遇，成为了小张人生中的一个转折点。那位老人的话，让他重新思考了自己的人生方向，也让他鼓起勇气，做出了一个一直想做但没有勇气做的决定。有时候，生命中最重要的指引，来自最意想不到的地方。小张后来常常想，如果那天他没有错过那班车，他的人生会是另一番模样。命运有时候，真的很奇妙。生命中的意外相遇，往往是最珍贵的礼物。那些在最意想不到的时刻出现的人，那些在最不经意的对话中说出的话，有时候会成为改变一个人命运的关键。保持开放的心态，才能接收这些来自生命的礼物。
-
 那次意外的相遇，成为了小张人生中的一个转折点。那位老人的话，让他鼓起勇气做出了一个一直想做但没有勇气做的决定。有时候，生命中最重要的指引，来自最意想不到的地方。`,
     englishTranslation: `It was an ordinary Tuesday afternoon. I was working in a coffee shop when I suddenly heard the people at the next table discussing in fluent Chinese a book I loved very much — "One Hundred Years of Solitude." I couldn't help but turn my head and saw a foreigner and a Chinese person engaged in a lively discussion about the characters and plot of the book.
 
@@ -2615,8 +2424,6 @@ That unexpected encounter became a turning point in Xiao Zhang's life. The old m
 我自己有一段关于坚持的经历。大学的时候，我开始学习写作，但是写了很长时间，感觉自己写的东西很糟糕，没有人喜欢看。我曾经想过放弃，但是我告诉自己，再坚持一年。就这样，一年又一年，我慢慢地进步了。现在，我的文章开始有人阅读，有人评论，这让我感到非常有成就感。
 
 回头看，那些坚持下来的日子，是我人生中最宝贵的财富。因为它们不仅让我学会了写作，更让我学会了相信自己。
-
-小王的故事告诉我们，坚持的意义，不只在于最终的成功，更在于坚持本身所带来的成长。在坚持的过程中，你会发现自己比想象中更加坚强；你会学会如何在困难中保持希望；你会明白，真正的成功，不只是达到目标，更是成为一个更好的自己。这种成长，是任何成功都无法替代的人生财富。坚持，是一种选择，也是一种能力。它需要清晰的目标、足够的耐心和强大的内心。但更重要的是，它需要一种信念：相信自己的努力终将有所回报，相信过程本身就有其价值。这种信念，是坚持下去的最深层动力。
 
 回头看，那些坚持下来的日子，是我人生中最宝贵的财富。它们不仅让我学会了写作，更让我学会了相信自己。在最困难的时候选择坚持，是我做过最正确的事情之一。`,
     englishTranslation: `I once asked a marathon runner what made him keep running at the most difficult moments. He thought for a long time and said, "Because I know that if I stop, I'll never know how far I can run."
@@ -2652,8 +2459,6 @@ Xiao Wang's story tells us that the meaning of perseverance lies not only in ult
 如今，工作室里已经有了十几个学员，其中不乏对传统文化充满热情的年轻人。外婆说，她不求这些年轻人都能靠刺绣谋生，只要有几个人真正爱上这门手艺，愿意把它传下去，她就满足了。
 
 外婆的故事让我意识到，传统手工艺的传承，不仅仅是技艺的传递，更是一种文化记忆和民族精神的延续。在现代化的浪潮中，我们有责任去保护和珍视这些即将消失的文化遗产。
-
-陈师傅说，他不担心自己的手艺会失传，因为他已经找到了几个真正热爱这门手艺的年轻人，愿意花时间和精力来学习。他相信，只要有人愿意学，这门手艺就不会消失。而且，他发现，越来越多的年轻人开始对传统手工艺产生兴趣，这让他感到欣慰。也许，在经历了一段时间的低潮之后，传统手工艺正在以一种新的方式，重新焕发出它的生命力。
 
 陈师傅说，他已经找到了几个真正热爱这门手艺的年轻人，愿意花时间来学习。他相信，只要有人愿意学，这门手艺就不会消失。看着他们认真练习的样子，他心里充满了欣慰。`,
     englishTranslation: `In today's era of large-scale machine production, many traditional handicrafts are gradually being forgotten. Skills that were once indispensable in daily life — weaving bamboo baskets, making pottery, weaving cloth, embroidery — can now only be found in museum display cases or in the hands of a few elderly artisans.
@@ -2691,8 +2496,6 @@ Master Chen said he was not worried about his craft being lost, because he had a
 解决城市孤独问题，需要个人、社区和社会的共同努力。对于个人来说，要主动走出舒适区，参加各种社交活动，建立真实的人际连接。对于社区来说，要创造更多的公共空间和社交机会，促进邻里之间的交流。对于社会来说，则需要关注这一问题，提供相应的心理健康支持服务。
 
 孤独是现代生活的一种病，但它不是无药可治的。
-
-心理学家说，城市孤独感的解决，不只是增加社交活动那么简单，更需要建立真正有深度的人际关系。在这个社交媒体盛行的时代，人们的社交圈看似很大，但真正能够倾心交谈的朋友却越来越少。李女士决定，从现在开始，减少无效的社交，把更多的时间和精力，用在那些真正重要的关系上。她相信，几段深厚的友谊，胜过无数浅薄的认识。
 
 心理学家说，解决孤独感，需要建立真正有深度的人际关系，而不只是增加社交活动。李女士决定，减少无效的社交，把更多时间用在真正重要的人和事上。`,
     englishTranslation: `There is a kind of loneliness called "urban loneliness." In a large city with millions of people, you can be surrounded by crowds yet feel completely isolated and helpless. This loneliness is harder to bear than loneliness in the wilderness, because it makes you realize that even when surrounded by people, you are still an island.
@@ -2735,9 +2538,20 @@ Psychologists say that solving urban loneliness is not as simple as increasing s
 
 多年以后，每当我在人生的岔路口感到迷茫的时候，我都会想起导师说的那些话。那次谈话，改变了我对自己的认知，也在某种程度上改变了我的人生轨迹。
 
-那次谈话之后，父子俩的关系有了微妙但重要的变化。父亲开始更多地倾听儿子的想法，儿子也开始更多地理解父亲的苦心。他们都意识到，家庭关系中最重要的，不是谁对谁错，而是相互的理解和尊重。有时候，一次坦诚的谈话，能够解开多年的心结，让两颗心重新靠近。这种靠近，是任何物质条件都无法替代的家庭温暖。
+那次谈话之后，父子俩都意识到，沟通不只是说话，更是倾听。真正的沟通，需要双方都愿意放下防御，真诚地理解对方。这一课，他们都学到了。
 
-那次谈话之后，父子俩都意识到，沟通不只是说话，更是倾听。真正的沟通，需要双方都愿意放下防御，真诚地理解对方。这一课，他们都学到了。`,
+--- hsk4-2-04: The Double-Edged Sword of AI ---
+近年来，人工智能技术的发展速度令人叹为观止。从语音识别到图像生成，从自动驾驶到医疗诊断，人工智能正在以前所未有的速度渗透到人类生活的各个领域。这场技术革命，既带来了巨大的机遇，也带来了深刻的挑战。
+
+人工智能的优势是显而易见的。它能够处理海量的数据，完成人类无法独立完成的复杂任务；它不会疲劳，不会犯因情绪波动而导致的错误；它的学习速度远超人类，能够在短时间内掌握需要人类数年才能习得的技能。在医疗领域，人工智能已经被证明能够比经验丰富的医生更准确地诊断某些疾病；在教育领域，个性化的人工智能辅导系统能够根据每个学生的学习情况提供定制化的教学内容。
+
+然而，人工智能的快速发展也引发了一系列令人担忧的问题。首先是就业问题：随着越来越多的工作被自动化，大量的传统职业将面临被取代的风险。其次是隐私问题：人工智能系统需要大量的个人数据来进行训练，这引发了人们对数据安全和隐私保护的担忧。此外，人工智能系统的决策过程往往缺乏透明度，当它做出错误的决策时，责任应该由谁来承担，这在法律和伦理层面都是一个尚未解决的问题。
+
+更深层次的担忧，来自于人工智能对人类自主性的潜在威胁。当我们越来越依赖人工智能来做决策的时候，我们是否会逐渐丧失独立思考和判断的能力？当人工智能变得比人类更聪明的时候，人类应该如何定义自己的价值和意义？
+
+我认为，面对人工智能的挑战，我们既不应该盲目乐观，也不应该过度恐惧。关键在于，我们需要在拥抱技术进步的同时，建立起相应的伦理框架和监管机制，确保人工智能的发展方向符合人类的整体利益，而不是被少数人所控制和利用。
+
+人工智能的发展，让我们不得不重新思考人类的独特价值。研究者认为，答案在于人类的情感、创造力和道德判断力——这些是人工智能目前还无法真正复制的。`,
     englishTranslation: `It was just before my university graduation, and my supervisor called me to his office for a conversation I would never forget for the rest of my life.
 
 My supervisor was a professor in his sixties — rigorous in scholarship, demanding of students, known throughout the school for being "strict." I had done research under him for three years, and although I learned a great deal, I also bore considerable pressure. That day, I thought he was calling me in to give final revision comments on my graduation thesis. Unexpectedly, the first words he spoke were: "Do you know why I hold you to such high standards?"
@@ -2815,8 +2629,6 @@ The development of artificial intelligence forces us to rethink the unique value
 
 父亲去世后，儿子整理遗物时，发现了那本日记。日记里，父亲用笨拙的文字，记录了对儿子的每一个骄傲时刻，每一次担心，每一个无法说出口的爱。儿子读着读着，泪水模糊了视线。他终于明白，父亲的沉默，不是冷漠，而是一种深沉的、不善表达的爱。这个发现，虽然来得太晚，但也让他对父亲有了全新的理解，也让他在自己为人父母时，学会了更多地表达爱。
 
-父亲的沉默，教会了儿子一件事：爱，有时候不需要言语，它体现在每一个细小的行动中，体现在每一次默默的付出中。理解了这一点，儿子对父亲的爱，从困惑变成了感激，从疏远变成了亲近。这种理解，虽然来得晚，但终究还是来了，这已经足够了。
-
 父亲的沉默，教会了儿子一件事：爱，有时候不需要言语，它体现在每一个细小的行动中。理解了这一点，儿子对父亲的爱，从困惑变成了感激。这种理解，虽然来得晚，但终究还是来了。`,
     englishTranslation: `My father is a silent man. He is not good with words and not skilled at expressing emotions. In my memory, he has almost never said the words "I love you" to me. As a child, I was once hurt by this, feeling that my father didn't care enough about me.
 
@@ -2858,8 +2670,6 @@ His father's silence taught the son one thing: love sometimes needs no words —
 
 小林的经历，是很多现代人的缩影。在消费主义的浪潮中，我们很容易迷失，把拥有更多东西等同于更幸福的生活。但真正的幸福，往往来自于内心的满足，来自于有意义的人际关系，来自于做自己真正热爱的事情。学会区分真正的需求和被制造出来的欲望，是现代人保持内心自由的重要能力。这种能力，需要不断地自我反思和清醒的判断。
 
-真正的富足，不是拥有更多，而是需要更少。当一个人能够清晰地知道自己真正需要什么，并且有能力满足这些真实的需求时，他就达到了一种内心的自由和满足。这种自由，是消费主义永远无法提供的，它只能从内心深处生长出来。
-
 真正的富足，不是拥有更多，而是需要更少。小林把多余的东西都处理掉之后，反而感到了一种从未有过的轻松。她意识到，简单的生活，才是真正属于自己的生活。`,
     englishTranslation: `We live in an era deeply permeated by consumerism. Advertisements are everywhere, meticulously designed with a single purpose: to make you believe that you need to buy more things in order to become happier, more successful, and more attractive.
 
@@ -2896,8 +2706,6 @@ True abundance is not about having more but about needing less. When a person ca
 对于内向者来说，最重要的是接受自己，了解自己的需求，并且学会在必要的时候走出舒适区，同时也要学会保护自己的独处时间，不要让外界的压力迫使自己过度消耗。
 
 那次演讲之后，小云收到了很多正面的反馈，这让她感到既惊喜又感动。她意识到，内向不是弱点，而是一种不同的力量。内向者的深度思考、专注倾听和真诚表达，在这个喧嚣的世界里，有着独特的价值。她不再试图改变自己的性格，而是学会了如何在保持内向本质的同时，有效地与外部世界沟通。这种自我接纳，让她变得更加自信，也更加快乐。
-
-内向者的世界，是一个丰富而深邃的内心世界。他们不需要外界的喧嚣来填满自己，因为他们的内心已经足够充实。理解和接纳内向者的这种特质，不只是对个体的尊重，更是对人类多样性的珍视。一个既有外向者也有内向者的社会，才是一个真正多元和健康的社会。
 
 那次演讲之后，小云收到了很多正面的反馈，这让她既惊喜又感动。她意识到，内向不是弱点，而是一种不同的力量——深度思考、专注倾听和真诚表达，在这个喧嚣的世界里，有着独特的价值。`,
     englishTranslation: `In our culture, extroversion is regarded as a virtue, while introversion is often misunderstood as a personality defect. Introverted people are seen as shy, unsociable, and lacking confidence — some even consider introversion a problem that needs to be "corrected."
@@ -2938,8 +2746,6 @@ The world of introverts is a rich and deep inner world. They do not need externa
 
 那次越野跑，改变了小赵对自己和生活的看法。他意识到，人的潜力往往比自己想象的要大得多，很多时候，阻碍我们前进的，不是客观条件，而是内心的恐惧和自我限制。他把这个认识带到了生活的其他方面，开始更加勇敢地面对挑战，更加积极地突破自己的舒适区。那次越野跑，不只是一次体育锻炼，更是一次深刻的人生体验。
 
-那次越野跑的经历，让小赵对"极限"有了全新的认识。他发现，所谓的极限，往往是心理上的，而不是生理上的。当你真正下定决心要突破时，你会发现自己比想象中强大得多。这种认识，不只适用于运动，也适用于生活中的每一个挑战。
-
 那次越野跑的经历，让小赵对"极限"有了全新的认识。他发现，所谓的极限，往往是心理上的，而不是生理上的。当你真正下定决心要突破时，你会发现自己比想象中强大得多。`,
     englishTranslation: `Last autumn, I participated in my first trail running race — fifty kilometers in total, requiring crossing three mountain peaks. Before this, the longest I had ever run was a half marathon, and for a fifty-kilometer trail run, I was both full of anticipation and feeling uneasy.
 
@@ -2978,8 +2784,6 @@ The trail run experience gave Xiao Zhao a completely new understanding of "limit
 我想，保护方言，不是要阻止人们学习普通话，而是要在推广普通话的同时，为方言的传承留下空间。语言的多样性，是人类文化多样性的重要组成部分，值得我们共同珍视和保护。
 
 我决定，等下次回家的时候，让母亲教我一些湘方言。哪怕只是一些简单的词语，也算是对家乡文化的一种传承。
-
-语言学家说，方言的消失，是一个复杂的社会现象，背后有着深刻的经济和社会原因。但这并不意味着我们应该对此无动于衷。保护方言，不只是保护一种语言形式，更是保护一种文化记忆，一种地方认同，一种人类语言多样性的宝贵遗产。他呼吁，在推广普通话的同时，也要给方言留有一席之地，让两者能够和谐共存，共同构成中国丰富多彩的语言文化景观。方言的保护，需要的不只是政策的支持，更需要每一个方言使用者的自觉行动。当你选择在家里用方言和孩子交流，当你在社区活动中使用方言，你就是在为方言的传承做出贡献。这种来自民间的力量，往往比任何政策都更加持久和有效。
 
 语言学家说，保护方言，不只是保护一种语言形式，更是保护一种文化记忆和地方认同。他呼吁，在推广普通话的同时，也要为方言的传承留下空间。听完这些，我决定回家后请妈妈教我几句湘方言。`,
     englishTranslation: `My mother is from Hunan and speaks fluent Xiang dialect. As a child, whenever my grandmother came to visit, the two of them would chat in Xiang dialect, and I couldn't understand a single word — I could only watch them talk and laugh, feeling both envious and a little sad.
@@ -3022,8 +2826,6 @@ Linguists say that the disappearance of dialects is a complex social phenomenon 
 
 那件事之后，小明对诚信有了更深的理解。他意识到，诚信不只是一种道德要求，更是一种实际的生活智慧。一个诚信的人，虽然可能在短期内付出更多的代价，但从长远来看，他赢得的信任和尊重，是任何捷径都无法带来的。他决定，无论在什么情况下，都要坚守诚信的原则，因为这是他对自己最重要的承诺。
 
-诚信，是社会信任的基础，也是个人品格的核心。一个诚信的社会，交易成本更低，合作更加顺畅，人与人之间的关系更加和谐。而建立这样的社会，需要每一个个体都从自身做起，在每一件小事上坚守诚信的原则。这种积累，虽然缓慢，但却是建立美好社会最坚实的基础。
-
 诚信，是社会信任的基础，也是个人品格的核心。小明意识到，一个诚信的人，虽然可能在短期内付出更多代价，但从长远来看，他赢得的信任和尊重，是任何捷径都无法带来的。`,
     englishTranslation: `My father runs a small construction company and has been doing so for nearly thirty years. Over those thirty years, he has experienced many ups and downs, but there is one thing he has never compromised on: integrity.
 
@@ -3063,8 +2865,6 @@ Integrity is the foundation of social trust and the core of personal character. 
 
 王老师说，在数字时代，阅读能力面临的最大挑战，不是缺乏内容，而是如何在海量内容中，找到真正有价值的东西，并且有耐心深入阅读。他认为，深度阅读的能力，是抵抗信息碎片化的最有效武器。一个能够深度阅读的人，不只是在获取信息，更是在建构知识体系，在培养独立思考的能力。这种能力，在信息爆炸的时代，比任何时候都更加珍贵。
 
-深度阅读，是一种需要刻意培养的能力。在碎片化信息盛行的今天，能够静下心来，专注地阅读一本书，本身就是一种难能可贵的能力。这种能力，不只是知识获取的方式，更是培养专注力、深度思维和独立判断力的重要途径。
-
 王老师说，深度阅读的能力，是抵抗信息碎片化的最有效武器。能够静下心来，专注地读完一本书，本身就是一种难能可贵的能力，也是培养独立思考的重要途径。`,
     englishTranslation: `The popularization of the internet has fundamentally changed the way people read. In the era dominated by print books, reading was an activity requiring focus and patience; in the internet age, reading has become fragmented and shallow, with people increasingly accustomed to rapid browsing rather than deep thinking.
 
@@ -3101,8 +2901,6 @@ Deep reading is an ability that needs to be deliberately cultivated. In today's 
 我想，人生中的很多事情，都没有"太晚"这一说。只要你真正想做，任何时候开始都不算晚。
 
 重返校园的经历，让林女士对教育有了全新的认识。她意识到，学习不只是年轻人的事，它是一种贯穿一生的活动。每一个年龄段，都有适合那个年龄段的学习方式和学习内容。重要的是，保持对知识的好奇心，保持学习的热情，不断地更新自己的知识和技能。这种终身学习的态度，是她从这次重返校园的经历中得到的最重要的收获。
-
-终身学习，不只是一种个人选择，在快速变化的时代，它已经成为一种生存的必要。那些能够不断学习、不断适应的人，在面对变化时，会比那些固守旧知识的人，拥有更强的竞争力和更大的发展空间。林女士的经历，是这个时代最好的注脚之一。
 
 重返校园的经历，让林女士对教育有了全新的认识。她意识到，学习不只是年轻人的事，它是一种贯穿一生的活动。重要的是，永远保持对知识的好奇心和学习的热情。`,
     englishTranslation: `At thirty-five, I made a decision that surprised everyone around me: I resigned from my job and returned to school to pursue a master's degree in history.
@@ -3143,8 +2941,6 @@ Lifelong learning is not just a personal choice — in a rapidly changing era, i
 
 那场辩论没有赢家，但所有参与者都有所收获。他们意识到，幸福是一个复杂的、多维度的概念，没有统一的定义，也没有统一的追求方式。每个人都有权利按照自己的方式定义和追求幸福，重要的是，这种追求是真实的、发自内心的，而不是被外界的标准和期望所左右的。这种对幸福的开放态度，本身就是一种智慧。
 
-关于幸福的讨论，永远不会有最终的答案，因为幸福本身是动态的、个人化的。但这种讨论本身，就有其价值——它让我们更加清晰地认识自己，更加深刻地理解他人，也更加宽容地看待不同的生活选择。这种对话，是人类共同探索美好生活的方式。
-
 那场辩论没有赢家，但所有参与者都有所收获。他们意识到，幸福是一个复杂的、多维度的概念，没有统一的定义。每个人都有权利按照自己的方式去追求幸福，重要的是，这种追求是真实的、发自内心的。`,
     englishTranslation: `In university, our class held a debate competition on the topic of "Can money buy happiness?" The affirmative side argued that money can buy happiness; the negative side argued it cannot. I was assigned to the negative side and needed to argue that money cannot buy happiness.
 
@@ -3179,8 +2975,6 @@ Discussions about happiness will never have a final answer, because happiness it
 我的表姐后来也慢慢想通了这一点。她说，她不再试图给自己贴上一个单一的文化标签，而是接受自己是一个"跨文化人"的身份。她的孩子们，既会在中国新年的时候包饺子，也会在感恩节的时候烤火鸡，这种文化的融合，不是矛盾，而是一种丰富。
 
 在全球化的背景下，文化身份的边界越来越模糊，越来越多的人会面临类似的身份认同问题。也许，我们需要重新思考"身份"的定义，接受一种更加开放和包容的文化身份观。
-
-陈先生说，他最大的收获，是学会了如何在两种文化之间找到平衡，而不是在两者之间撕裂。他既是中国人，也是世界公民；他既珍视中华文化的传统，也欣赏其他文化的价值。这种双重身份，不是负担，而是财富。它让他能够以更加宽广的视野看待世界，以更加包容的心态理解不同的人和文化。他相信，这种跨文化的能力，在全球化的时代，是一种越来越重要的人生技能。海外华人的身份认同，是一个复杂而动态的过程。它不是一个固定的答案，而是在不同的情境中，不断地被重新定义和协商的。这种流动性，不是弱点，而是海外华人独特的文化资本，也是他们在全球化时代的独特优势。
 
 陈先生说，他最大的收获，是学会了如何在两种文化之间找到平衡，而不是在两者之间撕裂。他既是中国人，也是世界公民。这种双重身份，不是负担，而是财富。`,
     englishTranslation: `My cousin has lived in the United States for fifteen years, and her two children were both born in America and speak English far more fluently than Chinese. Every time she comes back to visit relatives, she sighs and says that in America she is Chinese, but when she returns to China she feels she is not completely Chinese either — in an awkward state of not fully belonging to either side.
@@ -3220,8 +3014,6 @@ Mr. Chen said his greatest gain was learning how to find balance between two cul
 那次失败的演讲，是我人生中最好的老师之一。
 
 那次失败的演讲，反而成了小张最好的学习经历。他意识到，演讲不只是说话，更是与听众建立连接。一个好的演讲者，不只是在传递信息，更是在与听众共同创造一种体验。他开始系统地学习演讲技巧，练习如何控制语速、语调和肢体语言，如何讲述引人入胜的故事，如何与听众建立眼神交流。半年后，他再次站上演讲台，这一次，他的表现让所有人都刮目相看。
-
-演讲的艺术，是一种可以学习和提高的技能。每一次站上演讲台，无论成功还是失败，都是一次宝贵的学习机会。重要的是，不要因为一次失败就放弃，而是要从失败中提取经验，不断改进，不断成长。这种对失败的态度，是成为优秀演讲者的必要条件。
 
 演讲的艺术，是一种可以学习和提高的技能。小张开始系统地练习，每一次站上演讲台，无论成功还是失败，都把它当作一次宝贵的学习机会。他相信，只要不放弃，就一定会进步。`,
     englishTranslation: `It was my first time speaking in public — at the company's all-hands meeting, with an audience of nearly three hundred people. I had prepared for a full week, memorizing the speech until I knew it cold, confident that nothing could go wrong.
@@ -3264,8 +3056,6 @@ The art of public speaking is a skill that can be learned and improved. Every ti
 
 那位社区工作者说，老龄化社会的挑战，不只是一个政策问题，更是一个文化问题。我们需要重新定义老年的价值，重新认识老年人对社会的贡献，建立一种真正尊重和包容老年人的社会文化。只有当整个社会都能够以积极的态度看待老龄化，才能真正解决老龄化带来的各种挑战。这需要每一个人的参与和努力，从改变自己对老年的看法开始。
 
-老龄化，不只是一个社会问题，更是一个文化问题和哲学问题。它迫使我们思考：什么是有价值的生命？什么是有尊严的老去？如何在有限的生命中，找到最大的意义和价值？这些问题，没有统一的答案，但思考这些问题本身，就是一种对生命的尊重。
-
 那位社区工作者说，老龄化社会的挑战，不只是政策问题，更是文化问题。我们需要重新定义老年的价值，建立一种真正尊重和包容老年人的社会文化。`,
     englishTranslation: `China is entering an aging society at an unprecedented pace. According to statistical data, by 2035, the population over sixty years old in China will exceed 400 million, accounting for about 30% of the total population. This profound change in population structure will have far-reaching effects on China's economy, society, and culture.
 
@@ -3302,8 +3092,6 @@ Aging is not just a social problem but also a cultural and philosophical one. It
 我想，一本好书的价值，不在于它给了你多少知识，而在于它提出了多少值得你用一生去思考的问题。《活出生命的意义》就是这样一本书。
 
 那本书改变了小周的人生轨迹，这让他深刻地体会到，一本好书的力量是无穷的。它不只是提供信息，更是提供一种思考问题的方式，一种看待世界的视角，甚至是一种生活的勇气。他开始更加认真地对待阅读，把它当作一种重要的人生投资。他相信，一个人读过的书，会慢慢地渗入他的思想和行为，成为他人格的一部分，这种影响，是深远而持久的。
-
-一本好书的影响，往往是潜移默化的。它不会立刻改变你的生活，但它会慢慢地改变你看待世界的方式，改变你思考问题的角度，最终改变你做出的选择。这种深层的影响，比任何快速见效的方法都更加持久和深刻。这就是为什么，读书是最值得投资的习惯之一。
 
 那本书改变了小周的人生轨迹，让他深刻体会到一本好书的力量是无穷的。它不只提供信息，更提供一种思考问题的方式，一种生活的勇气。他开始更加认真地对待阅读，把它当作一种重要的习惯。`,
     englishTranslation: `In my second year of university, I read a book that in some ways changed how I see the world — Viktor Frankl's "Man's Search for Meaning."
@@ -3342,8 +3130,6 @@ The influence of a good book is often subtle and gradual. It will not immediatel
 
 那位支教老师说，城乡教育差距的缩小，不只需要资金的投入，更需要优质教师资源的均衡分配。她呼吁更多的优秀教师，能够像她一样，选择去农村支教，用自己的知识和热情，点亮更多农村孩子的未来。她相信，教育是改变命运最有力的工具，而每一个孩子，无论出生在城市还是农村，都应该有平等接受优质教育的机会。
 
-教育公平，是社会公平的基础。当每一个孩子，无论出生在哪里，都能够获得同等质量的教育时，社会的流动性才会真正增强，阶层固化才会真正被打破。这不只是教育部门的责任，更是整个社会的共同责任。每一个关心教育公平的人，都是推动社会进步的力量。
-
 那位支教老师说，教育是改变命运最有力的工具。她呼吁更多优秀教师能够选择去农村支教，用自己的知识和热情，点亮更多农村孩子的未来。`,
     englishTranslation: `The unequal distribution of educational resources in China is a long-standing social problem that urgently needs to be addressed. The educational gap between urban and rural areas is reflected not only in physical facilities but even more so in teaching staff, teaching quality, and educational philosophy.
 
@@ -3380,8 +3166,6 @@ Educational equity is the foundation of social equity. When every child, regardl
 婚姻是人生的重大决定，每个人都有权利按照自己的节奏和意愿来做出选择。
 
 那次讨论让小林意识到，婚恋观的变化，反映的是整个社会的变化。当经济条件改善、个人自主意识增强、女性地位提高时，人们对婚姻和爱情的期待自然也会随之改变。这种变化，不是道德的堕落，而是社会进步的体现。重要的是，在追求个人幸福的同时，也要承担相应的社会责任，在自由与责任之间找到平衡。
-
-婚恋观的多元化，是社会进步的体现，也是个体自由的彰显。重要的是，无论选择什么样的婚恋方式，都要基于真实的自我认知和真诚的情感，而不是社会压力或他人期待。只有这样，才能找到真正适合自己的幸福方式，过上真正属于自己的生活。这种平衡，需要每个人自己去寻找和维护。
 
 那次讨论让小林意识到，婚恋观的变化，反映的是整个社会的变化。这种变化，不是道德的堕落，而是社会进步的体现。每个人都有权利选择适合自己的生活方式，这本身就是一种自由。`,
     englishTranslation: `In recent years, the marriage rate among young people in China has continued to decline, with more and more young people choosing to marry late or not at all. This phenomenon has attracted widespread attention and discussion across society and has left many parents feeling confused and anxious.
@@ -3422,8 +3206,6 @@ The diversification of attitudes toward marriage and love is a manifestation of 
 
 那位厨师说，他最大的心愿，是让更多的人通过食物，感受到生活的美好和人与人之间的温情。他相信，一顿用心烹饪的饭菜，不只是满足口腹之欲，更是一种情感的表达，一种对生活的热爱。他继续在自己的厨房里，用每一道菜，讲述着关于食物、关于生活、关于人情的故事。这些故事，是他留给这个世界最美好的礼物。
 
-食物，是文化的载体，也是情感的媒介。一道家乡菜，能够唤起对故乡的思念；一顿精心烹饪的晚餐，能够修复一段紧张的关系。厨师的工作，不只是满足人们的口腹之欲，更是在用食物讲述故事，传递温情，连接人心。这种连接，是食物最深刻的价值所在。
-
 那位厨师说，他最大的心愿，是让更多的人通过食物感受到生活的美好和人与人之间的温情。他相信，一顿用心烹饪的饭菜，不只是满足口腹之欲，更是一种情感的表达，一种对生活的热爱。`,
     englishTranslation: `I know a chef who has worked at an inconspicuous small restaurant for nearly twenty years. The restaurant has no particular reputation and the décor is quite ordinary, but every day it is packed to capacity, with many customers traveling from far away specifically to eat his food.
 
@@ -3461,8 +3243,6 @@ Food is a carrier of culture and a medium of emotion. A dish from home can evoke
 
 因此，保持对知识的敬畏和对未知的好奇，是一个终身学习者最重要的品质。在这个信息爆炸的时代，我们更需要培养这种能力：不是简单地接受和积累信息，而是学会质疑、辨别和深度思考，在知识的边界处，保持一颗永远好奇的心。
 
-那位科学家说，他最享受的，不是找到答案的那一刻，而是在寻找答案的过程中，那种与未知对话的感觉。每一个新的发现，都会打开更多的问题，而这些新的问题，又会引领他走向更深的探索。知识的边界，不是一堵墙，而是一片不断扩展的海岸线，每向前走一步，你就会看到更广阔的海洋。这种对知识的敬畏和好奇，是他作为科学家最重要的品质，也是他最宝贵的人生财富。
-
 那位科学家说，他最享受的，不是找到答案的那一刻，而是在寻找答案的过程中，与未知对话的感觉。每一个新的发现，都会打开更多的问题。知识的边界，不是终点，而是新的起点。`,
     englishTranslation: `The ancient Greek philosopher Socrates had a famous saying: "The only thing I know is that I know nothing." At first hearing, this sounds like a modest expression, but in reality it reveals a profound epistemological truth: true wisdom begins with the recognition of one's own ignorance.
 
@@ -3497,8 +3277,6 @@ That scientist said what he enjoyed most was not the moment of finding an answer
 "但是，"他说，"当我看见我的孩子快乐地成长，充满自信地探索这个世界，我觉得这一切都是值得的。"
 
 陈磊的故事，让我深刻地体会到，人生中的每一个重大选择，都意味着某种程度的失去和获得。没有任何一个选择是完美的，重要的是，你是否清楚地知道自己为什么做出这个选择，以及你是否愿意承担这个选择所带来的代价。
-
-林女士说，移民的经历，让她对"家"这个概念有了全新的理解。家，不只是一个地理位置，更是一种归属感，一种被接受和理解的感觉。在异乡，她学会了如何在陌生的环境中建立新的家园，如何在保持自己文化根源的同时，融入新的文化。这种能力，不只是移民的生存技能，更是一种人生智慧——在任何环境中，都能够找到属于自己的位置，创造出属于自己的家园。
 
 林女士说，移民的经历，让她对"家"这个概念有了全新的理解。家，不只是一个地理位置，更是一种归属感。在异乡，她学会了如何在保持自己文化根源的同时，融入新的环境。`,
     englishTranslation: `My friend Chen Lei, at the age of thirty, made a decision that changed his life: he emigrated to Canada. At that time, he had a respectable job in China, owned a house and a car, and lived a stable life. Many people couldn't understand why he would give all this up to start over in an unfamiliar country.
@@ -3535,8 +3313,6 @@ Ms. Lin said that the immigration experience gave her a completely new understan
 
 当然，打破沉默也需要一个宽容的社会环境。一个健康的社会，应该允许不同声音的存在，保护少数人表达不同意见的权利，而不是用舆论的压力来强迫所有人保持一致。
 
-那位作家说，他写这本书，是为了给那些沉默的大多数一个声音。他相信，每一个普通人的生活，都有其独特的价值和意义，都值得被记录和倾听。在那些宏大的历史叙事背后，是无数个普通人的喜怒哀乐，是他们的挣扎和坚持，是他们对美好生活的向往和追求。这些，才是历史最真实的底色，也是人类最深沉的共鸣。他希望，通过他的写作，能够让更多的人看到这些被忽视的生命，感受到它们的重量和温度。他们的声音，值得被听见。。
-
 那位作家说，他写这本书，是为了给那些沉默的大多数一个声音。他相信，每一个普通人的生活，都有其独特的价值和意义，都值得被记录和倾听。`,
     englishTranslation: `In any society, there exists a "silent majority" — those who have their own thoughts and judgments but, for various reasons, choose not to express them publicly. They are not without a voice; their voices are simply drowned out by those of a more active and more radical minority.
 
@@ -3571,8 +3347,6 @@ That writer said he wrote this book to give a voice to the silent majority. He b
 从哲学的角度来看，记忆与遗忘的问题，触及了一个更深层次的问题：我们是谁？如果我们的记忆构成了我们的自我认同，那么当记忆消失的时候，我们还是原来的那个"我"吗？这个问题，也许没有确定的答案，但它提醒我们，珍视当下的经历，因为这些经历构成了我们独一无二的生命故事。
 
 那位神经科学家说，记忆的不可靠性，不应该让我们对自己的经历产生怀疑，而应该让我们对他人的记忆保持宽容。当两个人对同一件事有不同的记忆时，这不一定意味着其中一个人在撒谎，而可能只是意味着他们的大脑以不同的方式处理和存储了那段经历。这种对记忆本质的理解，能够帮助我们更加宽容地看待人际冲突，更加理性地处理分歧。
-
-记忆与遗忘，共同构成了人类心理的基础结构。没有遗忘，我们会被过去的痛苦所淹没；没有记忆，我们会失去身份和连续性。这两者之间的动态平衡，是心理健康的重要标志。学会有意识地管理自己的记忆——珍惜美好的，放下有害的——是一种重要的心理能力。
 
 那位神经科学家说，记忆的不可靠性，不应该让我们对自己的经历产生怀疑，而应该让我们对他人的记忆保持宽容。当两个人对同一件事有不同记忆时，这不一定意味着谁在撒谎。`,
     englishTranslation: `Human memory is a wonderful and complex system. We often think of memory as a video recorder that faithfully records everything we have experienced; however, neuroscience research tells us that memory is actually a highly subjective process of constant reconstruction.
@@ -3611,8 +3385,6 @@ Memory and forgetting together form the basic structure of the human psyche. Wit
 
 那位艺术评论家说，艺术的社会功能，在不同的历史时期有着不同的表现形式，但其核心始终不变：它是人类表达自我、理解世界、与他人建立连接的重要方式。在今天这个信息过载的时代，艺术的价值，不是在于提供更多的信息，而是在于提供一种不同的感知方式——一种更加感性、更加整体、更加深刻的方式。这种方式，是任何数据或算法都无法替代的。
 
-艺术，是人类文明中最不可或缺的部分之一。它不只是装饰，不只是娱乐，它是人类理解自身、理解世界、理解彼此的重要方式。在一个越来越被数据和算法主导的世界里，艺术的存在，提醒我们，人类的价值，不只在于效率和生产力，更在于美、感受和意义的创造。
-
 那位艺术评论家说，艺术的社会功能，在不同的历史时期有不同的表现，但其核心始终不变：它是人类表达自我、理解世界、与他人建立连接的重要方式。`,
     englishTranslation: `In many people's minds, art is a luxury — something to be enjoyed only after basic material needs have been met. However, research in anthropology and history shows that artistic creation appeared almost simultaneously with human civilization; even when humans were still struggling for survival, they were already leaving paintings on the walls of caves. This suggests that for humans, art is not an optional luxury but a deep-seated need.
 
@@ -3648,8 +3420,6 @@ Art is one of the most indispensable parts of human civilization. It is not just
 
 在中国社会逐渐走向现代化和个体化的过程中，边界感的建立，不仅仅是个人心理健康的需要，也是整个社会关系模式转型的重要组成部分。
 
-心理咨询师说，边界感的建立，是一个需要不断练习的过程。很多人在成长过程中，没有学会如何设立健康的边界，因此在成年后，他们要花费更多的努力来学习这项技能。但这种学习是值得的，因为健康的边界，不只是保护自己的盾牌，更是建立真正平等和尊重的关系的基础。一个能够清晰表达自己边界的人，往往也是一个能够尊重他人边界的人，这样的人，更容易建立健康和持久的人际关系。边界感，是心理健康的重要标志，也是人际关系健康的基础。它不是自私，而是自尊；不是冷漠，而是清醒。一个有健康边界感的人，能够在给予的同时保护自己，在关爱他人的同时不失去自我。
-
 心理咨询师说，边界感的建立，是一个需要不断练习的过程。健康的边界，不只是保护自己的盾牌，更是建立真正平等和尊重的关系的前提。这种学习，值得每个人投入时间。`,
     englishTranslation: `In China's cultural tradition, the concept of "boundaries" has long not been given much importance. Between family members and between friends, there is often a habit of high levels of intimacy and involvement — asking about each other's income, relationship status, and plans for having children is seen as an expression of care rather than an invasion of personal privacy. However, as awareness of mental health has increased, more and more people have begun to realize that healthy interpersonal relationships need to be built on a foundation of mutually respected boundaries.
 
@@ -3682,8 +3452,6 @@ The counselor said that establishing a sense of boundaries is a process that req
 因此，我认为，最理想的教育，不是在科技和人文之间做出非此即彼的选择，而是培养既有技术能力又有人文素养的复合型人才。这样的人，不仅能够创造新的技术，还能够思考这些技术对人类和社会的深远影响，并在此基础上做出负责任的决策。
 
 科技与人文，不是对立的，而是相辅相成的。一个没有人文精神的科技，是危险的；一个脱离现实的人文，是无力的。只有两者的有机结合，才能推动人类文明向着更加美好的方向发展。
-
-那位科技哲学家说，科技与人文的张力，不是一个需要解决的问题，而是一种需要保持的创造性张力。正是这种张力，推动着人类不断地反思科技发展的方向，不断地追问：我们在创造什么？为了什么？对谁有益？这些问题，没有最终的答案，但提问本身，就是人类保持人性的重要方式。在科技高速发展的时代，保持这种人文的追问，比任何时候都更加重要。科技与人文的对话，是当代最重要的文化议题之一。这种对话，不只是学术层面的，更是每一个现代人都需要参与的。因为科技的发展，正在深刻地改变着我们的生活方式、思维方式和价值观念。如何在这种变化中，保持人的主体性和尊严，是每一个人都需要思考的问题。
 
 那位科技哲学家说，科技与人文的张力，不是一个需要解决的问题，而是一种需要保持的创造性张力。正是这种张力，推动着人类不断反思：我们在创造什么？为了什么？对谁有益？`,
     englishTranslation: `In contemporary university education, there is an increasingly obvious trend: science and engineering are receiving more and more attention, while the humanities are becoming increasingly marginalized. Many students and parents believe that in a technology-driven era, learning programming, data analysis, and artificial intelligence is the right choice, while "useless" subjects like literature, history, and philosophy are nothing but a waste of time.
@@ -3718,8 +3486,6 @@ That philosopher of technology said that the tension between technology and huma
 
 李明的话，让我对翻译这门艺术有了全新的认识。翻译者，是两种文化之间的桥梁，他们的工作，在很大程度上决定了一种文化如何被另一种文化所理解和接受。这是一份需要高度的语言能力、文化素养和艺术感知力的工作，远比大多数人想象的要复杂和重要。
 
-林翻译官说，多年的翻译工作，让她对语言有了一种特殊的敬畏。每一种语言，都是一个民族几千年智慧的结晶，都包含着无数无法完全翻译的细节和微妙之处。正是这些无法翻译的部分，构成了各种文化最独特、最珍贵的部分。她认为，真正的跨文化交流，不是消除这些差异，而是在保持各自独特性的同时，找到共同的人性基础。这种基础，是超越语言和文化的，是人类共同的情感和价值。
-
 林翻译官说，多年的翻译工作，让她对语言有了一种特殊的敬畏。每一种语言，都包含着无数无法完全翻译的细节和微妙之处。正是这些无法翻译的部分，构成了各种文化最独特、最珍贵的东西。`,
     englishTranslation: `My friend Li Ming is a literary translator who has been practicing this profession for nearly twenty years. To outsiders, translation seems like a relatively easy job: isn't it just converting one language into another? However, Li Ming told me that translation, especially literary translation, is a profession full of challenges and dilemmas.
 
@@ -3752,8 +3518,6 @@ Translator Lin said that years of translation work had given her a special awe o
 我认为，一个健康的社会，需要有一批敢于说真话、敢于质疑权威、敢于为弱势群体发声的公共知识分子。他们的存在，是社会自我纠错能力的重要组成部分。当然，公共知识分子也需要不断反思自己，避免陷入另一种傲慢——以为自己的判断永远是正确的，以为自己有资格代替公众做出选择。
 
 真正的公共知识分子，是社会的良心，也是公众的服务者，而不是精英阶层的代言人。
-
-公共知识分子的责任，不只是提供知识，更是提供一种思考问题的方式，一种面对复杂问题的态度。在这个信息过载、观点碎片化的时代，能够提供清晰、深刻、负责任的分析的声音，比任何时候都更加珍贵。真正的公共知识分子，不是迎合大众口味的人，而是敢于说出不受欢迎的真相、敢于挑战主流偏见的人。他们的存在，是健康公共讨论的重要保障，也是民主社会不可或缺的组成部分。这种责任，需要勇气、学识和对真理的执着追求。知识分子的价值，在于他们愿意说出别人不敢说的真相。思想的力量，永远不可低估。
 
 真正的公共知识分子，不是迎合大众口味的人，而是敢于说出不受欢迎的真相的人。在这个信息过载、观点碎片化的时代，能够提供清晰、深刻、负责任的分析，比任何时候都更加珍贵。`,
     englishTranslation: `In an era of information overload, the role of public intellectuals has become both more important and more difficult. Public intellectuals are scholars and thinkers who not only have deep academic expertise in their own fields but are also willing to step out of the ivory tower, express views on public affairs, and participate in social discussion.
@@ -3788,8 +3552,6 @@ The responsibility of public intellectuals is not just to provide knowledge but 
 
 一座没有记忆的城市，是一座没有灵魂的城市。在追求现代化的同时，我们有责任守护城市的历史记忆，让未来的一代人，也能够在城市的街道和建筑中，读到这座城市的故事。
 
-城市记忆，是一座城市的灵魂。那些古老的街道、历史建筑和传统社区，不只是建筑物，更是几代人生活经验的积累，是城市文化认同的物质载体。当这些被拆除和替换时，失去的不只是建筑，更是一种无法复制的历史感和归属感。保护城市记忆，是在快速城市化进程中，维护城市文化多样性和居民身份认同的重要方式。这种保护，需要规划者、开发商和普通市民的共同努力和智慧。城市的灵魂，需要每一个市民共同守护。保护城市记忆，就是保护城市的未来。每一座城市，都值得拥有一段被珍视的历史。
-
 城市记忆，是一座城市的灵魂。那些古老的街道、历史建筑和传统社区，是几代人生活经验的积累，是文化认同的物质载体。保护城市记忆，是在快速城市化进程中，我们不能忽视的责任。`,
     englishTranslation: `Every city has its own unique memory and character. This memory is stored not only in historical buildings and cultural sites but also in the daily lives, dialects, dietary habits, and collective stories of city residents. When a city's memory is erased or rewritten, the city's residents also lose their cultural identity to some extent.
 
@@ -3822,8 +3584,6 @@ Urban memory is the soul of a city. Those ancient streets, historic buildings, a
 面对这些挑战，很多哲学家选择了一种被称为"相容论"的立场：即使决定论是正确的，自由意志仍然是有意义的，因为自由意志所要求的，不是摆脱因果律，而是摆脱外部强制和内部冲动的干扰，按照自己的理性和价值观来行动。
 
 我认为，无论自由意志的哲学问题最终如何解决，我们都需要在实践层面上保持对自由意志的信念。因为，只有当我们相信自己的选择是有意义的，我们才能够承担起对自己行为的责任，才能够在面对困难的时候做出真正的努力，才能够在道德上不断地完善自己。
-
-自由意志的问题，不只是一个哲学问题，更是一个深刻影响我们如何看待自己和他人的实践问题。如果我们的选择真的是由神经活动决定的，那么我们对自己的行为应该承担多少责任？我们对他人的行为应该保持多少宽容？这些问题，没有简单的答案，但思考这些问题，能够让我们对人类行为有更加深刻和复杂的理解，也能够让我们对自己和他人更加宽容和同情。在这个意义上，哲学的价值，不在于提供答案，而在于提升我们思考的深度和广度。
 
 自由意志的问题，深刻影响着我们如何看待自己和他人。如果我们的选择真的是由神经活动决定的，那么我们对自己的行为应该承担多少责任？这些问题，没有简单的答案，但思考本身就有价值。`,
     englishTranslation: `Free will is one of the oldest and most difficult to resolve problems in the history of philosophy. Can we truly make choices freely, or is every decision we make determined by factors such as our genes, upbringing, and neurochemical processes? This question is not merely an abstract philosophical one — it also involves a series of practical questions concerning moral responsibility, legal punishment, and the meaning of life.
@@ -3861,8 +3621,6 @@ The question of free will is not just a philosophical question but a practical o
 这个故事，让我深刻地体会到了医学伦理的复杂性。在生死抉择面前，没有绝对正确的答案，有的只是在有限的信息和时间下，尽力做出最负责任的判断。
 
 那位外科医生说，医学的进步，让很多过去无法治愈的疾病变得可以治疗，但同时也带来了新的伦理困境：当技术上可以延长生命时，我们是否应该这样做？谁来做这个决定？这些问题，没有统一的答案，但它们要求医生、患者、家属和整个社会，共同参与到这些艰难的对话中。医学的伦理，不只是医生的责任，更是整个社会的共同课题。每一个人，都可能在某一天面对这些问题，因此，提前思考和讨论，是对自己和家人负责任的态度。
-
-医学伦理的核心，是对每一个生命的尊重。无论技术如何进步，这个核心都不应该改变。每一个医疗决定，都应该以患者的最大利益为出发点，以对生命的敬畏为基础。这是医学的根本，也是医生职业尊严的来源。这是医学人文精神的核心所在。
 
 那位外科医生说，医学的进步带来了新的伦理困境：当技术上可以延长生命时，我们是否应该这样做？这些问题，没有统一的答案，但它们要求医生、患者和家属共同参与决定，而不是任何一方单独决定。`,
     englishTranslation: `My great-uncle is a surgeon who has practiced medicine for thirty years and experienced countless moments of life and death. He rarely talks about work, but once, at a family gathering, after a few drinks, he told us a story that he still finds difficult to let go of.
@@ -3903,8 +3661,6 @@ The core of medical ethics is respect for every life. No matter how technology a
 
 数字时代的隐私问题，是一个涉及技术、法律、伦理和文化的复杂议题。解决这个问题，需要技术公司的自律、政府的监管、法律的完善，以及每一个用户的意识提升。没有任何一方能够单独解决这个问题，它需要所有利益相关者的共同努力。更重要的是，它需要整个社会对隐私价值的重新认识和重新承诺：隐私，不只是一种法律权利，更是人的尊严和自主性的基础，是民主社会不可或缺的基石。
 
-在数字时代，隐私的保护，需要技术、法律和文化的共同努力。每一个用户，都是这场保护战的参与者，也是受益者。数字时代的公民，需要新的素养和新的责任感。这种素养，是现代教育最重要的目标之一。
-
 在数字时代，隐私的保护需要技术、法律和文化的共同努力。每一个用户，都是这场保护战的参与者。数字时代的公民，需要新的素养和新的责任感——分享信息之前，先想一想它可能带来的后果。`,
     englishTranslation: `We are entering an unprecedented era of surveillance. Smartphones track our location, social media records our thoughts and social relationships, shopping platforms analyze our consumption habits, and search engines know our interests and confusions. After this data is processed by algorithms, it can construct an extremely detailed portrait of each of us.
 
@@ -3943,8 +3699,6 @@ In the digital age, protecting privacy requires the joint effort of technology, 
 父亲的经历，让我深刻地理解了一个道理：一个人的价值，不应该只由他的职位和收入来定义。失业，是一次危机，但也可以是一次重新发现自己的机会。关键在于，在失去一个身份之后，能否找到另一种方式，继续为这个世界做出贡献，继续感受到自己存在的意义。
 
 失业的经历，虽然痛苦，但也可以成为一次深刻的自我认识的机会。当外在的身份标签被剥去，当那个"我是某某公司的某某职位"的定义不再适用时，你不得不面对一个更根本的问题：我是谁？我的价值在哪里？这种追问，虽然令人不安，但也可能是一次重要的成长机会，让你重新发现自己真正的价值和热情，找到一条更加符合自己内心的人生道路。
-
-失业，是一次艰难的考验，也是一次重新发现自我的机会。那些能够在失业中保持尊严和方向感的人，往往是那些对自己的价值有着深刻认识的人。在失业的阴影中，那些能够保持尊严和方向的人，最终都找到了属于自己的出路。他们的故事，是对人类韧性最有力的证明。这是人的尊严。
 
 失业，是一次艰难的考验，也是一次重新发现自我的机会。那些能够在失业中保持尊严和方向感的人，往往是那些对自己的价值有着深刻认识的人。他们的故事，是对人类韧性最有力的证明。`,
     englishTranslation: `My father lost his job at the age of forty-five. He had worked at a state-owned enterprise for nearly twenty years, and due to enterprise restructuring, he and many of his peers were "bought out" and left their jobs early.
@@ -3985,8 +3739,6 @@ Unemployment is both a difficult test and an opportunity to rediscover oneself. 
 
 全球化的反思，不是要否定全球化本身，而是要追问：全球化为谁服务？谁从中受益，谁承担了代价？如何让全球化的利益更加公平地分配？这些问题，没有简单的答案，但它们是任何关于全球化的严肃讨论都无法回避的。真正负责任的全球化，需要在追求效率和增长的同时，也关注公平、可持续性和人的尊严。这种平衡，是全球化能否真正造福全人类的关键所在。
 
-全球化的未来，取决于我们能否建立一种更加公平、更加包容、更加可持续的全球治理体系。这需要每一个国家、每一个组织、每一个个体的共同努力。全球化的反思，不是终点，而是新起点。只有在深刻反思的基础上，才能建立更加公正和可持续的全球秩序。
-
 全球化的反思，不是否定全球化本身，而是追问：全球化为谁服务？谁从中受益，谁承担了代价？如何让利益更加公平地分配？这些问题，是任何关于全球化的严肃讨论都无法回避的。`,
     englishTranslation: `At the end of the twentieth century, globalization was widely regarded as an unstoppable historical trend, a force capable of bringing universal prosperity and peace. However, entering the twenty-first century, the negative effects of globalization began to emerge, and anti-globalization voices grew increasingly strong around the world.
 
@@ -4025,8 +3777,6 @@ The future of globalization depends on whether we can build a more fair, more in
 多年以后，当我在生活中遇到困难和困惑的时候，我经常会想起王老师的课，想起那些文学作品中的人物和故事。它们给了我一种看待问题的视角，一种处理复杂情感的方式，一种在混沌中寻找意义的能力。
 
 我想，一个好老师的价值，不在于他教给了你多少知识，而在于他帮助你建立了一种思考的方式，一种看待世界的态度。这种东西，比任何具体的知识都更加持久，更加珍贵。
-
-那位老师的影响，让小林明白了教育的真正意义。教育，不只是知识的传递，更是人格的塑造，是价值观的培养，是对生命意义的引导。一个好老师，不只是在教学生知识，更是在用自己的生命影响另一个生命。这种影响，往往超越了课堂，超越了学科，成为学生一生中最重要的精神财富。林老师的故事，是无数好老师故事的缩影，也是教育最美好的样子。好老师的影响，是一生的财富。好老师的精神，会在一代又一代学生中传递下去，成为教育最美好的遗产。
 
 那位老师的影响，让小林明白了教育的真正意义。教育，不只是知识的传递，更是人格的塑造。一个好老师，往往超越了课堂和学科，成为学生一生中最重要的引路人之一。`,
     englishTranslation: `In my years of study, there was one teacher whose influence on me was profound — one could even say that he, in some way, shaped how I see the world. He was my Chinese language teacher in high school, surnamed Wang; we all called him Teacher Wang.
@@ -4067,8 +3817,6 @@ The influence of that teacher made Xiao Lin understand the true meaning of educa
 
 生命的偶然性，不应该让我们感到恐惧，而应该让我们感到敬畏和珍惜。正是因为生命是偶然的，每一次相遇才显得如此珍贵；正是因为生命是有限的，每一个当下才值得全力以赴。接受生命的偶然性，不是放弃对未来的规划，而是在规划的同时，保持对生命馈赠的感恩和对意外惊喜的开放。这种态度，是面对生命不确定性的最智慧的方式。
 
-接受生命的偶然性，不是消极的宿命论，而是一种积极的开放态度——对生命的每一个馈赠，都保持感恩；对生命的每一个挑战，都保持勇气。生命的偶然性，是一种礼物，也是一种邀请——邀请我们以更加开放和感恩的心态，去拥抱每一个当下。这种开放，是生命最美的姿态。
-
 接受生命的偶然性，不是消极的宿命论，而是一种积极的开放态度——对生命的每一个馈赠，都保持感恩；对生命的每一个挑战，都保持勇气。正是因为生命是偶然的，每一次相遇才显得如此珍贵。`,
     englishTranslation: `Sometimes I think about a dizzying question: how accidental a thing my existence is. My parents met at a specific time and place — if any single detail had been different, they might not have met, and I would not exist. And their parents also met under equally accidental circumstances... If we trace this chain of contingency all the way back, we find that each of our existences is built on the foundation of countless chance events.
 
@@ -4105,8 +3853,6 @@ Accepting the contingency of life is not passive fatalism but an active open att
 我认为，茶文化的价值，不仅仅在于茶本身，更在于它所倡导的一种生活态度：慢下来，专注当下，感受生命中那些细微而美好的事物。在一个越来越快、越来越嘈杂的世界里，这种态度，也许比以往任何时候都更加珍贵。
 
 茶文化的哲学，不只是关于饮茶，更是关于一种生活态度：慢下来，专注当下，在简单中发现美，在平静中感受深刻。这种哲学，在快节奏的现代生活中，有着特别的价值。它提醒我们，真正的享受，不需要复杂和奢华，只需要一颗宁静的心和对当下的全然投入。这种简单而深刻的智慧，是中国传统文化给现代人最宝贵的礼物之一。
-
-茶，是中国文化的缩影，也是东方智慧的象征。在一杯茶中，你可以感受到几千年的历史，感受到人与自然的和谐，感受到生命的从容与美好。茶文化的智慧，在于它教会我们如何在忙碌中找到宁静，在复杂中发现简单，在短暂中感受永恒。这是茶的哲学，也是生活的哲学。
 
 茶，是中国文化的缩影，也是东方智慧的象征。在一杯茶中，你可以感受到几千年的历史，感受到人与自然的和谐。茶文化的智慧，在于它教会我们如何在忙碌中找到宁静，在复杂中发现简单。`,
     englishTranslation: `In Chinese culture, tea is not merely a beverage — it is also a philosophy, a way of life, and an expression of the relationship between humans and nature and between people. Chinese tea culture has a history of thousands of years; it integrates the thoughts of Confucianism, Taoism, and Buddhism, forming a unique system of aesthetics and values.
@@ -4145,8 +3891,6 @@ Tea is a microcosm of Chinese culture and a symbol of Eastern wisdom. In a cup o
 
 我想，生命中的苦难，有时候是一种残酷的礼物。它剥去了我们日常生活中的种种遮蔽，让我们看清楚什么是真正重要的，什么是我们真正渴望的。这种清醒，虽然来得痛苦，却是无价的。
 
-创伤后的成长，不是对痛苦的否定，而是对痛苦的超越。它不是说创伤是好事，而是说，在经历了创伤之后，人有可能变得比以前更加坚强、更加深刻、更加有同情心。这种成长，需要时间，需要支持，需要勇气，但它是可能的。每一个经历过创伤并从中成长的人，都是人类韧性的证明，也是对生命力量的最有力的肯定。创伤后的成长，是人类精神力量最有力的证明。创伤后的成长，提醒我们，人类的精神，比我们想象的更加坚韧和有弹性。每一次跌倒，都蕴含着重新站起来的力量。
-
 创伤后的成长，不是对痛苦的否定，而是对痛苦的超越。它不是说创伤是好事，而是说，在经历了创伤之后，人有可能变得比以前更加坚强、更加深刻、更加有同情心。这种成长，需要时间和勇气，但它是可能的。`,
     englishTranslation: `In psychology there is a concept called "Post-Traumatic Growth" (PTG), which describes a phenomenon: some people, after experiencing serious trauma or adversity, are not only not crushed but actually become psychologically stronger, gain a deeper understanding of life, develop stronger compassion for others, and even discover new meaning in life.
 
@@ -4182,8 +3926,6 @@ Post-traumatic growth is not a denial of pain but a transcendence of it. It does
 
 这对于语言学习有着重要的启示：真正的语言学习，不应该只是把一种语言的内容翻译成另一种语言，而应该尝试用目标语言来思考，去感受这种语言所承载的独特世界观。只有这样，才能真正地掌握一门语言，真正地理解另一种文化。
 
-语言与思维的关系，是一个深刻而复杂的哲学和认知科学问题。无论语言决定论还是语言相对论，都提醒我们，语言不只是表达思想的工具，它也在塑造我们的思想。学习一门新语言，不只是掌握新的表达方式，更是获得一种新的思维方式，一种新的看待世界的视角。在这个意义上，多语言能力，不只是一种实用技能，更是一种认知上的丰富和扩展。语言，是思维的家园，也是文化的灵魂。语言与思维的关系，是人类认识自身最深刻的问题之一。探索这个问题，就是在探索人类意识的本质和边界。这是语言的奇迹。
-
 学习一门新语言，不只是掌握新的表达方式，更是获得一种新的思维方式，一种新的看待世界的视角。这也许是语言学习最深刻的意义所在。`,
     englishTranslation: `In linguistics there is a famous hypothesis called the "Sapir-Whorf hypothesis," which holds that the language we use largely determines our way of thinking and our perception of the world. This hypothesis has two versions, strong and weak: the strong version holds that without language there is no thought; the weak version holds that language influences thought but does not completely determine it.
 
@@ -4218,8 +3960,6 @@ The relationship between language and thought is a profound and complex question
 一个健康的文明，需要有足够多的人愿意为公共利益而承担个人代价，愿意在短期利益和长期利益之间选择后者，愿意在个人自由和社会责任之间寻找平衡。这些，都是文明得以延续的基础。
 
 我们这一代人，生活在人类历史上物质最为丰富、技术最为先进的时代，但同时也面临着气候变化、技术失控、社会极化等前所未有的挑战。如何在享受文明成果的同时，承担起守护文明的责任，是我们这一代人无法回避的历史使命。
-
-那位历史学家说，研究文明的脆弱性，不是为了让人们感到绝望，而是为了让人们更加珍惜和保护我们所拥有的文明成果。每一个时代，都面临着自己独特的挑战和威胁；每一代人，都有责任把文明的火炬传递下去。这种责任感，不是负担，而是一种崇高的使命。理解文明的脆弱性，恰恰是建立文明韧性的第一步。只有清醒地认识到文明可能崩溃，我们才会以足够的认真和敬畏，去维护和发展它。文明的韧性，来自于每一代人对文明价值的深刻认识和坚定守护。文明的守护，是每一代人共同的使命。
 
 那位历史学家说，研究文明的脆弱性，不是为了让人们感到绝望，而是为了让人们更加珍惜和保护我们所拥有的文明成果。每一代人，都有责任把文明的火炬传递下去。`,
     englishTranslation: `The historian Arnold Toynbee once pointed out that most civilizations that have appeared in human history have ultimately moved toward decline and extinction. This observation is an unsettling reminder for those living at the contemporary "peak of civilization": everything we enjoy today — stable social order, advanced science and technology, abundant material life — is not a historical inevitability but an extremely fragile achievement that requires the joint efforts of every generation to maintain and pass on.
@@ -4258,8 +3998,6 @@ That historian said that studying the fragility of civilization is not meant to 
 
 真正的孤独，不是空虚，而是充实；不是逃避，而是回归；不是软弱，而是一种深刻的内在力量。一个能够享受孤独的人，往往也是一个能够真正享受与他人在一起的人，因为他的社交，是出于真正的渴望，而不是出于对孤独的恐惧。
 
-那位作家说，他最好的作品，往往是在最孤独的时候写出来的。孤独，给了他一种特殊的清醒，让他能够看到在喧嚣中看不到的东西，听到在噪音中听不到的声音。他认为，在这个越来越害怕孤独的时代，重新发现孤独的价值，学会与自己相处，是一种重要的人生能力。这种能力，不只是对创作者有益，对每一个希望过有深度的生活的人，都是不可或缺的。孤独，是一种能力，也是一种选择。学会享受孤独，是走向内心自由的重要一步。
-
 那位作家说，他最好的作品，往往是在最孤独的时候写出来的。孤独，给了他一种特殊的清醒，让他能看到在喧嚣中看不到的东西。在这个越来越害怕孤独的时代，学会与自己相处，是一种重要的人生能力。`,
     englishTranslation: `In modern society, loneliness is often viewed as a condition needing a cure, a mark of social failure. We are encouraged to socialize, to build networks, to stay connected, as if being alone is a state to be avoided. However, a growing body of psychological research and philosophical reflection shows that solitude — true, voluntary solitude — is an indispensable component of human spiritual life.
 
@@ -4296,8 +4034,6 @@ That writer said his best works were often written in his loneliest moments. Sol
 面对这些挑战，简单地诉诸市场力量或者单纯地依靠再分配政策，都是不够的。解决经济不平等，需要一套综合性的政策框架：包括改善教育机会的均等化、加强劳动者的权利保护、推进税制改革、以及建立更加完善的社会保障体系。
 
 更根本的，是需要在社会层面重新思考，我们究竟想要一个什么样的社会。一个极度不平等的社会，即使在物质上是富裕的，也无法实现真正意义上的人类繁荣。因为人类的繁荣，不仅仅需要物质的满足，还需要尊严、公平和真正的机会平等。
-
-那位经济学家说，解决经济不平等，需要的不只是技术性的政策调整，更需要一种对公平和正义的深刻承诺。这种承诺，必须渗透到社会的各个层面——从政策制定者到普通公民，从企业家到工人，每个人都需要认识到，一个更加平等的社会，对所有人都更加有益。不平等不只是穷人的问题，它是整个社会的问题，它侵蚀着社会的凝聚力，阻碍着人类潜能的充分发挥。
 
 那位经济学家说，解决经济不平等，需要的不只是技术性的政策调整，更需要一种对公平和正义的深刻承诺。一个更加平等的社会，对所有人都更加有益。`,
     englishTranslation: `Economic inequality is one of the most important social issues in today's world. According to various statistical data, the degree of inequality in global wealth distribution has continued to intensify over the past few decades, with the wealth held by a small number of super-rich individuals already exceeding the combined wealth of the majority of the world's population. This extreme inequality is not merely a moral issue — it also has far-reaching negative effects on social stability, democratic institutions, and economic efficiency.
@@ -4340,8 +4076,6 @@ That economist said that solving economic inequality requires not just technical
 
 告别的时候，陈先生送给我一句话，他说这是他一生外交经验的总结："理解，是一切和平的基础。"
 
-那位外交官说，他最深刻的认识，是人类在根本上的相似性远大于表面上的差异性。无论文化背景如何不同，人们对和平、安全、尊严和幸福的渴望是共同的。外交的艺术，就是在尊重差异的同时，找到这些共同的人性基础，并在此基础上建立合作和信任。他相信，只要人类能够保持这种对共同人性的认识，就没有任何冲突是无法通过对话和谈判来解决的。外交的艺术，在于在坚守原则的同时，保持对话的大门永远敞开。
-
 告别的时候，陈先生送给我一句话，他说这是他一生外交经验的总结："理解，是一切和平的基础。"这句话，我会一直记着。`,
     englishTranslation: `My mentor, retired diplomat Mr. Chen, served in diplomatic positions in multiple countries and personally witnessed many major events in international politics in the second half of the twentieth century. On his eightieth birthday, he accepted my interview and looked back on his long diplomatic career.
 
@@ -4381,8 +4115,6 @@ That diplomat said his deepest insight was that humanity's fundamental similarit
 
 我认为，深度阅读的复兴，不仅仅是个人的选择，更是一种文化和教育的使命。在一个信息过载、注意力稀缺的时代，培养深度阅读的能力，是保护人类最宝贵的认知资产的必要举措。一个无法进行深度思考的社会，无论拥有多少信息，都无法真正地理解世界，也无法明智地应对它所面临的挑战。
 
-那位出版人说，他对阅读的未来是谨慎乐观的。虽然传统纸质书的市场在缩小，但阅读本身并没有消亡，它只是在以新的形式延续。更重要的是，他看到了一种新的阅读文化的兴起——更加多元、更加互动、更加包容。在这种新的阅读文化中，读者不只是被动的接受者，更是主动的参与者和创造者。这种转变，虽然带来了挑战，但也带来了前所未有的机遇。
-
 那位出版人说，他对阅读的未来是谨慎乐观的。阅读本身并没有消亡，它只是在以新的形式延续。更重要的是，他看到了越来越多的人，开始重新珍视深度阅读的价值。`,
     englishTranslation: `Before the rise of digital media, reading — especially deep reading of long texts — was one of humanity's primary ways of acquiring knowledge and developing thinking ability. However, the widespread adoption of the internet and smartphones has fundamentally changed people's information consumption patterns. Fragmented content, short videos, and instant messaging are replacing deep reading and becoming the primary channels through which more and more people acquire information.
 
@@ -4417,8 +4149,6 @@ That publisher said he was cautiously optimistic about the future of reading. Al
 这种理解，让我们既能够对历史上的道德进步保持乐观，也能够对当前道德观念的局限性保持警醒。也许，我们今天认为理所当然的某些做法，在未来的人们看来，同样是不道德的。这种历史的谦逊，是道德进步的重要前提。
 
 道德的进化，不是一个自动发生的过程，它需要每一代人的道德勇气和道德想象力——勇气去质疑那些被视为理所当然的做法，想象力去设想一个更加公正、更加包容的世界。
-
-那位哲学家说，道德进化的过程，是人类不断扩大道德关怀圈的过程。从最初只关心自己的家族，到关心自己的部落，到关心自己的民族，到关心全人类，甚至到关心其他物种和整个地球生态系统——这个扩展的过程，虽然缓慢而曲折，但方向是清晰的。他相信，这种道德进化，是人类最深层的本能之一，也是人类文明最重要的推动力之一。
 
 那位哲学家说，道德进化的过程，是人类不断扩大道德关怀圈的过程。从关心家族，到关心民族，到关心全人类，甚至到关心整个地球生态系统——这个扩展的过程，虽然缓慢而曲折，但方向是清晰的。`,
     englishTranslation: `If we make a longitudinal comparison of moral concepts throughout human history, we find that morality is not unchanging — it is constantly evolving. Practices that were taken for granted in ancient times — slavery, discrimination against women, persecution of heretics — are today universally considered immoral, even criminal. This historical change in moral concepts raises a profound philosophical question: is morality objective and universal, or subjective and relative?
@@ -4457,8 +4187,6 @@ That philosopher said that the process of moral evolution is the process of huma
 
 家族企业的传承，不仅仅是一个商业问题，它也是一个关于家族认同、代际关系和价值观传递的深层次社会问题。如何在这些复杂的维度之间找到平衡，是每一个有志于基业长青的家族企业都必须认真思考的问题。
 
-那位企业顾问说，家族企业的传承困境，折射出的是一个更深层的问题：如何在保持企业文化和价值观的同时，适应不断变化的商业环境？这个问题，没有统一的答案，每个家族企业都需要根据自己的具体情况，找到适合自己的传承方式。但有一点是共同的：成功的传承，需要创始人的智慧、接班人的能力，以及整个家族的共识和支持。缺少任何一个，传承都可能失败。
-
 那位企业顾问说，成功的家族企业传承，需要在保持文化和价值观的同时，适应不断变化的商业环境。这个平衡很难找，但只要家族成员愿意真诚沟通，就有可能找到。`,
     englishTranslation: `In China's business world, family enterprises occupy a position of considerable importance. According to statistics, family enterprises account for more than eighty percent of China's private enterprises. However, there is a worrying phenomenon: large numbers of first-generation entrepreneurs encounter various difficulties in the process of passing their enterprises to the second generation, causing many once-glorious family enterprises to decline during generational succession.
 
@@ -4494,8 +4222,6 @@ That business consultant said that the succession dilemma of family businesses r
 
 面对这些挑战，我认为，解决气候变化问题，需要一种新的道德框架：一种能够超越个人利益和国家利益的短视，将人类作为一个整体来思考，并且将未来几代人的利益纳入当代决策的框架。这种道德框架，不仅仅需要政治家和政策制定者的努力，更需要整个社会在价值观层面的深刻转变。
 
-那位气候科学家说，气候变化的伦理维度，要求我们重新思考人类与自然的关系，以及当代人与后代人的关系。我们不只是地球的使用者，更是地球的守护者；我们不只是对当代人负责，更是对未来几代人负责。这种责任感，需要体现在我们的每一个选择中——从个人的消费方式，到企业的经营策略，到国家的政策制定。气候变化，是对人类道德能力的终极考验，也是人类能否真正成为地球负责任的守护者的关键时刻。
-
 那位气候科学家说，气候变化要求我们重新思考人类与自然的关系。我们不只是地球的使用者，更是地球的守护者；我们不只对当代人负责，更对未来几代人负责。`,
     englishTranslation: `Climate change is one of the most complex moral challenges humanity has ever faced. Its complexity lies not only in its scientific and technical difficulty but also in the profound ethical questions it involves: intergenerational justice, international equity, and the relationship between individual responsibility and collective action.
 
@@ -4530,8 +4256,6 @@ That climate scientist said that the ethical dimension of climate change require
 然而，在政治极化和民族主义上升的今天，身份的多重性正在受到威胁。各种政治力量，都在试图将人们的身份简化为某一个单一的维度，以便于动员和操控。抵制这种简化，坚持自己身份的多重性和复杂性，是每一个有独立思考能力的人，在这个时代所能做出的最重要的政治姿态之一。
 
 我是谁？这个问题，没有一个简单的答案。而这种复杂性，恰恰是我们作为人类最宝贵的特质之一。
-
-身份的多重性，是现代人的普遍处境，也是现代人的独特优势。在不同的情境中，我们扮演不同的角色，呈现不同的自我。这种多重性，不是虚伪，而是人类社会性的体现。真正的自我，不是某一个固定的角色，而是所有这些角色的总和，以及在所有这些角色之后，那个观察和选择的核心。认识和接纳自己身份的多重性，是现代人自我认知的重要功课，也是在复杂社会中保持真实自我的重要能力。
 
 身份的多重性，是现代人的普遍处境，也是现代人的独特优势。真正的自我，不是某一个固定的角色，而是所有这些角色的总和。学会在不同角色之间自如切换，本身就是一种成熟。`,
     englishTranslation: `Each of us simultaneously possesses multiple identities: we are members of a family, part of an ethnic group, citizens of a country, practitioners of a professional group, inheritors of a cultural tradition... These different identities constitute the complex mosaic of our self-understanding.
@@ -4572,8 +4296,6 @@ The multiplicity of identity is the common condition of modern people and also t
 
 林建的话，让我对建筑有了全新的理解。在他看来，建筑不仅仅是一种技术和艺术，更是一种伦理——关于人与自然、人与历史、人与人之间关系的伦理。
 
-那位建筑师说，他最深刻的认识，是建筑与人的关系是双向的：建筑塑造人，人也塑造建筑。一个好的建筑，不只是满足功能需求，更是在引导人们如何生活、如何互动、如何感受空间和时间。在这个意义上，建筑师不只是设计建筑的人，更是在设计人们的生活体验，设计一种可能的生活方式。这种责任，要求建筑师不只有技术能力，更要有人文关怀和社会责任感。
-
 那位建筑师说，他最深刻的认识，是建筑与人的关系是双向的：建筑塑造人，人也塑造建筑。一个好的建筑，不只满足功能需求，更在引导人们如何生活、如何互动、如何感受空间。`,
     englishTranslation: `My friend Lin Jian is an architect with considerable international reputation. His works are known for their profound response to local culture and natural environment, having won numerous awards around the world. However, in a late-night long conversation, he revealed to me his complex feelings about the profession of architecture.
 
@@ -4613,8 +4335,6 @@ That architect said his deepest insight was that the relationship between archit
 
 我认为，在这场真相与谎言的持久战中，没有任何单一的解决方案。它需要技术、法律、教育和公民文化的多管齐下，更需要每一个信息消费者，在面对任何信息的时候，都保持一份健康的怀疑精神，养成在转发之前核实信息的习惯。在一个谎言可以以光速传播的时代，真相的守护，是每一个公民的责任。
 
-在网络时代，每一个人都既是信息的消费者，也是信息的生产者。这种双重角色，赋予了我们前所未有的力量，也赋予了我们前所未有的责任。我们分享的每一条信息，都可能影响他人的认知和判断；我们传播的每一个谣言，都可能造成真实的伤害。因此，在享受网络信息自由的同时，我们也需要承担起相应的责任：核实信息，谨慎分享，尊重事实，维护公共讨论的质量。这种责任，是网络时代公民素养的核心。
-
 在网络时代，每一个人都既是信息的消费者，也是信息的生产者。我们分享的每一条信息，都可能影响他人的认知；我们传播的每一个谣言，都可能造成真实的伤害。在享受网络带来便利的同时，我们都有责任做一个负责任的信息传播者。`,
     englishTranslation: `Before the internet appeared, the spread of information was strictly limited by physical conditions and institutional gatekeeping. For a lie to spread widely, it had to overcome numerous obstacles: it needed to be printed, needed to reach readers through distribution channels, and these channels typically had certain editorial review mechanisms. However, the emergence of the internet fundamentally changed this landscape. Today, anyone can spread any information — true or false — to millions of people within seconds.
 
@@ -4652,9 +4372,22 @@ In the internet age, every person is both a consumer and a producer of informati
 
 一个社会对待老年人的方式，折射出这个社会的价值观。一个真正成熟的社会，应该把老年人视为宝贵的智慧资源，而不是需要被边缘化的负担。他们的经历和智慧，是任何教科书都无法替代的人类遗产。
 
-衰老，是生命的自然过程，也是人类共同的命运。如何面对衰老，不只是个人的选择，更是一种文化态度的体现。那些能够以平静和智慧面对衰老的人，往往也是那些对生命有着深刻理解和感恩的人。他们知道，生命的价值，不在于它的长度，而在于它的深度和广度；不在于拥有多少，而在于体验了多少，贡献了多少，爱了多少。这种对生命的理解，是衰老给予我们最宝贵的礼物。衰老，是生命走向智慧的必经之路。这是衰老给予我们的最深刻的启示。
+那些能够以平静和智慧面对衰老的人，往往也是对生命有着深刻理解和感恩的人。他们知道，生命的价值，不在于它的长度，而在于它的深度和广度；不在于拥有多少，而在于经历了什么，留下了什么。
 
-那些能够以平静和智慧面对衰老的人，往往也是对生命有着深刻理解和感恩的人。他们知道，生命的价值，不在于它的长度，而在于它的深度和广度；不在于拥有多少，而在于经历了什么，留下了什么。`,
+--- hsk5-2-13: The Urban-Rural Divide ---
+中国的城乡差距，是当代中国最重要的社会问题之一。尽管过去几十年来，中国经历了人类历史上规模最大的城镇化进程，数亿农村人口进入城市，城乡之间的收入差距和公共服务差距，在某些方面仍然十分显著。
+
+城乡差距，不仅仅是一个经济问题，它更是一个深刻的社会和文化问题。在经济层面，城市居民的平均收入，仍然远高于农村居民；城市的教育、医疗、基础设施等公共服务，也普遍优于农村地区。这种差距，导致了大量农村人口向城市流动，形成了规模庞大的"农民工"群体。
+
+然而，农民工的城市生活，往往充满了艰辛和不公平。他们从事着城市最繁重、最危险的工作，却往往无法享受与城市居民同等的公共服务和社会保障。他们的子女，在很多城市无法享受与本地户籍儿童同等的教育权利，被迫在条件较差的"农民工子弟学校"就读，或者留在农村成为"留守儿童"。
+
+这种制度性的不公平，不仅仅是对农民工个人权利的侵犯，它还对中国社会的长期发展产生了深远的负面影响。大量的留守儿童，由于长期缺乏父母的陪伴和照料，在心理健康和教育发展方面面临着严重的挑战，这将成为中国未来发展的重要隐患。
+
+近年来，中国政府已经意识到这一问题的严重性，并采取了一系列措施来缩小城乡差距，包括加大对农村地区教育和医疗的投入，推进户籍制度改革，以及推动农村土地制度改革等。这些措施，在一定程度上改善了农村居民的生活条件，但是要从根本上解决城乡差距问题，仍然需要更加深入和系统性的制度改革。
+
+从更深层次来看，城乡差距问题，折射出中国社会在现代化进程中所面临的深层矛盾：如何在追求经济效率的同时，保障社会公平；如何在推进城镇化的同时，保护农村文化和农业生产；如何在全球化的背景下，保持中国农村社会的可持续发展。这些问题，没有简单的答案，但它们是中国实现真正意义上的现代化所必须面对和解决的核心挑战。
+
+弥合城乡之间的鸿沟，需要城乡之间真正的相互理解和尊重。城市人需要理解农村生活的价值和智慧，农村人需要获得平等参与现代社会的机会。这种双向的理解，才是真正解决问题的基础。`,
     englishTranslation: `In a culture that worships youth and vitality, aging is often viewed as an enemy to be resisted, a defect to be concealed. However, from a philosophical and psychological perspective, aging is not merely a physiological process — it is also a life stage full of possibilities, a period of life that can bring unique wisdom and depth.
 
 Psychologist Erik Erikson, in his theory of life development, defines old age as the stage of conflict between "ego integrity" and "despair." Those elderly people who can successfully achieve ego integrity are able to look back on their lives with a peaceful eye, accepting the successes and failures, joys and regrets within it, and finding an overall sense of meaning and satisfaction. Those who cannot achieve this integration fall into regret for the past and fear of death.
@@ -4726,8 +4459,6 @@ The gap between urban and rural areas is not just economic but also cultural and
 
 音乐，也许是人类最古老、最普遍的艺术形式。它的力量，不仅仅在于它的美，更在于它与人类大脑和情感系统的深刻共鸣。理解音乐的神经科学基础，不仅仅是一个学术问题，它还能够帮助我们更好地利用音乐的治愈力量，改善人类的身心健康。
 
-音乐与情感的神经科学研究，不只是揭示了音乐如何影响大脑，更是揭示了人类情感体验的深层机制。这些研究表明，音乐是人类进化过程中发展出来的一种重要的社会粘合剂——它能够同步群体的情绪，增强社会凝聚力，促进合作和信任。在这个意义上，音乐不只是艺术，更是人类社会性的生物学基础之一。理解音乐的这种深层功能，能够帮助我们更好地利用音乐来促进个人健康和社会和谐。
-
 音乐与情感的神经科学研究，揭示了音乐是人类进化过程中发展出来的一种重要的社会粘合剂——它能同步群体情绪，增强社会凝聚力，促进合作和信任。在这个意义上，音乐不只是艺术，更是人类的共同语言。`,
     englishTranslation: `Why can music touch our emotions so profoundly? Why can a melody bring us to tears, or fill us with inexplicable joy? These questions have long been puzzles in philosophy and psychology, but in recent years, neuroscience research has begun to provide us with some fascinating answers.
 
@@ -4769,8 +4500,6 @@ Neuroscientific research on music and emotion not only reveals how music affects
 
 那位法官说，法律的最终目的，不只是惩罚罪行，更是维护正义，保护每一个人的尊严和权利。当法律的条文与正义的精神发生冲突时，法官的职责，不只是机械地执行条文，更是在条文的框架内，寻找最接近正义精神的判决。这种判断，需要法律知识，更需要道德智慧和对人性的深刻理解。法律的权威，最终来自于它对正义的追求，而不只是来自于国家的强制力。
 
-法律的尊严，来自于它对每一个个体的公平对待，来自于它对正义的不懈追求。维护这种尊严，是每一个法律人的神圣职责，也是整个社会的共同责任。法律的尊严，最终来自于它对每一个人的公平对待。这是法治社会最根本的承诺。
-
 那位法官说，法律的最终目的，不只是惩罚罪行，更是维护正义，保护每一个人的尊严和权利。当法律的条文与正义的精神发生冲突时，法官的职责，是在条文的框架内，寻找最接近正义精神的判决。`,
     englishTranslation: `My friend Zhang Hua is a judge who has worked at a grassroots court for nearly twenty years. He is a quiet, reserved person who rarely talks about his work, but one night he told me about a case that still keeps him tossing and turning.
 
@@ -4810,8 +4539,6 @@ The dignity of law comes from its fair treatment of every individual and its rel
 
 传统节日的现代意义，不仅仅在于文化的传承，更在于它所提供的一种精神资源：在一个越来越碎片化、越来越原子化的现代社会中，传统节日提供了一种集体性的仪式，让人们有机会暂时放下个人的日常事务，与家人、与社区、与历史重新建立连接。这种连接，是现代人精神健康不可或缺的组成部分。
 
-传统节日的现代意义，不只在于它们保存了历史文化，更在于它们提供了一种集体反思和更新的机会。每一年，当我们重新经历这些节日时，我们不只是在重复过去，更是在重新审视和更新我们对这些传统的理解和诠释。这种动态的传承，才是传统文化真正的生命力所在。它不是博物馆里的展品，而是活在每一代人的生活实践中，随着时代的变化而不断演变和更新的活的文化。传统，在传承中更新，在更新中延续。传统节日的现代意义，在于它让我们在快速变化的世界中，找到文化的根与归属。
-
 每一年，当我们重新经历这些节日时，我们不只是在重复过去，更是在重新审视和更新我们对这些传统的理解。这种动态的传承，才是传统文化真正的生命力所在。`,
     englishTranslation: `Under the impact of globalization and modernization, China's traditional festivals are undergoing a profound transformation. On one hand, with the penetration of commercialization, many traditional festivals have gradually evolved into consumer holidays, with their original cultural connotations and ritual significance being diluted; on the other hand, more and more young people are losing interest in traditional festivals and instead showing greater enthusiasm for Western holidays — Christmas, Valentine's Day, Halloween.
 
@@ -4846,8 +4573,6 @@ The modern significance of traditional festivals lies not only in their preserva
 然而，立法和监管，只是解决人工智能伦理问题的一个方面。更根本的，是需要在人工智能的研发和应用过程中，将伦理考量内化为一种自觉的实践，而不是事后的合规检查。这需要人工智能研究者、工程师、政策制定者和公众的共同努力，需要在技术进步和人类价值观之间，建立一种持续的、有深度的对话。
 
 人工智能的未来，取决于我们今天所做的选择。这些选择，不仅仅是技术选择，更是道德选择。
-
-人工智能的伦理问题，不只是技术问题，更是关于人类价值观和社会选择的根本问题。我们选择如何发展和使用人工智能，反映了我们对人类尊严、公平正义和美好生活的理解。这些选择，不应该只由技术专家和企业家来做，而应该是整个社会共同参与和决定的。建立一个包容、多元、负责任的人工智能治理体系，是当代人类面临的最重要的集体挑战之一，也是我们对未来世代最重要的责任之一。
 
 人工智能的伦理问题，不只是技术问题，更是关于人类价值观的根本问题。我们选择如何发展和使用人工智能，反映了我们对人类尊严、公平正义和美好生活的理解。这些选择，应该是整个社会共同参与和决定的。`,
     englishTranslation: `The rapid development of artificial intelligence is fundamentally changing the face of human society. From medical diagnosis to financial decision-making, from content creation to military applications, the tentacles of AI are extending into every domain of human activity. However, as AI capabilities continue to improve, a series of profound ethical questions have emerged: what should AI be allowed to do? What should it not do? Who is responsible for the consequences of AI decisions?
@@ -4886,8 +4611,6 @@ The ethical issues of artificial intelligence are not just technical problems bu
 
 写作，是人类最古老的自我表达方式之一。在心理治疗越来越受到重视的今天，重新发现写作的治愈力量，也许是我们每个人都可以尝试的一种简单而有效的自我关怀方式。
 
-写作的治愈力量，来自于它给予我们的那种掌控感和意义感。当我们把混乱的情感和经历转化为有结构的叙事时，我们不只是在记录，更是在理解，在整合，在创造意义。这种意义的创造，是人类面对苦难和混乱时最重要的心理资源之一。写作，让我们成为自己故事的作者，而不只是被动的经历者。这种主动性，是心理韧性的重要来源，也是人类尊严的重要体现。
-
 写作的治愈力量，来自于它给予我们的那种掌控感和意义感。当我们把混乱的情感和经历转化为有结构的叙事时，我们不只是在记录，更是在理解，在整合，在创造意义。写作，让我们成为自己故事的作者。`,
     englishTranslation: `Research by psychologist James Pennebaker has revealed a fascinating phenomenon: expressing one's emotional experiences in writing can have significant positive effects on physical and mental health. His experiments showed that subjects required to write about their deepest emotional experiences each day showed improvement in mental health in the following months, and even had improved immune function and fewer doctor visits.
 
@@ -4925,8 +4648,6 @@ The healing power of writing comes from the sense of control and meaning it give
 
 在这两种认知方式之间，存在着一个广阔的对话空间。科学的发现，可以为宗教思想的更新提供新的视角；宗教的伦理传统，可以为科学应用的道德边界提供重要的参照。这种对话，不是为了消除两者之间的差异，而是为了在差异中寻找互补和共鸣。
 
-科学与信仰的对话，不是一场非此即彼的辩论，而是人类理解世界的两种不同方式之间的相遇。科学提供了关于世界如何运作的知识，信仰提供了关于为什么存在、如何生活的意义框架。这两者，都是人类理解自身和世界的重要途径，都有其不可替代的价值。真正的智慧，在于能够在这两种方式之间找到对话和互补，而不是简单地选择其一，否定其他。科学与信仰，都是人类寻找真理的方式。
-
 科学与信仰的对话，不是一场非此即彼的辩论，而是人类理解世界的两种不同方式之间的相遇。科学提供了关于世界如何运作的知识，信仰提供了关于为什么存在、如何生活的意义框架。真正的智慧，在于能够同时持有这两种视角。`,
     englishTranslation: `In many people's understanding, science and religious faith are two fundamentally opposed worldviews whose conflict is irreconcilable. However, if we carefully examine the history of science and the history of religion, we find that the relationship between science and faith is far more complex than this simple picture of opposition.
 
@@ -4963,8 +4684,6 @@ The dialogue between science and faith is not an either-or debate but an encount
 历史告诉我们，每一次重大的历史转折，都既是危机，也是机遇。危机，迫使人们重新思考那些被视为理所当然的假设；机遇，在于那些能够以开放的心态，从危机中学习，并且勇于探索新的可能性的人和社会。
 
 我们这一代人，有幸（或者不幸）生活在这样一个历史转折点上。如何在这个充满不确定性的时代，保持清醒的判断力、开放的心态和坚定的价值观，是我们每一个人都必须认真思考的问题。历史不会自动走向美好，它需要每一代人的努力和选择。
-
-时代的终结，往往也是新时代的开始。每一个结束，都蕴含着新的可能性；每一次告别，都是一次新的出发。重要的是，在告别旧时代的同时，我们能够带走它给予我们的智慧和力量，用这些财富，去迎接和创造新的时代。历史，不是一条单向的线，而是一个螺旋上升的过程，每一次循环，都在更高的层次上重复和超越过去。理解这一点，是面对时代变迁时，保持希望和勇气的重要来源。每一个时代的终结，都是新希望的开始。
 
 时代的终结，往往也是新时代的开始。重要的是，在告别旧时代的同时，我们能够带走它给予我们的智慧和力量，去迎接和创造新的时代。历史不是一条单向的线，而是一个螺旋上升的过程。`,
     englishTranslation: `The global financial crisis of 2008 is seen by many historians and economists not merely as a severe economic crisis but as the end of an era — the end of the era marked by the "end of history" thesis and the "Washington Consensus," an era of optimistic belief in free-market capitalism.
