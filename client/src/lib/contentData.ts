@@ -107,11 +107,7 @@ In the afternoon, we went to a small shop in the park and bought some souvenirs.
 
 As evening approached and the sky began to darken, we reluctantly left the park and took the bus home. It was a very happy weekend, and I hope we can come back again next time.
 
-In the afternoon, Mom went to the supermarket and took Xiao Ming along. The supermarket was crowded and the shelves were full. Xiao Ming spotted his favorite snacks and asked if they could buy some. Mom said if he did his homework carefully today, she would buy him a bag.
-
-Xiao Ming was happy and nodded, saying, 'Okay, I'll definitely do my homework well when we get home.'
-
-Back home, Xiao Ming really did finish his homework before going to play. Mom was pleased and said he had behaved very well today. In the evening, the whole family ate dinner together, and Dad asked Xiao Ming what he had learned at school. Xiao Ming recounted everything from the day, and everyone laughed.`,
+That evening, we reluctantly left the park and took the bus home. All the way back, my little sister still hugged her kite and wouldn't let go. It was a weekend that made the whole family very happy.`,
     recommendedVocabulary: ["\u51fa\u53d1", "\u516c\u4ea4\u8f66", "\u5b89\u9759", "\u98ce\u666f", "\u6f02\u4eae", "\u7eaa\u5ff5\u54c1", "\u98ce\u7b5d", "\u508d\u665a", "\u4f9d\u4f9d\u4e0d\u820d", "\u8349\u5730"],
   },
   {
@@ -142,15 +138,7 @@ When I arrive at school, I first go to the classroom to put down my bag, then go
 
 When the class bell rings, I return to the classroom, sit down, and get ready for class. I like going to school because I can learn many new things and see my friends.
 
-On the weekend, Zhang Wei and his friends had arranged to go hiking. They set off at six in the morning because the mountain path was quite long. Along the way, everyone chatted and laughed, enjoying the walk. From the summit, they could see far into the distance, and everyone felt it was worth the effort.
-
-On the way down, Zhang Wei's friend Li Hua suddenly said his foot was hurting a little. Zhang Wei told him to walk slowly and stayed by his side. The others went ahead to wait for them.
-
-'Are you okay?' Zhang Wei asked.
-
-'Much better, thank you for staying with me,' Li Hua said. 'Next time I need to exercise more so I won't get so tired.'
-
-Zhang Wei smiled and said, 'Right, we can come hiking every weekend and gradually get used to it.' The two of them walked down the mountain slowly together — unhurried, but in good spirits.`,
+When the class bell rang, I returned to the classroom, sat down, and got ready for class. Looking out the window at the sunlight on the sports ground, I felt today was going to be another wonderful day.`,
     recommendedVocabulary: ["\u95f9\u949f", "\u8fdf\u5230", "\u5237\u7259", "\u68c0\u67e5", "\u6279\u8bc4", "\u64cd\u573a", "\u7cbe\u795e", "\u4e60\u60ef", "\u8981\u6c42", "\u94c3"],
   },
   {
@@ -199,13 +187,7 @@ When paying, Mom used her phone to scan the QR code. I held my new coat, feeling
 
 "I know, Mom. Thank you for buying me new clothes!" I said.
 
-That night, Chen Jing lay in bed thinking for a long time. She felt she had said the wrong thing and was uncomfortable about it. The next morning, she came to school early and waited for Lin Fang at the classroom door.
-
-When Lin Fang arrived and saw Chen Jing, she was a little surprised. Chen Jing said, 'I'm sorry. What I said yesterday was wrong — I shouldn't have said that about you.'
-
-Lin Fang was silent for a moment, then said, 'It's okay, I know you didn't mean it. I was a bit too sensitive too.'
-
-Both of them laughed. They walked into the classroom together and sat side by side, as if nothing had happened. From then on, they paid more attention to each other's feelings, and their friendship grew even deeper.`,
+That night, Chen Jing lay in bed thinking for a long time. She felt she had said the wrong thing and was uncomfortable about it. The next morning, she came to school early and waited for Lin Fang at the classroom door.`,
     recommendedVocabulary: ["\u5546\u573a", "\u5916\u5957", "\u552e\u8d27\u5458", "\u8bd5", "\u5927\u5c0f", "\u6253\u6298", "\u4fbf\u5b9c", "\u652f\u4ed8", "\u626b\u7801", "\u611f\u5192"],
   },
   {
@@ -244,11 +226,7 @@ By the afternoon, I felt much better and the fever had gone down. Mom said I pro
 
 In the evening, Aunt Wang arranged all the dishes she had made on the table and waited for the family to come home. When her husband and son returned and saw so much delicious food, they were both delighted. Her son said, 'Mom, you made so much today!'
 
-Aunt Wang smiled and said, 'Your father's friend is coming today, so I made a few extra dishes.'
-
-During dinner, everyone ate and chatted. Aunt Wang's husband said her braised pork was the best he had ever tasted. Aunt Wang was a little embarrassed and said she could still do better.
-
-After the meal, Aunt Wang's son helped clear the dishes and washed up. Aunt Wang said that having such a son made her very happy.`,
+Aunt Wang smiled and said, 'Your father's friend is coming today, so I made a few extra dishes.'`,
     recommendedVocabulary: ["\u53d1\u70e7", "\u4f53\u6e29\u8ba1", "\u9000\u70e7", "\u8bca\u6240", "\u611f\u5192", "\u54b3\u55fd", "\u836f\u623f", "\u6309\u65f6", "\u843d\u4e0b", "\u529f\u8bfe"],
   },
   {
@@ -291,9 +269,7 @@ Back home, Xiao Hua told his mother what had happened that day. After listening,
 
 Xiao Hua nodded and said, 'I know. That man was really kind. He not only told me the way but also walked with me for a bit.'
 
-His mother said, 'Yes, there are many good people in the world. You should also learn to help others.'
-
-From that day on, whenever Xiao Hua saw someone looking for directions, he would proactively go over and ask if he could help. He felt that helping others was a very joyful thing.`,
+His mother said, 'Yes, there are many good people in the world. You should also learn to help others.'`,
     recommendedVocabulary: ["\u897f\u7ea2\u67ff", "\u9e21\u86cb", "\u5207", "\u6405\u62cc", "\u7ffb\u7092", "\u94f2\u5b50", "\u9171\u6cb9", "\u5473\u9053", "\u5747\u5300", "\u7ec3\u4e60"],
   },
   {
@@ -330,11 +306,7 @@ After waiting a week, the first company notified my brother that he had passed t
 
 My brother said, "Job hunting is really not easy, but as long as you prepare hard, you will definitely succeed."
 
-In the afternoon, Teacher Liu handed back the composition books. Many students had received high marks, but a few had not written very well. Teacher Liu said that the most important thing in writing a composition was to have your own ideas — you couldn't just write things everyone already knew.
-
-After class, Xiao Qiang went to find Teacher Liu and asked where his writing had fallen short. Teacher Liu explained carefully, saying his composition lacked specific content and he should include more details.
-
-When Xiao Qiang got home, following his teacher's advice, he rewrote the composition. This time he wrote about many specific things, such as his experience fishing with his grandfather. After finishing, he felt this version was much better than the last.`,
+In the afternoon, Teacher Liu handed back the composition books. Many students had received high marks, but a few had not written very well. Teacher Liu said that the most important thing in writing a composition was to have your own ideas — you couldn't just write things everyone already knew.`,
     recommendedVocabulary: ["\u6bd5\u4e1a", "\u62db\u8058", "\u7b80\u5386", "\u9762\u8bd5", "\u9762\u8bd5\u5b98", "\u7ecf\u5386", "\u6280\u672f", "\u7a0b\u5e8f", "\u901a\u8fc7", "\u6210\u529f"],
   },
   {
@@ -377,13 +349,7 @@ We walked in the rain with our umbrellas. There were many puddles on the road, a
 
 When I got home, Mom told me to change into dry clothes right away and made me a cup of hot tea. She said, "Next time, check the weather forecast before going out and remember to bring an umbrella."
 
-After the match, the players from both teams shook hands. Although they had lost, everyone said the competition had been very interesting and they had learned a lot. Zhang Ming said to the opposing captain, 'You played really well. Let's have a rematch sometime.'
-
-The opposing captain smiled and said, 'Sure, you're welcome to challenge us anytime.'
-
-Back in the classroom, the teacher said that regardless of winning or losing, what mattered was participation and effort. Zhang Ming thought about it and felt the teacher was right. He decided to practice more every day from then on, determined to play better next time.
-
-That evening, he practiced alone on the sports field for a long time, not returning home until it was dark.`,
+After getting home, Mum told me to change into dry clothes straight away and made me a cup of hot tea. She said, 'Next time, check the weather forecast before you go out and remember to bring an umbrella.' I laughed and said, 'I know, Mum,' feeling genuinely grateful to Zhang Wei.`,
     recommendedVocabulary: ["\u5929\u6c14\u9884\u62a5", "\u6674\u5929", "\u96e8\u4f1e", "\u6e7f\u900f", "\u77ed\u4fe1", "\u6c34\u5751", "\u7ed5\u5f00", "\u611f\u8c22", "\u65b9\u5411", "\u6ce1\u8336"],
   },
   {
@@ -414,15 +380,7 @@ Every day I take Doudou out for a walk. We usually go to the nearby park, where 
 
 Owning a pet requires a lot of time and patience, but Doudou has brought our family so much joy. I'm very grateful to have such a lovely little companion.
 
-At the hospital, the doctor examined Xiao Li and said it was a common cold — nothing serious. The doctor prescribed some medicine and told her to drink plenty of water and rest.
-
-Mom asked the doctor, 'Does she need an injection?'
-
-The doctor said, 'No, medicine will be enough. But be careful not to let her get cold, and don't let her get too tired.'
-
-Back home, Mom poured Xiao Li a cup of hot water and had her take her medicine first. Xiao Li took the medicine and lay in bed while Mom sat beside her. Xiao Li said, 'Mom, thank you.'
-
-Mom stroked her head and said, 'Get better soon. Once you're well, I'll take you out for your favorite food.' Xiao Li smiled, closed her eyes, and slowly fell asleep.`,
+At the hospital, the doctor examined Xiao Li and said it was a common cold — nothing serious. The doctor prescribed some medicine and told her to drink plenty of water and rest.`,
     recommendedVocabulary: ["\u5ba0\u7269", "\u53ef\u7231", "\u722a\u5b50", "\u5c3e\u5df4", "\u8fce\u63a5", "\u5fc3\u60c5", "\u6563\u6b65", "\u8010\u5fc3", "\u70ed\u95f9", "\u4f19\u4f34"],
   },
   {
@@ -459,11 +417,7 @@ At four in the afternoon, the library was about to close. I checked out the book
 
 That afternoon, Teacher Chen gathered the whole class and told them about the situation. She said that classmates should help each other and not just think about themselves. The students listened quietly.
 
-Afterward, several students proactively approached Xiao Jun and said they were willing to help him catch up. Xiao Jun was moved and thanked them. From then on, he reviewed lessons with his classmates every day after school, and his grades gradually improved.
-
-At the final exam, Xiao Jun scored seventy-eight points — much higher than before. He showed the report card to his mother, who said happily, 'You've improved! Keep working hard!'
-
-Xiao Jun thought to himself: as long as you work hard, any difficulty can be overcome.`,
+Afterward, several students proactively approached Xiao Jun and said they were willing to help him catch up. Xiao Jun was moved and thanked them. From then on, he reviewed lessons with his classmates every day after school, and his grades gradually improved.`,
     recommendedVocabulary: ["\u56fe\u4e66\u9986", "\u501f\u4e66", "\u4e66\u67b6", "\u5c01\u9762", "\u7b80\u4ecb", "\u6587\u5b66", "\u63a2\u9669", "\u5145\u5b9e", "\u4e13\u5fc3", "\u5206\u7c7b"],
   },
   {
@@ -500,11 +454,7 @@ When we arrived at our stop, we got off the subway. My uncle asked how I felt. I
 
 On the last day of the trip, they visited a famous old street. The street was lined with small shops selling all kinds of things. Wang Gang bought some local specialties to bring home as gifts for his family.
 
-As they walked along, they spotted a small teahouse. It was quiet inside, with a few elderly people drinking tea and chatting. They went in and sat for a while, ordering two cups of local tea.
-
-The teahouse owner was a man in his sixties who told them many historical stories about the area. Wang Gang listened attentively and felt that travel was not just about seeing scenery — it was also a way to learn about interesting cultures and history.
-
-On the train home, he opened his notebook and wrote down everything he had experienced on the trip.`,
+As they walked along, they spotted a small teahouse. It was quiet inside, with a few elderly people drinking tea and chatting. They went in and sat for a while, ordering two cups of local tea.`,
     recommendedVocabulary: ["\u5730\u94c1", "\u7ad9\u53f0", "\u9ec4\u7ebf", "\u552e\u7968\u673a", "\u5237\u5361", "\u6362\u4e58", "\u5c4f\u5e55", "\u8fc7\u7ad9", "\u793c\u8c8c", "\u4e60\u60ef"],
   },
   {
@@ -543,9 +493,7 @@ In the afternoon, Li Hua showed Mom the tidied room. Mom came in, was very pleas
 
 Li Hua was a little embarrassed and said, 'I just put everything back where it belongs.'
 
-Mom said, 'That's enough. A tidy environment makes you feel better and helps you concentrate on studying. Keep up this good habit.'
-
-From that day on, Li Hua tidied his desk and room every night before bed. He found that with a clean room, he could concentrate better when doing homework and was more efficient.`,
+Chen Hao stayed at my place for three days and then went home. When we sent him off at the train station, we were both a little sad. He said, 'Next time you come to my city, I'll show you around too.' I agreed, and we made a plan to meet next summer. Watching the train slowly pull away, I felt both sad and excited.`,
     recommendedVocabulary: ["\u8054\u7cfb", "\u89c6\u9891\u804a\u5929", "\u63a5", "\u51fa\u53e3", "\u751f\u6015", "\u6253\u62db\u547c", "\u535a\u7269\u9986", "\u8001\u8857", "\u96be\u8fc7", "\u6691\u5047"],
   },
   {
@@ -582,13 +530,7 @@ Now I go swimming every weekend. I feel it's a great form of exercise — not on
 
 That evening, Xiao Mei told her father about what had happened. After listening, her father said, 'You did the right thing. Helping others is good, but you also need to be careful about your own safety.'
 
-Xiao Mei asked, 'What happened to the old grandmother afterward?'
-
-Her father said, 'I'm sure she made it home. She must be very grateful to you.'
-
-Xiao Mei thought for a moment and said, 'I hope I can meet her again someday and see if she's doing well.'
-
-Her father smiled and said, 'You really are a kind child. Remember — in life, pay more attention to the people around you. That's how the world becomes a better place.' Xiao Mei nodded, feeling a warmth in her heart.`,
+Xiao Mei asked, 'What happened to the old grandmother afterward?'`,
     recommendedVocabulary: ["\u6e38\u6cf3", "\u6d45\u6c34\u533a", "\u6df1\u6c34\u533a", "\u7fa1\u6155", "\u6559\u7ec3", "\u6f02\u6d6e", "\u653e\u677e", "\u7d27\u5f20", "\u4fe1\u5fc3", "\u8fdb\u6b65"],
   },
   {
@@ -619,15 +561,7 @@ Near the new home, there is a large supermarket — very convenient for shopping
 
 When we first moved in, I was a little unaccustomed to it because everything around me was new and I didn't know any of the neighbors. But after a few days, I gradually got used to it and started getting to know some new neighbors. I believe many new good things will happen in our new home.
 
-After class, the other students all went to the playground. Xiao Ming sat alone in the classroom and worked through the problem again — this time he finally got it right. He wrote the answer in his notebook, feeling very pleased.
-
-When he got home, he told his father about it. His father said, 'When you encounter something you don't understand, you must be brave enough to ask — that's the only way to truly learn.'
-
-Xiao Ming said, 'I used to be too embarrassed to ask, afraid my classmates would laugh at me.'
-
-His father said, 'Not knowing something and asking about it is the smartest thing to do. The ones who truly lack wisdom are those who laugh at others.'
-
-Xiao Ming felt his father was absolutely right and decided that from then on, whenever he didn't understand something, he would always be brave enough to ask his teacher or classmates.`,
+After class, the other students all went to the playground. Xiao Ming sat alone in the classroom and worked through the problem again — this time he finally got it right. He wrote the answer in his notebook, feeling very pleased.`,
     recommendedVocabulary: ["\u642c\u5bb6", "\u5367\u5ba4", "\u5ba2\u5385", "\u6574\u7406", "\u4e66\u67b6", "\u4e66\u684c", "\u90bb\u5c45", "\u8d85\u5e02", "\u516c\u4ea4\u8f66", "\u4e60\u60ef"],
   },
   {
@@ -658,15 +592,7 @@ On New Year's Eve, the whole family sat together for the reunion dinner. The tab
 
 After dinner, we watched the Spring Festival Gala together. At midnight, fireworks began outside — the crackling sounds went on for a long time. I stood by the window watching the colorful fireworks in the sky, my heart filled with joy.
 
-After the performance, the audience broke into warm applause. The students were all delighted and said to each other, 'We did it!'
-
-Li Xue found Teacher Wang and said, 'Thank you for your help during this time. Our successful performance is all thanks to your good teaching.'
-
-Teacher Wang smiled and said, 'It's the result of your own hard work. I just gave you a few suggestions.'
-
-That evening, Li Xue went home and told her parents about the performance. Her mother said, 'You've never sung before, and you got up on stage — that was truly brave.'
-
-Li Xue said, 'I was scared at first too, but practicing together with everyone, I gradually stopped being afraid. I think that with many things, once you start doing them, they're not so hard after all.'`,
+After the performance, the audience broke into warm applause. The students were all delighted and said to each other, 'We did it!'`,
     recommendedVocabulary: ["\u6625\u8282", "\u7ea2\u5305", "\u4e60\u4fd7", "\u6625\u8054", "\u798f\u5b57", "\u5e74\u591c\u996d", "\u9664\u5915", "\u70df\u82b1", "\u5409\u7965", "\u4f20\u7edf"],
   },
   {
@@ -715,9 +641,7 @@ That afternoon, Xiao Long took the cat to the pet hospital. After examining it, 
 
 Back home, Xiao Long gave the cat its medicine following the doctor's instructions. The cat didn't like taking medicine and kept struggling, but Xiao Long was patient and eventually succeeded.
 
-Two days later, the cat was much better and started running around the house again. Xiao Long said happily, 'You're finally well!'
-
-His mother watched Xiao Long and said, 'You've taken very good care of the cat. Looking after a pet isn't easy — it takes a lot of patience and love.' Xiao Long nodded, feeling he had grown up a little.`,
+Two days later, the cat was much better and started running around the house again. Xiao Long said happily, 'You're finally well!'`,
     recommendedVocabulary: ["\u8ff7\u8def", "\u719f\u6089", "\u7740\u6025", "\u614c\u5f20", "\u7ea2\u7eff\u706f", "\u65b9\u5411", "\u5145\u7535", "\u8def\u7ebf", "\u4fbf\u5229\u5e97", "\u8bb0\u9519"],
   },
   {
@@ -754,11 +678,7 @@ That evening, Xiao Wen told his grandmother about the incident. After listening,
 
 Xiao Wen asked, 'Grandma, what would have happened if I hadn't returned the money?'
 
-Grandma said, 'You would have been uneasy about it forever. When you do something dishonest, you yourself suffer the most.'
-
-Xiao Wen thought for a moment and said, 'That's true. After I returned the money today, I felt so much lighter.'
-
-Grandma smiled and said, 'That's the benefit of honesty. An honest person is respected wherever they go.' Xiao Wen kept his grandmother's words in his heart.`,
+Grandma said, 'You would have been uneasy about it forever. When you do something dishonest, you yourself suffer the most.'`,
     recommendedVocabulary: ["\u7231\u597d", "\u8721\u7b14", "\u6280\u5de7", "\u7ebf\u6761", "\u5747\u5300", "\u5c42\u6b21\u611f", "\u7ed8\u753b", "\u6bd4\u8d5b", "\u4e30\u5bcc", "\u653e\u677e"],
   },
   {
@@ -797,15 +717,7 @@ From then on, I often visited Grandma Li — helping her buy things, cleaning he
 
 Grandma Li also likes me very much and sometimes makes me delicious snacks. She says having me as a young neighbor means she no longer feels lonely. I feel that helping others is a very joyful thing.
 
-That afternoon, Xiao Hong and her mother went to the library. It was very quiet inside, with many people reading. Xiao Hong found a book about animals, sat down, and read it carefully.
-
-Her mother read her own book beside her. After more than an hour, Mom called softly, 'It's time to go home.'
-
-Xiao Hong was reluctant to leave and said, 'Mom, I haven't finished this book yet — can I borrow it to take home?'
-
-Mom said, 'Of course. Go and check it out.'
-
-Xiao Hong borrowed the book and happily went home with her mother. That evening, she finished the book and felt she had learned a great deal of new knowledge. She decided to come to the library every week from then on to borrow books.`,
+That afternoon, Xiao Hong and her mother went to the library. It was very quiet inside, with many people reading. Xiao Hong found a book about animals, sat down, and read it carefully.`,
     recommendedVocabulary: ["\u90bb\u5c45", "\u697c\u9053", "\u6574\u6d01", "\u6e29\u99a8", "\u770b\u671b", "\u5b64\u72ec", "\u70b9\u5fc3", "\u5b50\u5973", "\u5916\u5730", "\u966a"],
   },
   {
@@ -850,9 +762,7 @@ Grandpa smiled and said, 'No, even the electricity was unreliable. We read under
 
 Xiao Ming found this hard to imagine and said, 'That must have been very inconvenient.'
 
-Grandpa said, 'Yes, but we treasured every opportunity to study. Now that you have such good conditions, you should study even harder.'
-
-Xiao Ming listened and felt that he had sometimes been careless about studying in the past — that was truly wrong. He decided to work much harder from then on.`,
+Grandpa said, 'Yes, but we treasured every opportunity to study. Now that you have such good conditions, you should study even harder.'`,
     recommendedVocabulary: ["\u5fd7\u613f\u8005", "\u517b\u8001\u9662", "\u6d3b\u52a8\u5ba4", "\u5206\u914d", "\u6c14\u6c1b", "\u611f\u52a8", "\u6709\u610f\u4e49", "\u611f\u60f3", "\u5e26\u961f", "\u60f3\u5ff5"],
   },
   {
@@ -891,15 +801,7 @@ Mom came in to check on me, saw I still hadn't fallen asleep, and sat by my bed 
 
 After hearing Mom's words, I gradually relaxed and fell asleep before long.
 
-That afternoon, Teacher Lin divided the class into several groups and had everyone discuss the problem together. Each group had different ideas, and the discussions were lively.
-
-Finally, Teacher Lin asked a representative from each group to come up and share their views. Xiao Ming represented his group and made three points. After listening, Teacher Lin said he had spoken in a very organized way and gave their group the highest score.
-
-After school, Xiao Ming's classmates all said, 'You spoke so well today!'
-
-Xiao Ming was a little embarrassed and said, 'It was everyone's ideas together — it wasn't my achievement alone.'
-
-Teacher Lin overheard and came over, saying, 'Xiao Ming is right — teamwork is what matters most.' Everyone laughed.`,
+That afternoon, Teacher Lin divided the class into several groups and had everyone discuss the problem together. Each group had different ideas, and the discussions were lively.`,
     recommendedVocabulary: ["\u671f\u672b\u8003\u8bd5", "\u590d\u4e60", "\u6210\u7ee9", "\u603b\u8bc4\u5206", "\u516c\u5f0f", "\u7761\u7720", "\u53d1\u6325", "\u77e5\u8bc6\u70b9", "\u653e\u677e", "\u76f8\u4fe1"],
   },
   {
@@ -1022,9 +924,7 @@ After the exam, Wang Qiang walked out of the examination hall feeling completely
 
 On the day the results came out, Wang Qiang scored eighty-five points, ten more than last time. He was pleased, but also knew there was still much room for improvement.
 
-He told his father the result, and his father said, 'You've improved — keep working hard. But don't just focus on the score; make sure you truly understand what you've studied.'
-
-Wang Qiang felt his father was right. He decided that from then on, he would not study merely for the sake of exams, but would truly understand each concept and apply what he learned to real life.`,
+He told his father the result, and his father said, 'You've improved — keep working hard. But don't just focus on the score; make sure you truly understand what you've studied.'`,
     recommendedVocabulary: ["\u81ea\u9a7e", "\u5ba2\u6808", "\u610f\u5916", "\u6c42\u52a9", "\u6751\u6c11", "\u624b\u52bf", "\u4f20\u7edf", "\u4e60\u4fd7", "\u96be\u5fd8", "\u987a\u5229"],
   },
   {
@@ -1168,7 +1068,28 @@ One of his friends read the journal and said, 'You've written it so thoroughly. 
 
 Liu Ming said, 'Of course, I'd love to go again. The scenery there is truly beautiful; every visit brings a different feeling.'
 
-The two of them agreed on a time and began planning the next trip. Liu Ming felt that the joy of travel lay not only in the places you visit, but also in the process of sharing the experience with friends.`,
+--- hsk3-2-07: A Weight-Loss Story ---
+My friend Xiaomei started losing weight last year, and her experience was very inspiring to me.
+
+Xiaomei used to pay little attention to her diet and often ate a lot of high-calorie foods like fried chicken, french fries, and desserts. She also didn't like exercising — after work she would lie on the sofa watching TV or playing on her phone. Gradually, her weight kept increasing, and her body started showing some problems: she would get out of breath climbing stairs, and her lower back would ache after walking for a long time.
+
+One day, she went to the hospital for a physical examination. The doctor told her that her blood sugar was a little high and she needed to control her diet and increase her exercise. This worried her greatly, and she decided to lose weight seriously.
+
+Xiaomei began changing her lifestyle. First, she controlled her diet — reducing oily and sweet foods, eating more vegetables and fruit, and making sure to drink enough water every day. Second, she started exercising daily, beginning with walking, gradually increasing to jogging, and later joining a gym and going three times a week.
+
+At first, she found it very hard to stick with. Sometimes she was too tired from work to want to exercise; sometimes she saw delicious food and really wanted to eat it but had to hold back. She said the hardest part wasn't the exercise itself, but changing habits formed over many years.
+
+But she persisted. After six months, she had lost fifteen kilograms, and her blood sugar had returned to normal. More importantly, she felt much more energetic overall, and her sleep quality had also improved.
+
+Xiaomei's story tells me that change is not easy, but as long as you have determination and keep going, you will definitely see results.
+
+After the performance, the audience applauded warmly. After taking their bows, the performers walked backstage and embraced each other, celebrating the successful show.
+
+The director came over and said to everyone, 'You performed exceptionally well today. This performance is the result of our whole team's collective effort.'
+
+Xiao Yi found the director and said, 'Thank you for your guidance during this time. I've learned so much.'
+
+The director said, 'You've improved very quickly. Keep working hard — you'll have an even bigger stage ahead of you.'`,
     recommendedVocabulary: ["\u8868\u8fbe", "\u611f\u60c5", "\u9a84\u50b2", "\u884c\u52a8", "\u52a0\u73ed", "\u5d2d\u65b0", "\u7ec6\u5c0f", "\u6df1\u6c89", "\u85cf", "\u7a81\u7136"],
   },
   {
@@ -1258,9 +1179,7 @@ The teacher pointed out several issues, and Xiao Hua listened attentively, writi
 
 Back home, following the teacher's suggestions, Xiao Hua redrew the painting. This time he paid special attention to the proportions, and the result was much better.
 
-He took a photo of the new painting and sent it to the teacher. The teacher replied, 'Great improvement! Keep practicing — you have a lot of potential.'
-
-Xiao Hua was very happy to see the teacher's reply and decided to practice drawing every day to continuously improve his skills.`,
+He took a photo of the new painting and sent it to the teacher. The teacher replied, 'Great improvement! Keep practicing — you have a lot of potential.'`,
     recommendedVocabulary: ["\u8bef\u4f1a", "\u95f9\u7ffb", "\u4f4f\u9662", "\u9759\u97f3", "\u5b88\u4fe1\u7528", "\u89e3\u91ca", "\u6c89\u9ed8", "\u677e\u4e86\u4e00\u53e3\u6c14", "\u6c9f\u901a", "\u53ca\u65f6"],
   },
   {
@@ -1295,15 +1214,7 @@ After graduating from middle school, I went to another city for high school, and
 
 This saying has influenced me for many years, helping me develop the habit of thinking carefully and writing carefully. I am very grateful to Teacher Wang.
 
-That evening, Li Ming sat alone at his desk and thought for a long time. He knew his mother was right, but changing a habit was truly difficult. He decided to start with small things — for example, preparing everything he needed for the next day the night before.
-
-The next day, he really did prepare his bag and stationery in advance. In the morning, he didn't need to search for things everywhere and left the house smoothly. He felt this was a good feeling.
-
-A week later, he found he was late much less often. His mother also noticed and said, 'You've improved recently — you're not so flustered in the mornings anymore.'
-
-Li Ming said, 'I'm slowly changing. Mom, thank you for reminding me.'
-
-His mother smiled and said, 'As long as you're willing to change, it's never too late to start.'`,
+That evening, Li Ming sat alone at his desk and thought for a long time. He knew his mother was right, but changing a habit was truly difficult. He decided to start with small things — for example, preparing everything he needed for the next day the night before.`,
     recommendedVocabulary: ["\u5f71\u54cd", "\u6fc0\u60c5", "\u72ec\u7279", "\u73cd\u60dc", "\u4e25\u683c", "\u70b9\u540d", "\u6bd5\u4e1a", "\u955c\u5b50", "\u4e60\u60ef", "\u611f\u8c22"],
   },
   {
@@ -1342,9 +1253,7 @@ Wang Hua said, 'I've thought it through. I'm genuinely not interested in my curr
 
 His father said, 'Then go find out about the procedures for changing majors and what the requirements are. If it's possible, I'll support you.'
 
-Wang Hua was grateful for his father's understanding. He went to the school office to ask about the situation and found that changing majors required passing an exam. He began preparing seriously, and three months later, he successfully transferred to the design department.
-
-When the new semester began, he was full of motivation every day, feeling that he had finally found the direction he truly loved.`,
+Wang Hua was grateful for his father's understanding. He went to the school office to ask about the situation and found that changing majors required passing an exam. He began preparing seriously, and three months later, he successfully transferred to the design department.`,
     recommendedVocabulary: ["\u4f9d\u8d56", "\u83b7\u53d6", "\u9762\u5bf9\u9762", "\u4ea4\u6d41", "\u610f\u8bc6\u5230", "\u7ea6\u5b9a", "\u4e0a\u763e", "\u6d6a\u8d39", "\u5408\u7406", "\u5974\u96b6"],
   },
   {
@@ -1387,9 +1296,7 @@ Xiao Ming said, 'I understand, but at the time I saw them bullying a younger stu
 
 His mother said, 'Your heart is in the right place, but the method matters. Sometimes telling an adult is more effective than taking matters into your own hands.'
 
-Xiao Ming thought about it and felt his mother made sense. The next day, he went to find the homeroom teacher and explained what had happened. The teacher praised him, said he had done well, and then educated the students who had been bullying others.
-
-From then on, the relationships among classmates improved greatly, and everyone became more united.`,
+Xiao Ming thought about it and felt his mother made sense. The next day, he went to find the homeroom teacher and explained what had happened. The teacher praised him, said he had done well, and then educated the students who had been bullying others.`,
     recommendedVocabulary: ["\u6f14\u8bb2", "\u68a6\u60f3", "\u80cc\u8bf5", "\u624b\u52bf", "\u7d27\u5f20", "\u638c\u58f0", "\u9f13\u52b1", "\u514b\u670d", "\u6050\u60e7", "\u6536\u83b7"],
   },
   {
@@ -1428,9 +1335,7 @@ Water is the source of life, and we should cherish every drop.
 
 That evening, Chen Hua wrote about the day's experience in his diary. He wrote: Today was my first marathon. Although I didn't finish the full distance, I ran thirty kilometers, which is already a great improvement for me.
 
-He also wrote: Running has taught me something — many things cannot be done well from the very beginning; they require taking it one step at a time. I will keep training and aim to finish the full course next year.
-
-Three months later, he participated in a half-marathon and completed it successfully. He hung the finisher's certificate on his bedroom wall, and every time he looked at it, he was reminded of that race and felt filled with strength.`,
+He also wrote: Running has taught me something — many things cannot be done well from the very beginning; they require taking it one step at a time. I will keep training and aim to finish the full course next year.`,
     recommendedVocabulary: ["\u8282\u7ea6", "\u6de1\u6c34", "\u6c61\u67d3", "\u7f3a\u6c34", "\u53cd\u601d", "\u6d6a\u8d39", "\u6f31\u53e3", "\u8d44\u6e90", "\u8d21\u732e", "\u73cd\u60dc"],
   },
   {
@@ -1565,9 +1470,7 @@ For the next two months, Xiao Hong practiced every day after school. She researc
 
 On the day of the competition, she stood on stage feeling a little nervous, but spoke fluently. In the end, she won second prize.
 
-When her father came to pick her up, she handed him the certificate and said, 'Dad, I won second prize.'
-
-Her father said, 'You did it — I'm proud of you.' Xiao Hong felt this was the happiest day she had ever had.`,
+When her father came to pick her up, she handed him the certificate and said, 'Dad, I won second prize.'`,
     recommendedVocabulary: ["\u624b\u827a", "\u7ea2\u70e7\u8089", "\u6392\u9aa8", "\u62db\u724c\u83dc", "\u79d8\u8bc0", "\u706b\u5019", "\u5165\u5473", "\u6b65\u9aa4", "\u8bb0\u5fc6", "\u6e29\u6696"],
   },
   {
@@ -1608,9 +1511,7 @@ The roommate said, 'He won't. You're just standing up for yourself. If you don't
 
 The next day, Liu Hua found the classmate and said calmly, 'I want to tell you something. Last time you used my things without asking me first, and I felt a little uncomfortable. Could you let me know in advance in the future?'
 
-The classmate listened and said, 'I'm sorry — I thought you wouldn't mind. I'll be more careful from now on.'
-
-Liu Hua said thank you and felt much lighter inside. He felt that many misunderstandings, if addressed with honest communication, could be resolved.`,
+The classmate listened and said, 'I'm sorry — I thought you wouldn't mind. I'll be more careful from now on.'`,
     recommendedVocabulary: ["\u72ec\u81ea", "\u9ad8\u539f\u53cd\u5e94", "\u6d77\u62d4", "\u7a00\u8584", "\u5b8f\u4f1f", "\u6e3a\u5c0f", "\u8654\u8bda", "\u9707\u64bc", "\u80cc\u5305\u5ba2", "\u5b9d\u8d35"],
   },
   {
@@ -1653,9 +1554,7 @@ Xiao Ming said, 'I know. I'll definitely stick with it.'
 
 His mother enrolled him in a piano class with two lessons per week. At first, Xiao Ming found it very difficult — his fingers wouldn't cooperate and the sounds he produced weren't pleasant. But he didn't give up and practiced every day.
 
-Three months later, he could already play a complete piece. The piano teacher said he had improved very quickly and was one of the most dedicated students in the class.
-
-Xiao Ming played the piece for his mother, and she said happily, 'You really did it!' Xiao Ming felt a deep sense of accomplishment.`,
+Three months later, he could already play a complete piece. The piano teacher said he had improved very quickly and was one of the most dedicated students in the class.`,
     recommendedVocabulary: ["\u4e22\u5931", "\u5907\u4efd", "\u5408\u5f71", "\u53bb\u4e16", "\u73cd\u60dc", "\u540e\u6094", "\u4e91\u7aef", "\u8054\u7cfb\u4eba", "\u5b89\u6170", "\u5b9a\u671f"],
   },
   {
@@ -1698,9 +1597,7 @@ Xiao Mei said, 'But I'm worried the teacher will criticize me.'
 
 Her father said, 'The teacher will understand. Making a mistake isn't frightening — what's frightening is refusing to admit it.'
 
-The next day, Xiao Mei went to find the teacher and explained what had happened. After listening, the teacher said, 'Thank you for telling me the truth. The fact that you came forward on your own shows you are an honest child. Let's work together to find a solution.'
-
-Xiao Mei felt the weight lift from her heart. She felt that although honesty sometimes required courage, the feeling after being honest was so much lighter than lying.`,
+The next day, Xiao Mei went to find the teacher and explained what had happened. After listening, the teacher said, 'Thank you for telling me the truth. The fact that you came forward on your own shows you are an honest child. Let's work together to find a solution.'`,
     recommendedVocabulary: ["\u73af\u4fdd", "\u5783\u573e", "\u624b\u5957", "\u8349\u4e1b", "\u70df\u8482", "\u8d23\u4efb", "\u547c\u5401", "\u670b\u53cb\u5708", "\u70b9\u8d5e", "\u666e\u901a"],
   },
   {
@@ -1741,9 +1638,7 @@ Li Ming said, 'Can't you write poetry? You could recite a poem you've written yo
 
 Zhang Hua thought about it and felt this was a good idea. He spent a few days writing a poem about his hometown and then practiced reciting it carefully.
 
-On the day of the competition, he stood on stage and recited the poem. The students in the audience listened attentively, and when he finished, warm applause broke out.
-
-Although he didn't win a prize, he felt that being able to share his own work with everyone was itself a very meaningful thing.`,
+On the day of the competition, he stood on stage and recited the poem. The students in the audience listened attentively, and when he finished, warm applause broke out.`,
     recommendedVocabulary: ["\u82e6\u96be", "\u5bcc\u5bb6\u5b50\u5f1f", "\u8d4c\u535a", "\u5bb6\u4ea7", "\u8270\u96be", "\u9965\u8352", "\u652f\u6491", "\u611f\u6069", "\u89e6\u52a8", "\u6587\u5b66"],
   },
   {
@@ -1784,9 +1679,7 @@ Grandma said, 'You've grown up and become so sensible. Before, you were still a 
 
 Xiao Lin was a little embarrassed and said, 'Grandma, you're too kind.'
 
-Grandma smiled and said, 'I'm not being kind — it's true. Your parents must be very happy to see you so thoughtful.'
-
-Xiao Lin thought about it and decided that from then on, she would help her family more — not just in special circumstances, but in everyday life too, paying more attention to family members and doing more of what she was capable of.`,
+Grandma smiled and said, 'I'm not being kind — it's true. Your parents must be very happy to see you so thoughtful.'`,
     recommendedVocabulary: ["\u62d2\u7edd", "\u7b54\u5e94", "\u7126\u8651", "\u75b2\u60eb", "\u5fc3\u7406\u5065\u5eb7", "\u8bda\u5b9e", "\u5c0a\u91cd", "\u793c\u8c8c", "\u80fd\u529b", "\u5931\u671b"],
   },
   {
@@ -1819,7 +1712,9 @@ Of course, urbanization has also brought tangible benefits to many people. Citie
 
 Therefore, how to resolve these accompanying problems while advancing urbanization is an important issue that the government and society need to think about seriously.
 
-Wang Ming sometimes wondered what urbanization had really brought people. The economic improvements were obvious, but how could you measure that feeling of rootlessness, that loneliness in the crowd? He had no answer, but he knew the question was worth serious thought by every city dweller. Perhaps a true home is not just a geographic location but a sense of inner belonging. Finding that sense of belonging is a lesson every modern person needs to complete.The city is both the crystallization of modern civilization and a microcosm of modern people's predicament. How to maintain inner roots and belonging amid the tide of urbanization is a challenge every generation must face.This is the lesson for every city dweller.`,
+Wang Ming sometimes wondered what urbanization had really brought people. The economic improvements were obvious, but how could you measure that feeling of rootlessness, that loneliness in the crowd? He had no answer, but he knew the question was worth serious thought by every city dweller. Perhaps a true home is not just a geographic location but a sense of inner belonging. Finding that sense of belonging is a lesson every modern person needs to complete.The city is both the crystallization of modern civilization and a microcosm of modern people's predicament. How to maintain inner roots and belonging amid the tide of urbanization is a challenge every generation must face.This is the lesson for every city dweller.
+
+Wang Ming sometimes wondered: what exactly has urbanisation brought people? The economic improvements are obvious, but that feeling of losing one's roots — how can that be measured? He had no answer, but he knew the question was worth every city-dweller's serious reflection.`,
     recommendedVocabulary: ["\u57ce\u5e02\u5316", "\u6d8c\u5165", "\u8d8b\u52bf", "\u62e5\u5835", "\u5de5\u85aa\u9636\u5c42", "\u5e9f\u6c14", "\u96fe\u973e", "\u7a7a\u5fc3\u5316", "\u74e6\u89e3", "\u8bfe\u9898"],
   },
   {
@@ -1848,7 +1743,9 @@ I believe these two educational approaches are not completely opposed but can co
 
 The most ideal education should, while ensuring the quality of foundational knowledge teaching, give students enough space to explore, to create, to make mistakes, and to grow. This requires educators, parents, and society to work together to change the singular definition of "success."
 
-Xiao Yu told Teacher Lin about her discovery. The teacher smiled and said this was exactly what he wanted students to understand. Knowledge does not exist in isolation — it is closely connected to life. Only when you can apply what you learned from textbooks to real life do you truly understand it. From then on, Xiao Yu began to look at learning with entirely new eyes, no longer studying just for exams but to understand the world and improve life. This transformation made her learning more meaningful and more enjoyable.The highest level of learning is not mastering knowledge but falling in love with learning itself. When a person truly loves learning, they will actively seek knowledge and think about problems — this intrinsic motivation cannot be replaced by any external incentive.`,
+Xiao Yu told Teacher Lin about her discovery. The teacher smiled and said this was exactly what he wanted students to understand. Knowledge does not exist in isolation — it is closely connected to life. Only when you can apply what you learned from textbooks to real life do you truly understand it. From then on, Xiao Yu began to look at learning with entirely new eyes, no longer studying just for exams but to understand the world and improve life. This transformation made her learning more meaningful and more enjoyable.The highest level of learning is not mastering knowledge but falling in love with learning itself. When a person truly loves learning, they will actively seek knowledge and think about problems — this intrinsic motivation cannot be replaced by any external incentive.
+
+Xiao Yu shared this discovery with Teacher Lin. The teacher smiled and said this was exactly the lesson he had wanted his students to understand: knowledge doesn't exist in isolation — it is closely connected to life. When you can apply what you've learned in the classroom to real life, that's when you've truly understood it.`,
     recommendedVocabulary: ["\u5e94\u8bd5\u6559\u80b2", "\u7d20\u8d28\u6559\u80b2", "\u627c\u6740", "\u521b\u9020\u529b", "\u6279\u5224\u6027", "\u53c2\u5dee\u4e0d\u9f50", "\u704c\u8f93", "\u524d\u63d0", "\u79ef\u7d2f", "\u4e2a\u6027"],
   },
   {
@@ -1889,7 +1786,9 @@ I performed very well in that interview and ultimately got the job. But what lef
 
 I think if everyone could extend a hand when others need help, this world would surely be a better place.
 
-That experience made Xiao Li understand that kindness can be passed on. A stranger's help changed his view of the city and made him decide that in the future, whenever he encountered someone who needed help, he would extend a hand without hesitation. He believed that if everyone was willing to do a little good for strangers, the world would become much warmer. This simple belief became an important principle in his life, and in the years that followed, it brought him many unexpected friendships and warmth.Kindness is the cheapest and most precious thing in the world. It costs no money, yet it can bring people enormous warmth and strength. Every person who chooses kindness is making the world a little better.`,
+That experience made Xiao Li understand that kindness can be passed on. A stranger's help changed his view of the city and made him decide that in the future, whenever he encountered someone who needed help, he would extend a hand without hesitation. He believed that if everyone was willing to do a little good for strangers, the world would become much warmer. This simple belief became an important principle in his life, and in the years that followed, it brought him many unexpected friendships and warmth.Kindness is the cheapest and most precious thing in the world. It costs no money, yet it can bring people enormous warmth and strength. Every person who chooses kindness is making the world a little better.
+
+That experience made Xiao Li understand that kindness is contagious. One stranger's help changed how he saw the city. He decided that whenever he encountered someone who needed help, he too would reach out without hesitation.`,
     recommendedVocabulary: ["\u5584\u610f", "\u7126\u6025", "\u832b\u7136", "\u5ef6\u8bef", "\u7535\u91cf", "\u4e8c\u8bdd\u6ca1\u8bf4", "\u5e26\u9886", "\u611f\u6fc0", "\u83ab\u5927", "\u4f38\u51fa"],
   },
   {
@@ -1918,7 +1817,9 @@ There are many ways to manage stress. First, learn to arrange time reasonably �
 
 I believe the relationship between pressure and motivation is like the relationship between a bowstring and an arrow. If the bowstring is too loose, the arrow won't fly; if it's too tight, the string will break. Only by finding the right tension can the arrow fly far and true. Pressure in life is the same — moderate pressure is the driving force for progress, while excessive pressure is an obstacle.
 
-Xiao Li's experience tells us that stress management is a skill that needs to be learned and practiced. It is not innate, nor is it achieved overnight, but is gradually mastered through constant trial and adjustment. Everyone's optimal stress range is different; finding your own rhythm and learning to maintain balance between stress and relaxation is a life skill that modern people must master. Only in this way can one remain both efficient and inwardly calm in the fast pace of modern life.The balance between stress and motivation is an art. Finding this balance requires self-knowledge, practical experience, and constant adjustment. But once found, you will discover that life can be both fulfilling and unhurried, both efficient and joyful.`,
+Xiao Li's experience tells us that stress management is a skill that needs to be learned and practiced. It is not innate, nor is it achieved overnight, but is gradually mastered through constant trial and adjustment. Everyone's optimal stress range is different; finding your own rhythm and learning to maintain balance between stress and relaxation is a life skill that modern people must master. Only in this way can one remain both efficient and inwardly calm in the fast pace of modern life.The balance between stress and motivation is an art. Finding this balance requires self-knowledge, practical experience, and constant adjustment. But once found, you will discover that life can be both fulfilling and unhurried, both efficient and joyful.
+
+Xiao Li's experience teaches us that managing pressure is a skill that requires learning and practice. Everyone's optimal state is different — finding your own rhythm and learning to balance effort with rest is what allows you to go the distance.`,
     recommendedVocabulary: ["\u538b\u529b", "\u52a8\u529b", "\u9002\u5ea6", "\u80be\u4e0a\u817a\u7d20", "\u4e13\u6ce8", "\u622a\u6b62\u65e5\u671f", "\u7126\u8651", "\u5931\u7720", "\u503e\u8bc9", "\u5fc3\u7406\u54a8\u8be2"],
   },
   {
@@ -1947,7 +1848,9 @@ I believe that in dealing with traditional culture, we should neither be complac
 
 Only in this way can traditional festivals find their place in modern society and truly become a cultural bond connecting the past and the future.
 
-Grandma Chen said her greatest hope was for her grandchildren to remember the stories and meaning behind these festivals, not just enjoy the holidays and food. She believed that a person who knows how to be grateful and cherish tradition will have greater inner strength when facing life's challenges. Traditional festivals are not just heritage from the past but the foundation for the future. As long as the spirit of these festivals lives on, Chinese culture will continue to be passed down, no matter how the world changes.Traditional festivals are a nation's collective memory and the cultural bond connecting past and future. In today's globalized world, protecting and passing on these festivals is not just a cultural responsibility but an important way to maintain national identity and cultural diversity.`,
+Grandma Chen said her greatest hope was for her grandchildren to remember the stories and meaning behind these festivals, not just enjoy the holidays and food. She believed that a person who knows how to be grateful and cherish tradition will have greater inner strength when facing life's challenges. Traditional festivals are not just heritage from the past but the foundation for the future. As long as the spirit of these festivals lives on, Chinese culture will continue to be passed down, no matter how the world changes.Traditional festivals are a nation's collective memory and the cultural bond connecting past and future. In today's globalized world, protecting and passing on these festivals is not just a cultural responsibility but an important way to maintain national identity and cultural diversity.
+
+Grandma Chen said her greatest hope was that her grandchildren would remember the stories and meaning behind these festivals, not just enjoy the holidays and food. Traditional festivals are the thread connecting past and future — as long as people remember them, they will never disappear.`,
     recommendedVocabulary: ["\u5168\u7403\u5316", "\u8ffd\u6367", "\u627f\u8f7d", "\u9616\u5bb6\u56e2\u5706", "\u4e0e\u65f6\u4ff1\u8fdb", "\u6587\u5316\u5e95\u8574", "\u5ba1\u7f8e", "\u56fa\u6b65\u81ea\u5c01", "\u4f20\u627f", "\u7ebd\u5e26"],
   },
   {
@@ -1980,7 +1883,9 @@ These words benefited me greatly. From then on, I changed my mindset — instead
 
 Half a year later, my work ability had improved noticeably, and my relationships with colleagues had become increasingly harmonious. I realized that growth in the workplace takes time, requires patience, and above all requires an open mind.
 
-Half a year later, Xiao Zhang had fully adapted to workplace life. He had learned how to respect the team's decisions while still holding to his own ideas, and how to maintain patience while keeping his enthusiasm. He realized that the workplace is not just a place to work but a place to learn how to get along with people and find one's place in a complex environment. These experiences were things no school could have taught him, and they would accompany him throughout his entire career.The workplace is a school with no graduation. Every day brings new lessons to learn and new challenges to face. Maintaining humility and curiosity is the most important attitude for continuous growth in the workplace.`,
+Half a year later, Xiao Zhang had fully adapted to workplace life. He had learned how to respect the team's decisions while still holding to his own ideas, and how to maintain patience while keeping his enthusiasm. He realized that the workplace is not just a place to work but a place to learn how to get along with people and find one's place in a complex environment. These experiences were things no school could have taught him, and they would accompany him throughout his entire career.The workplace is a school with no graduation. Every day brings new lessons to learn and new challenges to face. Maintaining humility and curiosity is the most important attitude for continuous growth in the workplace.
+
+Six months later, my abilities had improved noticeably and my relationships with colleagues had grown warmer. I came to realise that professional growth takes time and patience — most importantly, it takes an open and willing heart to keep learning.`,
     recommendedVocabulary: ["\u804c\u573a", "\u4e0a\u624b", "\u53ef\u64cd\u4f5c\u6027", "\u6cae\u4e27", "\u8ba4\u53ef", "\u53d7\u76ca\u532a\u6d45", "\u5fc3\u6001", "\u8bf7\u6559", "\u878d\u6d3d", "\u7a81\u53d1"],
   },
   {
@@ -2013,7 +1918,9 @@ Although this venture failed, I learned many valuable lessons from it. I learned
 
 Now I work at a company, but I haven't given up my dream of starting a business. I believe that with the experience of this failure, I will do better next time.
 
-That failure, though painful, gave Xiao Zhao the most valuable education. He learned the importance of market research, the key to cash flow management, and the complexity of teamwork. More importantly, he learned how to maintain dignity in failure and how to extract value from mistakes. Two years later, armed with these lessons, he set out on the entrepreneurial path again — this time, moving more steadily and with greater confidence.Failure is an inevitable part of the entrepreneurial journey. True entrepreneurs are not those who have never failed but those who can rise again after failure and continue forward with new wisdom. Every failure is a stepping stone to the next success.`,
+That failure, though painful, gave Xiao Zhao the most valuable education. He learned the importance of market research, the key to cash flow management, and the complexity of teamwork. More importantly, he learned how to maintain dignity in failure and how to extract value from mistakes. Two years later, armed with these lessons, he set out on the entrepreneurial path again — this time, moving more steadily and with greater confidence.Failure is an inevitable part of the entrepreneurial journey. True entrepreneurs are not those who have never failed but those who can rise again after failure and continue forward with new wisdom. Every failure is a stepping stone to the next success.
+
+That failure, though painful, gave me the most valuable education. I learned the importance of market research, the complexity of teamwork, and how to maintain dignity in failure. Two years later, I set out again with all those lessons behind me.`,
     recommendedVocabulary: ["\u521b\u4e1a", "\u5e02\u573a\u8c03\u7814", "\u4f9b\u5e94\u94fe", "\u5206\u5de5", "\u5206\u6b67", "\u59a5\u534f", "\u8d44\u91d1", "\u8fd0\u8425", "\u843d\u5b9e", "\u5b9d\u8d35"],
   },
   {
@@ -2046,7 +1953,9 @@ Of course, the way you read is also important. Reading indiscriminately is not a
 
 In short, in any era, reading is a good habit worth maintaining.
 
-Teacher Wang said the best books he had read were often not those that gave him answers but those that made him ask more questions. The value of a good book lies not in what it tells you but in what it makes you think about. Reading is a conversation with the author and also a conversation with yourself. In this conversation, you are not just acquiring information but constructing your own system of thought and searching for your own answers to life. This capacity for deep reading is one of the most important abilities modern people need to cultivate.Reading is the most economical investment and the most lasting pleasure. A good book can accompany you for a lifetime, giving you strength, wisdom, and comfort when you need it. Developing the habit of reading is the best gift you can give yourself.`,
+Teacher Wang said the best books he had read were often not those that gave him answers but those that made him ask more questions. The value of a good book lies not in what it tells you but in what it makes you think about. Reading is a conversation with the author and also a conversation with yourself. In this conversation, you are not just acquiring information but constructing your own system of thought and searching for your own answers to life. This capacity for deep reading is one of the most important abilities modern people need to cultivate.Reading is the most economical investment and the most lasting pleasure. A good book can accompany you for a lifetime, giving you strength, wisdom, and comfort when you need it. Developing the habit of reading is the best gift you can give yourself.
+
+Teacher Wang said the best books he'd ever read were rarely the ones that gave him answers — they were the ones that raised more questions. Reading is a conversation with the author, and a conversation with yourself.`,
     recommendedVocabulary: ["\u4fe1\u606f\u7206\u70b8", "\u788e\u7247\u5316", "\u8bba\u8ff0", "\u903b\u8f91\u601d\u7ef4", "\u89c6\u91ce", "\u683c\u5c40", "\u6f5c\u79fb\u9ed8\u5316", "\u6170\u85c9", "\u632b\u6298", "\u7cbe\u8bfb"],
   },
   {
@@ -2079,7 +1988,9 @@ Once, we attended a technical seminar together, and I proposed a new solution at
 
 This friendship that transcends age has taught me a truth: true friendship is not limited by age or background. As long as two people can respect each other and learn from each other, a deep bond can be formed.
 
-That friendship made Xiao Lin understand that true friendship does not require the same background or similar experiences — it only needs mutual respect and sincere care. Elder Li gave him a different perspective on life, allowing him to see things young people easily overlook: the preciousness of time, the value of experience, and the importance of slowing down to feel life. These were gifts he could not have received from friends his own age, and they were among the most precious gains of his life.True friendship transcends differences in age, background, and experience, built on a foundation of mutual respect and sincere care. Such friendship is the most precious treasure in life and the most solid support when facing difficulties.This friendship was one of the most precious gifts in his life.`,
+That friendship made Xiao Lin understand that true friendship does not require the same background or similar experiences — it only needs mutual respect and sincere care. Elder Li gave him a different perspective on life, allowing him to see things young people easily overlook: the preciousness of time, the value of experience, and the importance of slowing down to feel life. These were gifts he could not have received from friends his own age, and they were among the most precious gains of his life.True friendship transcends differences in age, background, and experience, built on a foundation of mutual respect and sincere care. Such friendship is the most precious treasure in life and the most solid support when facing difficulties.This friendship was one of the most precious gifts in his life.
+
+That friendship across the age gap made Xiao Lin understand a truth: real friendship isn't limited by age. As long as two people can respect and learn from each other, a deep bond can form. Old Mr Li gave him a different perspective on life — one he couldn't have gotten from friends his own age.`,
     recommendedVocabulary: ["\u9000\u4f11", "\u8305\u585e\u987f\u5f00", "\u81ea\u5b66\u6210\u624d", "\u89e6\u52a8", "\u8d44\u5386", "\u7814\u8ba8\u4f1a", "\u8ba4\u53ef", "\u60c5\u8c0a", "\u5c40\u9650", "\u8de8\u8d8a"],
   },
   {
@@ -2112,7 +2023,9 @@ Improving sleep quality requires a multi-pronged approach. Maintaining regular s
 
 In short, adequate sleep is not a waste of time — it is one of the most important investments in health.
 
-The doctor said that sleep is not just physical rest but also the brain's time for organizing and repairing itself. During sleep, the brain sorts through information received during the day, consolidates memories, and clears metabolic waste. Long-term sleep deprivation not only affects work efficiency but also increases the risk of various diseases. After hearing this, Mr. Zhang finally resolved to change his lifestyle. He began keeping regular hours and reducing phone use at night; three months later, his work efficiency had actually improved and his physical condition had clearly gotten better.Good sleep is not just a physical need but the foundation of mental health. In the fast pace of modern life, learning to protect one's sleep is an attitude of responsibility toward oneself and an important strategy for maintaining long-term high efficiency.`,
+The doctor said that sleep is not just physical rest but also the brain's time for organizing and repairing itself. During sleep, the brain sorts through information received during the day, consolidates memories, and clears metabolic waste. Long-term sleep deprivation not only affects work efficiency but also increases the risk of various diseases. After hearing this, Mr. Zhang finally resolved to change his lifestyle. He began keeping regular hours and reducing phone use at night; three months later, his work efficiency had actually improved and his physical condition had clearly gotten better.Good sleep is not just a physical need but the foundation of mental health. In the fast pace of modern life, learning to protect one's sleep is an attitude of responsibility toward oneself and an important strategy for maintaining long-term high efficiency.
+
+The doctor said sleep is the time when the brain organises and repairs itself. Chronic sleep deprivation doesn't just affect work efficiency — it damages your health. Hearing all this, Mr Zhang finally resolved to change his lifestyle and began keeping regular hours.`,
     recommendedVocabulary: ["\u7761\u7720", "\u4ee3\u8c22", "\u514d\u75ab\u529b", "\u6fc0\u7d20", "\u8ba4\u77e5", "\u7126\u8651", "\u6291\u90c1\u75c7", "\u4f5c\u606f", "\u52e4\u594b", "\u5e72\u6270"],
   },
   {
@@ -2145,7 +2058,9 @@ I understand my father's feelings. A house is not merely a place to live — it 
 
 However, I also know that old houses will eventually age, and life must move forward. Perhaps one day this old house will be demolished, but the memories it has left us will remain in our hearts forever.
 
-The old house was eventually demolished. But before it was torn down, Auntie Li took everything she could — those old photos, those handwritten letters, the chair her grandmother had used for decades. She said that a house can be demolished, but memories do not disappear. Those years spent in the old house, those laughs and tears, had been permanently etched in the hearts of her and her family. The new house would have new stories, but the stories of the old house would also continue to be passed down.The memories in an old house are a microcosm of a family's history. Those mottled walls, those creaking floors all carry the joys and sorrows of several generations. Even when the house is gone, those memories will live forever in the heart, becoming part of the family's spirit.Memories always outlast buildings.`,
+The old house was eventually demolished. But before it was torn down, Auntie Li took everything she could — those old photos, those handwritten letters, the chair her grandmother had used for decades. She said that a house can be demolished, but memories do not disappear. Those years spent in the old house, those laughs and tears, had been permanently etched in the hearts of her and her family. The new house would have new stories, but the stories of the old house would also continue to be passed down.The memories in an old house are a microcosm of a family's history. Those mottled walls, those creaking floors all carry the joys and sorrows of several generations. Even when the house is gone, those memories will live forever in the heart, becoming part of the family's spirit.Memories always outlast buildings.
+
+The old house was eventually demolished. But before it came down, Aunt Li took away everything she could — old photographs, handwritten letters, the chair Grandma had used for decades. She said the house could be torn down, but the memories never would be.`,
     recommendedVocabulary: ["\u9614\u522b", "\u5e74\u8fc8", "\u7834\u65e7", "\u4fee\u7f2e", "\u679d\u7e41\u53f6\u8302", "\u4e58\u51c9", "\u5f25\u6f2b", "\u7ebd\u5e26", "\u89c1\u8bc1", "\u62c6\u9664"],
   },
   {
@@ -2174,7 +2089,9 @@ So why do online rumors spread so easily? On one hand, when people face uncertai
 
 Reducing the harm of online rumors requires joint efforts from multiple parties. Platforms should strengthen content review and promptly delete and label rumors; governments and authoritative institutions should release accurate information in a timely manner to fill information vacuums; and as ordinary users, each of us should improve our media literacy and verify the source and authenticity of information before sharing it.
 
-That experience made Xiao Liu understand that in the information age, critical thinking is a survival skill. Faced with a massive amount of information, we cannot accept everything uncritically — we must learn to question, verify, and analyze. He began developing a habit: before forwarding any information, spending a few minutes verifying the source. He believed that if everyone could do this, there would be far fewer internet rumors and the information environment of society would be much healthier.In the information age, everyone is both a receiver and a transmitter of information. This dual identity gives us greater responsibility: while enjoying the free flow of information, we must also take on the responsibility of verifying information and not spreading rumors. This is a basic quality of modern citizens.`,
+That experience made Xiao Liu understand that in the information age, critical thinking is a survival skill. Faced with a massive amount of information, we cannot accept everything uncritically — we must learn to question, verify, and analyze. He began developing a habit: before forwarding any information, spending a few minutes verifying the source. He believed that if everyone could do this, there would be far fewer internet rumors and the information environment of society would be much healthier.In the information age, everyone is both a receiver and a transmitter of information. This dual identity gives us greater responsibility: while enjoying the free flow of information, we must also take on the responsibility of verifying information and not spreading rumors. This is a basic quality of modern citizens.
+
+That experience made Xiao Liu understand that critical thinking is a survival skill in the information age. Faced with an overwhelming flood of information, he developed a habit: before sharing anything, he'd spend a few minutes verifying the source.`,
     recommendedVocabulary: ["\u8c23\u8a00", "\u6269\u6563", "\u540d\u8a89", "\u6050\u614c", "\u975e\u7406\u6027", "\u7b97\u6cd5", "\u8038\u4eba\u542c\u95fb", "\u5a92\u4f53\u7d20\u517b", "\u6838\u5b9e", "\u5ba1\u6838"],
   },
   {
@@ -2207,7 +2124,9 @@ There was an elderly woman in her seventies who had been having headaches for se
 
 On the way back, I kept thinking that the unequal distribution of medical resources is an important issue that requires the attention and efforts of the whole society.
 
-That volunteer medical clinic made Dr. Li even more certain of his career choice. He realized that medicine is not just a technique but a form of service. When he saw patients smiling again after receiving timely treatment, he felt a deep sense of satisfaction — a satisfaction that no amount of money could buy. He decided that from then on he would participate in volunteer medical activities every year, using his professional knowledge to serve more people in need.Medicine is a special service that concerns human life and health. Every doctor bears a heavy responsibility and a noble mission. Volunteer medical clinics are a way for doctors to give back to society using their professional skills, and a manifestation of the humanitarian spirit of medicine.`,
+That volunteer medical clinic made Dr. Li even more certain of his career choice. He realized that medicine is not just a technique but a form of service. When he saw patients smiling again after receiving timely treatment, he felt a deep sense of satisfaction — a satisfaction that no amount of money could buy. He decided that from then on he would participate in volunteer medical activities every year, using his professional knowledge to serve more people in need.Medicine is a special service that concerns human life and health. Every doctor bears a heavy responsibility and a noble mission. Volunteer medical clinics are a way for doctors to give back to society using their professional skills, and a manifestation of the humanitarian spirit of medicine.
+
+That medical outreach trip deepened Dr Li's commitment to his chosen profession. When he saw patients smile again after receiving timely treatment, he felt a profound sense of satisfaction — the kind that no amount of money can buy. He decided he would take part in a medical outreach trip every year.`,
     recommendedVocabulary: ["\u4e49\u8bca", "\u504f\u8fdc", "\u6162\u6027\u75c5", "\u63a5\u8bca", "\u9ad8\u8840\u538b", "\u8840\u538b", "\u5631\u5490", "\u533b\u7597\u8d44\u6e90", "\u5c31\u533b", "\u7cfb\u7edf\u68c0\u67e5"],
   },
   {
@@ -2236,7 +2155,9 @@ Different people have different musical preferences, which is related to individ
 
 I believe that in the fast-paced modern life, everyone should leave themselves a little time to quietly listen to a piece of music they love, letting music help us have a conversation with our deepest selves and recover that rare sense of tranquility.
 
-The music teacher said that the greatness of music lies in its ability to transcend the barriers of language and culture and touch the heart directly. A good piece of music needs no translation, no explanation — it can make people from different backgrounds feel the same emotions in the same melody. This resonance is the common language of humanity and the deepest value of music. Xiao Fang decided that no matter how busy life became, she would always keep music in her life, because it was an important way for her to stay connected to her inner world.Music is the language of the human soul. It can express emotions that words cannot and touch hearts that words cannot reach. In music, we find each other, find ourselves, and find that beauty and emotion that transcends everyday life.`,
+The music teacher said that the greatness of music lies in its ability to transcend the barriers of language and culture and touch the heart directly. A good piece of music needs no translation, no explanation — it can make people from different backgrounds feel the same emotions in the same melody. This resonance is the common language of humanity and the deepest value of music. Xiao Fang decided that no matter how busy life became, she would always keep music in her life, because it was an important way for her to stay connected to her inner world.Music is the language of the human soul. It can express emotions that words cannot and touch hearts that words cannot reach. In music, we find each other, find ourselves, and find that beauty and emotion that transcends everyday life.
+
+The music teacher said the greatness of music lies in its ability to cross the barriers of language and culture and touch the heart directly. Xiao Fang decided that no matter how busy life got, she would always make time to listen to music and let it help her reconnect with her inner self.`,
     recommendedVocabulary: ["\u5171\u9e23", "\u65cb\u5f8b", "\u907f\u96be\u6240", "\u591a\u5df4\u80fa", "\u76ae\u8d28\u9187", "\u5ba3\u6cc4", "\u504f\u597d", "\u8d28\u6734", "\u5b81\u9759", "\u538b\u6291"],
   },
   {
@@ -2269,7 +2190,9 @@ After Xiao Lin went to Beijing, he did encounter many difficulties, but he also 
 
 His story made me think: choices don't have absolute right or wrong answers. What matters is that after making a choice, you give it everything you have and leave no regrets. Often, what we regret is not the choice we made, but that we didn't give our all for the choice we made.
 
-Years later, looking back on that choice, Xiao Chen still felt it had been the right one. The path not taken might have had its own brilliance, but the path he walked had made him who he was today. He had learned a truth: there is no absolute right or wrong in choices — what matters is giving everything you have to the path you chose. Every choice is a new beginning, worthy of being met with full passion and effort.Every choice in life is an opportunity for self-definition. What we choose and what we give up reflects our values and life priorities. Learning to make choices that align with our inner selves and taking responsibility for our choices is an important mark of maturity.Every choice deserves to be respected.`,
+Years later, looking back on that choice, Xiao Chen still felt it had been the right one. The path not taken might have had its own brilliance, but the path he walked had made him who he was today. He had learned a truth: there is no absolute right or wrong in choices — what matters is giving everything you have to the path you chose. Every choice is a new beginning, worthy of being met with full passion and effort.Every choice in life is an opportunity for self-definition. What we choose and what we give up reflects our values and life priorities. Learning to make choices that align with our inner selves and taking responsibility for our choices is an important mark of maturity.Every choice deserves to be respected.
+
+Years later, Xiao Chen looked back on that choice and still felt it was right. He had learned a lesson: there is no absolute right or wrong in choices — what matters is giving everything you have after you've chosen the path you're walking.`,
     recommendedVocabulary: ["\u53d6\u820d", "\u72b9\u8c6b", "\u5b89\u9038", "\u5168\u529b\u4ee5\u8d74", "\u9057\u61be", "\u56fd\u6709\u4f01\u4e1a", "\u521b\u4e1a\u516c\u53f8", "\u7a33\u5b9a", "\u95ef", "\u5927\u5e45"],
   },
   {
@@ -2298,7 +2221,9 @@ In cross-cultural communication, the power of language is even more apparent. Di
 
 Therefore, we should pay more attention to our use of language, learn to communicate with others using warm, accurate, and constructive language, and also pay attention to the language of our inner voice — using positive self-talk to motivate ourselves rather than negative language to undermine ourselves.
 
-After that speech, Xiao Zhou had a completely new understanding of language. He began paying more attention to the way he spoke, choosing words more carefully, and being more mindful of how his tone and expression affected others. He realized that language is not just a tool for communication but a force that shapes relationships and influences others. Learning to use language to build rather than destroy, to encourage rather than discourage, is an important lesson that everyone needs to cultivate.The power of language is not only in its ability to convey information but also in its ability to shape reality. The way we use language to describe the world determines the world we see. Learning to think and express ourselves with positive, constructive language is an important way to change our lives.`,
+After that speech, Xiao Zhou had a completely new understanding of language. He began paying more attention to the way he spoke, choosing words more carefully, and being more mindful of how his tone and expression affected others. He realized that language is not just a tool for communication but a force that shapes relationships and influences others. Learning to use language to build rather than destroy, to encourage rather than discourage, is an important lesson that everyone needs to cultivate.The power of language is not only in its ability to convey information but also in its ability to shape reality. The way we use language to describe the world determines the world we see. Learning to think and express ourselves with positive, constructive language is an important way to change our lives.
+
+After that speech, Xiao Zhou began paying much more attention to the way he spoke and chose his words more carefully. He realised that language isn't just a communication tool — it's a force that shapes relationships. Using language to encourage rather than to wound was something he wanted to commit to for the rest of his life.`,
     recommendedVocabulary: ["\u5a92\u4ecb", "\u5851\u9020", "\u6d88\u6781", "\u79ef\u6781", "\u81ea\u6211\u5b9e\u73b0", "\u9884\u8a00", "\u9632\u5fa1", "\u8de8\u6587\u5316", "\u5efa\u8bbe\u6027", "\u6fc0\u52b1"],
   },
   {
@@ -2331,7 +2256,9 @@ During that afternoon, I thought about many things. I thought about my gains and
 
 After returning, I felt like a completely different person. That trip didn't change my life, but it changed the way I looked at life. Sometimes we need to temporarily leave in order to see clearly where we truly are.
 
-That solo journey was the best gift Xiao He had given himself. He learned to stay calm in unfamiliar environments, to rely on himself to solve problems, and to enjoy time alone. More importantly, he met all kinds of people along the way and heard all kinds of stories — these experiences broadened his horizons and enriched his inner world. When he returned, he felt he had changed: more mature and more confident.Solo travel is a special form of self-education. In unfamiliar environments, you discover your true character and abilities, as well as your true needs and desires. This journey of self-discovery is often more profound and lasting than any classroom education.`,
+That solo journey was the best gift Xiao He had given himself. He learned to stay calm in unfamiliar environments, to rely on himself to solve problems, and to enjoy time alone. More importantly, he met all kinds of people along the way and heard all kinds of stories — these experiences broadened his horizons and enriched his inner world. When he returned, he felt he had changed: more mature and more confident.Solo travel is a special form of self-education. In unfamiliar environments, you discover your true character and abilities, as well as your true needs and desires. This journey of self-discovery is often more profound and lasting than any classroom education.
+
+That solo journey was the best gift Xiao He had ever given himself. He learned to stay calm in unfamiliar surroundings, learned to solve problems on his own, and learned to enjoy solitude. When he returned, he felt like a completely different person.`,
     recommendedVocabulary: ["\u72ec\u5904", "\u9707\u64bc", "\u6e5b\u84dd", "\u77d7\u7acb", "\u5b81\u9759", "\u906e\u853d", "\u5f97\u4e0e\u5931", "\u5355\u7a0b", "\u8e0f\u4e0a", "\u91cd\u65b0\u8ba4\u8bc6"],
   },
   {
@@ -2364,7 +2291,9 @@ Furthermore, parents also need to realize that a child's success should not be m
 
 The boundary of family education lies in the balance between love and respect.
 
-After that conversation, the relationship between mother and daughter clearly improved. Mom began listening more to Xiao Min's thoughts instead of giving direct orders; Xiao Min began understanding her mother's concerns more instead of simply resisting. They both realized that the core of family education is not control but communication — not requiring children to live according to parents' expectations but helping children find their own direction. This understanding made their relationship more equal and warm.The ultimate goal of family education is to raise a person who can think independently, live independently, and contribute to society. This goal requires parents to find a delicate balance between love and rules, between protection and letting go. This balance has no universal answer — each family needs to explore it continuously according to their own situation.`,
+After that conversation, the relationship between mother and daughter clearly improved. Mom began listening more to Xiao Min's thoughts instead of giving direct orders; Xiao Min began understanding her mother's concerns more instead of simply resisting. They both realized that the core of family education is not control but communication — not requiring children to live according to parents' expectations but helping children find their own direction. This understanding made their relationship more equal and warm.The ultimate goal of family education is to raise a person who can think independently, live independently, and contribute to society. This goal requires parents to find a delicate balance between love and rules, between protection and letting go. This balance has no universal answer — each family needs to explore it continuously according to their own situation.
+
+After that conversation, the relationship between mother and daughter improved noticeably. Mum began listening more to Xiao Min's thoughts rather than issuing instructions, and Xiao Min began to understand her mother's concerns rather than simply pushing back. Both came to see that the heart of family education isn't control — it's communication.`,
     recommendedVocabulary: ["\u5bb6\u5ead\u6559\u80b2", "\u51fa\u4eba\u5934\u5730", "\u8bfe\u5916\u73ed", "\u81ea\u4e3b\u6027", "\u5265\u593a", "\u8861\u91cf", "\u81ea\u6211\u8ba4\u77e5", "\u8fb9\u754c", "\u5f15\u5bfc\u8005", "\u5168\u9762\u53d1\u5c55"],
   },
   {
@@ -2397,7 +2326,9 @@ Xiao Zhou shared many interesting insights from a translator's perspective. He s
 
 That chance encounter introduced me to two very interesting people and gave me a new understanding of literature and translation. I think many beautiful things in life happen at unexpected moments.
 
-That unexpected encounter became a turning point in Xiao Zhang's life. The old man's words made him rethink his direction in life and gave him the courage to make a decision he had always wanted to make but never dared to. Sometimes the most important guidance in life comes from the most unexpected places. Xiao Zhang often thought afterward that if he hadn't missed that bus that day, his life would have taken a completely different shape. Fate, sometimes, is truly wonderful.Unexpected encounters in life are often the most precious gifts. The people who appear at the most unexpected moments, the words spoken in the most casual conversations, can sometimes become the key to changing a person's fate. Maintaining an open mind is what allows us to receive these gifts from life.`,
+That unexpected encounter became a turning point in Xiao Zhang's life. The old man's words made him rethink his direction in life and gave him the courage to make a decision he had always wanted to make but never dared to. Sometimes the most important guidance in life comes from the most unexpected places. Xiao Zhang often thought afterward that if he hadn't missed that bus that day, his life would have taken a completely different shape. Fate, sometimes, is truly wonderful.Unexpected encounters in life are often the most precious gifts. The people who appear at the most unexpected moments, the words spoken in the most casual conversations, can sometimes become the key to changing a person's fate. Maintaining an open mind is what allows us to receive these gifts from life.
+
+That chance encounter became a turning point in Xiao Zhang's life. The old man's words gave him the courage to make a decision he had always wanted to make but never dared to. Sometimes the most important guidance in life comes from the most unexpected places.`,
     recommendedVocabulary: ["\u6587\u5b66\u7814\u7a76\u8005", "\u62c9\u4e01\u7f8e\u6d32", "\u5f53\u4ee3", "\u60ed\u6127", "\u7ffb\u8bd1", "\u6587\u5316\u6982\u5ff5", "\u521b\u9020\u6027", "\u5076\u7136", "\u89c1\u89e3", "\u60c5\u8282"],
   },
   {
@@ -2430,7 +2361,9 @@ I have my own experience with perseverance. In university, I started learning to
 
 Looking back, those days of persisting were the most precious wealth of my life. Because they not only taught me to write, but also taught me to believe in myself.
 
-Xiao Wang's story tells us that the meaning of perseverance lies not only in ultimate success but in the growth that perseverance itself brings. In the process of persisting, you discover you are stronger than you imagined; you learn how to maintain hope in difficulty; you come to understand that true success is not just reaching a goal but becoming a better version of yourself. This growth is a life treasure that no success can replace.Perseverance is both a choice and an ability. It requires clear goals, sufficient patience, and a strong inner self. But more importantly, it requires a belief: that one's efforts will eventually be rewarded, and that the process itself has value. This belief is the deepest motivation for persisting.`,
+Xiao Wang's story tells us that the meaning of perseverance lies not only in ultimate success but in the growth that perseverance itself brings. In the process of persisting, you discover you are stronger than you imagined; you learn how to maintain hope in difficulty; you come to understand that true success is not just reaching a goal but becoming a better version of yourself. This growth is a life treasure that no success can replace.Perseverance is both a choice and an ability. It requires clear goals, sufficient patience, and a strong inner self. But more importantly, it requires a belief: that one's efforts will eventually be rewarded, and that the process itself has value. This belief is the deepest motivation for persisting.
+
+Looking back, the days I held on were the most precious treasure of my life. They didn't just teach me to write — they taught me to believe in myself. Choosing to persist when things were hardest was one of the best decisions I ever made.`,
     recommendedVocabulary: ["\u575a\u6301", "\u610f\u5fd7\u529b", "\u627f\u8bfa", "\u5151\u73b0", "\u56fa\u6267", "\u4e00\u610f\u5b64\u884c", "\u5206\u8fa8", "\u6210\u5c31\u611f", "\u79ef\u7d2f", "\u81ea\u6211\u4fe1\u4efb"],
   },
   {
@@ -2467,7 +2400,9 @@ Now the studio has over a dozen students, including no shortage of young people 
 
 Grandmother's story made me realize that the inheritance of traditional handicrafts is not merely the transmission of skills, but also the continuation of cultural memory and national spirit. In the tide of modernization, we have a responsibility to protect and cherish these cultural heritages that are on the verge of disappearing.
 
-Master Chen said he was not worried about his craft being lost, because he had already found several young people who truly loved it and were willing to spend the time and effort to learn. He believed that as long as someone was willing to learn, the craft would not disappear. Moreover, he found that more and more young people were beginning to take an interest in traditional handicrafts, which comforted him. Perhaps, after a period of decline, traditional handicrafts were regaining their vitality in a new way.`,
+Master Chen said he was not worried about his craft being lost, because he had already found several young people who truly loved it and were willing to spend the time and effort to learn. He believed that as long as someone was willing to learn, the craft would not disappear. Moreover, he found that more and more young people were beginning to take an interest in traditional handicrafts, which comforted him. Perhaps, after a period of decline, traditional handicrafts were regaining their vitality in a new way.
+
+Master Chen said he had already found a few young people who truly loved the craft and were willing to spend time learning it. He believed that as long as someone was willing to learn, the craft would not disappear. Watching them practise with such care, his heart was full of satisfaction.`,
     recommendedVocabulary: ["\u624b\u5de5\u827a", "\u523a\u7ee3", "\u6829\u6829\u5982\u751f", "\u4e3a\u7ee7", "\u975e\u7269\u8d28\u6587\u5316\u9057\u4ea7", "\u4f20\u627f\u4eba", "\u5b66\u5458", "\u8c0b\u751f", "\u6587\u5316\u9057\u4ea7", "\u5ef6\u7eed"],
   },
   {
@@ -2504,7 +2439,9 @@ Addressing urban loneliness requires joint efforts from individuals, communities
 
 Loneliness is a disease of modern life, but it is not incurable.
 
-Psychologists say that solving urban loneliness is not as simple as increasing social activities — it requires building truly deep interpersonal relationships. In this era of social media prevalence, people's social circles seem large, but friends with whom one can have heartfelt conversations are becoming fewer. Ms. Li decided to start reducing meaningless socializing and invest more time and energy in the relationships that truly matter. She believed that a few deep friendships are worth more than countless shallow acquaintances.`,
+Psychologists say that solving urban loneliness is not as simple as increasing social activities — it requires building truly deep interpersonal relationships. In this era of social media prevalence, people's social circles seem large, but friends with whom one can have heartfelt conversations are becoming fewer. Ms. Li decided to start reducing meaningless socializing and invest more time and energy in the relationships that truly matter. She believed that a few deep friendships are worth more than countless shallow acquaintances.
+
+The psychologist said that overcoming loneliness isn't just about increasing social activities — it requires building relationships of genuine depth. Ms Li decided to cut back on superficial socialising and put more time into the people and things that truly mattered.`,
     recommendedVocabulary: ["\u5b64\u72ec", "\u5b64\u7acb\u65e0\u63f4", "\u878d\u5165", "\u843d\u5bde", "\u7ebd\u5e26", "\u7ed3\u6784\u6027", "\u7ef4\u7cfb", "\u6570\u5b57\u5316", "\u987e\u8651", "\u516c\u5171\u7a7a\u95f4"],
   },
   {
@@ -2564,7 +2501,22 @@ Years later, whenever I feel lost at a crossroads in life, I always think of wha
 
 After that conversation, the relationship between father and son underwent a subtle but important change. The father began listening more to his son's thoughts, and the son began understanding his father's good intentions more. They both realized that the most important thing in family relationships is not who is right or wrong but mutual understanding and respect. Sometimes a frank conversation can untie a knot that has been tied for years and bring two hearts closer together. This closeness is a family warmth that no material conditions can replace.
 
-After that conversation, both father and son realized that communication is not just talking but listening. True communication requires both parties to be willing to let down their defenses, sincerely express themselves, and sincerely understand each other. This ability is the foundation for maintaining any relationship and the prerequisite for resolving any conflict. Learning to communicate is one of the most important lessons in anyone's life.`,
+After that conversation, both father and son realized that communication is not just talking but listening. True communication requires both parties to be willing to let down their defenses, sincerely express themselves, and sincerely understand each other. This ability is the foundation for maintaining any relationship and the prerequisite for resolving any conflict. Learning to communicate is one of the most important lessons in anyone's life.
+
+--- hsk4-2-04: The Double-Edged Sword of AI ---
+In recent years, the speed of artificial intelligence development has been breathtaking. From voice recognition to image generation, from autonomous driving to medical diagnosis, AI is penetrating every field of human life at an unprecedented pace. This technological revolution has brought both enormous opportunities and profound challenges.
+
+The advantages of artificial intelligence are obvious. It can process massive amounts of data and complete complex tasks that humans cannot accomplish independently; it does not tire and does not make errors caused by emotional fluctuations; its learning speed far exceeds that of humans, allowing it to master in a short time skills that take humans years to acquire. In the medical field, AI has been proven to diagnose certain diseases more accurately than experienced doctors; in education, personalized AI tutoring systems can provide customized teaching content based on each student's learning situation.
+
+However, the rapid development of AI has also triggered a series of worrying problems. First is the employment issue: as more and more jobs are automated, large numbers of traditional occupations will face the risk of being replaced. Second is the privacy issue: AI systems require large amounts of personal data for training, raising concerns about data security and privacy protection. Furthermore, the decision-making processes of AI systems often lack transparency — when they make wrong decisions, who should bear responsibility is a question that remains unresolved at both the legal and ethical levels.
+
+Deeper concerns come from the potential threat AI poses to human autonomy. As we increasingly rely on AI to make decisions, will we gradually lose the ability to think and judge independently? When AI becomes smarter than humans, how should humans define their own value and meaning?
+
+I believe that in facing the challenges of AI, we should neither be blindly optimistic nor excessively fearful. The key is that while embracing technological progress, we need to establish corresponding ethical frameworks and regulatory mechanisms to ensure that the direction of AI development serves the overall interests of humanity, rather than being controlled and exploited by a few.
+
+The development of artificial intelligence forces us to rethink the unique value of humanity. If machines can do many things that previously only humans could do, where exactly does human irreplaceability lie? Researchers believe the answer lies in human emotion, creativity, and moral judgment — things that artificial intelligence cannot yet truly replicate. Therefore, future education should place greater emphasis on cultivating these uniquely human abilities, rather than skills that can be replaced by machines.
+
+The development of artificial intelligence forces us to rethink the unique value of human beings. Researchers believe the answer lies in human emotion, creativity, and moral judgment — things that artificial intelligence cannot yet truly replicate.`,
     recommendedVocabulary: ["\u5bfc\u5e08", "\u6cbb\u5b66", "\u4e25\u8c28", "\u6f5c\u529b", "\u6781\u9650", "\u8212\u9002\u533a", "\u8c26\u900a", "\u97e7\u6027", "\u8ff7\u832b", "\u8f68\u8ff9"],
   },
   {
@@ -2638,7 +2590,9 @@ Now I have started my own family and have my own child. I find myself becoming m
 
 After his father passed away, while sorting through the belongings, the son found that diary. In it, his father had recorded in clumsy words every moment of pride in his son, every worry, every love that could not be spoken aloud. As the son read on, tears blurred his vision. He finally understood that his father's silence was not indifference but a deep, inexpressive love. This discovery, though it came too late, gave him a completely new understanding of his father and also taught him, when he himself became a parent, to express love more openly.
 
-His father's silence taught the son one thing: love sometimes needs no words — it is expressed in every small action, in every silent sacrifice. Understanding this, the son's feelings toward his father shifted from confusion to gratitude, from distance to closeness. This understanding came late, but it came nonetheless, and that was enough.`,
+His father's silence taught the son one thing: love sometimes needs no words — it is expressed in every small action, in every silent sacrifice. Understanding this, the son's feelings toward his father shifted from confusion to gratitude, from distance to closeness. This understanding came late, but it came nonetheless, and that was enough.
+
+His father's silence taught the son one thing: love doesn't always need words — it lives in every small action, in every quiet act of devotion. Once he understood this, his feelings towards his father shifted from confusion to gratitude. That understanding came late, but it came — and that was enough.`,
     recommendedVocabulary: ["\u6c89\u9ed8", "\u4e0d\u5584\u8a00\u8f9e", "\u59d4\u5c48", "\u9ad8\u8003", "\u5d29\u584c", "\u51b7\u6f20", "\u6df1\u6c89", "\u5b88\u62a4", "\u6210\u5bb6\u7acb\u4e1a", "\u9057\u4ea7"],
   },
   {
@@ -2675,7 +2629,9 @@ Learning to distinguish between needs and desires is an important ability for ma
 
 Xiao Lin's experience is a reflection of many modern people. In the tide of consumerism, it is easy to lose our way, equating owning more things with a happier life. But true happiness often comes from inner satisfaction, from meaningful interpersonal relationships, from doing what one truly loves. Learning to distinguish genuine needs from manufactured desires is an important ability for modern people to maintain inner freedom. This ability requires constant self-reflection and clear-headed judgment.
 
-True abundance is not about having more but about needing less. When a person can clearly know what they truly need and has the ability to meet those genuine needs, they achieve a kind of inner freedom and satisfaction. This freedom is something consumerism can never provide — it can only grow from deep within.`,
+True abundance is not about having more but about needing less. When a person can clearly know what they truly need and has the ability to meet those genuine needs, they achieve a kind of inner freedom and satisfaction. This freedom is something consumerism can never provide — it can only grow from deep within.
+
+True abundance is not having more, but needing less. After Xiao Lin cleared out the excess, she felt a lightness she had never felt before. She realised that a simple life was the one that truly belonged to her.`,
     recommendedVocabulary: ["\u6d88\u8d39\u4e3b\u4e49", "\u4eab\u4e50\u9002\u5e94", "\u610f\u8bc6\u5f62\u6001", "\u6500\u6bd4", "\u7269\u8d28\u8d22\u5bcc", "\u5e78\u798f\u611f", "\u6b32\u671b", "\u51b2\u52a8", "\u81ea\u4e3b\u6027", "\u7b26\u53f7"],
   },
   {
@@ -2712,7 +2668,9 @@ For introverts, the most important thing is to accept themselves, understand the
 
 After that presentation, Xiao Yun received a lot of positive feedback, which surprised and moved her. She realized that introversion is not a weakness but a different kind of strength. The deep thinking, attentive listening, and sincere expression of introverts have unique value in this noisy world. She no longer tried to change her personality but learned how to communicate effectively with the outside world while maintaining her introverted nature. This self-acceptance made her more confident and happier.
 
-The world of introverts is a rich and deep inner world. They do not need external noise to fill themselves because their inner world is already sufficiently full. Understanding and accepting this quality of introverts is not just respect for the individual but a cherishing of human diversity. A society that has both extroverts and introverts is a truly diverse and healthy society.`,
+The world of introverts is a rich and deep inner world. They do not need external noise to fill themselves because their inner world is already sufficiently full. Understanding and accepting this quality of introverts is not just respect for the individual but a cherishing of human diversity. A society that has both extroverts and introverts is a truly diverse and healthy society.
+
+After that speech, Xiao Yun received a great deal of positive feedback, which both surprised and moved her. She realised that introversion is not a weakness but a different kind of strength — deep thinking, attentive listening, and sincere expression all have unique value in this noisy world.`,
     recommendedVocabulary: ["\u5185\u5411", "\u5916\u5411", "\u4eba\u683c\u7279\u8d28", "\u8bef\u89e3", "\u72ec\u5904", "\u503e\u542c", "\u7075\u611f", "\u521b\u9020\u529b", "\u4f4e\u4f30", "\u8212\u9002\u533a"],
   },
   {
@@ -2753,7 +2711,9 @@ This lesson applies not only to trail running but to every challenge in life.
 
 That trail run changed Xiao Zhao's view of himself and life. He realized that human potential is often much greater than one imagines — many times, what holds us back is not objective conditions but inner fear and self-imposed limitations. He brought this understanding to other areas of his life, beginning to face challenges more bravely and more actively push beyond his comfort zone. That trail run was not just physical exercise but a profound life experience.
 
-The trail run experience gave Xiao Zhao a completely new understanding of "limits." He discovered that so-called limits are often psychological rather than physiological. When you truly make up your mind to break through, you find yourself much stronger than you imagined. This understanding applies not only to sports but to every challenge in life.`,
+The trail run experience gave Xiao Zhao a completely new understanding of "limits." He discovered that so-called limits are often psychological rather than physiological. When you truly make up your mind to break through, you find yourself much stronger than you imagined. This understanding applies not only to sports but to every challenge in life.
+
+That trail run gave Xiao Zhao a whole new understanding of 'limits'. He discovered that so-called limits are usually psychological rather than physical. When you truly make up your mind to push through, you find you are far stronger than you imagined.`,
     recommendedVocabulary: ["\u8d8a\u91ce\u8dd1", "\u5fd0\u5fd1\u4e0d\u5b89", "\u8d1f\u91cd\u524d\u884c", "\u626d\u4f24", "\u653e\u5f03", "\u4f24\u52bf", "\u6b65\u4f10", "\u7ec8\u70b9\u7ebf", "\u5e73\u9759", "\u542f\u793a"],
   },
   {
@@ -2790,7 +2750,9 @@ I think protecting dialects is not about preventing people from learning Mandari
 
 I have decided that the next time I go home, I will ask my mother to teach me some Xiang dialect. Even if it's just a few simple words, it counts as a kind of inheritance of hometown culture.
 
-Linguists say that the disappearance of dialects is a complex social phenomenon with deep economic and social causes behind it. But this does not mean we should be indifferent to it. Protecting dialects is not just about preserving a linguistic form but about preserving a cultural memory, a local identity, a precious heritage of human linguistic diversity. He called for giving dialects their place alongside the promotion of Mandarin, allowing the two to coexist harmoniously and together form China's rich and colorful linguistic and cultural landscape.Protecting dialects requires not just policy support but the conscious actions of every dialect speaker. When you choose to speak your dialect with your children at home, when you use your dialect in community activities, you are contributing to the inheritance of the dialect. This grassroots power is often more lasting and effective than any policy.`,
+Linguists say that the disappearance of dialects is a complex social phenomenon with deep economic and social causes behind it. But this does not mean we should be indifferent to it. Protecting dialects is not just about preserving a linguistic form but about preserving a cultural memory, a local identity, a precious heritage of human linguistic diversity. He called for giving dialects their place alongside the promotion of Mandarin, allowing the two to coexist harmoniously and together form China's rich and colorful linguistic and cultural landscape.Protecting dialects requires not just policy support but the conscious actions of every dialect speaker. When you choose to speak your dialect with your children at home, when you use your dialect in community activities, you are contributing to the inheritance of the dialect. This grassroots power is often more lasting and effective than any policy.
+
+The linguist said that protecting dialects means protecting not just a linguistic form but a form of cultural memory and local identity. He called for space to be made for dialect preservation alongside the promotion of Mandarin. Hearing all this, he decided to ask his mother to teach him a few phrases in the Xiang dialect when he next went home.`,
     recommendedVocabulary: ["\u65b9\u8a00", "\u6e58\u65b9\u8a00", "\u627f\u8f7d", "\u6d88\u4ea1", "\u57ce\u9547\u5316", "\u8870\u9000", "\u666e\u53ca", "\u8bed\u8a00\u5b66\u5bb6", "\u591a\u6837\u6027", "\u4f20\u627f"],
   },
   {
@@ -2835,7 +2797,9 @@ This principle applies not only to business but to every relationship in our liv
 
 After that incident, Xiao Ming had a deeper understanding of integrity. He realized that integrity is not just a moral requirement but a practical life wisdom. A person of integrity may pay a higher price in the short term, but in the long run, the trust and respect they earn cannot be obtained by any shortcut. He decided that no matter the circumstances, he would always uphold the principle of integrity, because it was the most important promise he made to himself.
 
-Integrity is the foundation of social trust and the core of personal character. In a society of integrity, transaction costs are lower, cooperation flows more smoothly, and relationships between people are more harmonious. Building such a society requires every individual to start with themselves and uphold the principle of integrity in every small matter. This accumulation, though slow, is the most solid foundation for building a better society.`,
+Integrity is the foundation of social trust and the core of personal character. In a society of integrity, transaction costs are lower, cooperation flows more smoothly, and relationships between people are more harmonious. Building such a society requires every individual to start with themselves and uphold the principle of integrity in every small matter. This accumulation, though slow, is the most solid foundation for building a better society.
+
+Integrity is the foundation of social trust and the core of personal character. Xiao Ming realised that an honest person may pay a higher price in the short term, but the trust and respect they earn in the long run is something no shortcut can ever provide.`,
     recommendedVocabulary: ["\u8bda\u4fe1", "\u5efa\u7b51", "\u94a2\u7b4b", "\u5408\u4f19\u4eba", "\u9a8c\u6536", "\u65ad\u7136", "\u53e3\u7891", "\u4fe1\u8a89", "\u627f\u63a5", "\u59a5\u534f"],
   },
   {
@@ -2868,7 +2832,9 @@ I believe that in the internet age, we need to consciously cultivate our deep re
 
 Teacher Wang said that in the digital age, the greatest challenge facing reading ability is not a lack of content but how to find truly valuable things in the vast amount of content and have the patience to read deeply. He believed that the ability to read deeply is the most effective weapon against information fragmentation. A person who can read deeply is not just acquiring information but constructing a knowledge system and cultivating the ability to think independently. This ability is more precious than ever in the age of information explosion.
 
-Deep reading is an ability that needs to be deliberately cultivated. In today's era of fragmented information, being able to calm down and read a book with focus is itself a rare and valuable ability. This ability is not just a way of acquiring knowledge but an important path for cultivating concentration, deep thinking, and independent judgment.`,
+Deep reading is an ability that needs to be deliberately cultivated. In today's era of fragmented information, being able to calm down and read a book with focus is itself a rare and valuable ability. This ability is not just a way of acquiring knowledge but an important path for cultivating concentration, deep thinking, and independent judgment.
+
+Teacher Wang said the ability to read deeply is the most effective weapon against the fragmentation of information. Being able to sit quietly and read a book all the way through is a genuinely rare ability — and an important path to developing independent thinking.`,
     recommendedVocabulary: ["\u788e\u7247\u5316", "\u6096\u8bba", "\u6e20\u9053", "\u6d45\u5c42", "\u795e\u7ecf\u79d1\u5b66", "\u5171\u60c5", "\u9000\u5316", "\u5a92\u4ecb", "\u4fe1\u606f\u8fc7\u8f7d", "\u6c89\u6d78"],
   },
   {
@@ -2909,7 +2875,9 @@ I think for many things in life, there is no such thing as "too late." As long a
 
 The experience of returning to school gave Ms. Lin a completely new understanding of education. She realized that learning is not just for young people — it is an activity that spans a lifetime. Every age has learning methods and content suited to that age. What matters is maintaining curiosity about knowledge, keeping the passion for learning, and constantly updating one's knowledge and skills. This attitude of lifelong learning was the most important gain from her experience of returning to school.
 
-Lifelong learning is not just a personal choice — in a rapidly changing era, it has become a necessity for survival. Those who can continuously learn and adapt will have stronger competitiveness and greater room for development when facing change than those who cling to old knowledge. Ms. Lin's experience is one of the best footnotes of this era.`,
+Lifelong learning is not just a personal choice — in a rapidly changing era, it has become a necessity for survival. Those who can continuously learn and adapt will have stronger competitiveness and greater room for development when facing change than those who cling to old knowledge. Ms. Lin's experience is one of the best footnotes of this era.
+
+Returning to school gave Ms Lin a completely new understanding of education. She realised that learning isn't just for young people — it is an activity that spans a whole lifetime. What matters is keeping the curiosity and enthusiasm for knowledge alive.`,
     recommendedVocabulary: ["\u91cd\u8fd4\u6821\u56ed", "\u653b\u8bfb", "\u7855\u58eb", "\u804c\u573a", "\u5546\u79d1", "\u53c2\u7167", "\u89c1\u89e3", "\u7b56\u5212", "\u5145\u5b9e", "\u8bfe\u9898"],
   },
   {
@@ -2946,7 +2914,9 @@ This debate gave me a deeper reflection on the concept of happiness. I began ask
 
 That debate had no winner, but all participants gained something. They realized that happiness is a complex, multi-dimensional concept with no unified definition and no unified way of pursuing it. Everyone has the right to define and pursue happiness in their own way — what matters is that this pursuit is genuine and heartfelt, not driven by external standards and expectations. This open attitude toward happiness is itself a form of wisdom.
 
-Discussions about happiness will never have a final answer, because happiness itself is dynamic and personal. But the discussion itself has value — it helps us understand ourselves more clearly, understand others more deeply, and view different life choices more tolerantly. This dialogue is humanity's shared way of exploring the good life.`,
+Discussions about happiness will never have a final answer, because happiness itself is dynamic and personal. But the discussion itself has value — it helps us understand ourselves more clearly, understand others more deeply, and view different life choices more tolerantly. This dialogue is humanity's shared way of exploring the good life.
+
+There was no winner in that debate, but everyone came away having gained something. They came to see that happiness is a complex, multi-dimensional concept with no single definition. Everyone has the right to define and pursue happiness in their own way — what matters is that the pursuit is genuine and comes from within.`,
     recommendedVocabulary: ["\u8fa9\u8bba", "\u5e78\u798f", "\u6b63\u76f8\u5173", "\u8d2b\u56f0\u7ebf", "\u5b89\u5168\u611f", "\u4e3b\u89c2", "\u7269\u8d28\u8d22\u5bcc", "\u540c\u6b65", "\u8ffd\u6c42", "\u6025\u5267"],
   },
   {
@@ -2979,7 +2949,9 @@ My cousin gradually came to understand this point. She says she no longer tries 
 
 Against the backdrop of globalization, the boundaries of cultural identity are becoming increasingly blurred, and more and more people will face similar identity questions. Perhaps we need to rethink the definition of "identity" and accept a more open and inclusive view of cultural identity.
 
-Mr. Chen said his greatest gain was learning how to find balance between two cultures rather than being torn between them. He is both Chinese and a world citizen; he both cherishes the traditions of Chinese culture and appreciates the values of other cultures. This dual identity is not a burden but a treasure. It allows him to view the world with a broader perspective and understand different people and cultures with a more inclusive mindset. He believes that this cross-cultural ability is an increasingly important life skill in the era of globalization.The identity of overseas Chinese is a complex and dynamic process. It is not a fixed answer but something constantly redefined and negotiated in different contexts. This fluidity is not a weakness but a unique cultural capital of overseas Chinese and their distinctive advantage in the era of globalization.`,
+Mr. Chen said his greatest gain was learning how to find balance between two cultures rather than being torn between them. He is both Chinese and a world citizen; he both cherishes the traditions of Chinese culture and appreciates the values of other cultures. This dual identity is not a burden but a treasure. It allows him to view the world with a broader perspective and understand different people and cultures with a more inclusive mindset. He believes that this cross-cultural ability is an increasingly important life skill in the era of globalization.The identity of overseas Chinese is a complex and dynamic process. It is not a fixed answer but something constantly redefined and negotiated in different contexts. This fluidity is not a weakness but a unique cultural capital of overseas Chinese and their distinctive advantage in the era of globalization.
+
+Mr Chen said his greatest gain was learning how to find balance between two cultures rather than being torn apart by them. He is both Chinese and a citizen of the world. That dual identity is not a burden — it is a gift.`,
     recommendedVocabulary: ["\u8eab\u4efd\u8ba4\u540c", "\u6d77\u5916\u534e\u4eba", "\u878d\u5165", "\u4e3b\u6d41\u6587\u5316", "\u79fb\u6c11", "\u6587\u5316\u5939\u7f1d", "\u8de8\u6587\u5316", "\u6807\u7b7e", "\u5305\u5bb9", "\u7956\u7c4d\u56fd"],
   },
   {
@@ -3024,7 +2996,9 @@ That failed speech was one of the best teachers of my life.
 
 That failed speech actually became Xiao Zhang's best learning experience. He realized that public speaking is not just talking but establishing a connection with the audience. A good speaker is not just conveying information but co-creating an experience with the audience. He began systematically studying speaking techniques, practicing how to control pace, tone, and body language, how to tell engaging stories, and how to make eye contact with the audience. Half a year later, he stepped onto the stage again — this time, his performance impressed everyone.
 
-The art of public speaking is a skill that can be learned and improved. Every time you step onto the stage, whether successful or not, is a valuable learning opportunity. What matters is not giving up after one failure but extracting lessons from failure, continuously improving, and continuously growing. This attitude toward failure is a necessary condition for becoming an excellent speaker.`,
+The art of public speaking is a skill that can be learned and improved. Every time you step onto the stage, whether successful or not, is a valuable learning opportunity. What matters is not giving up after one failure but extracting lessons from failure, continuously improving, and continuously growing. This attitude toward failure is a necessary condition for becoming an excellent speaker.
+
+The art of public speaking is a skill that can be learned and improved. Xiao Zhang began practising systematically, treating every time he stepped up to speak — success or failure alike — as a valuable learning opportunity. He believed that as long as he didn't give up, he would keep getting better.`,
     recommendedVocabulary: ["\u6f14\u8bb2", "\u6eda\u74dc\u70c2\u719f", "\u9547\u5b9a", "\u5c34\u5c2c", "\u65e0\u5730\u81ea\u5bb9", "\u8d44\u6df1", "\u8fde\u63a5", "\u4f20\u8fbe", "\u6253\u52a8", "\u7cfb\u7edf"],
   },
   {
@@ -3061,7 +3035,9 @@ Facing the challenges of aging requires the joint efforts of government, enterpr
 
 That community worker said that the challenges of an aging society are not just a policy issue but also a cultural one. We need to redefine the value of old age, re-recognize the contributions of the elderly to society, and build a social culture that truly respects and includes the elderly. Only when all of society can view aging with a positive attitude can the various challenges brought by aging be truly resolved. This requires the participation and effort of every person, starting with changing one's own view of old age.
 
-Aging is not just a social problem but also a cultural and philosophical one. It forces us to think: what is a valuable life? What does it mean to age with dignity? How do we find the greatest meaning and value within a finite life? These questions have no universal answers, but thinking about them is itself a form of respect for life.`,
+Aging is not just a social problem but also a cultural and philosophical one. It forces us to think: what is a valuable life? What does it mean to age with dignity? How do we find the greatest meaning and value within a finite life? These questions have no universal answers, but thinking about them is itself a form of respect for life.
+
+The community worker said that the challenges of an ageing society are not just a policy problem but a cultural one. We need to redefine the value of old age and build a social culture that truly respects and includes elderly people.`,
     recommendedVocabulary: ["\u8001\u9f84\u5316", "\u52b3\u52a8\u529b", "\u517b\u8001\u91d1", "\u8d61\u517b", "\u94f6\u53d1\u7ecf\u6d4e", "\u523b\u677f\u5370\u8c61", "\u6d3b\u529b", "\u79ef\u6781\u8001\u9f84\u5316", "\u4eba\u53e3\u7ed3\u6784", "\u53ef\u6301\u7eed"],
   },
   {
@@ -3098,7 +3074,9 @@ I think the value of a good book lies not in how much knowledge it gives you, bu
 
 That book changed Xiao Zhou's life trajectory, which made him deeply feel that the power of a good book is limitless. It not only provides information but also provides a way of thinking about problems, a perspective for viewing the world, and even the courage to live. He began taking reading more seriously, treating it as an important investment in life. He believed that the books a person has read gradually seep into their thoughts and behavior, becoming part of their character — an influence that is far-reaching and lasting.
 
-The influence of a good book is often subtle and gradual. It will not immediately change your life, but it will slowly change the way you see the world, change the angle from which you think about problems, and ultimately change the choices you make. This deep influence is more lasting and profound than any quick-fix method. This is why reading is one of the most worthwhile habits to invest in.`,
+The influence of a good book is often subtle and gradual. It will not immediately change your life, but it will slowly change the way you see the world, change the angle from which you think about problems, and ultimately change the choices you make. This deep influence is more lasting and profound than any quick-fix method. This is why reading is one of the most worthwhile habits to invest in.
+
+That book changed Xiao Zhou's life trajectory, making him deeply appreciate that the power of a good book is boundless. It doesn't just provide information — it provides a way of thinking, a way of seeing the world, and even the courage to live. He began taking reading far more seriously, treating it as an important habit.`,
     recommendedVocabulary: ["\u7cbe\u795e\u75c5\u5b66\u5bb6", "\u96c6\u4e2d\u8425", "\u82e6\u96be", "\u610f\u4e49\u611f", "\u4f7f\u547d\u611f", "\u6f5c\u79fb\u9ed8\u5316", "\u5fae\u4e0d\u8db3\u9053", "\u7acb\u7aff\u89c1\u5f71", "\u5904\u5883", "\u6001\u5ea6"],
   },
   {
@@ -3135,7 +3113,9 @@ I believe educational equity is the foundation of social equity. Only when every
 
 That volunteer teacher said that narrowing the urban-rural education gap requires not only financial investment but also the balanced distribution of quality teacher resources. She called on more excellent teachers to follow her example and choose to teach in rural areas, using their knowledge and passion to light up the futures of more rural children. She believed that education is the most powerful tool for changing one's fate, and that every child, whether born in a city or the countryside, should have an equal opportunity to receive quality education.
 
-Educational equity is the foundation of social equity. When every child, regardless of where they are born, can receive education of equal quality, social mobility will truly increase and class solidification will truly be broken. This is not just the responsibility of the education sector but the shared responsibility of all of society. Every person who cares about educational equity is a force driving social progress.`,
+Educational equity is the foundation of social equity. When every child, regardless of where they are born, can receive education of equal quality, social mobility will truly increase and class solidification will truly be broken. This is not just the responsibility of the education sector but the shared responsibility of all of society. Every person who cares about educational equity is a force driving social progress.
+
+The volunteer teacher said education is the most powerful tool for changing one's fate. She called on more outstanding teachers to go and teach in rural areas, using their knowledge and passion to light up the futures of more children there.`,
     recommendedVocabulary: ["\u6559\u80b2\u8d44\u6e90", "\u57ce\u4e61\u5dee\u8ddd", "\u5e08\u8d44", "\u6d41\u52a8\u6027", "\u9ad8\u8003", "\u8d77\u8dd1\u7ebf", "\u8d22\u653f\u6295\u5165", "\u7279\u5c97\u6559\u5e08", "\u6559\u80b2\u516c\u5e73", "\u4e9f\u5f85"],
   },
   {
@@ -3172,7 +3152,9 @@ Marriage is a major life decision, and everyone has the right to make that choic
 
 That discussion made Xiao Lin realize that changes in attitudes toward marriage and love reflect changes in society as a whole. When economic conditions improve, individual autonomy increases, and women's status rises, people's expectations for marriage and love naturally change as well. This change is not a moral decline but a manifestation of social progress. What matters is that while pursuing personal happiness, one also takes on corresponding social responsibilities and finds a balance between freedom and responsibility.
 
-The diversification of attitudes toward marriage and love is a manifestation of social progress and individual freedom. What matters is that whatever approach to marriage and love one chooses, it should be based on genuine self-knowledge and sincere emotion, not social pressure or others' expectations. Only in this way can one find the happiness that truly suits them and live a life that is truly their own.This balance is something each person must find and maintain for themselves.`,
+The diversification of attitudes toward marriage and love is a manifestation of social progress and individual freedom. What matters is that whatever approach to marriage and love one chooses, it should be based on genuine self-knowledge and sincere emotion, not social pressure or others' expectations. Only in this way can one find the happiness that truly suits them and live a life that is truly their own.This balance is something each person must find and maintain for themselves.
+
+That conversation made Xiao Lin realise that changing attitudes toward love and marriage reflect the changing of society as a whole. This change is not a moral decline — it is a sign of social progress. Everyone has the right to choose a way of life that suits them, and that freedom is something worth protecting.`,
     recommendedVocabulary: ["\u5a5a\u604b\u89c2", "\u7ed3\u5a5a\u7387", "\u7ecf\u6d4e\u538b\u529b", "\u81ea\u6211\u5b9e\u73b0", "\u81ea\u4e3b\u6743", "\u7ecf\u6d4e\u72ec\u7acb", "\u4f34\u4fa3", "\u8349\u7387", "\u5b9a\u6027", "\u7ec4\u5efa\u5bb6\u5ead"],
   },
   {
@@ -3213,7 +3195,9 @@ This chef's words made me think about the spirit of craftsmanship. In this era o
 
 That chef said his greatest wish was for more people to feel the beauty of life and the warmth between people through food. He believed that a meal cooked with care is not just about satisfying appetite but also an expression of emotion, a love of life. He continued in his kitchen, using every dish to tell stories about food, about life, about human warmth. These stories were the most beautiful gift he left to the world.
 
-Food is a carrier of culture and a medium of emotion. A dish from home can evoke longing for one's hometown; a carefully prepared dinner can repair a strained relationship. A chef's work is not just about satisfying appetite but about using food to tell stories, convey warmth, and connect hearts. This connection is the deepest value of food.`,
+Food is a carrier of culture and a medium of emotion. A dish from home can evoke longing for one's hometown; a carefully prepared dinner can repair a strained relationship. A chef's work is not just about satisfying appetite but about using food to tell stories, convey warmth, and connect hearts. This connection is the deepest value of food.
+
+The chef said his greatest wish was for more people to experience the beauty of life and the warmth between people through food. He believed that a meal cooked with care is not just about satisfying hunger — it is an expression of feeling, a love of life.`,
     recommendedVocabulary: ["\u53a8\u5e08", "\u5ea7\u65e0\u865a\u5e2d", "\u504f\u6267", "\u98df\u6750", "\u6280\u6cd5", "\u5de5\u5320\u7cbe\u795e", "\u6781\u81f4", "\u575a\u5b88", "\u89c4\u6a21\u6269\u5f20", "\u4e13\u6ce8"],
   },
   {
@@ -3246,7 +3230,9 @@ This brings to mind a metaphor: knowledge is like a circle — the area of the c
 
 Therefore, maintaining reverence for knowledge and curiosity about the unknown is the most important quality of a lifelong learner. In this era of information explosion, we need even more to cultivate this ability: not simply accepting and accumulating information, but learning to question, discern, and think deeply — at the boundaries of knowledge, maintaining a heart that is forever curious.
 
-That scientist said what he enjoyed most was not the moment of finding an answer but the feeling of conversing with the unknown in the process of searching for it. Every new discovery opens more questions, and these new questions lead him toward deeper exploration. The boundary of knowledge is not a wall but a constantly expanding coastline — every step forward reveals a wider ocean. This awe and curiosity about knowledge is the most important quality he has as a scientist and his most precious life treasure.`,
+That scientist said what he enjoyed most was not the moment of finding an answer but the feeling of conversing with the unknown in the process of searching for it. Every new discovery opens more questions, and these new questions lead him toward deeper exploration. The boundary of knowledge is not a wall but a constantly expanding coastline — every step forward reveals a wider ocean. This awe and curiosity about knowledge is the most important quality he has as a scientist and his most precious life treasure.
+
+The scientist said what he enjoyed most was not the moment of finding an answer, but the feeling of conversing with the unknown while searching for one. Every new discovery opens more questions. The boundary of knowledge is not a destination — it is a new point of departure.`,
     recommendedVocabulary: ["\u8ba4\u8bc6\u8bba", "\u98a0\u8986", "\u5c40\u9650\u6027", "\u865a\u65e0\u4e3b\u4e49", "\u76f8\u5bf9\u4e3b\u4e49", "\u5f02\u5e38\u73b0\u8c61", "\u535a\u5b66", "\u8c26\u900a", "\u656c\u754f", "\u8fa8\u522b"],
   },
   {
@@ -3283,7 +3269,9 @@ Five years later, I went to Canada to visit Chen Lei. He showed me their new hom
 
 Chen Lei's story made me deeply appreciate that every major choice in life means a certain degree of losing and gaining. No choice is perfect — what matters is whether you clearly know why you made that choice and whether you are willing to bear the costs that choice brings.
 
-Ms. Lin said that the immigration experience gave her a completely new understanding of the concept of "home." Home is not just a geographic location but a sense of belonging, a feeling of being accepted and understood. In a foreign land, she learned how to build a new home in an unfamiliar environment and how to integrate into a new culture while maintaining her own cultural roots. This ability is not just an immigrant's survival skill but a life wisdom — the ability to find one's own place and create one's own home in any environment.`,
+Ms. Lin said that the immigration experience gave her a completely new understanding of the concept of "home." Home is not just a geographic location but a sense of belonging, a feeling of being accepted and understood. In a foreign land, she learned how to build a new home in an unfamiliar environment and how to integrate into a new culture while maintaining her own cultural roots. This ability is not just an immigrant's survival skill but a life wisdom — the ability to find one's own place and create one's own home in any environment.
+
+Ms Lin said that the experience of immigration gave her a completely new understanding of the concept of 'home'. Home is not just a geographical location — it is a sense of belonging. Living abroad, she learned how to build a new home in a strange environment while staying rooted in her own culture.`,
     recommendedVocabulary: ["\u79fb\u6c11", "\u4f53\u9762", "\u5e94\u8bd5", "\u8d44\u8d28", "\u6267\u7167", "\u878d\u5165", "\u5c3d\u5b5d", "\u6127\u759a", "\u5f02\u4e61\u4eba", "\u4ee3\u4ef7"],
   },
   {
@@ -3316,7 +3304,9 @@ I believe that breaking silence requires courage — but this courage is not rec
 
 Of course, breaking silence also requires a tolerant social environment. A healthy society should allow the existence of different voices and protect the right of minorities to express dissenting opinions, rather than using the pressure of public opinion to force everyone to conform.
 
-That writer said he wrote this book to give a voice to the silent majority. He believed that every ordinary person's life has its unique value and meaning, worthy of being recorded and heard. Behind those grand historical narratives are the joys and sorrows of countless ordinary people, their struggles and perseverance, their longing and pursuit of a better life. These are the truest foundation of history and humanity's deepest resonance. He hoped that through his writing, more people could see these overlooked lives and feel their weight and warmth.Their voices deserve to be heard..`,
+That writer said he wrote this book to give a voice to the silent majority. He believed that every ordinary person's life has its unique value and meaning, worthy of being recorded and heard. Behind those grand historical narratives are the joys and sorrows of countless ordinary people, their struggles and perseverance, their longing and pursuit of a better life. These are the truest foundation of history and humanity's deepest resonance. He hoped that through his writing, more people could see these overlooked lives and feel their weight and warmth.Their voices deserve to be heard..
+
+The writer said he wrote this book to give a voice to the silent majority. He believed that every ordinary person's life has its own unique value and meaning, and deserves to be recorded and heard.`,
     recommendedVocabulary: ["\u6c89\u9ed8\u7684\u5927\u591a\u6570", "\u6fc0\u8fdb", "\u4ece\u4f17\u6548\u5e94", "\u6781\u5316", "\u7b97\u6cd5", "\u7406\u6027", "\u8206\u8bba", "\u5bbd\u5bb9", "\u9c81\u83bd", "\u4e3b\u5bfc"],
   },
   {
@@ -3353,7 +3343,9 @@ From a philosophical perspective, the question of memory and forgetting touches 
 
 That neuroscientist said that the unreliability of memory should not make us doubt our own experiences but should make us more tolerant of others' memories. When two people have different memories of the same event, this does not necessarily mean one of them is lying — it may simply mean their brains processed and stored that experience in different ways. This understanding of the nature of memory can help us view interpersonal conflicts more tolerantly and handle disagreements more rationally.
 
-Memory and forgetting together form the basic structure of the human psyche. Without forgetting, we would be overwhelmed by past pain; without memory, we would lose identity and continuity. The dynamic balance between the two is an important marker of psychological health. Learning to consciously manage one's memories — cherishing the good ones, letting go of the harmful ones — is an important psychological ability.`,
+Memory and forgetting together form the basic structure of the human psyche. Without forgetting, we would be overwhelmed by past pain; without memory, we would lose identity and continuity. The dynamic balance between the two is an important marker of psychological health. Learning to consciously manage one's memories — cherishing the good ones, letting go of the harmful ones — is an important psychological ability.
+
+The neuroscientist said that the unreliability of memory should not make us doubt our own experiences — rather, it should make us more tolerant of others' memories. When two people remember the same event differently, it doesn't necessarily mean one of them is lying.`,
     recommendedVocabulary: ["\u8bb0\u5fc6", "\u91cd\u6784", "\u795e\u7ecf\u79d1\u5b66", "\u76ee\u51fb\u8005", "\u8bc1\u8bcd", "\u9057\u5fd8", "\u963f\u5c14\u8328\u6d77\u9ed8\u75c7", "\u81ea\u6211\u8ba4\u540c", "\u74e6\u89e3", "\u690d\u5165"],
   },
   {
@@ -3390,7 +3382,9 @@ Therefore, protecting the diversity and independence of art is not merely a matt
 
 That art critic said that the social function of art has different manifestations in different historical periods, but its core remains unchanged: it is an important way for humans to express themselves, understand the world, and connect with others. In today's era of information overload, the value of art lies not in providing more information but in providing a different way of perceiving — a more sensory, more holistic, more profound way. This way of perceiving cannot be replaced by any data or algorithm.
 
-Art is one of the most indispensable parts of human civilization. It is not just decoration, not just entertainment — it is an important way for humanity to understand itself, understand the world, and understand each other. In a world increasingly dominated by data and algorithms, the existence of art reminds us that human value lies not only in efficiency and productivity but in the creation of beauty, feeling, and meaning.`,
+Art is one of the most indispensable parts of human civilization. It is not just decoration, not just entertainment — it is an important way for humanity to understand itself, understand the world, and understand each other. In a world increasingly dominated by data and algorithms, the existence of art reminds us that human value lies not only in efficiency and productivity but in the creation of beauty, feeling, and meaning.
+
+The art critic said that the social function of art has taken different forms throughout history, but its core has never changed: it is the essential means by which human beings express themselves, understand the world, and connect with each other.`,
     recommendedVocabulary: ["\u827a\u672f", "\u5962\u4f88\u54c1", "\u5a92\u4ecb", "\u793e\u4f1a\u6279\u5224", "\u6781\u6743\u4e3b\u4e49", "\u6587\u5316\u51dd\u805a\u529b", "\u5ba1\u7f8e", "\u5546\u4e1a\u5316", "\u72ec\u7acb\u6027", "\u81ea\u6211\u53cd\u601d"],
   },
   {
@@ -3423,7 +3417,9 @@ It is worth noting that having boundaries does not equal coldness or distance. T
 
 As Chinese society gradually moves toward modernization and individualization, the establishment of boundaries is not merely a need for individual mental health but also an important component of the transformation of the entire social relationship model.
 
-The counselor said that establishing a sense of boundaries is a process that requires constant practice. Many people did not learn how to set healthy boundaries while growing up, so as adults they need to put in more effort to learn this skill. But this learning is worthwhile, because healthy boundaries are not just a shield to protect oneself but the foundation for building truly equal and respectful relationships. A person who can clearly express their own boundaries is often also a person who can respect others' boundaries — such a person finds it easier to build healthy and lasting interpersonal relationships.A sense of boundaries is an important marker of psychological health and the foundation of healthy interpersonal relationships. It is not selfishness but self-respect; not indifference but clarity. A person with a healthy sense of boundaries can protect themselves while giving, and care for others without losing themselves.`,
+The counselor said that establishing a sense of boundaries is a process that requires constant practice. Many people did not learn how to set healthy boundaries while growing up, so as adults they need to put in more effort to learn this skill. But this learning is worthwhile, because healthy boundaries are not just a shield to protect oneself but the foundation for building truly equal and respectful relationships. A person who can clearly express their own boundaries is often also a person who can respect others' boundaries — such a person finds it easier to build healthy and lasting interpersonal relationships.A sense of boundaries is an important marker of psychological health and the foundation of healthy interpersonal relationships. It is not selfishness but self-respect; not indifference but clarity. A person with a healthy sense of boundaries can protect themselves while giving, and care for others without losing themselves.
+
+The counsellor said that developing a sense of healthy boundaries is a process that requires constant practice. Healthy boundaries are not just a shield to protect yourself — they are the foundation for building relationships of genuine equality and respect. This kind of learning is worth everyone's time.`,
     recommendedVocabulary: ["\u8fb9\u754c\u611f", "\u9690\u79c1", "\u4fb5\u72af", "\u72ec\u7acb\u4eba\u683c", "\u9a9a\u6270", "\u4f9d\u8d56", "\u63a7\u5236", "\u4e2a\u4f53\u5316", "\u8f6c\u578b", "\u5c0a\u91cd"],
   },
   {
@@ -3456,7 +3452,9 @@ Therefore, I believe the most ideal education is not to make an either-or choice
 
 Technology and the humanities are not opposed but complementary. A technology without humanistic spirit is dangerous; a humanities divorced from reality is powerless. Only through their organic combination can human civilization be driven to develop in a more beautiful direction.
 
-That philosopher of technology said that the tension between technology and humanities is not a problem to be solved but a creative tension to be maintained. It is precisely this tension that drives humanity to constantly reflect on the direction of technological development and constantly ask: what are we creating? For what purpose? For whose benefit? These questions have no final answers, but the act of asking them is an important way for humanity to maintain its humanity. In an era of rapid technological development, maintaining this humanistic questioning is more important than ever.The dialogue between technology and humanities is one of the most important cultural issues of our time. This dialogue is not just academic — it is something every modern person needs to participate in. Because technological development is profoundly changing our ways of life, ways of thinking, and values. How to maintain human agency and dignity amid this change is a question everyone needs to think about.`,
+That philosopher of technology said that the tension between technology and humanities is not a problem to be solved but a creative tension to be maintained. It is precisely this tension that drives humanity to constantly reflect on the direction of technological development and constantly ask: what are we creating? For what purpose? For whose benefit? These questions have no final answers, but the act of asking them is an important way for humanity to maintain its humanity. In an era of rapid technological development, maintaining this humanistic questioning is more important than ever.The dialogue between technology and humanities is one of the most important cultural issues of our time. This dialogue is not just academic — it is something every modern person needs to participate in. Because technological development is profoundly changing our ways of life, ways of thinking, and values. How to maintain human agency and dignity amid this change is a question everyone needs to think about.
+
+The philosopher of technology said that the tension between technology and the humanities is not a problem to be solved but a creative tension to be maintained. It is precisely this tension that keeps humanity constantly reflecting: what are we creating? For what purpose? For whose benefit?`,
     recommendedVocabulary: ["\u4eba\u6587\u5b66\u79d1", "\u8fb9\u7f18\u5316", "\u77ed\u89c6", "\u9053\u5fb7\u7ea6\u675f", "\u4f26\u7406", "\u590d\u5408\u578b\u4eba\u624d", "\u4eba\u6587\u7d20\u517b", "\u76f8\u8f85\u76f8\u6210", "\u5f20\u529b", "\u6709\u673a\u7ed3\u5408"],
   },
   {
@@ -3489,7 +3487,9 @@ Li Ming told me that when translating a Russian novel, he once struggled with a 
 
 Li Ming's words gave me a completely new understanding of the art of translation. Translators are bridges between two cultures, and their work largely determines how one culture is understood and received by another. It is a profession requiring a high degree of linguistic ability, cultural literacy, and artistic sensibility — far more complex and important than most people imagine.
 
-Translator Lin said that years of translation work had given her a special awe of language. Every language is the crystallization of a people's wisdom over thousands of years, containing countless details and subtleties that cannot be fully translated. It is precisely these untranslatable parts that constitute the most unique and precious aspects of each culture. She believed that true cross-cultural communication is not about eliminating these differences but about finding a common human foundation while maintaining each culture's uniqueness. This foundation transcends language and culture — it is the shared emotions and values of humanity.`,
+Translator Lin said that years of translation work had given her a special awe of language. Every language is the crystallization of a people's wisdom over thousands of years, containing countless details and subtleties that cannot be fully translated. It is precisely these untranslatable parts that constitute the most unique and precious aspects of each culture. She believed that true cross-cultural communication is not about eliminating these differences but about finding a common human foundation while maintaining each culture's uniqueness. This foundation transcends language and culture — it is the shared emotions and values of humanity.
+
+The translator said that years of translation work had given her a special reverence for language. Every language contains countless details and subtleties that can never be fully translated. It is precisely these untranslatable parts that make up what is most unique and most precious in each culture.`,
     recommendedVocabulary: ["\u7ffb\u8bd1", "\u4e0d\u53ef\u8f6c\u8bd1\u6027", "\u6587\u5316\u5185\u6db5", "\u5ba1\u7f8e", "\u7cbe\u9ad3", "\u59a5\u534f", "\u5fe0\u5b9e", "\u6ce8\u91ca", "\u7d20\u517b", "\u611f\u77e5\u529b"],
   },
   {
@@ -3522,7 +3522,9 @@ I believe a healthy society needs a group of public intellectuals who dare to sp
 
 A true public intellectual is the conscience of society and a servant of the public — not a spokesperson for the elite class.
 
-The responsibility of public intellectuals is not just to provide knowledge but to offer a way of thinking about problems and an attitude for facing complex issues. In this era of information overload and fragmented opinions, voices that can provide clear, profound, and responsible analysis are more precious than ever. True public intellectuals are not those who cater to popular taste but those who dare to speak unpopular truths and challenge mainstream biases. Their existence is an important guarantee of healthy public discourse and an indispensable component of a democratic society. This responsibility requires courage, learning, and a persistent pursuit of truth.The value of intellectuals lies in their willingness to speak truths others dare not say.The power of ideas should never be underestimated.`,
+The responsibility of public intellectuals is not just to provide knowledge but to offer a way of thinking about problems and an attitude for facing complex issues. In this era of information overload and fragmented opinions, voices that can provide clear, profound, and responsible analysis are more precious than ever. True public intellectuals are not those who cater to popular taste but those who dare to speak unpopular truths and challenge mainstream biases. Their existence is an important guarantee of healthy public discourse and an indispensable component of a democratic society. This responsibility requires courage, learning, and a persistent pursuit of truth.The value of intellectuals lies in their willingness to speak truths others dare not say.The power of ideas should never be underestimated.
+
+A true public intellectual is not someone who caters to popular taste but someone who dares to speak truths that are not welcome. In an era of information overload and fragmented opinion, voices that offer clear, profound, and responsible analysis are more precious than ever.`,
     recommendedVocabulary: ["\u516c\u5171\u77e5\u8bc6\u5206\u5b50", "\u8c61\u7259\u5854", "\u4e25\u8c28\u6027", "\u7acb\u573a", "\u5f31\u52bf\u7fa4\u4f53", "\u81ea\u6211\u7ea0\u9519", "\u50b2\u6162", "\u8d28\u7591", "\u826f\u5fc3", "\u4ee3\u8a00\u4eba"],
   },
   {
@@ -3555,7 +3557,9 @@ More importantly, we need to change our attitude toward "old." In many people's 
 
 A city without memory is a city without a soul. While pursuing modernization, we have a responsibility to protect the historical memory of our cities, so that future generations can also read the story of a city in its streets and buildings.
 
-Urban memory is the soul of a city. Those ancient streets, historic buildings, and traditional communities are not just structures but the accumulation of generations of lived experience — the material carriers of urban cultural identity. When these are demolished and replaced, what is lost is not just architecture but an irreplaceable sense of history and belonging. Protecting urban memory is an important way to maintain cultural diversity and residents' sense of identity during rapid urbanization. This protection requires the joint effort and wisdom of planners, developers, and ordinary citizens.The soul of a city needs every citizen to protect it together.Protecting urban memory is protecting the city's future. Every city deserves to have a history that is treasured.`,
+Urban memory is the soul of a city. Those ancient streets, historic buildings, and traditional communities are not just structures but the accumulation of generations of lived experience — the material carriers of urban cultural identity. When these are demolished and replaced, what is lost is not just architecture but an irreplaceable sense of history and belonging. Protecting urban memory is an important way to maintain cultural diversity and residents' sense of identity during rapid urbanization. This protection requires the joint effort and wisdom of planners, developers, and ordinary citizens.The soul of a city needs every citizen to protect it together.Protecting urban memory is protecting the city's future. Every city deserves to have a history that is treasured.
+
+Urban memory is the soul of a city. Those ancient streets, historic buildings, and traditional communities are not just structures — they are the accumulated life experience of generations, the material foundation of cultural identity. Protecting urban memory is a responsibility we cannot ignore in the rush of rapid urbanisation.`,
     recommendedVocabulary: ["\u6587\u5316\u8ba4\u540c", "\u5386\u53f2\u8857\u533a", "\u6587\u5316\u79ef\u6dc0", "\u6587\u8109", "\u5927\u62c6\u5927\u5efa", "\u5e95\u8574", "\u5931\u843d", "\u51bb\u7ed3", "\u7075\u9b42", "\u5b88\u62a4"],
   },
   {
@@ -3588,7 +3592,9 @@ Faced with these challenges, many philosophers have adopted a position called "c
 
 I believe that regardless of how the philosophical question of free will is ultimately resolved, we need to maintain belief in free will at the practical level. Because only when we believe our choices are meaningful can we take responsibility for our own actions, make genuine efforts when facing difficulties, and continuously improve ourselves morally.
 
-The question of free will is not just a philosophical question but a practical one that profoundly affects how we view ourselves and others. If our choices are truly determined by neural activity, how much responsibility should we bear for our own actions? How much tolerance should we maintain for others' actions? These questions have no simple answers, but thinking about them can give us a more profound and complex understanding of human behavior and make us more tolerant and compassionate toward ourselves and others. In this sense, the value of philosophy lies not in providing answers but in elevating the depth and breadth of our thinking.`,
+The question of free will is not just a philosophical question but a practical one that profoundly affects how we view ourselves and others. If our choices are truly determined by neural activity, how much responsibility should we bear for our own actions? How much tolerance should we maintain for others' actions? These questions have no simple answers, but thinking about them can give us a more profound and complex understanding of human behavior and make us more tolerant and compassionate toward ourselves and others. In this sense, the value of philosophy lies not in providing answers but in elevating the depth and breadth of our thinking.
+
+The question of free will profoundly affects how we see ourselves and others. If our choices really are determined by neural activity, how much responsibility should we bear for our own behaviour? These questions have no simple answers, but the thinking itself has value.`,
     recommendedVocabulary: ["\u81ea\u7531\u610f\u5fd7", "\u51b3\u5b9a\u8bba", "\u91cf\u5b50\u529b\u5b66", "\u795e\u7ecf\u79d1\u5b66", "\u5408\u7406\u5316", "\u76f8\u5bb9\u8bba", "\u56e0\u679c\u5f8b", "\u5f3a\u5236", "\u9053\u5fb7\u8d23\u4efb", "\u5e7b\u89c9"],
   },
   {
@@ -3629,7 +3635,9 @@ This story gave me a deep appreciation of the complexity of medical ethics. Face
 
 That surgeon said that medical advances have made many previously incurable diseases treatable, but have also brought new ethical dilemmas: when it is technically possible to extend life, should we do so? Who makes that decision? These questions have no universal answers, but they require doctors, patients, families, and all of society to participate together in these difficult conversations. Medical ethics is not just the responsibility of doctors but a shared challenge for all of society. Every person may one day face these questions, so thinking and discussing them in advance is a responsible attitude toward oneself and one's family.
 
-The core of medical ethics is respect for every life. No matter how technology advances, this core should not change. Every medical decision should start from the patient's best interests and be grounded in reverence for life. This is the foundation of medicine and the source of a doctor's professional dignity.This is the core of the humanistic spirit of medicine.`,
+The core of medical ethics is respect for every life. No matter how technology advances, this core should not change. Every medical decision should start from the patient's best interests and be grounded in reverence for life. This is the foundation of medicine and the source of a doctor's professional dignity.This is the core of the humanistic spirit of medicine.
+
+The surgeon said that advances in medicine have brought new ethical dilemmas: when it is technically possible to extend life, should we always do so? These questions have no uniform answers, but they require doctors, patients, and families to make decisions together — not any single party alone.`,
     recommendedVocabulary: ["\u5916\u79d1\u533b\u751f", "\u521b\u4f24", "\u5e76\u53d1\u75c7", "\u5185\u810f", "\u6289\u62e9", "\u533b\u5b66\u4f26\u7406", "\u6025\u8bca", "\u91ca\u6000", "\u6f2b\u957f", "\u8d1f\u8d23\u4efb"],
   },
   {
@@ -3666,7 +3674,9 @@ As individuals, we also need to improve our digital literacy, understand our dat
 
 The privacy issue in the digital age is a complex topic involving technology, law, ethics, and culture. Solving this problem requires self-discipline from technology companies, government regulation, legal improvement, and awareness-raising among every user. No single party can solve this problem alone — it requires the joint effort of all stakeholders. More importantly, it requires the entire society to re-recognize and recommit to the value of privacy: privacy is not just a legal right but the foundation of human dignity and autonomy, an indispensable cornerstone of a democratic society.
 
-In the digital age, protecting privacy requires the joint effort of technology, law, and culture. Every user is both a participant in and a beneficiary of this protection.Citizens of the digital age need new literacy and a new sense of responsibility. This literacy is one of the most important goals of modern education.`,
+In the digital age, protecting privacy requires the joint effort of technology, law, and culture. Every user is both a participant in and a beneficiary of this protection.Citizens of the digital age need new literacy and a new sense of responsibility. This literacy is one of the most important goals of modern education.
+
+In the digital age, protecting privacy requires the combined efforts of technology, law, and culture. Every user is a participant in this struggle. Citizens of the digital age need new literacy and new responsibility — before sharing information, stop and think about what consequences it might bring.`,
     recommendedVocabulary: ["\u9690\u79c1", "\u76d1\u63a7", "\u4e2a\u6027\u5316", "\u81ea\u4e3b\u6027", "\u5bd2\u8749\u6548\u5e94", "\u6743\u529b\u4e0d\u5bf9\u79f0", "\u6570\u5b57\u7d20\u517b", "\u81ea\u6211\u5ba1\u67e5", "\u900f\u660e", "\u6ee5\u7528"],
   },
   {
@@ -3707,7 +3717,9 @@ My father's experience gave me a deep understanding of a truth: a person's value
 
 The experience of unemployment, though painful, can also become an opportunity for profound self-knowledge. When external identity labels are stripped away, when the definition of "I am so-and-so at such-and-such company" no longer applies, you are forced to face a more fundamental question: who am I? Where does my value lie? This questioning, though unsettling, can also be an important opportunity for growth — allowing you to rediscover your true value and passion and find a life path that better aligns with your inner self.
 
-Unemployment is both a difficult test and an opportunity to rediscover oneself. Those who can maintain dignity and a sense of direction during unemployment are often those with a profound understanding of their own value.In the shadow of unemployment, those who could maintain dignity and direction ultimately found their own way forward. Their stories are the most powerful proof of human resilience.This is human dignity.`,
+Unemployment is both a difficult test and an opportunity to rediscover oneself. Those who can maintain dignity and a sense of direction during unemployment are often those with a profound understanding of their own value.In the shadow of unemployment, those who could maintain dignity and direction ultimately found their own way forward. Their stories are the most powerful proof of human resilience.This is human dignity.
+
+Unemployment is a difficult test, but also a chance to rediscover oneself. Those who can maintain their dignity and sense of direction through unemployment are often those with a deep understanding of their own value. Their stories are the most powerful proof of human resilience.`,
     recommendedVocabulary: ["\u5931\u4e1a", "\u4f01\u4e1a\u6539\u5236", "\u4e70\u65ad\u5de5\u9f84", "\u6dd8\u6c70", "\u8f6c\u673a", "\u53e3\u7891", "\u4ef7\u503c\u611f", "\u8eab\u4efd", "\u8d21\u732e", "\u610f\u4e49"],
   },
   {
@@ -3744,7 +3756,9 @@ This requires the joint efforts of national governments, international organizat
 
 Reflecting on globalization is not about negating globalization itself but about asking: who does globalization serve? Who benefits from it, and who bears the costs? How can the benefits of globalization be distributed more fairly? These questions have no simple answers, but they are unavoidable in any serious discussion of globalization. Truly responsible globalization requires attention to fairness, sustainability, and human dignity alongside the pursuit of efficiency and growth. This balance is key to whether globalization can truly benefit all of humanity.
 
-The future of globalization depends on whether we can build a more fair, more inclusive, and more sustainable global governance system. This requires the joint effort of every nation, every organization, and every individual.Reflecting on globalization is not an endpoint but a new starting point. Only on the basis of deep reflection can a more just and sustainable global order be built.`,
+The future of globalization depends on whether we can build a more fair, more inclusive, and more sustainable global governance system. This requires the joint effort of every nation, every organization, and every individual.Reflecting on globalization is not an endpoint but a new starting point. Only on the basis of deep reflection can a more just and sustainable global order be built.
+
+Rethinking globalisation is not about rejecting it outright, but about asking: who does it serve? Who benefits, and who bears the cost? How can its gains be distributed more fairly? These are questions that any serious discussion of globalisation cannot avoid.`,
     recommendedVocabulary: ["\u5168\u7403\u5316", "\u540c\u8d28\u5316", "\u4f9b\u5e94\u94fe", "\u8106\u5f31\u6027", "\u5730\u7f18\u653f\u6cbb", "\u81ea\u4e3b\u6027", "\u7ea2\u5229", "\u76f8\u4e92\u4f9d\u5b58", "\u5305\u5bb9", "\u727a\u7272\u54c1"],
   },
   {
@@ -3785,7 +3799,9 @@ Years later, when I encounter difficulties and confusion in life, I often think 
 
 I think the value of a good teacher lies not in how much knowledge they taught you, but in helping you establish a way of thinking, an attitude toward the world. This is something more enduring and more precious than any specific knowledge.
 
-The influence of that teacher made Xiao Lin understand the true meaning of education. Education is not just the transmission of knowledge but the shaping of character, the cultivation of values, and guidance toward the meaning of life. A good teacher is not just teaching students knowledge but using their own life to influence another life. This influence often transcends the classroom and the subject, becoming the most important spiritual treasure in a student's life. Teacher Lin's story is a microcosm of countless good teachers' stories and the most beautiful form of education.The influence of a good teacher is a lifetime's treasure.The spirit of good teachers is passed down through generation after generation of students, becoming the most beautiful legacy of education.`,
+The influence of that teacher made Xiao Lin understand the true meaning of education. Education is not just the transmission of knowledge but the shaping of character, the cultivation of values, and guidance toward the meaning of life. A good teacher is not just teaching students knowledge but using their own life to influence another life. This influence often transcends the classroom and the subject, becoming the most important spiritual treasure in a student's life. Teacher Lin's story is a microcosm of countless good teachers' stories and the most beautiful form of education.The influence of a good teacher is a lifetime's treasure.The spirit of good teachers is passed down through generation after generation of students, becoming the most beautiful legacy of education.
+
+That teacher's influence helped Xiao Lin understand the true meaning of education. Education is not just the transmission of knowledge — it is the shaping of character. A good teacher often reaches far beyond the classroom and the subject, becoming one of the most important guides in a student's life.`,
     recommendedVocabulary: ["\u6c42\u5b66", "\u7167\u672c\u5ba3\u79d1", "\u7cbe\u795e\u80dc\u5229\u6cd5", "\u52a3\u6839\u6027", "\u53cd\u601d", "\u955c\u5b50", "\u89c6\u89d2", "\u6df7\u6c8c", "\u6301\u4e45", "\u5851\u9020"],
   },
   {
@@ -3822,7 +3838,9 @@ Life is accidental, but how we spend this life is our choice.
 
 The contingency of life should not make us fearful but should fill us with awe and appreciation. It is precisely because life is contingent that every encounter feels so precious; it is precisely because life is finite that every present moment is worth giving everything to. Accepting the contingency of life is not about giving up planning for the future but about maintaining gratitude for life's gifts and openness to unexpected surprises while planning. This attitude is the wisest way to face life's uncertainty.
 
-Accepting the contingency of life is not passive fatalism but an active open attitude — maintaining gratitude for every gift life offers and courage for every challenge it presents.The contingency of life is both a gift and an invitation — an invitation to embrace every present moment with a more open and grateful heart.This openness is life's most beautiful posture.`,
+Accepting the contingency of life is not passive fatalism but an active open attitude — maintaining gratitude for every gift life offers and courage for every challenge it presents.The contingency of life is both a gift and an invitation — an invitation to embrace every present moment with a more open and grateful heart.This openness is life's most beautiful posture.
+
+Accepting the contingency of life is not passive fatalism — it is an active, open attitude: gratitude for every gift life brings, and courage in the face of every challenge. Precisely because life is contingent, every encounter is precious.`,
     recommendedVocabulary: ["\u5076\u7136\u6027", "\u865a\u65e0\u611f", "\u611f\u6069", "\u73cd\u60dc", "\u656c\u754f", "\u540c\u60c5", "\u521b\u4f24", "\u6e34\u671b", "\u5076\u7136", "\u7729\u6655"],
   },
   {
@@ -3859,7 +3877,9 @@ I believe the value of tea culture lies not only in tea itself but in the life a
 
 The philosophy of tea culture is not just about drinking tea but about a life attitude: slowing down, focusing on the present, discovering beauty in simplicity, and feeling depth in stillness. This philosophy has special value in the fast pace of modern life. It reminds us that true enjoyment requires neither complexity nor luxury — only a quiet heart and full engagement with the present moment. This simple yet profound wisdom is one of the most precious gifts that traditional Chinese culture offers to modern people.
 
-Tea is a microcosm of Chinese culture and a symbol of Eastern wisdom. In a cup of tea, you can feel thousands of years of history, feel the harmony between humanity and nature, and feel the ease and beauty of life.The wisdom of tea culture lies in teaching us how to find stillness in busyness, discover simplicity in complexity, and feel eternity in the transient.This is the philosophy of tea, and the philosophy of life.`,
+Tea is a microcosm of Chinese culture and a symbol of Eastern wisdom. In a cup of tea, you can feel thousands of years of history, feel the harmony between humanity and nature, and feel the ease and beauty of life.The wisdom of tea culture lies in teaching us how to find stillness in busyness, discover simplicity in complexity, and feel eternity in the transient.This is the philosophy of tea, and the philosophy of life.
+
+Tea is a microcosm of Chinese culture and a symbol of Eastern wisdom. In a single cup of tea, you can sense thousands of years of history and the harmony between people and nature. The wisdom of tea culture lies in teaching us how to find calm in busyness and simplicity in complexity.`,
     recommendedVocabulary: ["\u8336\u6587\u5316", "\u9053\u5bb6", "\u65e0\u4e3a", "\u5ba1\u7f8e", "\u4eea\u5f0f", "\u548c\u8c10", "\u5b81\u9759", "\u590d\u5174", "\u5021\u5bfc", "\u4e13\u6ce8"],
   },
   {
@@ -3896,7 +3916,9 @@ Post-traumatic growth does not happen automatically — it requires certain cond
 
 I think that suffering in life is sometimes a cruel gift. It strips away the various coverings of our daily lives, allowing us to see clearly what is truly important and what we truly long for. This clarity, though it comes painfully, is priceless.
 
-Post-traumatic growth is not a denial of pain but a transcendence of it. It does not say that trauma is a good thing but that after experiencing trauma, a person may become stronger, more profound, and more compassionate than before. This growth requires time, support, and courage, but it is possible. Every person who has experienced trauma and grown from it is a testament to human resilience and the most powerful affirmation of life's strength.Post-traumatic growth is the most powerful proof of human spiritual strength.Post-traumatic growth reminds us that the human spirit is more resilient and elastic than we imagine. Every fall contains within it the strength to rise again.`,
+Post-traumatic growth is not a denial of pain but a transcendence of it. It does not say that trauma is a good thing but that after experiencing trauma, a person may become stronger, more profound, and more compassionate than before. This growth requires time, support, and courage, but it is possible. Every person who has experienced trauma and grown from it is a testament to human resilience and the most powerful affirmation of life's strength.Post-traumatic growth is the most powerful proof of human spiritual strength.Post-traumatic growth reminds us that the human spirit is more resilient and elastic than we imagine. Every fall contains within it the strength to rise again.
+
+Post-traumatic growth is not a denial of suffering but a transcendence of it. It doesn't mean trauma is a good thing — it means that after experiencing trauma, a person may become stronger, deeper, and more compassionate than before. This kind of growth takes time and courage, but it is possible.`,
     recommendedVocabulary: ["\u521b\u4f24\u540e\u6210\u957f", "\u9006\u5883", "\u97e7\u6027", "\u4e73\u817a\u764c", "\u5316\u7597", "\u8106\u5f31", "\u63f4\u52a9", "\u906e\u853d", "\u6e34\u671b", "\u6839\u672c\u6027"],
   },
   {
@@ -3929,7 +3951,9 @@ These studies show that language is not merely a tool for expressing thought —
 
 This has important implications for language learning: true language learning should not merely translate the content of one language into another, but should attempt to think in the target language and feel the unique worldview that this language carries. Only in this way can one truly master a language and truly understand another culture.
 
-The relationship between language and thought is a profound and complex question in philosophy and cognitive science. Whether one subscribes to linguistic determinism or linguistic relativity, both remind us that language is not just a tool for expressing thought — it also shapes our thinking. Learning a new language is not just mastering new ways of expression but gaining a new way of thinking, a new perspective for viewing the world. In this sense, multilingual ability is not just a practical skill but a cognitive enrichment and expansion.Language is the home of thought and the soul of culture.The relationship between language and thought is one of the most profound questions in humanity's self-understanding. Exploring this question is exploring the nature and boundaries of human consciousness.This is the miracle of language.`,
+The relationship between language and thought is a profound and complex question in philosophy and cognitive science. Whether one subscribes to linguistic determinism or linguistic relativity, both remind us that language is not just a tool for expressing thought — it also shapes our thinking. Learning a new language is not just mastering new ways of expression but gaining a new way of thinking, a new perspective for viewing the world. In this sense, multilingual ability is not just a practical skill but a cognitive enrichment and expansion.Language is the home of thought and the soul of culture.The relationship between language and thought is one of the most profound questions in humanity's self-understanding. Exploring this question is exploring the nature and boundaries of human consciousness.This is the miracle of language.
+
+Learning a new language is not just acquiring new ways of expression — it is gaining a new way of thinking, a new perspective on the world. This may be the deepest meaning of language learning.`,
     recommendedVocabulary: ["\u8bed\u8a00\u5b66", "\u5047\u8bf4", "\u611f\u77e5", "\u6bcd\u8bed", "\u7ebf\u6027", "\u5730\u7406\u65b9\u5411", "\u4e16\u754c\u89c2", "\u542f\u793a", "\u5851\u9020", "\u627f\u8f7d"],
   },
   {
@@ -3966,7 +3990,9 @@ A healthy civilization needs enough people willing to bear personal costs for th
 
 Our generation lives in the era of the greatest material abundance and most advanced technology in human history, but simultaneously faces unprecedented challenges such as climate change, technological loss of control, and social polarization. How to bear the responsibility of protecting civilization while enjoying its fruits is the historical mission our generation cannot avoid.
 
-That historian said that studying the fragility of civilization is not meant to make people despair but to make them cherish and protect the achievements of civilization we possess. Every era faces its own unique challenges and threats; every generation has a responsibility to pass on the torch of civilization. This sense of responsibility is not a burden but a noble mission. Understanding the fragility of civilization is precisely the first step in building civilizational resilience. Only by clearly recognizing that civilization can collapse will we maintain and develop it with sufficient seriousness and reverence.The resilience of civilization comes from each generation's profound understanding and steadfast protection of civilizational values.The guardianship of civilization is the shared mission of every generation.`,
+That historian said that studying the fragility of civilization is not meant to make people despair but to make them cherish and protect the achievements of civilization we possess. Every era faces its own unique challenges and threats; every generation has a responsibility to pass on the torch of civilization. This sense of responsibility is not a burden but a noble mission. Understanding the fragility of civilization is precisely the first step in building civilizational resilience. Only by clearly recognizing that civilization can collapse will we maintain and develop it with sufficient seriousness and reverence.The resilience of civilization comes from each generation's profound understanding and steadfast protection of civilizational values.The guardianship of civilization is the shared mission of every generation.
+
+The historian said that studying the fragility of civilisation is not intended to make people feel hopeless, but to make them cherish and protect what we have achieved. Every generation has a responsibility to pass the torch of civilisation forward.`,
     recommendedVocabulary: ["\u6587\u660e", "\u8106\u5f31\u6027", "\u57fa\u7840\u8bbe\u65bd", "\u6cd5\u6cbb", "\u8150\u8680", "\u6279\u5224\u6027\u601d\u7ef4", "\u6781\u5316", "\u4f20\u627f", "\u8b66\u9192", "\u5386\u53f2\u4f7f\u547d"],
   },
   {
@@ -4003,7 +4029,9 @@ I believe that cultivating the ability to be with solitude is one of the most im
 
 True solitude is not emptiness but fullness; not escape but return; not weakness but a profound inner strength. A person who can enjoy solitude is often also someone who can truly enjoy being with others, because their socializing comes from genuine desire rather than fear of being alone.
 
-That writer said his best works were often written in his loneliest moments. Solitude gave him a special clarity, allowing him to see things invisible in the noise and hear sounds inaudible amid the clamor. He believed that in this era that increasingly fears solitude, rediscovering the value of solitude and learning to be with oneself is an important life ability. This ability is not only beneficial for creators but is indispensable for anyone who hopes to live a life of depth.Solitude is both an ability and a choice. Learning to enjoy solitude is an important step toward inner freedom.`,
+That writer said his best works were often written in his loneliest moments. Solitude gave him a special clarity, allowing him to see things invisible in the noise and hear sounds inaudible amid the clamor. He believed that in this era that increasingly fears solitude, rediscovering the value of solitude and learning to be with oneself is an important life ability. This ability is not only beneficial for creators but is indispensable for anyone who hopes to live a life of depth.Solitude is both an ability and a choice. Learning to enjoy solitude is an important step toward inner freedom.
+
+The writer said his best work was often written in his loneliest moments. Solitude gave him a special clarity, allowing him to see things invisible in the noise. In an age increasingly afraid of solitude, learning to be alone with oneself is an important life skill.`,
     recommendedVocabulary: ["\u5b64\u72ec", "\u5b64\u7acb", "\u5185\u5411", "\u6d1e\u5bdf\u529b", "\u521b\u9020\u529b", "\u7cbe\u795e\u4fee\u70bc", "\u5185\u5728\u529b\u91cf", "\u7a7a\u865a", "\u5145\u5b9e", "\u4e0d\u8010\u53d7"],
   },
   {
@@ -4040,7 +4068,9 @@ Faced with these challenges, simply appealing to market forces or relying purely
 
 More fundamentally, there is a need to rethink at the social level what kind of society we actually want. A society of extreme inequality, even if materially wealthy, cannot achieve true human flourishing. Because human flourishing requires not only material satisfaction but also dignity, fairness, and genuine equality of opportunity.
 
-That economist said that solving economic inequality requires not just technical policy adjustments but a deep commitment to fairness and justice. This commitment must permeate every level of society — from policymakers to ordinary citizens, from entrepreneurs to workers, everyone needs to recognize that a more equal society benefits everyone. Inequality is not just the problem of the poor; it is the problem of all of society. It erodes social cohesion and prevents the full realization of human potential.`,
+That economist said that solving economic inequality requires not just technical policy adjustments but a deep commitment to fairness and justice. This commitment must permeate every level of society — from policymakers to ordinary citizens, from entrepreneurs to workers, everyone needs to recognize that a more equal society benefits everyone. Inequality is not just the problem of the poor; it is the problem of all of society. It erodes social cohesion and prevents the full realization of human potential.
+
+The economist said that solving economic inequality requires not just technical policy adjustments but a deep commitment to fairness and justice. A more equal society benefits everyone.`,
     recommendedVocabulary: ["\u7ecf\u6d4e\u4e0d\u5e73\u7b49", "\u8d22\u5bcc\u5206\u914d", "\u9a6c\u592a\u6548\u5e94", "\u793e\u4f1a\u6d41\u52a8\u6027", "\u81ea\u52a8\u5316", "\u4e24\u6781\u5206\u5316", "\u518d\u5206\u914d", "\u7a0e\u5236\u6539\u9769", "\u793e\u4f1a\u4fdd\u969c", "\u4eba\u7c7b\u7e41\u8363"],
   },
   {
@@ -4085,7 +4115,9 @@ Speaking about today's geopolitical landscape, Mr. Chen appeared somewhat worrie
 
 At parting, Mr. Chen gave me a phrase he said was the summary of his lifetime of diplomatic experience: "Understanding is the foundation of all peace."
 
-That diplomat said his deepest insight was that humanity's fundamental similarities far outweigh its surface differences. Regardless of cultural background, people's longing for peace, security, dignity, and happiness is shared. The art of diplomacy is to find these common human foundations while respecting differences and to build cooperation and trust on that basis. He believed that as long as humanity can maintain this recognition of shared humanity, there is no conflict that cannot be resolved through dialogue and negotiation.The art of diplomacy lies in keeping the door of dialogue always open while upholding principles.`,
+That diplomat said his deepest insight was that humanity's fundamental similarities far outweigh its surface differences. Regardless of cultural background, people's longing for peace, security, dignity, and happiness is shared. The art of diplomacy is to find these common human foundations while respecting differences and to build cooperation and trust on that basis. He believed that as long as humanity can maintain this recognition of shared humanity, there is no conflict that cannot be resolved through dialogue and negotiation.The art of diplomacy lies in keeping the door of dialogue always open while upholding principles.
+
+At parting, Mr Chen gave me a sentence he said summed up his lifetime in diplomacy: 'Understanding is the foundation of all peace.' Those words I will carry with me always.`,
     recommendedVocabulary: ["\u5916\u4ea4\u5b98", "\u53cc\u8fb9\u8c08\u5224", "\u9886\u571f", "\u6c11\u65cf\u8ba4\u540c", "\u6c11\u7cb9\u4e3b\u4e49", "\u5730\u7f18\u653f\u6cbb", "\u59ff\u6001", "\u8bc9\u8bf8\u6b66\u529b", "\u6e0a\u6e90", "\u59a5\u534f"],
   },
   {
@@ -4118,7 +4150,9 @@ However, within this pessimistic picture, there are also some encouraging trends
 
 I believe that the revival of deep reading is not merely a personal choice but a cultural and educational mission. In an era of information overload and scarce attention, cultivating the ability for deep reading is a necessary measure to protect humanity's most precious cognitive assets. A society incapable of deep thinking, regardless of how much information it possesses, cannot truly understand the world or wisely respond to the challenges it faces.
 
-That publisher said he was cautiously optimistic about the future of reading. Although the market for traditional print books is shrinking, reading itself has not died — it is simply continuing in new forms. More importantly, he saw the rise of a new reading culture: more diverse, more interactive, more inclusive. In this new reading culture, readers are not just passive recipients but active participants and creators. This transformation, while bringing challenges, also brings unprecedented opportunities.`,
+That publisher said he was cautiously optimistic about the future of reading. Although the market for traditional print books is shrinking, reading itself has not died — it is simply continuing in new forms. More importantly, he saw the rise of a new reading culture: more diverse, more interactive, more inclusive. In this new reading culture, readers are not just passive recipients but active participants and creators. This transformation, while bringing challenges, also brings unprecedented opportunities.
+
+The publisher said he was cautiously optimistic about the future of reading. Reading itself has not died — it is simply continuing in new forms. More importantly, he could see that more and more people were beginning to rediscover the value of deep reading.`,
     recommendedVocabulary: ["\u6df1\u5ea6\u9605\u8bfb", "\u788e\u7247\u5316", "\u8ba4\u77e5\u80fd\u529b", "\u540c\u7406\u5fc3", "\u6279\u5224\u6027\u601d\u7ef4", "\u6570\u5b57\u6392\u6bd2", "\u4fe1\u606f\u8fc7\u8f7d", "\u6ce8\u610f\u529b", "\u6df1\u601d\u719f\u8651", "\u4fb5\u8680"],
   },
   {
@@ -4155,7 +4189,9 @@ This understanding allows us both to remain optimistic about moral progress in h
 
 The evolution of morality is not an automatic process — it requires the moral courage and moral imagination of every generation: courage to question practices taken for granted, and imagination to envision a more just and more inclusive world.
 
-That philosopher said that the process of moral evolution is the process of humanity continuously expanding its circle of moral concern. From initially caring only about one's own family, to caring about one's tribe, to caring about one's nation, to caring about all of humanity, and even to caring about other species and the entire Earth ecosystem — this process of expansion, though slow and tortuous, has a clear direction. He believed that this moral evolution is one of humanity's deepest instincts and one of the most important driving forces of human civilization.`,
+That philosopher said that the process of moral evolution is the process of humanity continuously expanding its circle of moral concern. From initially caring only about one's own family, to caring about one's tribe, to caring about one's nation, to caring about all of humanity, and even to caring about other species and the entire Earth ecosystem — this process of expansion, though slow and tortuous, has a clear direction. He believed that this moral evolution is one of humanity's deepest instincts and one of the most important driving forces of human civilization.
+
+The philosopher said that the process of moral evolution is one of humanity continuously expanding its circle of moral concern — from caring for one's own family, to one's tribe, to one's nation, to all of humanity, even to other species and the entire planetary ecosystem. This expansion, though slow and winding, has a clear direction.`,
     recommendedVocabulary: ["\u9053\u5fb7\u76f8\u5bf9\u4e3b\u4e49", "\u9053\u5fb7\u666e\u904d\u4e3b\u4e49", "\u79cd\u65cf\u706d\u7edd", "\u6587\u5316\u5e1d\u56fd\u4e3b\u4e49", "\u9053\u5fb7\u76f4\u89c9", "\u8c34\u8d23", "\u8c26\u900a", "\u8feb\u5bb3", "\u66b4\u884c", "\u6f14\u53d8"],
   },
   {
@@ -4192,7 +4228,9 @@ At a deeper level, the question is how to find a balance between the transmissio
 
 The succession of family enterprises is not merely a business problem — it is also a deep social question about family identity, intergenerational relationships, and the transmission of values. How to find balance among these complex dimensions is a question that every family enterprise aspiring to lasting success must seriously consider.
 
-That business consultant said that the succession dilemma of family businesses reflects a deeper question: how to adapt to a constantly changing business environment while maintaining the corporate culture and values? This question has no universal answer — each family business needs to find a succession approach suited to its own specific situation. But one thing is common: successful succession requires the wisdom of the founder, the capability of the successor, and the consensus and support of the entire family. Without any one of these, succession may fail.`,
+That business consultant said that the succession dilemma of family businesses reflects a deeper question: how to adapt to a constantly changing business environment while maintaining the corporate culture and values? This question has no universal answer — each family business needs to find a succession approach suited to its own specific situation. But one thing is common: successful succession requires the wisdom of the founder, the capability of the successor, and the consensus and support of the entire family. Without any one of these, succession may fail.
+
+The business consultant said that successful succession in a family business requires maintaining culture and values while adapting to a constantly changing commercial environment. That balance is hard to find, but as long as family members are willing to communicate honestly, it can be found.`,
     recommendedVocabulary: ["\u5bb6\u65cf\u4f01\u4e1a", "\u4ee3\u9645\u4f20\u627f", "\u521b\u4e1a\u8005", "\u804c\u4e1a\u7ecf\u7406\u4eba", "\u5546\u4e1a\u7d20\u517b", "\u516c\u53f8\u6cbb\u7406", "\u8eab\u4efd\u8ba4\u540c", "\u57fa\u4e1a\u957f\u9752", "\u8bda\u4fe1", "\u51cc\u9a7e"],
   },
   {
@@ -4225,7 +4263,9 @@ However, establishing collective action mechanisms faces enormous political obst
 
 Faced with these challenges, I believe that solving the climate change problem requires a new moral framework: one that can transcend the short-sightedness of individual and national interests, think of humanity as a whole, and incorporate the interests of future generations into the framework of contemporary decision-making. This moral framework requires not only the efforts of politicians and policy-makers but also a profound transformation in values at the level of the entire society.
 
-That climate scientist said that the ethical dimension of climate change requires us to rethink the relationship between humanity and nature, and between the current generation and future generations. We are not just users of the Earth but its guardians; we are not only responsible to people today but to future generations. This sense of responsibility needs to be reflected in every choice we make — from individual consumption patterns to corporate business strategies to national policy-making. Climate change is the ultimate test of humanity's moral capacity and a critical moment for whether humanity can truly become a responsible guardian of the Earth.`,
+That climate scientist said that the ethical dimension of climate change requires us to rethink the relationship between humanity and nature, and between the current generation and future generations. We are not just users of the Earth but its guardians; we are not only responsible to people today but to future generations. This sense of responsibility needs to be reflected in every choice we make — from individual consumption patterns to corporate business strategies to national policy-making. Climate change is the ultimate test of humanity's moral capacity and a critical moment for whether humanity can truly become a responsible guardian of the Earth.
+
+The climate scientist said climate change requires us to rethink the relationship between human beings and nature. We are not just users of the earth — we are its guardians; we are not just responsible to people alive today but to future generations.`,
     recommendedVocabulary: ["\u4ee3\u9645\u516c\u6b63", "\u6e29\u5ba4\u6c14\u4f53", "\u5316\u77f3\u71c3\u6599", "\u516c\u5730\u60b2\u5267", "\u96c6\u4f53\u884c\u52a8", "\u56fd\u9645\u516c\u5e73", "\u51cf\u6392", "\u9053\u5fb7\u6846\u67b6", "\u77ed\u89c6", "\u534f\u8c03"],
   },
   {
@@ -4262,7 +4302,9 @@ However, in today's era of political polarization and rising nationalism, the mu
 
 Who am I? This question has no simple answer. And this complexity is precisely one of our most precious qualities as human beings.
 
-The multiplicity of identity is the common condition of modern people and also their unique advantage. In different contexts, we play different roles and present different selves. This multiplicity is not hypocrisy but a manifestation of human sociality. The true self is not any single fixed role but the sum of all these roles, and behind all these roles, the observing and choosing core. Recognizing and accepting the multiplicity of one's identity is an important lesson in self-knowledge for modern people and an important ability for maintaining an authentic self in a complex society.`,
+The multiplicity of identity is the common condition of modern people and also their unique advantage. In different contexts, we play different roles and present different selves. This multiplicity is not hypocrisy but a manifestation of human sociality. The true self is not any single fixed role but the sum of all these roles, and behind all these roles, the observing and choosing core. Recognizing and accepting the multiplicity of one's identity is an important lesson in self-knowledge for modern people and an important ability for maintaining an authentic self in a complex society.
+
+The multiplicity of identity is both the universal condition of modern people and their unique advantage. The true self is not any single fixed role but the sum of all these roles. Learning to move fluidly between different roles is itself a form of maturity.`,
     recommendedVocabulary: ["\u591a\u91cd\u8eab\u4efd", "\u6c11\u65cf\u8ba4\u540c", "\u5355\u4e00\u5316", "\u5305\u5bb9\u6027", "\u8de8\u6587\u5316", "\u653f\u6cbb\u6781\u5316", "\u64cd\u63a7", "\u4ed6\u8005", "\u717d\u52a8", "\u62fc\u56fe"],
   },
   {
@@ -4303,7 +4345,9 @@ Lin Jian's architectural philosophy is deeply influenced by the traditional Chin
 
 Lin Jian's words gave me a completely new understanding of architecture. In his view, architecture is not merely a technology and art but also an ethics — an ethics concerning the relationships between humans and nature, humans and history, and humans and each other.
 
-That architect said his deepest insight was that the relationship between architecture and people is bidirectional: architecture shapes people, and people shape architecture. A good building not only meets functional needs but guides how people live, interact, and experience space and time. In this sense, architects are not just people who design buildings but people who design life experiences and a possible way of living. This responsibility requires architects to have not just technical ability but also humanistic care and social responsibility.`,
+That architect said his deepest insight was that the relationship between architecture and people is bidirectional: architecture shapes people, and people shape architecture. A good building not only meets functional needs but guides how people live, interact, and experience space and time. In this sense, architects are not just people who design buildings but people who design life experiences and a possible way of living. This responsibility requires architects to have not just technical ability but also humanistic care and social responsibility.
+
+The architect said his deepest insight was that the relationship between buildings and people runs in both directions: buildings shape people, and people shape buildings. A good building doesn't just meet functional needs — it guides people in how to live, how to interact, and how to experience space.`,
     recommendedVocabulary: ["\u5efa\u7b51\u5e08", "\u53ef\u6301\u7eed\u6027", "\u5929\u4eba\u5408\u4e00", "\u4eb5\u6e0e", "\u539f\u751f\u690d\u88ab", "\u4f26\u7406", "\u80a4\u6d45", "\u56de\u5e94", "\u7ea6\u675f", "\u548c\u8c10\u5171\u5904"],
   },
   {
@@ -4340,7 +4384,9 @@ However, all these measures face their own difficulties. Fact-checking faces the
 
 I believe that in this prolonged battle between truth and lies, there is no single solution. It requires a multi-pronged approach of technology, law, education, and civic culture, and even more requires every information consumer, when faced with any information, to maintain a healthy spirit of skepticism and develop the habit of verifying information before sharing it. In an era when lies can spread at the speed of light, the protection of truth is the responsibility of every citizen.
 
-In the internet age, every person is both a consumer and a producer of information. This dual role gives us unprecedented power and unprecedented responsibility. Every piece of information we share may influence others' cognition and judgment; every rumor we spread may cause real harm. Therefore, while enjoying the freedom of online information, we also need to take on corresponding responsibilities: verify information, share cautiously, respect facts, and maintain the quality of public discourse. This responsibility is at the core of civic literacy in the internet age.`,
+In the internet age, every person is both a consumer and a producer of information. This dual role gives us unprecedented power and unprecedented responsibility. Every piece of information we share may influence others' cognition and judgment; every rumor we spread may cause real harm. Therefore, while enjoying the freedom of online information, we also need to take on corresponding responsibilities: verify information, share cautiously, respect facts, and maintain the quality of public discourse. This responsibility is at the core of civic literacy in the internet age.
+
+In the digital age, everyone is both a consumer and a producer of information. Every piece of information we share could influence someone else's understanding; every rumour we spread could cause real harm. While enjoying the convenience the internet brings, we all have a responsibility to be thoughtful about what we pass on.`,
     recommendedVocabulary: ["\u540e\u771f\u76f8", "\u865a\u5047\u4fe1\u606f", "\u786e\u8ba4\u504f\u8bef", "\u5a92\u4f53\u7d20\u517b", "\u7b97\u6cd5", "\u4e8b\u5b9e\u6838\u67e5", "\u8a00\u8bba\u81ea\u7531", "\u8038\u4eba\u542c\u95fb", "\u6000\u7591\u7cbe\u795e", "\u6cdb\u6ee5"],
   },
   {
@@ -4392,7 +4438,26 @@ Of course, aging also brings real challenges and pain: physical decline, the pas
 
 The way a society treats its elderly reflects that society's values. A truly mature society should view elderly people as precious wisdom resources rather than burdens to be marginalized. Their experiences and wisdom are a human heritage that no textbook can replace.
 
-Aging is the natural process of life and the shared fate of humanity. How we face aging is not just a personal choice but a reflection of cultural attitudes. Those who can face aging with calm and wisdom are often those who have a profound understanding of and gratitude for life. They know that the value of life lies not in its length but in its depth and breadth; not in how much one possesses but in how much one has experienced, contributed, and loved. This understanding of life is the most precious gift that aging gives us.Aging is the necessary path through which life moves toward wisdom.This is the most profound insight that aging gives us.`,
+Aging is the natural process of life and the shared fate of humanity. How we face aging is not just a personal choice but a reflection of cultural attitudes. Those who can face aging with calm and wisdom are often those who have a profound understanding of and gratitude for life. They know that the value of life lies not in its length but in its depth and breadth; not in how much one possesses but in how much one has experienced, contributed, and loved. This understanding of life is the most precious gift that aging gives us.Aging is the necessary path through which life moves toward wisdom.This is the most profound insight that aging gives us.
+
+Those who face ageing with calm and wisdom are often those with a deep understanding of and gratitude for life. They know that the value of a life lies not in its length but in its depth and breadth — not in what you possess, but in what you have experienced and left behind.
+
+--- hsk5-2-13: The Urban-Rural Divide ---
+The urban-rural gap in China is one of the most important social issues in contemporary China. Despite the fact that China has experienced the largest-scale urbanization process in human history over the past few decades, with hundreds of millions of rural people entering cities, the income gap and public service gap between urban and rural areas remains very significant in certain respects.
+
+The urban-rural gap is not merely an economic problem — it is also a profound social and cultural one. At the economic level, the average income of urban residents is still far higher than that of rural residents; urban public services such as education, healthcare, and infrastructure are also generally superior to rural areas. This gap has led to large numbers of rural people flowing into cities, forming the large-scale "migrant worker" group.
+
+However, the urban lives of migrant workers are often full of hardship and unfairness. They perform the most arduous and dangerous work in cities, yet often cannot enjoy the same public services and social security as urban residents. Their children, in many cities, cannot enjoy the same educational rights as children with local household registration and are forced to attend "migrant worker schools" with poorer conditions, or remain in rural areas as "left-behind children."
+
+This institutional unfairness is not only a violation of migrant workers' individual rights — it also has far-reaching negative effects on China's long-term development. Large numbers of left-behind children, due to long-term lack of parental companionship and care, face serious challenges in mental health and educational development, which will become an important hidden danger for China's future development.
+
+In recent years, the Chinese government has recognized the seriousness of this problem and has taken a series of measures to narrow the urban-rural gap, including increasing investment in rural education and healthcare, advancing household registration system reform, and promoting rural land system reform. These measures have, to some extent, improved the living conditions of rural residents, but fundamentally resolving the urban-rural gap problem still requires deeper and more systematic institutional reform.
+
+At a deeper level, the urban-rural gap problem reflects the deep contradictions that Chinese society faces in its modernization process: how to ensure social fairness while pursuing economic efficiency; how to protect rural culture and agricultural production while advancing urbanization; how to maintain the sustainable development of China's rural society in the context of globalization. These questions have no simple answers, but they are the core challenges that China must face and resolve in order to achieve true modernization.
+
+The gap between urban and rural areas is not just economic but also cultural and psychological. Bridging this gap requires not just the redistribution of resources but genuine mutual understanding and respect between urban and rural areas. Urban people need to understand the value and wisdom of rural life; rural people need to gain equal opportunities and abilities to participate in modern society. This bidirectional understanding and empowerment is the fundamental path to truly bridging the urban-rural divide. It requires policy support and, more importantly, a change in cultural attitudes — it requires every person to be willing to cross that invisible boundary and truly understand and respect another way of life.Bridging the urban-rural divide is an important step toward building a fair society.True equality between urban and rural areas requires the joint effort of several generations, but every step is worth taking.
+
+Bridging the gap between city and countryside requires genuine mutual understanding and respect. City people need to understand the value and wisdom of rural life; rural people need equal opportunities to participate in modern society. This two-way understanding is the real foundation for solving the problem.`,
     recommendedVocabulary: ["\u8870\u8001", "\u81ea\u6211\u6574\u5408", "\u65f6\u95f4\u89c6\u89d2", "\u8d85\u8131", "\u8fb9\u7f18\u5316", "\u6d1e\u5bdf\u529b", "\u6df1\u9083", "\u9057\u61be", "\u6298\u5c04", "\u9057\u4ea7"],
   },
   {
@@ -4462,7 +4527,9 @@ In clinical applications, music therapy is becoming an increasingly valued auxil
 
 Music is perhaps humanity's oldest and most universal art form. Its power lies not only in its beauty but also in its profound resonance with the human brain and emotional system. Understanding the neuroscientific basis of music is not merely an academic question — it can also help us better utilize music's healing power to improve human physical and mental health.
 
-Neuroscientific research on music and emotion not only reveals how music affects the brain but also uncovers the deep mechanisms of human emotional experience. These studies show that music is an important social adhesive developed during human evolution — it can synchronize group emotions, strengthen social cohesion, and promote cooperation and trust. In this sense, music is not just art but one of the biological foundations of human sociality. Understanding this deep function of music can help us better utilize music to promote individual health and social harmony.`,
+Neuroscientific research on music and emotion not only reveals how music affects the brain but also uncovers the deep mechanisms of human emotional experience. These studies show that music is an important social adhesive developed during human evolution — it can synchronize group emotions, strengthen social cohesion, and promote cooperation and trust. In this sense, music is not just art but one of the biological foundations of human sociality. Understanding this deep function of music can help us better utilize music to promote individual health and social harmony.
+
+Research into music and emotion has revealed that music is an important social adhesive that evolved with humanity — capable of synchronising group emotions, strengthening social cohesion, and fostering cooperation and trust. In this sense, music is not just art — it is a common language of humanity.`,
     recommendedVocabulary: ["\u795e\u7ecf\u79d1\u5b66", "\u591a\u5df4\u80fa", "\u795e\u7ecf\u9012\u8d28", "\u60c5\u8282\u8bb0\u5fc6", "\u97f3\u4e50\u6cbb\u7597", "\u793e\u4f1a\u51dd\u805a", "\u540c\u6b65\u6027", "\u4e34\u5e8a\u5e94\u7528", "\u8f85\u52a9\u6cbb\u7597", "\u5171\u9e23"],
   },
   {
@@ -4507,7 +4574,9 @@ This balance depends not only on the perfection of legal provisions but even mor
 
 That judge said the ultimate purpose of law is not just to punish crimes but to uphold justice and protect the dignity and rights of every person. When the letter of the law conflicts with the spirit of justice, a judge's duty is not just to mechanically apply the provisions but to find, within the framework of those provisions, the judgment that comes closest to the spirit of justice. This judgment requires legal knowledge and, more importantly, moral wisdom and a profound understanding of human nature. The authority of law ultimately comes from its pursuit of justice, not just from the coercive power of the state.
 
-The dignity of law comes from its fair treatment of every individual and its relentless pursuit of justice. Upholding this dignity is the sacred duty of every legal professional and the shared responsibility of all of society.The dignity of law ultimately comes from its fair treatment of every person. This is the most fundamental promise of a rule-of-law society.`,
+The dignity of law comes from its fair treatment of every individual and its relentless pursuit of justice. Upholding this dignity is the sacred duty of every legal professional and the shared responsibility of all of society.The dignity of law ultimately comes from its fair treatment of every person. This is the most fundamental promise of a rule-of-law society.
+
+The judge said that the ultimate purpose of law is not just to punish wrongdoing but to uphold justice and protect the dignity and rights of every person. When the letter of the law conflicts with the spirit of justice, a judge's duty is to find, within the bounds of the law, the ruling that comes closest to that spirit.`,
     recommendedVocabulary: ["\u6cd5\u5b98", "\u5b9a\u7f6a", "\u6b63\u4e49", "\u5f31\u52bf\u7fa4\u4f53", "\u5de5\u8d44\u62d6\u6b20", "\u4eba\u6587\u5173\u6000", "\u9053\u5fb7\u52c7\u6c14", "\u6267\u884c\u8005", "\u5f20\u529b", "\u673a\u68b0"],
   },
   {
@@ -4540,7 +4609,9 @@ Some successful examples have already provided us with inspiration. For instance
 
 The modern significance of traditional festivals lies not only in cultural transmission but also in the spiritual resource they provide: in an increasingly fragmented and increasingly atomized modern society, traditional festivals provide a collective ritual that gives people the opportunity to temporarily set aside their individual daily affairs and reconnect with family, community, and history. This connection is an indispensable component of modern people's mental health.
 
-The modern significance of traditional festivals lies not only in their preservation of historical culture but also in the opportunity they provide for collective reflection and renewal. Each year, when we re-experience these festivals, we are not just repeating the past but re-examining and renewing our understanding and interpretation of these traditions. This dynamic inheritance is where traditional culture's true vitality lies. It is not an exhibit in a museum but a living culture that lives in the life practices of every generation, constantly evolving and renewing as the times change.Tradition renews itself in being passed on, and continues in being renewed.The modern significance of traditional festivals lies in helping us find cultural roots and belonging in a rapidly changing world.`,
+The modern significance of traditional festivals lies not only in their preservation of historical culture but also in the opportunity they provide for collective reflection and renewal. Each year, when we re-experience these festivals, we are not just repeating the past but re-examining and renewing our understanding and interpretation of these traditions. This dynamic inheritance is where traditional culture's true vitality lies. It is not an exhibit in a museum but a living culture that lives in the life practices of every generation, constantly evolving and renewing as the times change.Tradition renews itself in being passed on, and continues in being renewed.The modern significance of traditional festivals lies in helping us find cultural roots and belonging in a rapidly changing world.
+
+Each year when we live through these festivals again, we are not just repeating the past — we are re-examining and renewing our understanding of these traditions. This dynamic form of inheritance is where traditional culture's true vitality lies.`,
     recommendedVocabulary: ["\u4f20\u7edf\u8282\u65e5", "\u5546\u4e1a\u5316", "\u6587\u5316\u4fb5\u7565", "\u4eea\u5f0f", "\u521b\u9020\u6027\u8f6c\u5316", "\u6c49\u670d", "\u7f05\u6000", "\u539f\u5b50\u5316", "\u7115\u53d1\u751f\u547d\u529b", "\u7cbe\u795e\u8d44\u6e90"],
   },
   {
@@ -4577,7 +4648,9 @@ However, legislation and regulation are only one aspect of addressing AI ethics 
 
 The future of AI depends on the choices we make today. These choices are not merely technical choices but moral ones.
 
-The ethical issues of artificial intelligence are not just technical problems but fundamental questions about human values and social choices. How we choose to develop and use artificial intelligence reflects our understanding of human dignity, fairness, justice, and the good life. These choices should not be made only by technical experts and entrepreneurs but should involve the participation and decision-making of all of society. Establishing an inclusive, diverse, and responsible AI governance system is one of the most important collective challenges facing contemporary humanity and one of our most important responsibilities to future generations.`,
+The ethical issues of artificial intelligence are not just technical problems but fundamental questions about human values and social choices. How we choose to develop and use artificial intelligence reflects our understanding of human dignity, fairness, justice, and the good life. These choices should not be made only by technical experts and entrepreneurs but should involve the participation and decision-making of all of society. Establishing an inclusive, diverse, and responsible AI governance system is one of the most important collective challenges facing contemporary humanity and one of our most important responsibilities to future generations.
+
+The ethical questions surrounding artificial intelligence are not just technical questions — they are fundamental questions about human values. How we choose to develop and use AI reflects our understanding of human dignity, fairness, and the good life. These choices should be made by all of society together.`,
     recommendedVocabulary: ["\u4eba\u5de5\u667a\u80fd", "\u7b97\u6cd5\u504f\u89c1", "\u900f\u660e\u5ea6", "\u53ef\u89e3\u91ca\u6027", "\u81ea\u4e3b\u6b66\u5668", "\u4eba\u9053\u4e3b\u4e49", "\u76d1\u7ba1", "\u4f26\u7406\u8003\u91cf", "\u6df1\u5ea6\u5b66\u4e60", "\u5185\u5316"],
   },
   {
@@ -4614,7 +4687,9 @@ I myself have had the experience of processing emotions through writing. After g
 
 Writing is one of humanity's oldest forms of self-expression. In today's era when psychological therapy is receiving increasing attention, rediscovering the healing power of writing may be a simple and effective form of self-care that each of us can try.
 
-The healing power of writing comes from the sense of control and meaning it gives us. When we transform chaotic emotions and experiences into structured narratives, we are not just recording but understanding, integrating, and creating meaning. This creation of meaning is one of the most important psychological resources for humans facing suffering and chaos. Writing makes us the authors of our own stories rather than just passive experiencers. This agency is an important source of psychological resilience and an important manifestation of human dignity.`,
+The healing power of writing comes from the sense of control and meaning it gives us. When we transform chaotic emotions and experiences into structured narratives, we are not just recording but understanding, integrating, and creating meaning. This creation of meaning is one of the most important psychological resources for humans facing suffering and chaos. Writing makes us the authors of our own stories rather than just passive experiencers. This agency is an important source of psychological resilience and an important manifestation of human dignity.
+
+The healing power of writing comes from the sense of control and meaning it gives us. When we transform chaotic emotions and experiences into structured narrative, we are not just recording — we are understanding, integrating, and creating meaning. Writing makes us the authors of our own stories.`,
     recommendedVocabulary: ["\u8868\u8fbe\u6027\u5199\u4f5c", "\u60c5\u611f\u5ba3\u6cc4", "\u8ba4\u77e5\u6574\u5408", "\u610f\u4e49\u5efa\u6784", "\u53d9\u4e8b\u6027", "\u514d\u75ab\u529f\u80fd", "\u538b\u6291", "\u89e3\u653e\u6027", "\u81ea\u6211\u5173\u6000", "\u6cbb\u6108"],
   },
   {
@@ -4651,7 +4726,9 @@ I believe the healthiest relationship between science and faith is one of mutual
 
 Between these two modes of cognition, there is a broad space for dialogue. Scientific discoveries can provide new perspectives for the renewal of religious thought; religion's ethical traditions can provide important reference points for the moral boundaries of scientific applications. This dialogue is not aimed at eliminating the differences between the two but at finding complementarity and resonance within those differences.
 
-The dialogue between science and faith is not an either-or debate but an encounter between two different ways of understanding the world. Science provides knowledge about how the world works; faith provides a framework of meaning about why things exist and how to live. Both are important paths for humanity to understand itself and the world, each with irreplaceable value. True wisdom lies in finding dialogue and complementarity between these two approaches rather than simply choosing one and negating the other.Both science and faith are humanity's ways of seeking truth.`,
+The dialogue between science and faith is not an either-or debate but an encounter between two different ways of understanding the world. Science provides knowledge about how the world works; faith provides a framework of meaning about why things exist and how to live. Both are important paths for humanity to understand itself and the world, each with irreplaceable value. True wisdom lies in finding dialogue and complementarity between these two approaches rather than simply choosing one and negating the other.Both science and faith are humanity's ways of seeking truth.
+
+The dialogue between science and faith is not an either-or debate but an encounter between two different ways of understanding the world. Science provides knowledge about how the world works; faith provides a framework of meaning about why we exist and how we should live. True wisdom lies in being able to hold both perspectives at once.`,
     recommendedVocabulary: ["\u5b97\u6559\u4fe1\u4ef0", "\u65e5\u5fc3\u8bf4", "\u5b97\u6559\u88c1\u5224\u6240", "\u8fdb\u5316\u8bba", "\u5927\u7206\u70b8\u7406\u8bba", "\u6559\u6761", "\u4f26\u7406\u4f20\u7edf", "\u8ba4\u77e5\u65b9\u5f0f", "\u4e92\u8865", "\u8fb9\u754c"],
   },
   {
@@ -4688,7 +4765,9 @@ History tells us that every major historical turning point is both a crisis and 
 
 Our generation has the fortune (or misfortune) to live at such a historical turning point. How to maintain clear judgment, an open mindset, and firm values in this era of uncertainty is a question that each of us must seriously consider. History does not automatically move toward the good — it requires the efforts and choices of every generation.
 
-The end of an era is often also the beginning of a new one. Every ending contains new possibilities; every farewell is a new departure. What matters is that as we bid farewell to the old era, we can carry with us the wisdom and strength it gave us, and use these treasures to welcome and create a new era. History is not a one-way line but a spiraling upward process — each cycle repeats and transcends the past at a higher level. Understanding this is an important source of hope and courage when facing the changes of the times.The end of every era is the beginning of new hope.`,
+The end of an era is often also the beginning of a new one. Every ending contains new possibilities; every farewell is a new departure. What matters is that as we bid farewell to the old era, we can carry with us the wisdom and strength it gave us, and use these treasures to welcome and create a new era. History is not a one-way line but a spiraling upward process — each cycle repeats and transcends the past at a higher level. Understanding this is an important source of hope and courage when facing the changes of the times.The end of every era is the beginning of new hope.
+
+The end of one era is often the beginning of a new one. What matters is that as we say goodbye to the old age, we carry forward the wisdom and strength it gave us to welcome and create the new. History is not a one-way line — it is a spiral, each turn rising higher than the last.`,
     recommendedVocabulary: ["\u91d1\u878d\u5371\u673a", "\u534e\u76db\u987f\u5171\u8bc6", "\u6c11\u7cb9\u4e3b\u4e49", "\u7cfb\u7edf\u6027\u98ce\u9669", "\u5168\u7403\u5316", "\u6743\u529b\u683c\u5c40", "\u4e0d\u786e\u5b9a\u6027", "\u5386\u53f2\u8f6c\u6298", "\u76d1\u7ba1", "\u8fc7\u6e21\u65f6\u671f"],
   },
 ];
