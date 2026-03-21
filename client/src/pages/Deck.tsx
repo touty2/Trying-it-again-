@@ -23,6 +23,8 @@ import {
   Shuffle,
   Layers,
   AlertTriangle,
+  Search,
+  X as XIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -33,6 +35,16 @@ import {
   DialogTitle,
   DialogFooter,
 } from "@/components/ui/dialog";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -979,6 +991,8 @@ export default function Deck() {
     return merged ? new Set(merged.requeuedIds) : new Set();
   });
   const [showAddDialog, setShowAddDialog] = useState(false);
+  const [wordSearch, setWordSearch] = useState("");
+  const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
 
   // Bidirectional completion state (loaded from IndexedDB)
   const [completedDetails, setCompletedDetails] = useState<Map<string, { forward: boolean; reverse: boolean }>>(new Map());
@@ -1358,38 +1372,113 @@ export default function Deck() {
 
       {/* List View */}
       {view === "list" && (
-        <div>
+        <div className="space-y-3">
+          {/* Search bar */}
+          {words.length > 0 && (
+            <div className="relative">
+              <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
+              <input
+                type="text"
+                value={wordSearch}
+                onChange={(e) => setWordSearch(e.target.value)}
+                placeholder="Search words…"
+                className="w-full pl-9 pr-9 py-2 text-sm rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+              />
+              {wordSearch && (
+                <button
+                  onClick={() => setWordSearch("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                >
+                  <XIcon size={13} />
+                </button>
+              )}
+            </div>
+          )}
+
           {words.length === 0 ? (
             <div className="text-center py-16 text-muted-foreground">
               <Inbox size={40} className="mx-auto mb-3 opacity-30" />
               <p>No words in deck yet.</p>
             </div>
-          ) : (
-            <div className="rounded-xl border border-border bg-card overflow-hidden divide-y divide-border/50">
-              {words.map((word) => {
-                const card = flashcards.find((c) => c.wordId === word.id);
-                const details = completedDetails.get(word.id);
-                return (
-                  <WordListItem
-                    key={word.id}
-                    word={word}
-                    card={card}
-                    isCompleted={completedWordIds.has(word.id)}
-                    completedForward={details?.forward}
-                    completedReverse={details?.reverse}
-                    onDelete={() => removeWord(word.id)}
-                    onToggleComplete={() =>
-                      completedWordIds.has(word.id)
-                        ? unmarkWordCompleted(word.id)
-                        : markWordCompleted(word.id)
-                    }
-                  />
-                );
-              })}
-            </div>
-          )}
+          ) : (() => {
+            const q = wordSearch.trim().toLowerCase();
+            const filtered = q
+              ? words.filter(
+                  (w) =>
+                    w.hanzi.includes(wordSearch.trim()) ||
+                    w.pinyin.toLowerCase().includes(q) ||
+                    (w.simpleDefinition ?? "").toLowerCase().includes(q)
+                )
+              : words;
+            if (filtered.length === 0) {
+              return (
+                <div className="text-center py-10 text-muted-foreground text-sm">
+                  No words match &ldquo;{wordSearch}&rdquo;
+                </div>
+              );
+            }
+            return (
+              <div className="rounded-xl border border-border bg-card overflow-hidden divide-y divide-border/50">
+                {filtered.map((word) => {
+                  const card = flashcards.find((c) => c.wordId === word.id);
+                  const details = completedDetails.get(word.id);
+                  return (
+                    <WordListItem
+                      key={word.id}
+                      word={word}
+                      card={card}
+                      isCompleted={completedWordIds.has(word.id)}
+                      completedForward={details?.forward}
+                      completedReverse={details?.reverse}
+                      onDelete={() => setDeleteConfirmId(word.id)}
+                      onToggleComplete={() =>
+                        completedWordIds.has(word.id)
+                          ? unmarkWordCompleted(word.id)
+                          : markWordCompleted(word.id)
+                      }
+                    />
+                  );
+                })}
+              </div>
+            );
+          })()}
         </div>
       )}
+
+      {/* Delete confirmation dialog */}
+      <AlertDialog open={!!deleteConfirmId} onOpenChange={(open) => { if (!open) setDeleteConfirmId(null); }}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete word?</AlertDialogTitle>
+            <AlertDialogDescription>
+              {deleteConfirmId && (() => {
+                const w = words.find((x) => x.id === deleteConfirmId);
+                return w ? (
+                  <>
+                    <span className="font-semibold text-foreground" style={{ fontFamily: "var(--reading-font-family, 'Noto Sans SC', sans-serif)" }}>{w.hanzi}</span>
+                    {" "}({w.simpleDefinition}) will be permanently removed from your deck and all review history will be lost.
+                  </>
+                ) : "This word will be permanently removed.";
+              })()}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              onClick={() => {
+                if (deleteConfirmId) {
+                  removeWord(deleteConfirmId);
+                  setDeleteConfirmId(null);
+                  toast.success("Word deleted");
+                }
+              }}
+            >
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
 
       <ManualAddDialog
         open={showAddDialog}

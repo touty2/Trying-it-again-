@@ -2,6 +2,7 @@
  * StoryDeckPanel
  * Displayed at the bottom of each story page.
  * Shows words added to this story's deck, progress, and a Review button.
+ * Also hosts an isolated "Story Practice" session that does not affect SRS.
  */
 
 import { useEffect, useState, useCallback } from "react";
@@ -10,7 +11,8 @@ import { useApp } from "@/contexts/AppContext";
 import { FlashcardDB, getDueStats } from "@/lib/db";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { BookOpen, RotateCcw, X } from "lucide-react";
+import { BookOpen, RotateCcw, X, Dumbbell } from "lucide-react";
+import StoryPracticeSession from "@/components/StoryPracticeSession";
 
 interface StoryDeckPanelProps {
   storyId: string;
@@ -22,6 +24,7 @@ export default function StoryDeckPanel({ storyId, storyTitle }: StoryDeckPanelPr
   const [, navigate] = useLocation();
 
   const [wordIds, setWordIds] = useState<string[]>([]);
+  const [practiceOpen, setPracticeOpen] = useState(false);
 
   const refresh = useCallback(async () => {
     const ids = await getStoryDeckWordIds(storyId);
@@ -57,14 +60,24 @@ export default function StoryDeckPanel({ storyId, storyTitle }: StoryDeckPanelPr
   };
 
   if (totalCount === 0) {
-  return (
-    <div className="text-center py-4 text-sm text-muted-foreground">
-      <BookOpen className="mx-auto mb-2 h-5 w-5 opacity-40" />
-      <p>No words saved from this story yet.</p>
-      <p className="mt-1 text-xs">Tap any word while reading to add it to this story's deck.</p>
-    </div>
-  );
-}
+    return (
+      <div className="text-center py-4 text-sm text-muted-foreground">
+        <BookOpen className="mx-auto mb-2 h-5 w-5 opacity-40" />
+        <p>No words saved from this story yet.</p>
+        <p className="mt-1 text-xs">Tap any word while reading to add it to this story's deck.</p>
+      </div>
+    );
+  }
+
+  // Practice mode — renders inline, replacing the normal panel content
+  if (practiceOpen) {
+    return (
+      <StoryPracticeSession
+        wordIds={wordIds}
+        onClose={() => setPracticeOpen(false)}
+      />
+    );
+  }
 
   // Deck has words — show stats + list inline (accordion handles expand/collapse)
   return (
@@ -90,16 +103,31 @@ export default function StoryDeckPanel({ storyId, storyTitle }: StoryDeckPanelPr
         <Progress value={progressPct} className="h-1.5" />
       </div>
 
-      {/* Review button */}
-      <Button
-        onClick={handleReview}
-        className="w-full gap-2"
-        size="sm"
-        disabled={dueCount === 0 && totalCount > 0 && learnedCount === totalCount}
-      >
-        <RotateCcw className="h-3.5 w-3.5" />
-        {dueCount > 0 ? `Review ${dueCount} due card${dueCount !== 1 ? "s" : ""}` : "All caught up!"}
-      </Button>
+      {/* Action buttons row */}
+      <div className="flex gap-2">
+        {/* SRS Review button */}
+        <Button
+          onClick={handleReview}
+          className="flex-1 gap-2"
+          size="sm"
+          disabled={dueCount === 0 && totalCount > 0 && learnedCount === totalCount}
+        >
+          <RotateCcw className="h-3.5 w-3.5" />
+          {dueCount > 0 ? `Review ${dueCount} due card${dueCount !== 1 ? "s" : ""}` : "All caught up!"}
+        </Button>
+
+        {/* Practice button — isolated session, no SRS */}
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => setPracticeOpen(true)}
+          className="gap-1.5 shrink-0"
+          title="Practice this story's words (does not affect SRS)"
+        >
+          <Dumbbell className="h-3.5 w-3.5" />
+          Practice
+        </Button>
+      </div>
 
       {/* Word list */}
       <div className="space-y-1">

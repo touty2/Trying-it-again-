@@ -18,3 +18,12 @@
 - [x] Story/session word addition always targets Main Deck only
 - [x] Fix ManualAddDialog deck dropdown not showing custom decks
 - [x] Fix Add Word auto-fill: 提高 and similar words get wrong/noisy CEDICT definitions (CL classifiers, cross-refs)
+- [x] Clear all fields when hanzi input is emptied in Add Word dialog
+- [x] Fix TTS highlight sync lag (advance sentence on first boundary event)
+
+## Story Deck Enhancements
+- [x] Story Practice Mode: "Practice This Story's Words" button in StoryDeckPanel
+- [x] Story Practice Mode: isolated session (does not affect main SRS)
+- [x] Story Practice Mode: "Reset / Start Over" button to reset practice progress
+- [x] Word Management: search bar on Deck "All Words" list view
+- [x] Word Management: full word deletion with confirmation dialog (AlertDialog)
