@@ -160,6 +160,31 @@ function FlashCard({
   const pairs = word.examplePairs ?? word.exampleSentences.map((s) => ({ chinese: s, english: "" }));
   const minCardHeight = CARD_MIN_HEIGHT[cardSize];
 
+  // Fallback definition: if the stored simpleDefinition is blank, pull the first
+  // definition line from CEDICT so no card ever shows a blank.
+  const cedictEntry = cedictLookup(word.hanzi);
+  const fallbackDefinition: string = (() => {
+    if (word.simpleDefinition?.trim()) return word.simpleDefinition.trim();
+    if (cedictEntry?.definition) {
+      // CEDICT definitions are slash-separated; take the first meaningful segment
+      const parts = cedictEntry.definition.split("/").map((s) => s.trim()).filter(Boolean);
+      return parts[0] ?? "";
+    }
+    return "";
+  })();
+
+  // Enriched definitions for the back face — with CEDICT fallback if the result is empty
+  const getBackDefinitions = () => {
+    const enriched = formatFlashcardDefinitionsEnriched(word.hanzi, word.simpleDefinition, word.otherMeanings, getAllReadings(word.hanzi));
+    if (enriched.length > 0) return enriched;
+    // CEDICT fallback: build labeled meanings from the raw definition string
+    if (cedictEntry?.definition) {
+      const parts = cedictEntry.definition.split("/").map((s) => s.trim()).filter(Boolean).slice(0, 4);
+      return parts.map((text, i) => ({ text, label: (i === 0 ? "common" : "less common") as import("@/lib/formatDefinitions").FrequencyLabel }));
+    }
+    return [];
+  };
+
   // Preview intervals for button labels
   const intervals = previewIntervals(_card);
 
@@ -226,7 +251,7 @@ function FlashCard({
         </div>
       )}
       <p className="text-2xl font-semibold text-foreground leading-snug">
-        {word.simpleDefinition}
+        {fallbackDefinition || word.hanzi}
       </p>
       {word.otherMeanings && word.otherMeanings.length > 0 && (
         <p className="text-sm text-muted-foreground">
@@ -272,13 +297,16 @@ function FlashCard({
       <div className="px-6 pb-4 border-t border-border/30 pt-4 text-left">
         <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-2">Definition</p>
         <ul className="space-y-1.5">
-          {formatFlashcardDefinitionsEnriched(word.hanzi, word.simpleDefinition, word.otherMeanings, getAllReadings(word.hanzi)).map((item, i) => (
+          {getBackDefinitions().map((item, i) => (
             <li key={i} className="text-sm leading-snug">
               <span className={i === 0 ? "text-foreground font-medium" : "text-foreground/80"}>{item.text}</span>
               {" "}
               <span className={`text-xs ${LABEL_STYLES[item.label]}`}>({item.label})</span>
             </li>
           ))}
+          {getBackDefinitions().length === 0 && (
+            <li className="text-sm text-muted-foreground italic">No definition available</li>
+          )}
         </ul>
       </div>
       {/* Scrollable examples */}
@@ -323,13 +351,16 @@ function FlashCard({
       <div className="px-6 pb-4 border-t border-border/30 pt-4 text-left">
         <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-2">Definition</p>
         <ul className="space-y-1.5">
-          {formatFlashcardDefinitionsEnriched(word.hanzi, word.simpleDefinition, word.otherMeanings, getAllReadings(word.hanzi)).map((item, i) => (
+          {getBackDefinitions().map((item, i) => (
             <li key={i} className="text-sm leading-snug">
               <span className={i === 0 ? "text-foreground font-medium" : "text-foreground/80"}>{item.text}</span>
               {" "}
               <span className={`text-xs ${LABEL_STYLES[item.label]}`}>({item.label})</span>
             </li>
           ))}
+          {getBackDefinitions().length === 0 && (
+            <li className="text-sm text-muted-foreground italic">No definition available</li>
+          )}
         </ul>
       </div>
       {/* Scrollable examples */}
@@ -685,7 +716,7 @@ function WordListItem({
         </span>
         <div className="min-w-0">
           <p className="text-sm text-primary font-medium truncate">{toTonePinyin(word.pinyin)}</p>
-          <p className="text-xs text-muted-foreground truncate">{word.simpleDefinition}</p>
+          <p className="text-xs text-muted-foreground truncate">{word.simpleDefinition?.trim() || cedictLookup(word.hanzi)?.definition?.split("/")[0]?.trim() || "—"}</p>
         </div>
       </div>
       <div className="flex items-center gap-2 shrink-0">

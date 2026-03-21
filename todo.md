@@ -11,3 +11,4 @@
 - [x] Fix TypeScript errors (fsrs camelCase, duplicate keys, rating types)
 - [x] Verify dev server builds and runs (0 TS errors, server on :3000)
 - [x] Save checkpoint
+- [x] Flashcard back face: fall back to CEDICT lookup when definition field is empty
