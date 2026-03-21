@@ -313,6 +313,27 @@ export function formatFlashcardDefinitionsEnriched(
   return formatFlashcardDefinitions(simpleDefinition, otherMeanings);
 }
 
+// ─── Auto-fill definition cleaner ───────────────────────────────────────────
+
+/**
+ * Cleans a raw CEDICT definition string for use as a pre-filled value in the
+ * Add Word dialog. Strips classifier codes (CL:...), abbreviation cross-refs,
+ * archaic/variant entries, and pinyin bracket noise, then joins the remaining
+ * segments with "; ".
+ *
+ * Example: "ointment / paste / CL:帖[tie3]" → "ointment; paste"
+ * Example: "to raise / to increase / to improve" → "to raise; to increase; to improve"
+ */
+export function cleanAutoFillDefinition(rawDefinition: string): string {
+  if (!rawDefinition) return "";
+  const segments = rawDefinition.split(" / ");
+  const cleaned = segments
+    .filter((seg) => !shouldOmit(seg.trim()))
+    .map((seg) => cleanMeaning(seg.trim()))
+    .filter(Boolean);
+  return cleaned.join("; ");
+}
+
 // ─── Label badge renderer helper ─────────────────────────────────────────────
 
 /** CSS class sets for each label (Tailwind) */

@@ -48,7 +48,7 @@ import { useApp } from "@/contexts/AppContext";
 import { useSyncNotify } from "@/contexts/SyncContext";
 import { lookupWord } from "@/lib/dictionary";
 import { cedictLookup, getAllReadings } from "@/lib/cedict";
-import { formatFlashcardDefinitions, formatFlashcardDefinitionsEnriched, LABEL_STYLES } from "@/lib/formatDefinitions";
+import { formatFlashcardDefinitions, formatFlashcardDefinitionsEnriched, cleanAutoFillDefinition, LABEL_STYLES } from "@/lib/formatDefinitions";
 import { FSRS, Rating } from "fsrs-algorithm";
 import { useTTS } from "@/hooks/useTTS";
 import { useAudioSettings } from "@/hooks/useAudioSettings";
@@ -619,7 +619,7 @@ function ManualAddDialog({ open, onClose, decks, mainDeck, addWordToDecks }: Man
       const entry = cedict ?? local;
       if (entry) {
         setPinyin(toTonePinyin(entry.pinyin));
-        if (!definition) setDefinition(entry.definition);
+        if (!definition) setDefinition(cleanAutoFillDefinition(entry.definition));
       }
     }
   };

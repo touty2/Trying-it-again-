@@ -17,3 +17,4 @@
 - [x] Add "Add to deck" dropdown in manual Add Word dialog (Deck.tsx)
 - [x] Story/session word addition always targets Main Deck only
 - [x] Fix ManualAddDialog deck dropdown not showing custom decks
+- [x] Fix Add Word auto-fill: 提高 and similar words get wrong/noisy CEDICT definitions (CL classifiers, cross-refs)
