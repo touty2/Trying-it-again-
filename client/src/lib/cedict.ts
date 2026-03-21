@@ -49,6 +49,23 @@ export async function loadCedict(): Promise<Map<string, CedictEntry>> {
       for (const [hanzi, [pinyin, definition]] of Object.entries(data)) {
         map.set(hanzi, { hanzi, pinyin, definition });
       }
+      // Resolve cross-references: entries whose only definition is "see X|Y[pinyin]"
+      // Replace them with the real definition from the target entry.
+      // Matches both "see 麗江市|丽江市[...]" (pipe = simplified after) and "see 丽江市[...]" (no pipe)
+      const XREF_RE = /^see (?:[^|]+\|)?([^\[\s]+)\[/;
+      for (const [hanzi, entry] of Array.from(map.entries())) {
+        const def = entry.definition.trim();
+        // Only resolve if the ENTIRE definition is a cross-reference
+        if (!def.startsWith('see ')) continue;
+        const m = XREF_RE.exec(def);
+        if (!m) continue;
+        // Try simplified target first, then the full match group
+        const targetHanzi = m[1];
+        const target = map.get(targetHanzi);
+        if (target && !target.definition.startsWith('see ')) {
+          map.set(hanzi, { hanzi, pinyin: entry.pinyin, definition: target.definition });
+        }
+      }
       CEDICT = map;
       // Expose on globalThis so dictionary.ts lookupWord can use it as a fallback
       (globalThis as Record<string, unknown>).__CEDICT_MAP__ = map;

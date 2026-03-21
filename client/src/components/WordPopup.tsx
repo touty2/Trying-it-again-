@@ -47,7 +47,8 @@ function buildCharByCharPinyin(hanzi: string): string | null {
     const entry = cedictLookup(ch);
     if (!entry) return null;
     // Capitalise first letter of each syllable for names
-    const syllable = entry.pinyin.trim();
+    // Convert numeric tone to diacritic before capitalising
+    const syllable = toTonePinyin(entry.pinyin.trim());
     parts.push(syllable.charAt(0).toUpperCase() + syllable.slice(1));
   }
   return parts.join(" ");
@@ -84,8 +85,9 @@ function buildLabeledDefs(hanzi: string, sentence?: string, isProperNameHint?: b
   // isProperName: prefer the hint from the segmenter (most accurate), fall back to ranker
   const isProperName = isProperNameHint ?? (ranked?.isProperName ?? false);
   // For proper names not in CEDICT as a unit, build pinyin char-by-char (e.g. 王小雨 → Wáng Xiǎo Yǔ)
+  // Convert numeric tone format (Li4 jiang1) to diacritics (Lì jiāng) at source
   const rawPinyin = ranked?.primary.pinyin ?? legacyInfo?.pinyin ?? null;
-  const primaryPinyin = rawPinyin ?? (isProperName && hanzi.length > 1 ? buildCharByCharPinyin(hanzi) : null);
+  const primaryPinyin = (rawPinyin ? toTonePinyin(rawPinyin) : null) ?? (isProperName && hanzi.length > 1 ? buildCharByCharPinyin(hanzi) : null);
   const posHint = sentence ? getPosHint(hanzi, sentence) : null;
   const grammarLabel = getGrammarLabel(hanzi, ranked?.primary.raw ?? legacyInfo?.definition ?? "");
   const contextualLabel = getContextualLabel(hanzi, posHint, isProperName);

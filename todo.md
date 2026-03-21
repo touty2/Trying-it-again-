@@ -12,3 +12,5 @@
 - [x] Verify dev server builds and runs (0 TS errors, server on :3000)
 - [x] Save checkpoint
 - [x] Flashcard back face: fall back to CEDICT lookup when definition field is empty
+- [x] Fix cross-reference "see X" definitions — resolve to real definition instead
+- [x] Fix remaining numeric pinyin (e.g. li4 jiang1) still showing in some display sites

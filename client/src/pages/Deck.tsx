@@ -587,7 +587,7 @@ function ManualAddDialog({ open, onClose }: { open: boolean; onClose: () => void
       const local = lookupWord(val.trim());
       const entry = cedict ?? local;
       if (entry) {
-        setPinyin(entry.pinyin);
+        setPinyin(toTonePinyin(entry.pinyin));
         if (!definition) setDefinition(entry.definition);
       }
     }
