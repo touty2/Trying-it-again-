@@ -613,14 +613,19 @@ function ManualAddDialog({ open, onClose, decks, mainDeck, addWordToDecks }: Man
 
   const handleHanziChange = (val: string) => {
     setHanzi(val);
-    if (val.trim()) {
-      const cedict = cedictLookup(val.trim());
-      const local = lookupWord(val.trim());
-      const entry = cedict ?? local;
-      if (entry) {
-        setPinyin(toTonePinyin(entry.pinyin));
-        if (!definition) setDefinition(cleanAutoFillDefinition(entry.definition));
-      }
+    if (!val.trim()) {
+      // Clear all auto-filled fields when hanzi is emptied
+      setPinyin("");
+      setDefinition("");
+      setExamples("");
+      return;
+    }
+    const cedict = cedictLookup(val.trim());
+    const local = lookupWord(val.trim());
+    const entry = cedict ?? local;
+    if (entry) {
+      setPinyin(toTonePinyin(entry.pinyin));
+      setDefinition(cleanAutoFillDefinition(entry.definition));
     }
   };
 
