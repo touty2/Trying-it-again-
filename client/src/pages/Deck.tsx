@@ -579,9 +579,16 @@ function SessionComplete({ reviewed, onReset }: { reviewed: number; onReset: () 
 
 // ─── Manual Add Dialog ────────────────────────────────────────────────────────
 
-function ManualAddDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
+interface ManualAddDialogProps {
+  open: boolean;
+  onClose: () => void;
+  decks: import("@/hooks/useDecks").CustomDeck[];
+  mainDeck: import("@/hooks/useDecks").CustomDeck | null;
+  addWordToDecks: (wordId: string, deckIds: string[]) => Promise<void>;
+}
+
+function ManualAddDialog({ open, onClose, decks, mainDeck, addWordToDecks }: ManualAddDialogProps) {
   const { addManualWord } = useApp();
-  const { decks, mainDeck, addWordToDecks } = useDecks();
   const [hanzi, setHanzi] = useState("");
   const [pinyin, setPinyin] = useState("");
   const [definition, setDefinition] = useState("");
@@ -1379,7 +1386,13 @@ export default function Deck() {
         </div>
       )}
 
-      <ManualAddDialog open={showAddDialog} onClose={() => setShowAddDialog(false)} />
+      <ManualAddDialog
+        open={showAddDialog}
+        onClose={() => setShowAddDialog(false)}
+        decks={decksMgr.decks}
+        mainDeck={decksMgr.mainDeck}
+        addWordToDecks={decksMgr.addWordToDecks}
+      />
 
       {/* Decks sidebar */}
       <DecksSidebar

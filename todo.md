@@ -16,3 +16,4 @@
 - [x] Fix remaining numeric pinyin (e.g. li4 jiang1) still showing in some display sites
 - [x] Add "Add to deck" dropdown in manual Add Word dialog (Deck.tsx)
 - [x] Story/session word addition always targets Main Deck only
+- [x] Fix ManualAddDialog deck dropdown not showing custom decks
