@@ -279,7 +279,8 @@ function speakPromise(
   voice: SpeechSynthesisVoice | null,
   rate: number,
   token: { cancelled: boolean },
-  onBoundary?: (charIndex: number) => void
+  onBoundary?: (charIndex: number) => void,
+  onSpeechStart?: () => void
 ): Promise<void> {
   return new Promise((resolve, reject) => {
     if (token.cancelled) { reject(new Error("cancelled")); return; }
@@ -294,12 +295,35 @@ function speakPromise(
     // Full volume
     utt.volume = 1.0;
     if (voice) utt.voice = voice;
+
+    // Track whether the first boundary event has fired for this utterance.
+    // We use the first boundary event as the true "speech has started" signal
+    // because the browser buffers audio before speaking — the onstart event
+    // fires too early (before audio output begins) on many voices/platforms.
+    let speechStarted = false;
+
+    utt.onstart = () => {
+      // onstart fires when the utterance is dequeued for synthesis, which is
+      // slightly before actual audio output on cloud/neural voices. We use it
+      // as a fallback for voices that never fire onboundary (e.g. some iOS voices).
+      if (!token.cancelled && !speechStarted) {
+        speechStarted = true;
+        onSpeechStart?.();
+      }
+    };
     utt.onend = () => {
       if (!token.cancelled) resolve();
       else reject(new Error("cancelled"));
     };
     utt.onboundary = (e) => {
-      if (!token.cancelled && e.name === "word" && onBoundary) {
+      if (token.cancelled) return;
+      // The very first boundary event is the most reliable signal that audio
+      // output has actually begun. Advance the sentence highlight here.
+      if (!speechStarted) {
+        speechStarted = true;
+        onSpeechStart?.();
+      }
+      if (e.name === "word" && onBoundary) {
         onBoundary(e.charIndex);
       }
     };
@@ -456,10 +480,17 @@ export function useTTS(options?: {
         return;
       }
       setState("playing"); stateRef.current = "playing";
+
+      // Pre-set the index for the very first sentence so the UI shows something
+      // immediately when the user presses play. For subsequent sentences the
+      // index is advanced inside onSpeechStart (first boundary / onstart event)
+      // so the highlight moves exactly when audio output begins.
+      setCurrentIdx(startIdx); currentIdxRef.current = startIdx;
+      options?.onSentenceChange?.(startIdx);
+
       for (let i = startIdx; i < sents.length; i++) {
         if (token.cancelled) break;
-        setCurrentIdx(i); currentIdxRef.current = i;
-        options?.onSentenceChange?.(i);
+
         const voice = getBestZhVoice(preferredVoiceRef.current, voiceGenderRef.current);
         if (i === startIdx) {
           // Log active voice at the start of each playback session
@@ -467,8 +498,21 @@ export function useTTS(options?: {
             `[TTS] playback started — voice: "${voice?.name ?? "(none)"}" | lang: ${voice?.lang ?? "?"} | local: ${voice?.localService ?? false} | speed: ${speedRef.current}x`
           );
         }
+
+        // Capture i in a const so the closure inside onSpeechStart is stable
+        const sentIdx = i;
+        // onSpeechStart fires on the first boundary/onstart of this utterance —
+        // that is the true moment audio output begins, so we advance the
+        // sentence highlight here instead of before speakPromise().
+        const onSpeechStart = () => {
+          if (token.cancelled) return;
+          setCurrentIdx(sentIdx); currentIdxRef.current = sentIdx;
+          options?.onSentenceChange?.(sentIdx);
+          setActiveCharIndex(-1); // reset word highlight for new sentence
+        };
+
         try {
-          await speakPromise(sents[i], voice, speedRef.current, token, handleBoundary);
+          await speakPromise(sents[i], voice, speedRef.current, token, handleBoundary, onSpeechStart);
         } catch {
           break;
         }
@@ -477,6 +521,7 @@ export function useTTS(options?: {
           await new Promise((r) => setTimeout(r, 100));
         }
         if (token.cancelled) break;
+
       }
       if (!token.cancelled) {
         setState("idle"); stateRef.current = "idle";
