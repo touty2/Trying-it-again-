@@ -33,3 +33,10 @@
 - [x] Add: "Return to Story" button on filtered deck review page
 - [x] Verify: story deck filter shows only story words and behaves like a story deck
 - [x] Fix: story deck Review button opens main deck instead of filtered story deck
+
+## Dictionary Quality Fixes
+- [x] Fix truncated definitions in cedict lookup pipeline
+- [x] Fix wrong pinyin / wrong reading selection (e.g. 派 showing pa1 instead of pai4)
+- [x] Fix missing common meanings in formatDefinitions
+- [x] Add validation guard: reject truncated/empty definitions before saving
+- [x] Verify 派 and other known-bad entries are correct after fix

@@ -292,6 +292,33 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         }
       }
 
+      // ── Validation guard: never save a truncated or empty definition ────────
+      // If the pipeline produced nothing useful, fall back to the raw CEDICT first
+      // segment rather than saving an empty or cross-reference-only definition.
+      if (!primaryDefinition || primaryDefinition.trim().length < 2) {
+        // Try raw CEDICT as a last resort
+        const rawEntry = cedictLookup(hanzi);
+        if (rawEntry) {
+          const rawSegs = rawEntry.definition.split("/").map((s: string) => s.trim()).filter(Boolean);
+          // Pick the first segment that isn't a pure cross-ref or classifier code
+          const usable = rawSegs.find((s: string) =>
+            !s.startsWith("see ") && !s.startsWith("CL:") && !s.startsWith("abbr.") &&
+            !s.startsWith("old variant") && !s.startsWith("variant of") && s.length > 2
+          );
+          if (usable) {
+            primaryDefinition = usable;
+            if (otherMeanings.length === 0) {
+              otherMeanings = rawSegs.filter((s: string) => s !== usable && s.length > 2).slice(0, 3);
+            }
+          }
+        }
+      }
+      // If still empty after all fallbacks, use the hanzi itself as a placeholder
+      // so the card is never saved with a blank definition.
+      if (!primaryDefinition || primaryDefinition.trim().length < 2) {
+        primaryDefinition = hanzi;
+      }
+
       const wordId = nanoid();
       const word: Word = {
         id: wordId,

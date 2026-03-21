@@ -80,9 +80,10 @@ const OMIT_PATTERNS: RegExp[] = [
   /^Taiwan pr\./i,
   // Slang/vulgar annotations that obscure the primary meaning
   /^\(Tw\) \(slang\)/i,
-  // CEDICT internal notation noise
+  // CEDICT internal notation noise — only omit when the bracket reference IS the definition
+  // (e.g. a standalone "[he2 shui3]" entry), NOT when embedded mid-sentence
   /used in [^\s]+ \|/,
-  /\[.*?\d+\]/,  // pinyin tone markers in brackets like [he2 shui3]
+  /^\[.*?\d+\]$/,  // definition is ONLY a pinyin bracket reference (nothing else)
 ];
 
 // ─── Grammar patterns ─────────────────────────────────────────────────────────
