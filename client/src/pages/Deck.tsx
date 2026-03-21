@@ -25,6 +25,8 @@ import {
   AlertTriangle,
   Search,
   X as XIcon,
+  ArrowLeft,
+  BookOpen,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -919,7 +921,7 @@ export default function Deck() {
   } = useApp();
 
   const notifyChange = useSyncNotify();
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
 
   // ── Custom decks ──────────────────────────────────────────────────────────
   const decksMgr = useDecks();
@@ -1197,6 +1199,24 @@ export default function Deck() {
 
   return (
     <div>
+      {/* Return to Story banner — shown when reviewing a story-filtered deck */}
+      {storyFilter && (
+        <div className="mb-4 flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/5 px-4 py-2.5">
+          <BookOpen size={14} className="shrink-0 text-primary" />
+          <span className="text-sm text-foreground flex-1">
+            Reviewing <span className="font-semibold">{storyFilterTitle ?? storyFilter}</span>
+          </span>
+          <button
+            onClick={() => navigate(`/sessions`)}
+            className="flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors"
+            title="Return to story"
+          >
+            <ArrowLeft size={13} />
+            Back to Stories
+          </button>
+        </div>
+      )}
+
       {/* Header */}
       <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
         <div>

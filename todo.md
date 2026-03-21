@@ -27,3 +27,8 @@
 - [x] Story Practice Mode: "Reset / Start Over" button to reset practice progress
 - [x] Word Management: search bar on Deck "All Words" list view
 - [x] Word Management: full word deletion with confirmation dialog (AlertDialog)
+
+## Story Deck Bug Fixes
+- [x] Fix: story deck words disappear after navigating away and back
+- [x] Add: "Return to Story" button on filtered deck review page
+- [x] Verify: story deck filter shows only story words and behaves like a story deck

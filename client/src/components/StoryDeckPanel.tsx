@@ -3,12 +3,16 @@
  * Displayed at the bottom of each story page.
  * Shows words added to this story's deck, progress, and a Review button.
  * Also hosts an isolated "Story Practice" session that does not affect SRS.
+ *
+ * Persistence fix: wordIds are fetched from IndexedDB on every render where
+ * `words` or `flashcards` changes, so newly added words always appear and
+ * the list survives accordion collapse/expand cycles.
  */
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { useLocation } from "wouter";
 import { useApp } from "@/contexts/AppContext";
-import { FlashcardDB, getDueStats } from "@/lib/db";
+import { getDueStats } from "@/lib/db";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { BookOpen, RotateCcw, X, Dumbbell } from "lucide-react";
@@ -26,14 +30,27 @@ export default function StoryDeckPanel({ storyId, storyTitle }: StoryDeckPanelPr
   const [wordIds, setWordIds] = useState<string[]>([]);
   const [practiceOpen, setPracticeOpen] = useState(false);
 
-  const refresh = useCallback(async () => {
-    const ids = await getStoryDeckWordIds(storyId);
-    setWordIds(ids);
-  }, [storyId, getStoryDeckWordIds]);
+  // Track whether we've done the initial load so we don't flash "empty" before data arrives
+  const [loaded, setLoaded] = useState(false);
 
+  // Use a ref to avoid stale closure issues in the refresh callback
+  const storyIdRef = useRef(storyId);
+  storyIdRef.current = storyId;
+
+  const refresh = useCallback(async () => {
+    const ids = await getStoryDeckWordIds(storyIdRef.current);
+    setWordIds(ids);
+    setLoaded(true);
+  }, [getStoryDeckWordIds]);
+
+  // Re-fetch whenever words or flashcards change (covers: new word added, word deleted,
+  // accordion collapse/expand, navigation back to this story).
+  // Using words.length + flashcards.length as a lightweight change signal.
+  const wordsLen = words.length;
+  const cardsLen = flashcards.length;
   useEffect(() => {
     refresh();
-  }, [refresh, flashcards]); // re-run when flashcards change (new word added)
+  }, [refresh, wordsLen, cardsLen, storyId]);
 
   const storyWords = words.filter((w) => wordIds.includes(w.id));
   const storyCards = flashcards.filter((c) => wordIds.includes(c.wordId));
@@ -42,7 +59,7 @@ export default function StoryDeckPanel({ storyId, storyTitle }: StoryDeckPanelPr
   const stats = getDueStats(storyCards, completedWordIds);
   const dueCount = stats.dueToday + stats.overdue + stats.newCards;
 
-  // "Learned" = word has been reviewed at least once (reps > 0) and not lapsed recently
+  // "Learned" = word has been reviewed at least once (reps > 0)
   const learnedCount = storyCards.filter(
     (c) => c.cardType === "recognition" && c.reps > 0
   ).length;
@@ -50,7 +67,6 @@ export default function StoryDeckPanel({ storyId, storyTitle }: StoryDeckPanelPr
   const progressPct = totalCount > 0 ? Math.round((learnedCount / totalCount) * 100) : 0;
 
   const handleReview = () => {
-    // Navigate to Deck page with story filter
     navigate(`/deck?storyId=${encodeURIComponent(storyId)}&storyTitle=${encodeURIComponent(storyTitle)}`);
   };
 
@@ -58,6 +74,15 @@ export default function StoryDeckPanel({ storyId, storyTitle }: StoryDeckPanelPr
     await removeWordFromStoryDeck(wordId, storyId);
     await refresh();
   };
+
+  // Show nothing while loading to avoid flash of "empty" state
+  if (!loaded) {
+    return (
+      <div className="py-4 text-center text-xs text-muted-foreground animate-pulse">
+        Loading story deck…
+      </div>
+    );
+  }
 
   if (totalCount === 0) {
     return (
@@ -79,7 +104,6 @@ export default function StoryDeckPanel({ storyId, storyTitle }: StoryDeckPanelPr
     );
   }
 
-  // Deck has words — show stats + list inline (accordion handles expand/collapse)
   return (
     <div className="space-y-4 pt-1">
       {/* Stats row */}
@@ -105,18 +129,19 @@ export default function StoryDeckPanel({ storyId, storyTitle }: StoryDeckPanelPr
 
       {/* Action buttons row */}
       <div className="flex gap-2">
-        {/* SRS Review button */}
         <Button
           onClick={handleReview}
           className="flex-1 gap-2"
           size="sm"
-          disabled={dueCount === 0 && totalCount > 0 && learnedCount === totalCount}
         >
           <RotateCcw className="h-3.5 w-3.5" />
-          {dueCount > 0 ? `Review ${dueCount} due card${dueCount !== 1 ? "s" : ""}` : "All caught up!"}
+          {dueCount > 0
+            ? `Review ${dueCount} due card${dueCount !== 1 ? "s" : ""}`
+            : totalCount > 0
+            ? "Review All Words"
+            : "All caught up!"}
         </Button>
 
-        {/* Practice button — isolated session, no SRS */}
         <Button
           variant="outline"
           size="sm"
