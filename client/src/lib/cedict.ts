@@ -49,21 +49,44 @@ export async function loadCedict(): Promise<Map<string, CedictEntry>> {
       for (const [hanzi, [pinyin, definition]] of Object.entries(data)) {
         map.set(hanzi, { hanzi, pinyin, definition });
       }
-      // Resolve cross-references: entries whose only definition is "see X|Y[pinyin]"
-      // Replace them with the real definition from the target entry.
-      // Matches both "see 麗江市|丽江市[...]" (pipe = simplified after) and "see 丽江市[...]" (no pipe)
+      // Resolve cross-references in multi-segment and single-segment definitions.
+      // CEDICT uses two patterns:
+      //   "see 麗江市|丽江市[Li4 jiang1 Shi4]"  (traditional|simplified[pinyin])
+      //   "see 丽江市[Li4 jiang1 Shi4]"          (simplified only)
+      // Strategy per entry:
+      //   1. Split definition by " / " into segments.
+      //   2. Drop any segment that is purely a "see ..." cross-reference.
+      //   3. If real segments remain, join them as the new definition.
+      //   4. If ALL segments were cross-refs, resolve the first one from the map.
       const XREF_RE = /^see (?:[^|]+\|)?([^\[\s]+)\[/;
+      const isCrossRef = (seg: string) => XREF_RE.test(seg.trim());
+      const resolveXref = (seg: string): string | null => {
+        const m = XREF_RE.exec(seg.trim());
+        if (!m) return null;
+        const target = map.get(m[1]);
+        if (!target) return null;
+        // Avoid chained cross-refs
+        const targetSegs = target.definition.split(' / ').filter(s => !isCrossRef(s));
+        return targetSegs.length > 0 ? targetSegs.join(' / ') : null;
+      };
       for (const [hanzi, entry] of Array.from(map.entries())) {
         const def = entry.definition.trim();
-        // Only resolve if the ENTIRE definition is a cross-reference
-        if (!def.startsWith('see ')) continue;
-        const m = XREF_RE.exec(def);
-        if (!m) continue;
-        // Try simplified target first, then the full match group
-        const targetHanzi = m[1];
-        const target = map.get(targetHanzi);
-        if (target && !target.definition.startsWith('see ')) {
-          map.set(hanzi, { hanzi, pinyin: entry.pinyin, definition: target.definition });
+        // Fast-path: no cross-reference at all
+        if (!def.includes('see ')) continue;
+        const segments = def.split(' / ');
+        // Check if any segment is a cross-reference
+        if (!segments.some(isCrossRef)) continue;
+        // Keep real (non-cross-ref) segments
+        const realSegs = segments.filter(s => !isCrossRef(s));
+        if (realSegs.length > 0) {
+          // Use real segments directly — drop the cross-ref noise
+          map.set(hanzi, { hanzi, pinyin: entry.pinyin, definition: realSegs.join(' / ') });
+        } else {
+          // All segments were cross-refs — resolve the first one
+          const resolved = resolveXref(segments[0]);
+          if (resolved) {
+            map.set(hanzi, { hanzi, pinyin: entry.pinyin, definition: resolved });
+          }
         }
       }
       CEDICT = map;
