@@ -32,3 +32,4 @@
 - [x] Fix: story deck words disappear after navigating away and back
 - [x] Add: "Return to Story" button on filtered deck review page
 - [x] Verify: story deck filter shows only story words and behaves like a story deck
+- [x] Fix: story deck Review button opens main deck instead of filtered story deck

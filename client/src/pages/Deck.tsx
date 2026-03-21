@@ -959,28 +959,27 @@ export default function Deck() {
   const [view, setView] = useState<DeckView>("review");
 
   // ── Session persistence: restore from localStorage on mount ──────────────
-  // ── Session restore with merge ─────────────────────────────────────────────
-  // On mount: merge saved session with current due set so that:
-  //   - Unfinished cards from the saved session are kept
-  //   - Newly due cards are appended
-  //   - Completed/deleted cards are removed
-  //   - 24h+ old sessions refresh the queue instead of wiping it
+  // When a story filter is active we NEVER restore from localStorage — the
+  // queue must be built from story-scoped cards only, which are loaded async.
+  // For the main deck we merge the saved session as before.
+  const isStoryMode = !!urlParams.storyId;
+
   const [sessionRestored, setSessionRestored] = useState<boolean>(() => {
+    if (isStoryMode) return false;
     const currentDue = getDueCards().map((c) => c.cardId);
     const merged = loadAndMergeSession(currentDue);
     return !!(merged && merged.sessionReviewed > 0);
   });
   const [reviewQueue, setReviewQueue] = useState<string[]>(() => {
+    if (isStoryMode) return []; // populated later once storyWordIds loads
     const currentDue = getDueCards().map((c) => c.cardId);
     const merged = loadAndMergeSession(currentDue);
     if (merged && merged.queue.length > 0) return merged.queue;
     return currentDue;
   });
-  const [currentIdx, setCurrentIdx] = useState<number>(() => {
-    // Always start from 0 after merge (merged queue already slices out reviewed cards)
-    return 0;
-  });
+  const [currentIdx, setCurrentIdx] = useState<number>(0);
   const [sessionReviewed, setSessionReviewed] = useState<number>(() => {
+    if (isStoryMode) return 0;
     const currentDue = getDueCards().map((c) => c.cardId);
     const merged = loadAndMergeSession(currentDue);
     return merged ? merged.sessionReviewed : 0;
@@ -988,10 +987,34 @@ export default function Deck() {
   // Track cards that have been requeued due to "Again" so we can show a
   // "requeued" indicator and avoid double-counting them in the progress bar.
   const [requeuedWordIds, setRequeuedWordIds] = useState<Set<string>>(() => {
+    if (isStoryMode) return new Set();
     const currentDue = getDueCards().map((c) => c.cardId);
     const merged = loadAndMergeSession(currentDue);
     return merged ? new Set(merged.requeuedIds) : new Set();
   });
+
+  // Once storyWordIds loads (async), build the initial story-scoped queue
+  const storyQueueInitialized = useRef(false);
+  useEffect(() => {
+    if (!isStoryMode || !storyWordIds || storyQueueInitialized.current) return;
+    storyQueueInitialized.current = true;
+    const all = getDueCards();
+    const storyCards = all.filter((c) => storyWordIds.has(c.wordId));
+    const shuffle = <T,>(arr: T[]): T[] => {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    };
+    const newCards = shuffle(storyCards.filter((c) => !c.lastReviewed).map((c) => c.cardId));
+    const dueCards2 = shuffle(storyCards.filter((c) => c.lastReviewed).map((c) => c.cardId));
+    setReviewQueue([...newCards, ...dueCards2]);
+    setCurrentIdx(0);
+    setSessionReviewed(0);
+    setRequeuedWordIds(new Set());
+  }, [isStoryMode, storyWordIds, getDueCards]);
   const [showAddDialog, setShowAddDialog] = useState(false);
   const [wordSearch, setWordSearch] = useState("");
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
