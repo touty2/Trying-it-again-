@@ -14,3 +14,5 @@
 - [x] Flashcard back face: fall back to CEDICT lookup when definition field is empty
 - [x] Fix cross-reference "see X" definitions — resolve to real definition instead
 - [x] Fix remaining numeric pinyin (e.g. li4 jiang1) still showing in some display sites
+- [x] Add "Add to deck" dropdown in manual Add Word dialog (Deck.tsx)
+- [x] Story/session word addition always targets Main Deck only

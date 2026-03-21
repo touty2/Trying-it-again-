@@ -36,6 +36,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { toast } from "sonner";
 import { useApp } from "@/contexts/AppContext";
 import { useSyncNotify } from "@/contexts/SyncContext";
@@ -574,11 +581,28 @@ function SessionComplete({ reviewed, onReset }: { reviewed: number; onReset: () 
 
 function ManualAddDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
   const { addManualWord } = useApp();
+  const { decks, mainDeck, addWordToDecks } = useDecks();
   const [hanzi, setHanzi] = useState("");
   const [pinyin, setPinyin] = useState("");
   const [definition, setDefinition] = useState("");
   const [examples, setExamples] = useState("");
   const [loading, setLoading] = useState(false);
+  const [selectedDeckId, setSelectedDeckId] = useState<string>("");
+
+  // Default to Main Deck whenever the dialog opens or decks change
+  useEffect(() => {
+    if (open && mainDeck && !selectedDeckId) {
+      setSelectedDeckId(mainDeck.id);
+    }
+  }, [open, mainDeck, selectedDeckId]);
+
+  // Reset form when dialog closes
+  useEffect(() => {
+    if (!open) {
+      setHanzi(""); setPinyin(""); setDefinition(""); setExamples("");
+      setSelectedDeckId(mainDeck?.id ?? "");
+    }
+  }, [open, mainDeck]);
 
   const handleHanziChange = (val: string) => {
     setHanzi(val);
@@ -600,7 +624,7 @@ function ManualAddDialog({ open, onClose }: { open: boolean; onClose: () => void
     }
     setLoading(true);
     try {
-      await addManualWord({
+      const word = await addManualWord({
         hanzi: hanzi.trim(),
         pinyin: pinyin.trim(),
         simpleDefinition: definition.trim(),
@@ -608,8 +632,13 @@ function ManualAddDialog({ open, onClose }: { open: boolean; onClose: () => void
         sourceTextId: null,
         addedManually: true,
       });
-      toast.success(`Added "${hanzi.trim()}" to deck`);
-      setHanzi(""); setPinyin(""); setDefinition(""); setExamples("");
+      // Assign to the selected deck (defaults to Main Deck)
+      const targetDeckId = selectedDeckId || mainDeck?.id;
+      if (targetDeckId) {
+        await addWordToDecks(word.id, [targetDeckId]);
+      }
+      const deckName = decks.find((d) => d.id === targetDeckId)?.name ?? "deck";
+      toast.success(`Added "${hanzi.trim()}" to ${deckName}`);
       onClose();
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : "Failed to add word";
@@ -667,6 +696,24 @@ function ManualAddDialog({ open, onClose }: { open: boolean; onClose: () => void
               className="mt-1 min-h-[80px]"
               style={{ fontFamily: "var(--reading-font-family, 'Noto Sans SC', sans-serif)" }}
             />
+          </div>
+          <div>
+            <Label htmlFor="deck-select">Add to deck</Label>
+            <Select
+              value={selectedDeckId}
+              onValueChange={setSelectedDeckId}
+            >
+              <SelectTrigger id="deck-select" className="mt-1 w-full">
+                <SelectValue placeholder="Select a deck" />
+              </SelectTrigger>
+              <SelectContent>
+                {decks.map((deck) => (
+                  <SelectItem key={deck.id} value={deck.id}>
+                    {deck.name}{deck.isMain ? " (default)" : ""}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         </div>
         <DialogFooter>
