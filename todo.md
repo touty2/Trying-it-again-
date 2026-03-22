@@ -65,3 +65,6 @@
 
 ## Render Deployment Fix
 - [x] Replace all OKLCH CSS color values with HSL/hex for cross-browser compatibility
+
+## Flashcard Transparency Bug (Persistent)
+- [x] Definitively trace and fix faded/semi-transparent flashcard appearance — root cause: @theme inline used var() references which are compile-time only in Tailwind 4; fixed by using literal HSL values
