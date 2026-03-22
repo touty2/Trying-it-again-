@@ -918,8 +918,6 @@ export default function Deck() {
     completedWordIds,
     markWordCompleted,
     unmarkWordCompleted,
-    resetDueDates,
-    resetDeck,
   } = useApp();
 
   const notifyChange = useSyncNotify();
@@ -1020,9 +1018,6 @@ export default function Deck() {
   const [showAddDialog, setShowAddDialog] = useState(false);
   const [wordSearch, setWordSearch] = useState("");
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
-  const [showResetDueDatesDialog, setShowResetDueDatesDialog] = useState(false);
-  const [showResetDeckDialog, setShowResetDeckDialog] = useState(false);
-  const [isResetting, setIsResetting] = useState(false);
 
   // Bidirectional completion state (loaded from IndexedDB)
   const [completedDetails, setCompletedDetails] = useState<Map<string, { forward: boolean; reverse: boolean }>>(new Map());
@@ -1291,26 +1286,6 @@ export default function Deck() {
             <Layers size={14} />
             Decks
           </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setShowResetDueDatesDialog(true)}
-            className="gap-1.5 text-amber-600 hover:text-amber-700 border-amber-200 hover:border-amber-300 hover:bg-amber-50 dark:text-amber-400 dark:border-amber-800 dark:hover:bg-amber-950"
-            title="Reset all due dates to today"
-          >
-            <RotateCcw size={14} />
-            Reset Due
-          </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setShowResetDeckDialog(true)}
-            className="gap-1.5 text-red-600 hover:text-red-700 border-red-200 hover:border-red-300 hover:bg-red-50 dark:text-red-400 dark:border-red-800 dark:hover:bg-red-950"
-            title="Reset entire deck to unlearned"
-          >
-            <Trash2 size={14} />
-            Reset Deck
-          </Button>
           <div className="flex rounded-lg border border-border overflow-hidden">
             <button
               onClick={() => setView("review")}
@@ -1566,100 +1541,6 @@ export default function Deck() {
         onSelectDeck={setActiveDeckId}
       />
 
-      {/* ── Reset Due Dates dialog ── */}
-      <AlertDialog open={showResetDueDatesDialog} onOpenChange={setShowResetDueDatesDialog}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle className="flex items-center gap-2">
-              <RotateCcw size={18} className="text-amber-500" />
-              Reset Due Dates
-            </AlertDialogTitle>
-            <AlertDialogDescription asChild>
-              <div className="space-y-3">
-                <p>
-                  This will set <strong>all {flashcards.length} cards</strong> as due today.
-                  Your SRS progress (stability, difficulty, review history) is fully preserved —
-                  only the scheduled date changes.
-                </p>
-                <p className="text-xs text-muted-foreground">
-                  Use this when you want to catch up on a backlog or force a full review session
-                  without losing your learning history.
-                </p>
-              </div>
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel disabled={isResetting}>Cancel</AlertDialogCancel>
-            <AlertDialogAction
-              className="bg-amber-600 hover:bg-amber-700 text-white"
-              disabled={isResetting}
-              onClick={async () => {
-                setIsResetting(true);
-                try {
-                  await resetDueDates();
-                  toast.success(`All ${flashcards.length} cards are now due today`);
-                  setShowResetDueDatesDialog(false);
-                } catch (e) {
-                  toast.error("Reset failed — please try again");
-                } finally {
-                  setIsResetting(false);
-                }
-              }}
-            >
-              {isResetting ? "Resetting…" : "Reset Due Dates"}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-
-      {/* ── Reset Deck dialog ── */}
-      <AlertDialog open={showResetDeckDialog} onOpenChange={setShowResetDeckDialog}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle className="flex items-center gap-2">
-              <Trash2 size={18} className="text-red-500" />
-              Reset Entire Deck
-            </AlertDialogTitle>
-            <AlertDialogDescription asChild>
-              <div className="space-y-3">
-                <p>
-                  This will <strong>permanently erase all SRS progress</strong> for your
-                  {" "}{flashcards.length} cards — intervals, stability, difficulty, review counts,
-                  and learned badges will all be reset to zero.
-                </p>
-                <p>
-                  Your <strong>word list is kept</strong> (hanzi, pinyin, definitions) — only
-                  the scheduling data is wiped. Every card will appear as brand new.
-                </p>
-                <p className="text-xs font-semibold text-red-600 dark:text-red-400">
-                  This cannot be undone. Export a backup first if you want to preserve your progress.
-                </p>
-              </div>
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel disabled={isResetting}>Cancel</AlertDialogCancel>
-            <AlertDialogAction
-              className="bg-red-600 hover:bg-red-700 text-white"
-              disabled={isResetting}
-              onClick={async () => {
-                setIsResetting(true);
-                try {
-                  await resetDeck();
-                  toast.success(`Deck reset — all ${flashcards.length} cards start fresh`);
-                  setShowResetDeckDialog(false);
-                } catch (e) {
-                  toast.error("Reset failed — please try again");
-                } finally {
-                  setIsResetting(false);
-                }
-              }}
-            >
-              {isResetting ? "Resetting…" : "Yes, Reset Everything"}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </div>
   );
 }

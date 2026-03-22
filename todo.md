@@ -56,3 +56,6 @@
 - [x] Add Reset Due Dates button + AlertDialog confirmation to Deck page
 - [x] Add Reset Deck button + AlertDialog confirmation to Deck page
 - [x] Add descriptions under each button explaining what they do
+
+## UX Cleanup
+- [x] Move Reset Due Dates and Reset Deck buttons from Deck page header to Flashcard Settings page only
