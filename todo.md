@@ -62,3 +62,6 @@
 
 ## Flashcard Visual Fix
 - [x] Restore solid opaque flashcard background (was accidentally made semi-transparent)
+
+## Render Deployment Fix
+- [x] Replace all OKLCH CSS color values with HSL/hex for cross-browser compatibility

@@ -6,6 +6,8 @@
  *  - Dark / Light mode toggle
  *  - Accent color (primary / highlight / button color)
  *  - Reading background tint (paper, white, warm, dark)
+ *
+ * NOTE: All colors use HSL for universal browser compatibility (no OKLCH).
  */
 import { useState, useEffect, useCallback } from "react";
 
@@ -40,25 +42,25 @@ const DEFAULTS: ThemeSettings = {
 
 const STORAGE_KEY = "cr-theme-v1";
 
-// Accent color definitions — OKLCH values for primary, ring, and accent
+// Accent color definitions — HSL values for primary, ring, and accent
 const ACCENT_MAP: Record<AccentColor, { primary: string; ring: string; accent: string; accentFg: string; sidebar: string }> = {
-  teal:    { primary: "oklch(0.45 0.12 195)", ring: "oklch(0.45 0.12 195)", accent: "oklch(0.94 0.02 195)", accentFg: "oklch(0.3 0.1 195)", sidebar: "oklch(0.94 0.02 195)" },
-  indigo:  { primary: "oklch(0.45 0.15 265)", ring: "oklch(0.45 0.15 265)", accent: "oklch(0.94 0.04 265)", accentFg: "oklch(0.3 0.12 265)", sidebar: "oklch(0.94 0.04 265)" },
-  violet:  { primary: "oklch(0.48 0.18 290)", ring: "oklch(0.48 0.18 290)", accent: "oklch(0.94 0.04 290)", accentFg: "oklch(0.3 0.12 290)", sidebar: "oklch(0.94 0.04 290)" },
-  rose:    { primary: "oklch(0.50 0.18 10)",  ring: "oklch(0.50 0.18 10)",  accent: "oklch(0.95 0.04 10)",  accentFg: "oklch(0.3 0.12 10)",  sidebar: "oklch(0.95 0.04 10)" },
-  amber:   { primary: "oklch(0.55 0.15 75)",  ring: "oklch(0.55 0.15 75)",  accent: "oklch(0.95 0.04 75)",  accentFg: "oklch(0.3 0.10 75)",  sidebar: "oklch(0.95 0.04 75)" },
-  emerald: { primary: "oklch(0.47 0.14 155)", ring: "oklch(0.47 0.14 155)", accent: "oklch(0.94 0.04 155)", accentFg: "oklch(0.3 0.10 155)", sidebar: "oklch(0.94 0.04 155)" },
-  sky:     { primary: "oklch(0.50 0.14 220)", ring: "oklch(0.50 0.14 220)", accent: "oklch(0.94 0.04 220)", accentFg: "oklch(0.3 0.10 220)", sidebar: "oklch(0.94 0.04 220)" },
-  slate:   { primary: "oklch(0.38 0.04 250)", ring: "oklch(0.38 0.04 250)", accent: "oklch(0.94 0.01 250)", accentFg: "oklch(0.3 0.04 250)", sidebar: "oklch(0.94 0.01 250)" },
+  teal:    { primary: "hsl(187 48% 32%)", ring: "hsl(187 48% 32%)", accent: "hsl(187 30% 92%)", accentFg: "hsl(187 35% 24%)", sidebar: "hsl(187 30% 92%)" },
+  indigo:  { primary: "hsl(239 48% 40%)", ring: "hsl(239 48% 40%)", accent: "hsl(239 30% 93%)", accentFg: "hsl(239 35% 26%)", sidebar: "hsl(239 30% 93%)" },
+  violet:  { primary: "hsl(262 52% 44%)", ring: "hsl(262 52% 44%)", accent: "hsl(262 30% 93%)", accentFg: "hsl(262 35% 26%)", sidebar: "hsl(262 30% 93%)" },
+  rose:    { primary: "hsl(346 60% 46%)", ring: "hsl(346 60% 46%)", accent: "hsl(346 40% 94%)", accentFg: "hsl(346 40% 28%)", sidebar: "hsl(346 40% 94%)" },
+  amber:   { primary: "hsl(38 80% 46%)",  ring: "hsl(38 80% 46%)",  accent: "hsl(38 60% 94%)",  accentFg: "hsl(38 50% 26%)",  sidebar: "hsl(38 60% 94%)" },
+  emerald: { primary: "hsl(152 48% 36%)", ring: "hsl(152 48% 36%)", accent: "hsl(152 30% 92%)", accentFg: "hsl(152 35% 24%)", sidebar: "hsl(152 30% 92%)" },
+  sky:     { primary: "hsl(200 48% 40%)", ring: "hsl(200 48% 40%)", accent: "hsl(200 30% 92%)", accentFg: "hsl(200 35% 24%)", sidebar: "hsl(200 30% 92%)" },
+  slate:   { primary: "hsl(222 20% 34%)", ring: "hsl(222 20% 34%)", accent: "hsl(222 12% 93%)", accentFg: "hsl(222 20% 24%)", sidebar: "hsl(222 12% 93%)" },
 };
 
-// Reading background tints
+// Reading background tints — HSL values
 const BG_MAP: Record<ReadingBg, { bg: string; card: string; popover: string }> = {
-  white: { bg: "oklch(1 0 0)",          card: "oklch(1 0 0)",          popover: "oklch(1 0 0)" },
-  paper: { bg: "oklch(0.98 0.01 80)",   card: "oklch(0.97 0.01 80)",   popover: "oklch(0.97 0.01 80)" },
-  warm:  { bg: "oklch(0.97 0.015 60)",  card: "oklch(0.96 0.015 60)",  popover: "oklch(0.96 0.015 60)" },
-  cool:  { bg: "oklch(0.97 0.01 240)",  card: "oklch(0.96 0.01 240)",  popover: "oklch(0.96 0.01 240)" },
-  dark:  { bg: "oklch(0.14 0.01 250)",  card: "oklch(0.18 0.01 250)",  popover: "oklch(0.18 0.01 250)" },
+  white: { bg: "hsl(0 0% 100%)",      card: "hsl(0 0% 100%)",      popover: "hsl(0 0% 100%)" },
+  paper: { bg: "hsl(40 30% 97%)",     card: "hsl(40 28% 96%)",     popover: "hsl(40 28% 96%)" },
+  warm:  { bg: "hsl(35 40% 96%)",     card: "hsl(35 38% 95%)",     popover: "hsl(35 38% 95%)" },
+  cool:  { bg: "hsl(220 20% 96%)",    card: "hsl(220 18% 95%)",    popover: "hsl(220 18% 95%)" },
+  dark:  { bg: "hsl(222 16% 12%)",    card: "hsl(222 14% 16%)",    popover: "hsl(222 14% 16%)" },
 };
 
 function applyToDOM(s: ThemeSettings) {
@@ -94,25 +96,25 @@ function applyToDOM(s: ThemeSettings) {
 
   // Dark mode foreground adjustments
   if (s.darkMode || s.readingBg === "dark") {
-    root.style.setProperty("--foreground", "oklch(0.93 0.01 250)");
-    root.style.setProperty("--card-foreground", "oklch(0.93 0.01 250)");
-    root.style.setProperty("--popover-foreground", "oklch(0.93 0.01 250)");
-    root.style.setProperty("--muted", "oklch(0.22 0.01 250)");
-    root.style.setProperty("--muted-foreground", "oklch(0.60 0.01 250)");
-    root.style.setProperty("--border", "oklch(0.28 0.01 250)");
-    root.style.setProperty("--input", "oklch(0.28 0.01 250)");
-    root.style.setProperty("--sidebar-foreground", "oklch(0.93 0.01 250)");
-    root.style.setProperty("--sidebar-border", "oklch(0.28 0.01 250)");
+    root.style.setProperty("--foreground", "hsl(222 8% 90%)");
+    root.style.setProperty("--card-foreground", "hsl(222 8% 90%)");
+    root.style.setProperty("--popover-foreground", "hsl(222 8% 90%)");
+    root.style.setProperty("--muted", "hsl(222 12% 20%)");
+    root.style.setProperty("--muted-foreground", "hsl(222 6% 56%)");
+    root.style.setProperty("--border", "hsl(222 10% 26%)");
+    root.style.setProperty("--input", "hsl(222 10% 26%)");
+    root.style.setProperty("--sidebar-foreground", "hsl(222 8% 90%)");
+    root.style.setProperty("--sidebar-border", "hsl(222 10% 26%)");
   } else {
-    root.style.setProperty("--foreground", "oklch(0.13 0.01 250)");
-    root.style.setProperty("--card-foreground", "oklch(0.13 0.01 250)");
-    root.style.setProperty("--popover-foreground", "oklch(0.13 0.01 250)");
-    root.style.setProperty("--muted", "oklch(0.96 0 0)");
-    root.style.setProperty("--muted-foreground", "oklch(0.50 0.01 250)");
-    root.style.setProperty("--border", "oklch(0.90 0 0)");
-    root.style.setProperty("--input", "oklch(0.90 0 0)");
-    root.style.setProperty("--sidebar-foreground", "oklch(0.13 0.01 250)");
-    root.style.setProperty("--sidebar-border", "oklch(0.90 0 0)");
+    root.style.setProperty("--foreground", "hsl(222 14% 12%)");
+    root.style.setProperty("--card-foreground", "hsl(222 14% 12%)");
+    root.style.setProperty("--popover-foreground", "hsl(222 14% 12%)");
+    root.style.setProperty("--muted", "hsl(0 0% 96%)");
+    root.style.setProperty("--muted-foreground", "hsl(222 6% 46%)");
+    root.style.setProperty("--border", "hsl(0 0% 90%)");
+    root.style.setProperty("--input", "hsl(0 0% 90%)");
+    root.style.setProperty("--sidebar-foreground", "hsl(222 14% 12%)");
+    root.style.setProperty("--sidebar-border", "hsl(0 0% 90%)");
   }
 }
 
