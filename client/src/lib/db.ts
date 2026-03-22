@@ -16,8 +16,23 @@
 import { toISODate as _toISODate, fromISODate as _fromISODate, type SM2Quality, LEECH_THRESHOLD } from "../../../shared/sm2";
 import { FSRS, State, Rating, type Card as FSRSLibCard } from "fsrs-algorithm";
 
-/** Singleton FSRS scheduler — uses default parameters (research-optimised) */
-const _fsrsScheduler = new FSRS();
+/** FSRS scheduler factory — creates a scheduler with the given desired retention rate */
+function makeFSRS(desiredRetention = 0.85) {
+  return new FSRS({ requestRetention: desiredRetention });
+}
+
+/** Cached FSRS scheduler. Re-created when desiredRetention changes. */
+let _fsrsScheduler = makeFSRS(0.85);
+let _lastRetention = 0.85;
+
+/** Get (or rebuild) the FSRS scheduler for the given retention target */
+function getScheduler(desiredRetention = 0.85): FSRS {
+  if (desiredRetention !== _lastRetention) {
+    _fsrsScheduler = makeFSRS(desiredRetention);
+    _lastRetention = desiredRetention;
+  }
+  return _fsrsScheduler;
+}
 
 /**
  * Progressive interval cap — prevents cards from disappearing too quickly
@@ -135,6 +150,12 @@ export interface Settings {
   cardSize: 1 | 2 | 3;
   /** When true, each word gets both a recognition (CN→EN) and production (EN→CN) card */
   enableReversibleCards: boolean;
+  /**
+   * Desired retention rate (0.70 – 0.99). Controls how aggressively FSRS grows intervals.
+   * Higher = more reviews (e.g. 0.90 = review before you forget 10% of the time).
+   * Default: 0.85
+   */
+  desiredRetention: number;
 }
 
 export interface ReviewLog {
@@ -243,13 +264,14 @@ function toLibCard(card: Flashcard): FSRSLibCard {
 /**
  * Apply the real FSRS algorithm to a flashcard and return updated fields.
  *
- * @param card   - Current flashcard state
- * @param rating - 1=Again, 2=Hard, 3=Good, 4=Easy
+ * @param card             - Current flashcard state
+ * @param rating           - 1=Again, 2=Hard, 3=Good, 4=Easy
+ * @param desiredRetention - Target retention rate (0.70–0.99). Default 0.85.
  */
-export function applyFSRS(card: Flashcard, rating: FSRSRating): Partial<Flashcard> {
+export function applyFSRS(card: Flashcard, rating: FSRSRating, desiredRetention = 0.85): Partial<Flashcard> {
   const libCard = toLibCard(card);
   const now = new Date();
-  const result = _fsrsScheduler.schedule(libCard, now);
+  const result = getScheduler(desiredRetention).schedule(libCard, now);
 
   // Pick the scheduled card for this rating
   let scheduled: FSRSLibCard;
@@ -354,7 +376,7 @@ export function createFSRSCard(wordId: string, cardType: CardType): Flashcard {
  */
 export function getDueStats(
   cards: Pick<Flashcard, "wordId" | "dueDate" | "lastReviewed">[],
-  completedWordIds: Set<string>
+  _completedWordIds: Set<string>  // kept for API compat but no longer used to suppress
 ): { dueToday: number; overdue: number; newCards: number } {
   const todayStart = new Date();
   todayStart.setHours(0, 0, 0, 0);
@@ -366,7 +388,7 @@ export function getDueStats(
   let newCards = 0;
 
   for (const card of cards) {
-    if (completedWordIds.has(card.wordId)) continue;
+    // completedWordIds no longer suppresses cards from the queue — "learned" is visual only
     if (card.lastReviewed === null) {
       // New cards are always immediately due — count in both buckets
       newCards++;
@@ -710,6 +732,7 @@ const DEFAULT_SETTINGS: Settings = {
   flashcardSource: "both",
   cardSize: 2,
   enableReversibleCards: false,
+  desiredRetention: 0.85,
 };
 
 export const SettingsDB = {

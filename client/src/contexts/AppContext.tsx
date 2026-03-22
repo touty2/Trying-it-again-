@@ -108,6 +108,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     flashcardSource: "both",
     cardSize: 2,
     enableReversibleCards: false,
+    desiredRetention: 0.85,
   });
   const [todayNewWords, setTodayNewWords] = useState(0);
   const [todayReviews, setTodayReviews] = useState(0);
@@ -417,7 +418,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       updates = applyDontKnow(card);
     } else {
       // Hard (2), Good (3), Easy (4): full FSRS schedule
-      updates = applyFSRS(card, rating);
+      updates = applyFSRS(card, rating, settingsRef.current.desiredRetention ?? 0.85);
     }
     await FlashcardDB.update(cardId, updates);
     if (rating !== 1) await ReviewLogDB.incrementReview(); // only count non-Again as completed
@@ -480,7 +481,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     const source = settingsRef.current.flashcardSource ?? "both";
     const due = flashcardsRef.current.filter((c) => {
       if (c.dueDate > now) return false;
-      if (completedWordIdsRef.current.has(c.wordId)) return false;
+      // NOTE: completedWordIds is a visual "mastery" badge only — completed words
+      // still appear in the SRS queue on their scheduled due date.
+      // Only leech cards (too many lapses) are suppressed from the normal queue.
       if (c.isLeech) return false; // leech cards excluded from normal queue
       if (source === "both") return true;
       const word = wordsRef.current.find((w) => w.id === c.wordId);

@@ -40,3 +40,11 @@
 - [x] Fix missing common meanings in formatDefinitions
 - [x] Add validation guard: reject truncated/empty definitions before saving
 - [x] Verify 派 and other known-bad entries are correct after fix
+
+## SRS Scheduling Fix
+- [x] Audit FSRS interval growth parameters (stability, difficulty, desired retention)
+- [x] Fix getDueCards: completed words no longer excluded from queue (was the root cause of 8 due)
+- [x] Fix getDueStats: completed words no longer suppressed from counts
+- [x] Add desiredRetention field to Settings and wire into FSRS scheduler
+- [x] Add Desired Retention slider to Flashcard Settings in SettingsPage
+- [x] Update toast messages: "learned" no longer says "excluded from review queue"

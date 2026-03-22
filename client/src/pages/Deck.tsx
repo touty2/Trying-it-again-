@@ -1177,7 +1177,7 @@ export default function Deck() {
 
       if (bothDone) {
         await markWordCompleted(currentWordId);
-        toast.success("Mastered in both directions — excluded from review queue");
+        toast.success("Mastered in both directions ✓ — SRS will keep scheduling it");
       } else {
         const remaining = currentDirection === "forward" ? "EN→ZH" : "CN→EN";
         toast.success(`${currentDirection === "forward" ? "CN→EN" : "EN→CN"} confirmed ✓ — still needs ${remaining}`);
@@ -1185,7 +1185,7 @@ export default function Deck() {
     } else {
       // Non-random mode: mark both directions at once (legacy behaviour)
       await markWordCompleted(currentWordId);
-      toast.success("Marked as learned — excluded from review queue");
+      toast.success("Marked as learned ✓ — SRS will keep scheduling it");
     }
 
     setSessionReviewed((prev) => prev + 1);

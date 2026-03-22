@@ -910,6 +910,37 @@ export default function SettingsPage() {
           </div>
         </div>
 
+        {/* Desired Retention */}
+        <div className="pt-4 border-t border-border/40">
+          <p className="text-sm font-medium text-foreground mb-1">Desired retention rate</p>
+          <p className="text-xs text-muted-foreground mb-3">
+            How often you should remember a card when it comes up for review.
+            Higher = more frequent reviews (harder schedule). Lower = longer gaps (easier schedule).
+            Default is 85%.
+          </p>
+          <div className="flex items-center gap-4">
+            <input
+              type="range"
+              min={70}
+              max={99}
+              step={1}
+              value={Math.round((settings.desiredRetention ?? 0.85) * 100)}
+              onChange={async (e) => {
+                const pct = Number(e.target.value);
+                await updateSettings({ ...settings, desiredRetention: pct / 100 });
+              }}
+              className="flex-1 accent-primary"
+            />
+            <span className="text-sm font-semibold text-foreground w-12 text-right">
+              {Math.round((settings.desiredRetention ?? 0.85) * 100)}%
+            </span>
+          </div>
+          <div className="flex justify-between text-[10px] text-muted-foreground mt-1 px-0.5">
+            <span>70% (fewer reviews)</span>
+            <span>99% (many reviews)</span>
+          </div>
+        </div>
+
         {/* Notifications */}
         <div className="pt-4 border-t border-border/40 flex items-center justify-between">
           <div>
