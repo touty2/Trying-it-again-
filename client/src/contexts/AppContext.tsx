@@ -88,6 +88,10 @@ interface AppState {
   resetTextMistakes: (textId: string) => Promise<void>;
   /** Returns texts where ≥2 words have been missed ≥2 times */
   getSuggestedRereadTexts: () => { text: Text; difficultCount: number }[];
+  /** Gentle reset: sets all card due dates to now, keeps all SRS data */
+  resetDueDates: () => Promise<void>;
+  /** Nuclear reset: resets all cards to initial New state (reps=0, interval=0, due now) */
+  resetDeck: () => Promise<void>;
 }
 
 export const AppContext = createContext<AppState | null>(null);
@@ -546,6 +550,19 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
+  const resetDueDates = useCallback(async (): Promise<void> => {
+    await FlashcardDB.resetDueDates();
+    await refreshAll();
+  }, [refreshAll]);
+
+  const resetDeck = useCallback(async (): Promise<void> => {
+    await FlashcardDB.resetDeck();
+    // Clear completedWords so the learned badges reset alongside the cards
+    const allCompleted = await CompletedWordDB.getAll();
+    await Promise.all(allCompleted.map((cw) => CompletedWordDB.unmarkCompleted(cw.wordId)));
+    await refreshAll();
+  }, [refreshAll]);
+
   const resetTextMistakes = useCallback(async (textId: string): Promise<void> => {
     await WordMistakeDB.resetForText(textId);
     setWordMistakes((prev) =>
@@ -618,6 +635,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         unmarkTextCompleted,
         resetTextMistakes,
         getSuggestedRereadTexts,
+        resetDueDates,
+        resetDeck,
         addWordToStoryDeck,
         removeWordFromStoryDeck,
         getStoryDeckWordIds,

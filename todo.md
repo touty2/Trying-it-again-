@@ -48,3 +48,11 @@
 - [x] Add desiredRetention field to Settings and wire into FSRS scheduler
 - [x] Add Desired Retention slider to Flashcard Settings in SettingsPage
 - [x] Update toast messages: "learned" no longer says "excluded from review queue"
+
+## Deck Reset Controls
+- [x] Add resetDueDates helper to db.ts (sets all dueDate = now, keeps SRS data)
+- [x] Add resetDeck helper to db.ts (full reset: reps=0, interval=0, dueDate=now, state=New)
+- [x] Expose both helpers via AppContext
+- [x] Add Reset Due Dates button + AlertDialog confirmation to Deck page
+- [x] Add Reset Deck button + AlertDialog confirmation to Deck page
+- [x] Add descriptions under each button explaining what they do

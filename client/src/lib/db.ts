@@ -719,6 +719,82 @@ export const FlashcardDB = {
     ),
   /** @deprecated Use deleteByWordId */
   delete: (wordId: string): Promise<void> => FlashcardDB.deleteByWordId(wordId),
+
+  /**
+   * Reset Due Dates (gentle) — sets every card's dueDate to now so all cards
+   * appear as due today. All other SRS data (stability, difficulty, reps,
+   * lapses, state) is preserved.
+   */
+  resetDueDates: (): Promise<void> =>
+    openDB().then(
+      (db) =>
+        new Promise((resolve, reject) => {
+          const transaction = db.transaction("flashcards", "readwrite");
+          const store = transaction.objectStore("flashcards");
+          const getAllReq = store.getAll();
+          getAllReq.onsuccess = () => {
+            const cards = getAllReq.result as Flashcard[];
+            const now = Date.now();
+            const today = toISODate(now);
+            let pending = cards.length;
+            if (pending === 0) { resolve(); return; }
+            for (const card of cards) {
+              const updated = { ...card, dueDate: now, nextReviewDate: today };
+              const putReq = store.put(updated);
+              putReq.onsuccess = () => { if (--pending === 0) resolve(); };
+              putReq.onerror = () => reject(putReq.error);
+            }
+          };
+          getAllReq.onerror = () => reject(getAllReq.error);
+        })
+    ),
+
+  /**
+   * Reset Deck (nuclear) — resets every card to its initial New state:
+   * reps=0, lapses=0, stability=2.5, difficulty=5, scheduledDays=1,
+   * elapsedDays=0, state=New, lastReviewed=null, dueDate=now.
+   * Preserves cardId, wordId, cardType, and createdAt.
+   */
+  resetDeck: (): Promise<void> =>
+    openDB().then(
+      (db) =>
+        new Promise((resolve, reject) => {
+          const transaction = db.transaction("flashcards", "readwrite");
+          const store = transaction.objectStore("flashcards");
+          const getAllReq = store.getAll();
+          getAllReq.onsuccess = () => {
+            const cards = getAllReq.result as Flashcard[];
+            const now = Date.now();
+            const today = toISODate(now);
+            let pending = cards.length;
+            if (pending === 0) { resolve(); return; }
+            for (const card of cards) {
+              const fresh: Flashcard = {
+                ...card,
+                stability: 2.5,
+                difficulty: 5.0,
+                dueDate: now,
+                elapsedDays: 0,
+                scheduledDays: 1,
+                reps: 0,
+                lapses: 0,
+                isLeech: false,
+                state: 0, // State.New
+                lastReviewed: null,
+                nextReviewDate: today,
+                // legacy aliases
+                repetition: 0,
+                interval: 1,
+                easeFactor: 2.5,
+              };
+              const putReq = store.put(fresh);
+              putReq.onsuccess = () => { if (--pending === 0) resolve(); };
+              putReq.onerror = () => reject(putReq.error);
+            }
+          };
+          getAllReq.onerror = () => reject(getAllReq.error);
+        })
+    ),
 };
 
 // ─── Settings CRUD ────────────────────────────────────────────────────────────
