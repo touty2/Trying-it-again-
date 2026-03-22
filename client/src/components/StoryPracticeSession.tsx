@@ -78,7 +78,7 @@ function PracticeCard({ word, onKnow, onDontKnow, index, total }: PracticeCardPr
           {/* Front */}
           <div
             className="absolute inset-0 rounded-2xl border border-border/50 bg-card shadow-sm flex flex-col items-center justify-center gap-2 px-6"
-            style={{ backfaceVisibility: "hidden" }}
+            style={{ backfaceVisibility: "hidden", backgroundColor: "var(--card)" }}
           >
             <span
               className="text-5xl font-bold text-foreground"
@@ -92,7 +92,7 @@ function PracticeCard({ word, onKnow, onDontKnow, index, total }: PracticeCardPr
           {/* Back */}
           <div
             className="absolute inset-0 rounded-2xl border border-border/50 bg-card shadow-sm flex flex-col items-start justify-center gap-2 px-6 overflow-y-auto"
-            style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+            style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)", backgroundColor: "var(--card)" }}
             onClick={(e) => e.stopPropagation()}
           >
             <span

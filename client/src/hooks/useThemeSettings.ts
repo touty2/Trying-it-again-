@@ -63,8 +63,8 @@ const BG_MAP: Record<ReadingBg, { bg: string; card: string; popover: string }> =
 
 function applyToDOM(s: ThemeSettings) {
   const root = document.documentElement;
-  const accent = ACCENT_MAP[s.accentColor];
-  const bg = BG_MAP[s.readingBg];
+  const accent = ACCENT_MAP[s.accentColor] ?? ACCENT_MAP["teal"];
+  const bg = BG_MAP[s.readingBg] ?? BG_MAP["white"];
 
   // Dark mode class — single source of truth on <html>
   const isDark = s.darkMode || s.readingBg === "dark";

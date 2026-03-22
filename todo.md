@@ -59,3 +59,6 @@
 
 ## UX Cleanup
 - [x] Move Reset Due Dates and Reset Deck buttons from Deck page header to Flashcard Settings page only
+
+## Flashcard Visual Fix
+- [x] Restore solid opaque flashcard background (was accidentally made semi-transparent)

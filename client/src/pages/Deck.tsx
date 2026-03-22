@@ -438,16 +438,16 @@ function FlashCard({
           {/* ── Front Face ── */}
           <div
             className="absolute inset-0 rounded-2xl border border-border/50 bg-card shadow-sm flex flex-col items-center justify-center overflow-hidden"
-            style={{ backfaceVisibility: "hidden" }}
+            style={{ backfaceVisibility: "hidden", backgroundColor: "var(--card)" }}
           >
             {frontContent}
           </div>
 
-          {/* ── Back Face ── — absolutely positioned, scrollable when content overflows */}
+          {/* ── Back Face ── */}
           <div
             ref={backRef}
             className="absolute inset-0 rounded-2xl border border-border/50 bg-card shadow-sm overflow-y-auto"
-            style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+            style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)", backgroundColor: "var(--card)" }}
             onClick={(e) => {
               // Allow scrolling without flipping the card back
               if ((e.target as HTMLElement).closest('[data-action-btn]')) return;
