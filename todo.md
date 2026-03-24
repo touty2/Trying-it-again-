@@ -82,3 +82,9 @@
 - [x] Simplify review flow to a single "I Know" button (works pre and post flip, always records correct + advances)
 - [x] Remove separate pre-flip / post-flip "I know" inconsistency
 - [x] Add "Skip" button — defers card to end of queue without touching SRS schedule
+
+## Button Layout Restoration (requested)
+- [x] Restore original Again/Hard/Good/Easy grid in original positions (shown after flip)
+- [x] Add Skip button below the grid (secondary, non-replacing)
+- [x] "mark as learned" is a small underline link in the utility row — not a primary action button
+- [x] Speaker + slow toggle remain in the always-visible utility row above the review grid
