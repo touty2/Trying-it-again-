@@ -134,6 +134,7 @@ interface FlashCardProps {
   card: Flashcard;
   word: Word;
   onReview: (rating: 1 | 2 | 3 | 4) => void;
+  onSkip: () => void;
   direction: "forward" | "reverse";
   isRandom: boolean;
   isCompleted?: boolean;
@@ -153,6 +154,7 @@ function FlashCard({
   card: _card,
   word,
   onReview,
+  onSkip,
   direction: _direction,
   isRandom,
   isCompleted = false,
@@ -223,21 +225,25 @@ function FlashCard({
     setTimeout(() => onReview(rating), 150);
   };
 
-  // Spacebar shortcut: flip card if not flipped, trigger Good if already flipped
+  // Spacebar shortcut: flip card if not flipped, trigger I Know (Good) if already flipped
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.code !== "Space") return;
       if ((e.target as HTMLElement).tagName === "INPUT" || (e.target as HTMLElement).tagName === "TEXTAREA") return;
-      e.preventDefault();
-      if (!flipped) {
-        setFlipped(true);
-      } else {
-        handleReview(3); // Good on spacebar
+      if (e.code === "Space") {
+        e.preventDefault();
+        if (!flipped) {
+          setFlipped(true);
+        } else {
+          handleReview(3); // I Know = Good on spacebar
+        }
+      } else if (e.code === "KeyS") {
+        e.preventDefault();
+        onSkip();
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [flipped]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [flipped, onSkip]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSpeak = () => tts.speakDual(word.hanzi, slowMode ? 0.65 : audioSettings.playbackSpeed);
 
@@ -413,7 +419,7 @@ function FlashCard({
   );
 
   return (
-    <div className={`w-full max-w-lg mx-auto transition-opacity duration-300 ${isCompleted ? "opacity-50" : ""}`}>
+    <div className="w-full max-w-lg mx-auto">
       {/* Completion badge */}
       {completionBadge}
 
@@ -462,28 +468,37 @@ function FlashCard({
 
       {/* ── Below-card action row: always visible ── */}
       <div className="mt-4 flex items-center justify-center gap-3">
-        {/* ✓ Mark as learned — shown only on front face */}
-        {!flipped && !isCompleted && (
-          <button
-            data-action-btn
-            onClick={onMarkCompleted}
-            className="flex items-center justify-center w-12 h-12 rounded-xl border border-emerald-200/80 dark:border-emerald-700/40 bg-emerald-50 dark:bg-emerald-950/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 hover:border-emerald-300 dark:hover:border-emerald-600/60 text-emerald-600 dark:text-emerald-400 shadow-xs hover:shadow-sm transition-all duration-150 active:scale-[0.96]"
-            title="Mark as learned (exclude from queue)"
-            aria-label="Mark as learned"
-          >
-            <CheckCircle2 size={20} />
-          </button>
-        )}
+        {/* ✓ I Know — always visible, records Good (rating 3) and advances */}
+        <button
+          data-action-btn
+          onClick={() => handleReview(3)}
+          className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-emerald-200/80 dark:border-emerald-700/40 bg-emerald-50 dark:bg-emerald-950/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 hover:border-emerald-300 dark:hover:border-emerald-600/60 text-emerald-600 dark:text-emerald-400 font-semibold text-sm shadow-xs hover:shadow-sm transition-all duration-150 active:scale-[0.96]"
+          title="I know this word — mark correct and advance"
+          aria-label="I know"
+        >
+          <CheckCircle2 size={17} />
+          I Know
+        </button>
+        {/* ⏭ Skip — defers card to end of queue, no SRS change */}
+        <button
+          data-action-btn
+          onClick={onSkip}
+          className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-border/60 dark:border-border/40 bg-card hover:bg-muted/60 dark:hover:bg-muted/30 text-muted-foreground hover:text-foreground font-medium text-sm shadow-xs hover:shadow-sm transition-all duration-150 active:scale-[0.96]"
+          title="Skip — defer to end of queue without affecting SRS (S)"
+          aria-label="Skip"
+        >
+          Skip
+        </button>
         {/* 🔊 Speaker — always shown, plays dual voice */}
         {tts.hasSpeech && (
           <button
             data-action-btn
             onClick={handleSpeak}
-            className="flex items-center justify-center w-12 h-12 rounded-xl border border-border/60 dark:border-border/40 bg-card hover:bg-muted/60 dark:hover:bg-muted/30 text-muted-foreground hover:text-primary shadow-xs hover:shadow-sm transition-all duration-150 active:scale-[0.96]"
+            className="flex items-center justify-center w-10 h-10 rounded-xl border border-border/60 dark:border-border/40 bg-card hover:bg-muted/60 dark:hover:bg-muted/30 text-muted-foreground hover:text-primary shadow-xs hover:shadow-sm transition-all duration-150 active:scale-[0.96]"
             title="Listen (female then male voice)"
             aria-label="Listen"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
               <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
               <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
@@ -508,16 +523,63 @@ function FlashCard({
         )}
       </div>
 
-      {/* ── Review Buttons (shown after flip) ── */}
+      {/* ── Flip hint + completion badge row (below action buttons) ── */}
+      <div className="mt-3 flex items-center justify-center gap-4">
+        {!flipped && (
+          <p className="text-[11px] text-muted-foreground/50 select-none">tap card or space to flip</p>
+        )}
+        {isCompleted && (
+          <div className="flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400">
+            <CheckCircle2 size={11} />
+            <span>Learned</span>
+            <button
+              data-action-btn
+              onClick={onUnmarkCompleted}
+              className="ml-1 underline text-muted-foreground hover:text-foreground"
+            >
+              undo
+            </button>
+          </div>
+        )}
+        {!isCompleted && onMarkCompleted && (
+          <button
+            data-action-btn
+            onClick={onMarkCompleted}
+            className="text-[11px] text-muted-foreground/50 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors underline"
+            title="Mark as learned"
+          >
+            mark as learned
+          </button>
+        )}
+      </div>
+
+      {/* ── Flip-reveal panel (shown after flip) ── */}
       <AnimatePresence>
         {flipped && (
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 12 }}
-            transition={{ duration: 0.2 }}
-            className="mt-4 space-y-2"
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ duration: 0.18 }}
+            className="mt-3 flex items-center justify-center"
           >
+            {/* Spacer — the I Know / Skip buttons above already handle the review action.
+                 We keep the Again button here as an optional "I don't know" shortcut. */}
+            <button
+              onClick={() => handleReview(1)}
+              className="group flex items-center gap-1.5 px-4 py-2 rounded-lg border border-rose-200/60 dark:border-rose-700/30 bg-rose-50/60 dark:bg-rose-950/20 hover:bg-rose-100/80 dark:hover:bg-rose-900/30 text-rose-500 dark:text-rose-400 text-xs font-medium transition-all duration-150 active:scale-[0.97]"
+              title="I don't know — requeue in 2–3 cards"
+            >
+              <RotateCcw size={13} className="transition-transform duration-150 group-hover:rotate-[-20deg]" />
+              Don't know · {intervals.again}
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ── Removed: old Again/Hard/Good/Easy grid. Kept for reference only. ── */}
+      {false && (
+        <div className="mt-4 space-y-2">
             {/* Primary row: Again + Good */}
             <div className="grid grid-cols-2 gap-3">
               {/* Again — rating 1 */}
@@ -529,38 +591,9 @@ function FlashCard({
                 <span className="text-sm font-semibold tracking-tight">Again</span>
                 <span className="text-[10px] font-medium text-rose-400/80 dark:text-rose-500/80">{intervals.again}</span>
               </button>
-              {/* Good — rating 3 */}
-              <button
-                onClick={() => handleReview(3)}
-                className="group flex flex-col items-center gap-1.5 py-4 px-2 rounded-xl border border-emerald-200/80 dark:border-emerald-700/40 bg-emerald-50 dark:bg-emerald-950/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 hover:border-emerald-300 dark:hover:border-emerald-600/60 text-emerald-600 dark:text-emerald-400 shadow-xs hover:shadow-sm transition-all duration-150 active:scale-[0.96]"
-              >
-                <CheckCircle2 size={18} />
-                <span className="text-sm font-semibold tracking-tight">Good</span>
-                <span className="text-[10px] font-medium text-emerald-400/80 dark:text-emerald-500/80">{intervals.good}</span>
-              </button>
             </div>
-            {/* Secondary row: Hard + Easy (smaller, muted) */}
-            <div className="grid grid-cols-2 gap-2">
-              {/* Hard — rating 2 */}
-              <button
-                onClick={() => handleReview(2)}
-                className="flex flex-col items-center gap-0.5 py-2 px-2 rounded-lg border border-amber-200/60 dark:border-amber-700/30 bg-amber-50/60 dark:bg-amber-950/20 hover:bg-amber-100/80 dark:hover:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-medium transition-all duration-150 active:scale-[0.97] opacity-80 hover:opacity-100"
-              >
-                <span className="font-semibold">Hard</span>
-                <span className="text-[9px] text-amber-400/70 dark:text-amber-500/70">{intervals.hard}</span>
-              </button>
-              {/* Easy — rating 4 */}
-              <button
-                onClick={() => handleReview(4)}
-                className="flex flex-col items-center gap-0.5 py-2 px-2 rounded-lg border border-sky-200/60 dark:border-sky-700/30 bg-sky-50/60 dark:bg-sky-950/20 hover:bg-sky-100/80 dark:hover:bg-sky-900/30 text-sky-600 dark:text-sky-400 text-xs font-medium transition-all duration-150 active:scale-[0.97] opacity-80 hover:opacity-100"
-              >
-                <span className="font-semibold">Easy</span>
-                <span className="text-[9px] text-sky-400/70 dark:text-sky-500/70">{intervals.easy}</span>
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        </div>
+      )}
 
 
     </div>
@@ -778,7 +811,7 @@ function WordListItem({
     ? Math.ceil((dueDate.getTime() - Date.now()) / (1000 * 60 * 60 * 24))
     : null;
   return (
-    <div className={`flex items-center justify-between py-3 px-4 rounded-lg hover:bg-muted/40 transition-colors group ${isCompleted ? "opacity-50" : ""}`}>
+    <div className="flex items-center justify-between py-3 px-4 rounded-lg hover:bg-muted/40 transition-colors group">
       <div className="flex items-center gap-3 min-w-0">
         {isCompleted && <CheckCircle2 size={14} className="text-emerald-500 shrink-0" />}
         <span
@@ -1154,6 +1187,16 @@ export default function Deck() {
     [currentCardId, reviewFlashcard, requeuedWordIds, settings.dailyReviewCap, todayReviews, currentIdx, notifyChange]
   );
 
+  const handleSkip = useCallback(() => {
+    if (!currentCardId) return;
+    // Move the current card to the end of the queue without touching SRS
+    setReviewQueue((prev) => {
+      const next = prev.filter((id, idx) => idx !== currentIdx);
+      return [...next, currentCardId];
+    });
+    // Don't increment currentIdx — the next card slides into the same position
+  }, [currentCardId, currentIdx]);
+
   const handleMarkCompleted = useCallback(async () => {
     if (!currentWordId) return;
 
@@ -1397,6 +1440,7 @@ export default function Deck() {
                   card={currentCard}
                   word={currentWord}
                   onReview={handleReview}
+                  onSkip={handleSkip}
                   direction={currentDirection}
                   isRandom={isRandom}
                   isCompleted={completedWordIds.has(currentWordId ?? "")}

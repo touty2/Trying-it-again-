@@ -68,3 +68,17 @@
 
 ## Flashcard Transparency Bug (Persistent)
 - [x] Definitively trace and fix faded/semi-transparent flashcard appearance — root cause: @theme inline used var() references which are compile-time only in Tailwind 4; fixed by using literal HSL values
+
+## Manus Scaffold Restoration (Mar 2026)
+- [x] Restored from Trying-it-again--main.zip into web-db-user scaffold
+- [x] All server _core files replaced with standalone email/password auth versions
+- [x] All 14 database tables created via webdev_execute_sql
+- [x] Extra dependencies installed (fsrs-algorithm, bcryptjs, ai, etc.)
+- [x] TypeScript compiles with 0 errors
+- [x] Checkpoint saved — project ready to edit
+
+## Flashcard UX Fixes (requested)
+- [x] Remove SRS-based opacity/transparency from flashcard cards — all cards must look identical regardless of learned/new state
+- [x] Simplify review flow to a single "I Know" button (works pre and post flip, always records correct + advances)
+- [x] Remove separate pre-flip / post-flip "I know" inconsistency
+- [x] Add "Skip" button — defers card to end of queue without touching SRS schedule

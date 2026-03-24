@@ -293,7 +293,7 @@ class SDKServer {
     }
 
     await db.upsertUser({
-      email: user.email,
+      openId: user.openId,
       lastSignedIn: signedInAt,
     });
 
