@@ -1,7 +1,20 @@
 /**
- * shared/sm2.ts — Custom Spaced Repetition Algorithm
+ * shared/sm2.ts — Legacy Spaced Repetition Algorithm (SM-2 style)
  *
- * Two-button interface: Know (quality=2) and Don't Know (quality=0).
+ * @deprecated The app has migrated to FSRS (client/src/lib/db.ts).
+ * This module is kept because:
+ *   1. client/src/lib/db.ts imports: toISODate, fromISODate, SM2Quality, LEECH_THRESHOLD
+ *   2. server test files (srs.test.ts, srs.dates.test.ts, srs.remaining.test.ts,
+ *      segmentation.test.ts) still import SM2 types and functions for legacy coverage.
+ *
+ * DO NOT add new features here. Migrate remaining test imports to FSRS equivalents
+ * when those tests are updated. The only exports still in active use are:
+ *   - toISODate, fromISODate (date helpers — safe to keep)
+ *   - SM2Quality, LEECH_THRESHOLD (constants — safe to keep)
+ * All other exports (applySM2, applyDontKnow, buildSessionQueue, getDueStats,
+ * calculateKnowInterval, applyIntervalFuzz) are dead code in production.
+ *
+ * Original two-button interface: Know (quality=2) and Don't Know (quality=0).
  *
  * Session behaviour:
  *   - Don't Know: card is inserted 2-3 positions ahead in the session queue

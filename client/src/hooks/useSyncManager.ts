@@ -131,6 +131,8 @@ function applyCloudPreferences(data: Record<string, unknown>): void {
           ...(patch.cardSize !== undefined             && { cardSize:             patch.cardSize as 1 | 2 | 3 }),
           ...(patch.enableReversibleCards !== undefined && { enableReversibleCards: patch.enableReversibleCards as boolean }),
           ...(patch.flashcardSource !== undefined      && { flashcardSource:      patch.flashcardSource as string }),
+          // F1 fix: restore desiredRetention from cloud
+          ...(patch.desiredRetention !== undefined         && { desiredRetention:      patch.desiredRetention as number }),
         };
         SettingsDB.put(merged as Parameters<typeof SettingsDB.put>[0]);
       }).catch(() => { /* best-effort */ });
@@ -288,7 +290,10 @@ export function useSyncManager(userId: number | null | undefined) {
             scheduledDays: Number((cloudCard as { scheduledDays?: number }).scheduledDays ?? (cloudCard as { interval?: number }).interval ?? 1),
             reps: Number((cloudCard as { reps?: number }).reps ?? (cloudCard as { repetition?: number }).repetition ?? 0),
             elapsedDays: Number((cloudCard as { elapsedDays?: number }).elapsedDays ?? 0),
-            state: ((cloudCard as { reps?: number }).reps ?? (cloudCard as { repetition?: number }).repetition ?? 0) === 0 ? 0 : 2,
+            // F2 fix: preserve state from cloud instead of recomputing from reps.
+            // Recomputing always yields 0 (New) or 2 (Review), which silently promotes
+            // Relearning (3) cards to Review state after a sync.
+            state: (cloudCard as { state?: number }).state ?? (((cloudCard as { reps?: number }).reps ?? (cloudCard as { repetition?: number }).repetition ?? 0) === 0 ? 0 : 2),
             lastReviewed: cloudCard.lastReviewed ?? null,
             createdAt: cloudCard.createdAt,
             nextReviewDate: new Date(cloudCard.dueDate).toISOString().slice(0, 10),
@@ -325,15 +330,23 @@ export function useSyncManager(userId: number | null | undefined) {
         }
       }
 
-      // ── 5. Merge word mistakes (take max missCount) ─────────────────────────
+       // ── 5. Merge word mistakes (take max missCount) ———————————————————————
       const localMistakeMap = new Map(localWordMistakes.map((m) => [m.wordId, m]));
       for (const cloudMistake of cloudWordMistakes.items) {
         const local = localMistakeMap.get(cloudMistake.wordId);
         if (!local || local.missCount < cloudMistake.missCount) {
           const targetCount = cloudMistake.missCount;
           const currentCount = local?.missCount ?? 0;
+          // F7 fix: pass the cloud lastMissed timestamp so the original miss time
+          // is preserved instead of being overwritten with the sync time.
+          const cloudLastMissed = (cloudMistake as { lastMissed?: number }).lastMissed;
           for (let i = currentCount; i < targetCount; i++) {
-            await WordMistakeDB.recordMiss(cloudMistake.wordId, cloudMistake.sourceTextId ?? null);
+            await WordMistakeDB.recordMiss(
+              cloudMistake.wordId,
+              cloudMistake.sourceTextId ?? null,
+              // Only pass the timestamp on the last iteration (the most recent miss)
+              i === targetCount - 1 ? cloudLastMissed : undefined
+            );
           }
         }
       }
@@ -489,6 +502,8 @@ export function useSyncManager(userId: number | null | undefined) {
         cardSize:            localSettings.cardSize,
         enableReversibleCards: localSettings.enableReversibleCards,
         flashcardSource:     localSettings.flashcardSource,
+        // F1 fix: include desiredRetention so it survives cross-device sync
+        desiredRetention:    localSettings.desiredRetention,
       };
       // Also include grammarProgress localStorage blob for cross-device restore
       try {
@@ -545,7 +560,11 @@ export function useSyncManager(userId: number | null | undefined) {
           const decks = Array.from(byStory.entries()).map(([storyId, wordIds]) => ({ storyId, wordIds }));
           await pushStoryDecksRef.current.mutateAsync({ decks });
         }
-      } catch { /* story deck sync is best-effort */ }
+      } catch (storyDeckErr) {
+        // F8 fix: log story deck sync errors instead of silently swallowing them.
+        // Still best-effort (won't abort the overall sync), but now visible in console.
+        console.warn("[SyncManager] Story deck sync failed (best-effort):", storyDeckErr);
+      }
 
       // ── 11. Update sync state ───────────────────────────────────────────────
       const now = Date.now();

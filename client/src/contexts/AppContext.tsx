@@ -25,7 +25,6 @@ import {
   CompletedTextDB,
   StoryDeckDB,
   applyFSRS,
-  applyDontKnow,
   createFSRSCard,
   getDueStats,
   toISODate,
@@ -76,7 +75,7 @@ interface AppState {
   isWordInDeck: (hanzi: string) => boolean;
   getDueCards: () => Flashcard[];
   /** Returns counts for Due Today, Overdue, and New (never reviewed) cards */
-  getDueStats: () => { dueToday: number; overdue: number; newCards: number };
+  getDueStats: () => { dueToday: number; overdue: number; newCards: number; leechCards: number };
   getWordById: (id: string) => Word | undefined;
   getTextById: (id: string) => Text | undefined;
 
@@ -476,6 +475,13 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const getDueCards = useCallback((): Flashcard[] => {
+    // F12 note: getDueCards returns ALL due cards without applying the daily cap.
+    // The daily review cap (settings.dailyReviewCap) is enforced at the UI layer
+    // in Deck.tsx handleReview — it blocks the reviewFlashcard call when the cap
+    // is reached. This is intentional: the queue is pre-loaded in full so that
+    // the session can resume after a cap reset without a page reload.
+    // The daily new-word cap (settings.dailyNewWordCap) is enforced in addWordToDeck
+    // and addManualWord before cards are created, so it gates card creation, not review.
     // Include ALL cards due now or in the past (no arbitrary cap).
     // Sort oldest-due first so the most overdue cards are reviewed first.
     const now = Date.now();
@@ -504,7 +510,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
    * Called on every render of Dashboard and Deck without any DB round-trip.
    */
   const getDueStatsCallback = useCallback(
-    (): { dueToday: number; overdue: number; newCards: number } =>
+    (): { dueToday: number; overdue: number; newCards: number; leechCards: number } =>
       getDueStats(flashcardsRef.current, completedWordIdsRef.current),
     []
   );

@@ -293,9 +293,16 @@ export function applyFSRS(card: Flashcard, rating: FSRSRating, desiredRetention 
     ? scheduled.due.getTime()
     : now.getTime() + cappedDays * 24 * 60 * 60 * 1000;
 
+  // F3 fix: when the interval is capped, also scale stability proportionally so the
+  // FSRS model's internal state stays consistent with the actual review interval.
+  // Without this, FSRS computes stability assuming the full uncapped interval was used,
+  // causing it to underestimate forgetting speed for well-known cards.
+  const cappedStability = cappedDays === rawDays
+    ? scheduled.stability
+    : scheduled.stability * (cappedDays / Math.max(rawDays, 1));
+
   return {
-    // Real FSRS fields (keep stability/difficulty from FSRS — don't distort the model)
-    stability:    scheduled.stability,
+    stability:    cappedStability,
     difficulty:   scheduled.difficulty,
     scheduledDays: cappedDays,
     elapsedDays:  scheduled.elapsedDays,
@@ -315,9 +322,9 @@ export function applyFSRS(card: Flashcard, rating: FSRSRating, desiredRetention 
 }
 
 /**
- * Apply an Again (rating=1) response without changing the due date.
- * Used when the card is requeued in the session and we only want to
- * record the lapse immediately — the full reschedule happens on eventual Good.
+ * @deprecated No longer called externally. All Again presses now go through applyFSRS.
+ * Kept for backwards-compat in case external test files reference it.
+ * @internal
  */
 export function applyDontKnow(card: Flashcard): Partial<Flashcard> {
   const newLapses = (card.lapses ?? 0) + 1;
@@ -375,9 +382,9 @@ export function createFSRSCard(wordId: string, cardType: CardType): Flashcard {
  * Completed words (passed as a Set) are excluded from all counts.
  */
 export function getDueStats(
-  cards: Pick<Flashcard, "wordId" | "dueDate" | "lastReviewed">[],
+  cards: Pick<Flashcard, "wordId" | "dueDate" | "lastReviewed" | "isLeech">[],
   _completedWordIds: Set<string>  // kept for API compat but no longer used to suppress
-): { dueToday: number; overdue: number; newCards: number } {
+): { dueToday: number; overdue: number; newCards: number; leechCards: number } {
   const todayStart = new Date();
   todayStart.setHours(0, 0, 0, 0);
   const todayStartMs = todayStart.getTime();
@@ -386,8 +393,11 @@ export function getDueStats(
   let dueToday = 0;
   let overdue = 0;
   let newCards = 0;
+  let leechCards = 0;
 
   for (const card of cards) {
+    // F6 fix: count leech cards (isLeech flag set by FSRS when lapses >= LEECH_THRESHOLD)
+    if (card.isLeech) leechCards++;
     // completedWordIds no longer suppresses cards from the queue — "learned" is visual only
     if (card.lastReviewed === null) {
       // New cards are always immediately due — count in both buckets
@@ -400,7 +410,7 @@ export function getDueStats(
     }
   }
 
-  return { dueToday, overdue, newCards };
+  return { dueToday, overdue, newCards, leechCards };
 }
 
 // ─── IndexedDB Setup ──────────────────────────────────────────────────────────
@@ -924,7 +934,7 @@ export const WordMistakeDB = {
   getAll: (): Promise<WordMistake[]> => txAll("wordMistakes", "readonly", (s) => s.getAll()),
   getById: (wordId: string): Promise<WordMistake | undefined> =>
     tx("wordMistakes", "readonly", (s) => s.get(wordId)),
-  recordMiss: (wordId: string, sourceTextId: string | null): Promise<void> =>
+  recordMiss: (wordId: string, sourceTextId: string | null, atTime?: number): Promise<void> =>
     openDB().then(
       (db) =>
         new Promise((resolve, reject) => {
@@ -933,11 +943,14 @@ export const WordMistakeDB = {
           const getReq = store.get(wordId);
           getReq.onsuccess = () => {
             const existing: WordMistake | undefined = getReq.result;
+            // F7 fix: accept an explicit timestamp (e.g. from sync) so that
+            // the original lastMissed time is preserved rather than being
+            // overwritten with the sync time (Date.now()).
             const updated: WordMistake = {
               wordId,
               sourceTextId,
               missCount: (existing?.missCount ?? 0) + 1,
-              lastMissed: Date.now(),
+              lastMissed: atTime ?? Date.now(),
             };
             const putReq = store.put(updated);
             putReq.onsuccess = () => resolve();
