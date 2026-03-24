@@ -69,7 +69,7 @@ import { useAudioSettings } from "@/hooks/useAudioSettings";
 import { useFlashcardDirection } from "@/hooks/useFlashcardDirection";
 import { CompletedWordDB } from "@/lib/db";
 import type { Flashcard, Word, TestingMode, FlashcardSource } from "@/lib/db";
-import { loadAndMergeSession, useDeckSessionPersistence, clearSession } from "@/hooks/useDeckSession";
+import { loadAndMergeSession, useDeckSessionPersistence, clearSession, SESSION_COMPLETE } from "../hooks/useDeckSession";
 import { toTonePinyin } from "@/lib/pinyin";
 import { useDecks } from "@/hooks/useDecks";
 import { DecksSidebar } from "@/components/DecksSidebar";
@@ -1005,33 +1005,43 @@ export default function Deck() {
   // For the main deck we merge the saved session as before.
   const isStoryMode = !!urlParams.storyId;
 
-  const [sessionRestored, setSessionRestored] = useState<boolean>(() => {
-    if (isStoryMode) return false;
+  // ── Compute initial session state once (avoids calling getDueCards 4x) ──────
+  const _rawSession = (() => {
+    if (isStoryMode) return null;
     const currentDue = getDueCards().map((c) => c.cardId);
-    const merged = loadAndMergeSession(currentDue);
-    return !!(merged && merged.sessionReviewed > 0);
+    return loadAndMergeSession(currentDue);
+  })();
+  // SESSION_COMPLETE means the user already finished today — start with done screen
+  const alreadyCompletedToday = _rawSession === SESSION_COMPLETE;
+  // Narrow to DeckSessionState | null for the rest of the init code
+  const initialSession = alreadyCompletedToday ? null : (_rawSession as import("../hooks/useDeckSession").DeckSessionState | null);
+
+  const [sessionRestored, setSessionRestored] = useState<boolean>(() => {
+    if (isStoryMode || alreadyCompletedToday) return false;
+    return !!(initialSession && initialSession.sessionReviewed > 0);
   });
   const [reviewQueue, setReviewQueue] = useState<string[]>(() => {
     if (isStoryMode) return []; // populated later once storyWordIds loads
+    if (alreadyCompletedToday) return []; // show done screen immediately
     const currentDue = getDueCards().map((c) => c.cardId);
-    const merged = loadAndMergeSession(currentDue);
-    if (merged && merged.queue.length > 0) return merged.queue;
+    if (initialSession && initialSession.queue.length > 0)
+      return initialSession.queue;
     return currentDue;
   });
-  const [currentIdx, setCurrentIdx] = useState<number>(0);
+  const [currentIdx, setCurrentIdx] = useState<number>(() => {
+    // If already completed today, set idx past the queue so the done screen shows
+    if (alreadyCompletedToday) return 0; // queue is [] so isSessionDone = true
+    return 0;
+  });
   const [sessionReviewed, setSessionReviewed] = useState<number>(() => {
-    if (isStoryMode) return 0;
-    const currentDue = getDueCards().map((c) => c.cardId);
-    const merged = loadAndMergeSession(currentDue);
-    return merged ? merged.sessionReviewed : 0;
+    if (isStoryMode || alreadyCompletedToday) return 0;
+    return initialSession ? initialSession.sessionReviewed : 0;
   });
   // Track cards that have been requeued due to "Again" so we can show a
   // "requeued" indicator and avoid double-counting them in the progress bar.
   const [requeuedWordIds, setRequeuedWordIds] = useState<Set<string>>(() => {
-    if (isStoryMode) return new Set();
-    const currentDue = getDueCards().map((c) => c.cardId);
-    const merged = loadAndMergeSession(currentDue);
-    return merged ? new Set(merged.requeuedIds) : new Set();
+    if (isStoryMode || alreadyCompletedToday) return new Set();
+    return initialSession ? new Set(initialSession.requeuedIds) : new Set();
   });
 
   // Once storyWordIds loads (async), build the initial story-scoped queue

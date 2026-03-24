@@ -12,6 +12,8 @@ import {
   saveSession,
   clearSession,
   loadAndMergeSession,
+  markSessionComplete,
+  SESSION_COMPLETE,
 } from "./useDeckSession";
 
 // ── localStorage mock ─────────────────────────────────────────────────────────
@@ -114,7 +116,7 @@ describe("useDeckSession — loadAndMergeSession", () => {
     expect(loadAndMergeSession(["word-1", "word-2"])).toBeNull();
   });
 
-  it("returns null when the saved session is finished", () => {
+  it("returns SESSION_COMPLETE when the saved session is finished (currentIdx >= queue.length)", () => {
     writeRawSession({
       queue: ["word-1", "word-2"],
       currentIdx: 2, // finished
@@ -122,7 +124,7 @@ describe("useDeckSession — loadAndMergeSession", () => {
       requeuedIds: [],
       savedAt: Date.now(),
     });
-    expect(loadAndMergeSession(["word-1", "word-2"])).toBeNull();
+    expect(loadAndMergeSession(["word-1", "word-2"])).toBe(SESSION_COMPLETE);
   });
 
   it("keeps unfinished saved cards that are still due", () => {
@@ -185,7 +187,7 @@ describe("useDeckSession — loadAndMergeSession", () => {
     expect(result!.queue).toEqual(["word-3"]);
   });
 
-  it("returns null when merged queue is empty", () => {
+  it("returns SESSION_COMPLETE when merged queue is empty (all cards no longer due = session done)", () => {
     writeRawSession({
       queue: ["word-1", "word-2"],
       currentIdx: 0,
@@ -193,9 +195,9 @@ describe("useDeckSession — loadAndMergeSession", () => {
       requeuedIds: [],
       savedAt: Date.now(),
     });
-    // Neither card is due anymore
+    // Neither card is due anymore — treated as session complete, not null
     const result = loadAndMergeSession([]);
-    expect(result).toBeNull();
+    expect(result).toBe(SESSION_COMPLETE);
   });
 
   it("resets to full due set when session is 24h+ old", () => {
@@ -227,5 +229,73 @@ describe("useDeckSession — loadAndMergeSession", () => {
   it("handles malformed JSON gracefully", () => {
     store[ACTIVE_KEY] = "not-json{{{";
     expect(loadAndMergeSession(["word-1"])).toBeNull();
+  });
+});
+
+// ── SESSION_COMPLETE / completedUntil tests ───────────────────────────────────────────
+
+describe("useDeckSession — SESSION_COMPLETE persistence", () => {
+  beforeEach(() => localStorageMock.clear());
+
+  it("markSessionComplete writes a completedUntil in the future", () => {
+    saveSession(freshSession());
+    markSessionComplete();
+    const raw = store[ACTIVE_KEY];
+    expect(raw).toBeDefined();
+    const parsed = JSON.parse(raw);
+    expect(parsed.completedUntil).toBeGreaterThan(Date.now());
+  });
+
+  it("loadAndMergeSession returns SESSION_COMPLETE when completedUntil is in the future", () => {
+    writeRawSession({
+      queue: ["word-1"],
+      currentIdx: 0,
+      sessionReviewed: 1,
+      requeuedIds: [],
+      savedAt: Date.now(),
+      completedUntil: Date.now() + 60 * 60 * 1000, // 1 hour from now
+    });
+    expect(loadAndMergeSession(["word-1"])).toBe(SESSION_COMPLETE);
+  });
+
+  it("loadAndMergeSession returns null when completedUntil has passed (new day)", () => {
+    writeRawSession({
+      queue: ["word-1"],
+      currentIdx: 0,
+      sessionReviewed: 1,
+      requeuedIds: [],
+      savedAt: Date.now() - 2 * 60 * 60 * 1000,
+      completedUntil: Date.now() - 60 * 1000, // 1 minute ago (passed midnight)
+    });
+    expect(loadAndMergeSession(["word-1"])).toBeNull();
+  });
+
+  it("SESSION_COMPLETE persists across multiple loadAndMergeSession calls", () => {
+    writeRawSession({
+      queue: ["word-1"],
+      currentIdx: 0,
+      sessionReviewed: 1,
+      requeuedIds: [],
+      savedAt: Date.now(),
+      completedUntil: Date.now() + 60 * 60 * 1000,
+    });
+    // First call
+    expect(loadAndMergeSession(["word-1"])).toBe(SESSION_COMPLETE);
+    // Second call (simulating refresh/navigation)
+    expect(loadAndMergeSession(["word-1"])).toBe(SESSION_COMPLETE);
+    // Third call (simulating another navigation)
+    expect(loadAndMergeSession(["word-1"])).toBe(SESSION_COMPLETE);
+  });
+
+  it("loadSession returns null when completedUntil is in the future (completed sessions are not active)", () => {
+    writeRawSession({
+      queue: ["word-1"],
+      currentIdx: 0,
+      sessionReviewed: 1,
+      requeuedIds: [],
+      savedAt: Date.now(),
+      completedUntil: Date.now() + 60 * 60 * 1000,
+    });
+    expect(loadSession()).toBeNull();
   });
 });

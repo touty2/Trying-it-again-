@@ -108,3 +108,6 @@
 - [ ] F10: Fix useDeckSession tests to use cr-deck-session-v2 key instead of v1
 - [ ] F11: Remove unused SM-2 logic from shared/sm2.ts (keep only constants)
 - [ ] F12: Move daily cap enforcement into reviewFlashcard so it applies to all callers
+
+## Session Persistence Fix (requested)
+- [x] Store completedUntil marker instead of deleting session on completion — sessions survive refresh/navigation until midnight, then reset daily

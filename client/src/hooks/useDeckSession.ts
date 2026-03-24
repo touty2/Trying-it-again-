@@ -1,17 +1,24 @@
 /**
  * useDeckSession — persists the active flashcard review session to localStorage
- * so that a page refresh continues from exactly where the user left off.
+ * so that a page refresh or navigation continues from exactly where the user left off.
  *
  * Stored shape (key: "cr-deck-session-v2"):
  * {
- *   queue:          string[]   — ordered cardId list for this session
- *   currentIdx:     number     — index of the card currently being shown
- *   sessionReviewed:number     — total reviews submitted this session
- *   requeuedIds:    string[]   — cardIds that were requeued (answered Again)
- *   savedAt:        number     — epoch ms; used to detect stale sessions
+ *   queue:           string[]   — ordered cardId list for this session
+ *   currentIdx:      number     — index of the card currently being shown
+ *   sessionReviewed: number     — total reviews submitted this session
+ *   requeuedIds:     string[]   — cardIds that were requeued (answered Again)
+ *   savedAt:         number     — epoch ms; used to detect stale sessions (24h TTL)
+ *   completedUntil?: number     — epoch ms; if set and in the future, session is done for today
  * }
  *
- * Merge strategy on restore:
+ * Completion behaviour (the key fix):
+ *   When the user finishes all cards, we write completedUntil = start of next calendar day
+ *   instead of deleting the entry. On the next load:
+ *     - completedUntil is in the future  → return SESSION_COMPLETE sentinel (show done screen)
+ *     - completedUntil has passed        → treat as expired, rebuild from getDueCards()
+ *
+ * Merge strategy on restore (non-completed sessions):
  *   1. Load the saved queue from localStorage.
  *   2. Get the current due set from IndexedDB (via getDueCards).
  *   3. Keep unfinished cards from the saved queue that are still in the due set.
@@ -20,7 +27,6 @@
  *   6. If the session is 24+ hours old, refresh the queue entirely (don't wipe it).
  *
  * The session is cleared when:
- *   - The user completes all cards (currentIdx >= queue.length && queue.length > 0)
  *   - `clearSession()` is called explicitly (manual reset / source change)
  *   - The queue is empty after merging
  */
@@ -39,20 +45,35 @@ export interface DeckSessionState {
 
 interface PersistedSession extends DeckSessionState {
   savedAt: number;
+  completedUntil?: number;
+}
+
+/** Sentinel returned by loadAndMergeSession when the session was completed today. */
+export const SESSION_COMPLETE = "SESSION_COMPLETE" as const;
+export type SessionLoadResult = DeckSessionState | typeof SESSION_COMPLETE | null;
+
+/** Midnight of the next calendar day in local time, as epoch ms. */
+function nextMidnight(): number {
+  const d = new Date();
+  d.setHours(24, 0, 0, 0); // rolls over to midnight tonight
+  return d.getTime();
 }
 
 // ── Read ──────────────────────────────────────────────────────────────────────
 
 /**
  * Load raw session from localStorage without any merging.
- * Returns null if nothing is saved or the session is finished.
+ * Returns null if nothing is saved.
+ * Does NOT clear completed sessions — that is handled by loadAndMergeSession.
  */
 export function loadSession(): DeckSessionState | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
     const parsed: PersistedSession = JSON.parse(raw);
-    // Don't restore a session that was already finished
+    // Completed sessions are handled separately — don't treat them as active
+    if (parsed.completedUntil && parsed.completedUntil > Date.now()) return null;
+    // Don't restore a session that was already finished without the completedUntil marker
     if (parsed.queue.length === 0 || parsed.currentIdx >= parsed.queue.length) {
       localStorage.removeItem(STORAGE_KEY);
       return null;
@@ -71,27 +92,34 @@ export function loadSession(): DeckSessionState | null {
 /**
  * Load and merge the saved session with the current due set.
  *
+ * Returns:
+ *   SESSION_COMPLETE  — session was completed today, show the done screen
+ *   DeckSessionState  — active session to restore
+ *   null              — no session, build fresh from getDueCards()
+ *
  * @param currentDueCardIds - cardIds that are currently due (from getDueCards())
- * @returns merged session state, or null if no session to restore
  */
-export function loadAndMergeSession(currentDueCardIds: string[]): DeckSessionState | null {
+export function loadAndMergeSession(currentDueCardIds: string[]): SessionLoadResult {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
     const parsed: PersistedSession = JSON.parse(raw);
 
-    // If session is finished, clear it
-    if (parsed.queue.length === 0 || parsed.currentIdx >= parsed.queue.length) {
-      localStorage.removeItem(STORAGE_KEY);
-      return null;
+    // ── Completed-today check ────────────────────────────────────────────────
+    if (parsed.completedUntil) {
+      if (parsed.completedUntil > Date.now()) {
+        // Session was completed today — tell the caller to show the done screen.
+        return SESSION_COMPLETE;
+      } else {
+        // completedUntil has passed (new day) — clear and rebuild fresh.
+        localStorage.removeItem(STORAGE_KEY);
+        return null;
+      }
     }
 
-    const dueSet = new Set(currentDueCardIds);
+    // ── Expired session (24h+ old, no completedUntil) ────────────────────────
     const isExpired = Date.now() - parsed.savedAt > SESSION_TTL_MS;
-
     if (isExpired) {
-      // Session is 24h+ old: refresh with the full current due set.
-      // Don't wipe — just reset to the current due cards.
       if (currentDueCardIds.length === 0) {
         localStorage.removeItem(STORAGE_KEY);
         return null;
@@ -104,16 +132,30 @@ export function loadAndMergeSession(currentDueCardIds: string[]): DeckSessionSta
       };
     }
 
-    // Merge strategy:
+    // ── In-progress session: merge with current due set ──────────────────────
+    // Treat a session with no remaining cards as finished
+    if (parsed.queue.length === 0 || parsed.currentIdx >= parsed.queue.length) {
+      // Mark as completed until midnight so the done screen persists
+      const completed: PersistedSession = {
+        ...parsed,
+        completedUntil: nextMidnight(),
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(completed));
+      return SESSION_COMPLETE;
+    }
+
+    const dueSet = new Set(currentDueCardIds);
+
     // 1. Keep unfinished cards from saved queue that are still due
     const unfinishedSaved = parsed.queue
       .slice(parsed.currentIdx)
       .filter((id) => dueSet.has(id));
 
-    // 2. Cards already reviewed in this session (before currentIdx) — exclude from queue
+    // 2. Cards already reviewed in this session (before currentIdx) — exclude
     const reviewedInSession = new Set(parsed.queue.slice(0, parsed.currentIdx));
 
-    // 3. Add newly due cards not already in the saved queue and not already reviewed
+    // 3. Add newly due cards not already in the saved queue and not already reviewed.
+    //    Preserve the new-cards-first ordering from getDueCards (F4 fix).
     const savedQueueSet = new Set(parsed.queue);
     const newlyDue = currentDueCardIds.filter(
       (id) => !savedQueueSet.has(id) && !reviewedInSession.has(id)
@@ -122,8 +164,15 @@ export function loadAndMergeSession(currentDueCardIds: string[]): DeckSessionSta
     const mergedQueue = [...unfinishedSaved, ...newlyDue];
 
     if (mergedQueue.length === 0) {
-      localStorage.removeItem(STORAGE_KEY);
-      return null;
+      // Nothing left — mark as completed until midnight
+      const completed: PersistedSession = {
+        ...parsed,
+        queue: [],
+        currentIdx: 0,
+        completedUntil: nextMidnight(),
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(completed));
+      return SESSION_COMPLETE;
     }
 
     return {
@@ -142,13 +191,38 @@ export function loadAndMergeSession(currentDueCardIds: string[]): DeckSessionSta
 export function saveSession(state: DeckSessionState): void {
   try {
     if (state.queue.length === 0) {
-      localStorage.removeItem(STORAGE_KEY);
+      // Empty queue — mark as completed until midnight
+      const completed: PersistedSession = {
+        ...state,
+        savedAt: Date.now(),
+        completedUntil: nextMidnight(),
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(completed));
       return;
     }
     const persisted: PersistedSession = { ...state, savedAt: Date.now() };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(persisted));
   } catch {
     // Ignore quota errors
+  }
+}
+
+/** Mark the session as completed until midnight (persists the done screen). */
+export function markSessionComplete(): void {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const existing: Partial<PersistedSession> = raw ? JSON.parse(raw) : {};
+    const completed: PersistedSession = {
+      queue: existing.queue ?? [],
+      currentIdx: existing.currentIdx ?? 0,
+      sessionReviewed: existing.sessionReviewed ?? 0,
+      requeuedIds: existing.requeuedIds ?? [],
+      savedAt: existing.savedAt ?? Date.now(),
+      completedUntil: nextMidnight(),
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(completed));
+  } catch {
+    // ignore
   }
 }
 
@@ -164,7 +238,9 @@ export function clearSession(): void {
 
 /**
  * Persists session state to localStorage after every change.
- * Auto-clears when the session is complete (currentIdx >= queue.length).
+ * When the session is complete (currentIdx >= queue.length), writes a
+ * completedUntil marker instead of deleting — so the done screen persists
+ * across refresh and navigation until midnight.
  */
 export function useDeckSessionPersistence(
   queue: string[],
@@ -180,8 +256,23 @@ export function useDeckSessionPersistence(
 
     timerRef.current = setTimeout(() => {
       const isComplete = queue.length > 0 && currentIdx >= queue.length;
-      if (isComplete || queue.length === 0) {
-        clearSession();
+      if (isComplete) {
+        // Session finished — write completedUntil instead of deleting
+        markSessionComplete();
+      } else if (queue.length === 0) {
+        // Queue was never populated (e.g. story mode not yet loaded) — don't write anything
+        // Only clear if there's no completedUntil marker already set
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          try {
+            const parsed: PersistedSession = JSON.parse(raw);
+            if (!parsed.completedUntil || parsed.completedUntil <= Date.now()) {
+              clearSession();
+            }
+          } catch {
+            clearSession();
+          }
+        }
       } else {
         saveSession({
           queue,
