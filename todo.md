@@ -91,3 +91,6 @@
 
 ## Pre-flip I Know shortcut (requested)
 - [x] Add "I Know" button always visible below the card (pre and post flip) — same action as Good (rating 3), just a shortcut
+
+## Again Button FSRS Fix (requested)
+- [x] Fix reviewFlashcard rating=1 to call applyFSRS(card, Rating.Again) instead of applyDontKnow — ensures FSRS state (stability, state, scheduledDays) is properly updated on every Again press

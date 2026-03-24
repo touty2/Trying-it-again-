@@ -416,14 +416,11 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     const oldEaseFactor = card.easeFactor;
 
     let updates: Partial<Flashcard>;
-    if (rating === 1) {
-      // Again (1): lightweight lapse write — dueDate unchanged until card resurfaces.
-      // The full reschedule happens when the user answers Good on the requeued card.
-      updates = applyDontKnow(card);
-    } else {
-      // Hard (2), Good (3), Easy (4): full FSRS schedule
-      updates = applyFSRS(card, rating, settingsRef.current.desiredRetention ?? 0.85);
-    }
+    // All ratings — including Again (1) — go through the real FSRS scheduler.
+    // This ensures stability, state, and scheduledDays are correctly updated on
+    // every press, so repeated Again presses properly penalise the card's interval.
+    // The in-session requeue (2–3 cards ahead) is handled separately in Deck.tsx.
+    updates = applyFSRS(card, rating, settingsRef.current.desiredRetention ?? 0.85);
     await FlashcardDB.update(cardId, updates);
     if (rating !== 1) await ReviewLogDB.incrementReview(); // only count non-Again as completed
 
