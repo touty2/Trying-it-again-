@@ -468,8 +468,18 @@ function FlashCard({
         </motion.div>
       </div>
 
-      {/* ── Below-card utility row: speaker + slow toggle (always visible) ── */}
+      {/* ── Below-card utility row: I Know shortcut + speaker + slow toggle (always visible) ── */}
       <div className="mt-4 flex items-center justify-center gap-3">
+        {/* ✓ I Know shortcut — always visible, same as Good (rating 3), works pre and post flip */}
+        <button
+          data-action-btn
+          onClick={() => handleReview(3)}
+          className="flex items-center gap-1.5 px-4 py-2 rounded-lg border border-emerald-200/80 dark:border-emerald-700/40 bg-emerald-50 dark:bg-emerald-950/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 text-sm font-semibold transition-all duration-150 active:scale-[0.96]"
+          title="I know this — same as Good, works before or after flipping"
+        >
+          <CheckCircle2 size={15} />
+          I Know
+        </button>
         {/* 🔊 Speaker — always shown, plays dual voice */}
         {tts.hasSpeech && (
           <button

@@ -88,3 +88,6 @@
 - [x] Add Skip button below the grid (secondary, non-replacing)
 - [x] "mark as learned" is a small underline link in the utility row — not a primary action button
 - [x] Speaker + slow toggle remain in the always-visible utility row above the review grid
+
+## Pre-flip I Know shortcut (requested)
+- [x] Add "I Know" button always visible below the card (pre and post flip) — same action as Good (rating 3), just a shortcut
