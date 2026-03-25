@@ -111,3 +111,8 @@
 
 ## Session Persistence Fix (requested)
 - [x] Store completedUntil marker instead of deleting session on completion — sessions survive refresh/navigation until midnight, then reset daily
+
+## Session Determinism Fix (requested)
+- [x] clearSession() after resetDueDates and resetDeck in SettingsPage.tsx
+- [x] Save initial queue to localStorage immediately on first build (before first review)
+- [x] Use date-seeded shuffle so queue order is deterministic for the whole day

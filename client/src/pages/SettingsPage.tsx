@@ -45,6 +45,7 @@ import { useApp } from "@/contexts/AppContext";
 import { useSync } from "@/contexts/SyncContext";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { SettingsDB, WordDB, FlashcardDB, ReviewLogDB, CompletedTextDB, WordMistakeDB } from "@/lib/db";
+import { clearSession } from "@/hooks/useDeckSession";
 
 // ─── Collapsible Section ──────────────────────────────────────────────────────
 
@@ -1401,6 +1402,7 @@ export default function SettingsPage() {
                 setIsResetting(true);
                 try {
                   await resetDueDates();
+                  clearSession(); // wipe stale session so a fresh deterministic queue is built on next Deck visit
                   toast.success(`All ${flashcards.length} cards are now due today`);
                   setShowResetDueDatesDialog(false);
                 } catch {
@@ -1450,6 +1452,7 @@ export default function SettingsPage() {
                 setIsResetting(true);
                 try {
                   await resetDeck();
+                  clearSession(); // wipe stale session so a fresh deterministic queue is built on next Deck visit
                   toast.success(`Deck reset — all ${flashcards.length} cards start fresh`);
                   setShowResetDeckDialog(false);
                 } catch {

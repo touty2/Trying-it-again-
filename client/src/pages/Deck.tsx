@@ -69,7 +69,7 @@ import { useAudioSettings } from "@/hooks/useAudioSettings";
 import { useFlashcardDirection } from "@/hooks/useFlashcardDirection";
 import { CompletedWordDB } from "@/lib/db";
 import type { Flashcard, Word, TestingMode, FlashcardSource } from "@/lib/db";
-import { loadAndMergeSession, useDeckSessionPersistence, clearSession, SESSION_COMPLETE } from "../hooks/useDeckSession";
+import { loadAndMergeSession, useDeckSessionPersistence, clearSession, saveSession, SESSION_COMPLETE } from "../hooks/useDeckSession";
 import { toTonePinyin } from "@/lib/pinyin";
 import { useDecks } from "@/hooks/useDecks";
 import { DecksSidebar } from "@/components/DecksSidebar";
@@ -1023,10 +1023,36 @@ export default function Deck() {
   const [reviewQueue, setReviewQueue] = useState<string[]>(() => {
     if (isStoryMode) return []; // populated later once storyWordIds loads
     if (alreadyCompletedToday) return []; // show done screen immediately
-    const currentDue = getDueCards().map((c) => c.cardId);
+    // If a saved session exists, restore it directly — it is already locked in.
     if (initialSession && initialSession.queue.length > 0)
       return initialSession.queue;
-    return currentDue;
+    // No saved session — build a fresh queue and lock it into localStorage immediately
+    // so every subsequent refresh/navigation sees the same cards in the same order.
+    const currentDue = getDueCards();
+    if (currentDue.length === 0) return [];
+    // Separate new (never reviewed) and due (previously reviewed) cards
+    const newCards = currentDue.filter((c) => !c.lastReviewed).map((c) => c.cardId);
+    const dueCards2 = currentDue.filter((c) => c.lastReviewed).map((c) => c.cardId);
+    // Date-seeded deterministic shuffle — same day = same order
+    const todaySeed = new Date().toISOString().slice(0, 10); // "2026-03-25"
+    const seededShuffle = (arr: string[], salt: string): string[] => {
+      const a = [...arr];
+      // Simple seeded PRNG (mulberry32-style from string seed)
+      let h = 0;
+      for (let i = 0; i < (todaySeed + salt).length; i++) {
+        h = Math.imul(31, h) + (todaySeed + salt).charCodeAt(i) | 0;
+      }
+      const rand = () => { h ^= h << 13; h ^= h >> 17; h ^= h << 5; return (h >>> 0) / 0xFFFFFFFF; };
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(rand() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    };
+    const freshQueue = [...seededShuffle(newCards, "new"), ...seededShuffle(dueCards2, "due")];
+    // Lock this queue into localStorage immediately so refreshes see the same order
+    saveSession({ queue: freshQueue, currentIdx: 0, sessionReviewed: 0, requeuedIds: [] });
+    return freshQueue;
   });
   const [currentIdx, setCurrentIdx] = useState<number>(() => {
     // If already completed today, set idx past the queue so the done screen shows
