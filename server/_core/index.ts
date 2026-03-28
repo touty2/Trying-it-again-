@@ -33,13 +33,10 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 async function startServer() {
   // Apply any pending DB schema migrations before accepting traffic
   await runStartupMigrations();
-
   const app = express();
   const server = createServer(app);
-
   // Trust reverse proxy so req.protocol === 'https' and secure cookies work
   app.set("trust proxy", 1);
-
   // CORS — allow credentials from the same origin
   app.use(
     cors({
@@ -49,14 +46,11 @@ async function startServer() {
       credentials: true,
     })
   );
-
   // Parse cookies (needed for JWT session cookie)
   app.use(cookieParser());
-
   // Configure body parser
   app.use(express.json({ limit: "10mb" }));
   app.use(express.urlencoded({ limit: "10mb", extended: true }));
-
   // Standalone auth routes
   registerOAuthRoutes(app);
   // tRPC API
