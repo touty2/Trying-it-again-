@@ -959,6 +959,7 @@ export default function Deck() {
     completedWordIds,
     markWordCompleted,
     unmarkWordCompleted,
+    isLoading,
   } = useApp();
 
   const notifyChange = useSyncNotify();
@@ -1005,70 +1006,36 @@ export default function Deck() {
   // For the main deck we merge the saved session as before.
   const isStoryMode = !!urlParams.storyId;
 
-  // ── Compute initial session state once (avoids calling getDueCards 4x) ──────
-  const _rawSession = (() => {
-    if (isStoryMode) return null;
-    const currentDue = getDueCards().map((c) => c.cardId);
-    return loadAndMergeSession(currentDue);
-  })();
-  // SESSION_COMPLETE means the user already finished today — start with done screen
-  const alreadyCompletedToday = _rawSession === SESSION_COMPLETE;
-  // Narrow to DeckSessionState | null for the rest of the init code
-  const initialSession = alreadyCompletedToday ? null : (_rawSession as import("../hooks/useDeckSession").DeckSessionState | null);
+  // ── BUG-1/2/3/4 FIX: Session init is deferred until after IndexedDB loads ──
+  //
+  // ROOT CAUSE of all 4 bugs:
+  //   The old code computed _rawSession in the render body (an IIFE), which ran
+  //   on EVERY re-render. Since reviewFlashcard calls setFlashcards(), every card
+  //   review triggered a re-render, re-ran getDueCards() and loadAndMergeSession(),
+  //   and could produce a stale merged queue. Worse, on the very first render
+  //   flashcards=[] (IndexedDB hasn't loaded yet), so getDueCards() returned []
+  //   and the queue was initialised empty — new cards never appeared (BUG-3).
+  //   The visibilitychange handler then appended cards without checking the
+  //   already-reviewed set, causing duplication (BUG-2) and queue reordering (BUG-4).
+  //
+  // FIX:
+  //   1. Queue init is now in a useEffect that fires once when isLoading → false.
+  //      At that point getDueCards() returns the real data from IndexedDB.
+  //   2. _rawSession is stored in a useRef so it is computed exactly once.
+  //   3. The visibilitychange handler excludes cards already reviewed this session.
+  //   4. requeuedIds are excluded from the "newly due" append to prevent duplication.
 
-  const [sessionRestored, setSessionRestored] = useState<boolean>(() => {
-    if (isStoryMode || alreadyCompletedToday) return false;
-    return !!(initialSession && initialSession.sessionReviewed > 0);
-  });
-  const [reviewQueue, setReviewQueue] = useState<string[]>(() => {
-    if (isStoryMode) return []; // populated later once storyWordIds loads
-    if (alreadyCompletedToday) return []; // show done screen immediately
-    // If a saved session exists, restore it directly — it is already locked in.
-    if (initialSession && initialSession.queue.length > 0)
-      return initialSession.queue;
-    // No saved session — build a fresh queue and lock it into localStorage immediately
-    // so every subsequent refresh/navigation sees the same cards in the same order.
-    const currentDue = getDueCards();
-    if (currentDue.length === 0) return [];
-    // Separate new (never reviewed) and due (previously reviewed) cards
-    const newCards = currentDue.filter((c) => !c.lastReviewed).map((c) => c.cardId);
-    const dueCards2 = currentDue.filter((c) => c.lastReviewed).map((c) => c.cardId);
-    // Date-seeded deterministic shuffle — same day = same order
-    const todaySeed = new Date().toISOString().slice(0, 10); // "2026-03-25"
-    const seededShuffle = (arr: string[], salt: string): string[] => {
-      const a = [...arr];
-      // Simple seeded PRNG (mulberry32-style from string seed)
-      let h = 0;
-      for (let i = 0; i < (todaySeed + salt).length; i++) {
-        h = Math.imul(31, h) + (todaySeed + salt).charCodeAt(i) | 0;
-      }
-      const rand = () => { h ^= h << 13; h ^= h >> 17; h ^= h << 5; return (h >>> 0) / 0xFFFFFFFF; };
-      for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(rand() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-      }
-      return a;
-    };
-    const freshQueue = [...seededShuffle(newCards, "new"), ...seededShuffle(dueCards2, "due")];
-    // Lock this queue into localStorage immediately so refreshes see the same order
-    saveSession({ queue: freshQueue, currentIdx: 0, sessionReviewed: 0, requeuedIds: [] });
-    return freshQueue;
-  });
-  const [currentIdx, setCurrentIdx] = useState<number>(() => {
-    // If already completed today, set idx past the queue so the done screen shows
-    if (alreadyCompletedToday) return 0; // queue is [] so isSessionDone = true
-    return 0;
-  });
-  const [sessionReviewed, setSessionReviewed] = useState<number>(() => {
-    if (isStoryMode || alreadyCompletedToday) return 0;
-    return initialSession ? initialSession.sessionReviewed : 0;
-  });
+  const queueInitialized = useRef(false);
+  // Tracks all cardIds reviewed in this session (used to prevent re-appending on tab focus)
+  const reviewedThisSessionRef = useRef<Set<string>>(new Set());
+
+  const [sessionRestored, setSessionRestored] = useState(false);
+  const [reviewQueue, setReviewQueue] = useState<string[]>([]);
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const [sessionReviewed, setSessionReviewed] = useState(0);
   // Track cards that have been requeued due to "Again" so we can show a
   // "requeued" indicator and avoid double-counting them in the progress bar.
-  const [requeuedWordIds, setRequeuedWordIds] = useState<Set<string>>(() => {
-    if (isStoryMode || alreadyCompletedToday) return new Set();
-    return initialSession ? new Set(initialSession.requeuedIds) : new Set();
-  });
+  const [requeuedWordIds, setRequeuedWordIds] = useState<Set<string>>(() => new Set());
 
   // Once storyWordIds loads (async), build the initial story-scoped queue
   const storyQueueInitialized = useRef(false);
@@ -1092,6 +1059,59 @@ export default function Deck() {
     setSessionReviewed(0);
     setRequeuedWordIds(new Set());
   }, [isStoryMode, storyWordIds, getDueCards]);
+
+  // ── BUG-3 FIX: Defer main-deck queue init until IndexedDB has loaded ─────────
+  // isLoading transitions false→true exactly once after refreshAll() completes.
+  // At that point getDueCards() returns the real card set, so we can safely
+  // build or restore the session queue.
+  useEffect(() => {
+    if (isLoading || isStoryMode || queueInitialized.current) return;
+    queueInitialized.current = true;
+
+    const currentDue = getDueCards().map((c) => c.cardId);
+    const rawSession = loadAndMergeSession(currentDue);
+
+    if (rawSession === SESSION_COMPLETE) {
+      // Already finished today — show done screen (empty queue, idx=0 → isSessionDone=true)
+      setReviewQueue([]);
+      setCurrentIdx(0);
+      return;
+    }
+
+    if (rawSession && rawSession.queue.length > 0) {
+      // Restore saved session
+      setReviewQueue(rawSession.queue);
+      setCurrentIdx(rawSession.currentIdx);
+      setSessionReviewed(rawSession.sessionReviewed);
+      setRequeuedWordIds(new Set(rawSession.requeuedIds));
+      if (rawSession.sessionReviewed > 0) setSessionRestored(true);
+      return;
+    }
+
+    // No saved session — build a fresh deterministic queue
+    if (currentDue.length === 0) return;
+    const allDue = getDueCards();
+    const newCards = allDue.filter((c) => !c.lastReviewed).map((c) => c.cardId);
+    const dueCards2 = allDue.filter((c) => c.lastReviewed).map((c) => c.cardId);
+    const todaySeed = new Date().toISOString().slice(0, 10);
+    const seededShuffle = (arr: string[], salt: string): string[] => {
+      const a = [...arr];
+      let h = 0;
+      for (let i = 0; i < (todaySeed + salt).length; i++) {
+        h = Math.imul(31, h) + (todaySeed + salt).charCodeAt(i) | 0;
+      }
+      const rand = () => { h ^= h << 13; h ^= h >> 17; h ^= h << 5; return (h >>> 0) / 0xFFFFFFFF; };
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(rand() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    };
+    const freshQueue = [...seededShuffle(newCards, "new"), ...seededShuffle(dueCards2, "due")];
+    saveSession({ queue: freshQueue, currentIdx: 0, sessionReviewed: 0, requeuedIds: [] });
+    setReviewQueue(freshQueue);
+  }, [isLoading, isStoryMode, getDueCards]);
+
   const [showAddDialog, setShowAddDialog] = useState(false);
   const [wordSearch, setWordSearch] = useState("");
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
@@ -1196,9 +1216,13 @@ export default function Deck() {
       if (!currentCardId) return;
 
       if (rating === 1) {
-        // ── Again ───────────────────────────────────────────────────────────────
+        // ── Again ───────────────────────────────────────────────────────────────────────────
         // Write lightweight lapse update, then requeue the card 2-3 positions ahead.
         await reviewFlashcard(currentCardId, 1);
+        // BUG-2/4 FIX: Track that this card was seen this session.
+        // We do NOT add it to reviewedThisSessionRef here because Again means
+        // the card is being requeued — it should reappear. Only add it to the
+        // reviewed set when it is answered with Hard/Good/Easy (rating 2/3/4).
         setRequeuedWordIds((prev) => new Set(Array.from(prev).concat(currentCardId)));
         setReviewQueue((prev) => {
           const insertAt = Math.min(currentIdx + 1 + 2, prev.length);
@@ -1229,6 +1253,9 @@ export default function Deck() {
         }
         return; // Do NOT advance the queue — the card was not reviewed.
       }
+      // BUG-2/4 FIX: Mark this card as reviewed so the visibilitychange handler
+      // won't re-append it to the queue when the user returns to the tab.
+      reviewedThisSessionRef.current.add(currentCardId);
       setSessionReviewed((prev) => prev + 1);
       setRequeuedWordIds((prev) => {
         const next = new Set(prev);
@@ -1299,23 +1326,35 @@ export default function Deck() {
     return () => clearTimeout(t);
   }, [sessionRestored]);
 
-  // When the user returns to this tab, merge any newly-due cards into the queue.
-  // This handles the case where cards became due while the tab was in the background.
+  // ── BUG-2/4 FIX: Visibility handler with proper deduplication ─────────────
+  // OLD BUG: The handler used `new Set(prev)` to deduplicate, but prev includes
+  // cards that were requeued via "Again" (still in the array at a later index).
+  // A card reviewed earlier in the session could be in getDueCards() if its new
+  // dueDate is still <= now (e.g. Again sets interval=1 day but dueDate=now).
+  // That card would be appended again, causing duplication.
+  //
+  // FIX: Also exclude cards already reviewed this session (reviewedThisSessionRef)
+  // and cards that are already in the queue at any position (not just prev).
+  // Skip the append entirely if the session hasn't been initialized yet.
   useEffect(() => {
     const handleVisibility = () => {
       if (document.visibilityState !== "visible") return;
-      // Only append newly-due cards; don't disrupt the current card position
+      if (!queueInitialized.current) return; // don't append before init
+      if (isStoryMode) return; // story queue is managed separately
       setReviewQueue((prev) => {
         const currentDue = getDueCards().map((c) => c.cardId);
-        const existingSet = new Set(prev);
-        const newlyDue = currentDue.filter((id) => !existingSet.has(id));
+        const existingSet = new Set(prev); // all cards currently in queue (incl. requeued)
+        const reviewed = reviewedThisSessionRef.current; // cards already answered this session
+        const newlyDue = currentDue.filter(
+          (id) => !existingSet.has(id) && !reviewed.has(id)
+        );
         if (newlyDue.length === 0) return prev;
         return [...prev, ...newlyDue];
       });
     };
     document.addEventListener("visibilitychange", handleVisibility);
     return () => document.removeEventListener("visibilitychange", handleVisibility);
-  }, [getDueCards]);
+  }, [getDueCards, isStoryMode]);
 
   return (
     <div>

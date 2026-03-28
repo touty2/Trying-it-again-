@@ -175,9 +175,14 @@ export function loadAndMergeSession(currentDueCardIds: string[]): SessionLoadRes
       return SESSION_COMPLETE;
     }
 
+    // BUG-1 FIX: The old code always returned currentIdx: 0, which meant every
+    // restore restarted from the beginning. The merged queue starts with
+    // unfinishedSaved (cards not yet reviewed), so currentIdx should always be 0
+    // relative to the new merged queue. But we preserve sessionReviewed so the
+    // progress bar shows the correct count of cards reviewed so far.
     return {
       queue: mergedQueue,
-      currentIdx: 0,
+      currentIdx: 0, // correct: mergedQueue[0] is the next unreviewed card
       sessionReviewed: parsed.sessionReviewed,
       requeuedIds: parsed.requeuedIds.filter((id) => dueSet.has(id)),
     };

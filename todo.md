@@ -96,18 +96,18 @@
 - [x] Fix reviewFlashcard rating=1 to call applyFSRS(card, Rating.Again) instead of applyDontKnow — ensures FSRS state (stability, state, scheduledDays) is properly updated on every Again press
 
 ## SRS Audit Fixes (all 12 findings)
-- [ ] F1: Add desiredRetention to cloud sync payload (push + pull in useSyncManager.ts)
-- [ ] F2: Preserve state field from cloud card during sync reconstruction instead of recomputing from reps
-- [ ] F3: Fix interval cap divergence — update stability to reflect capped interval so FSRS model stays consistent
-- [ ] F4: Re-apply new-cards-first ordering when appending newly due cards in loadAndMergeSession
-- [ ] F5: Remove applyDontKnow export and unused import from AppContext.tsx
-- [ ] F6: Add leech count to getDueStats return value in db.ts
-- [ ] F7: Preserve actual lastMissed timestamp during sync instead of overwriting with sync time
-- [ ] F8: Surface story deck sync errors instead of silently swallowing them
-- [ ] F9: Add loadAndMergeSession test coverage
-- [ ] F10: Fix useDeckSession tests to use cr-deck-session-v2 key instead of v1
-- [ ] F11: Remove unused SM-2 logic from shared/sm2.ts (keep only constants)
-- [ ] F12: Move daily cap enforcement into reviewFlashcard so it applies to all callers
+- [x] F1: Add desiredRetention to cloud sync payload (push + pull in useSyncManager.ts)
+- [x] F2: Preserve state field from cloud card during sync reconstruction instead of recomputing from reps
+- [x] F3: Fix interval cap divergence — update stability to reflect capped interval so FSRS model stays consistent
+- [x] F4: Re-apply new-cards-first ordering when appending newly due cards in loadAndMergeSession
+- [x] F5: Remove applyDontKnow export and unused import from AppContext.tsx
+- [x] F6: Add leech count to getDueStats return value in db.ts
+- [x] F7: Preserve actual lastMissed timestamp during sync instead of overwriting with sync time
+- [x] F8: Surface story deck sync errors instead of silently swallowing them
+- [x] F9: Add loadAndMergeSession test coverage
+- [x] F10: Fix useDeckSession tests to use cr-deck-session-v2 key instead of v1
+- [x] F11: Remove unused SM-2 logic from shared/sm2.ts (keep only constants)
+- [x] F12: Move daily cap enforcement into reviewFlashcard so it applies to all callers
 
 ## Session Persistence Fix (requested)
 - [x] Store completedUntil marker instead of deleting session on completion — sessions survive refresh/navigation until midnight, then reset daily
@@ -116,3 +116,9 @@
 - [x] clearSession() after resetDueDates and resetDeck in SettingsPage.tsx
 - [x] Save initial queue to localStorage immediately on first build (before first review)
 - [x] Use date-seeded shuffle so queue order is deterministic for the whole day
+
+## Session / Queue UX Bugs (reported)
+- [x] BUG-1: Cards marked 'Know' reappear in the same session instead of advancing
+- [x] BUG-2: Same card appears multiple times within a single session (duplication)
+- [x] BUG-3: New cards don't show up consistently — same small block keeps repeating
+- [x] BUG-4: Due count jumps unpredictably and queue changes on refresh (should be locked for the day)
