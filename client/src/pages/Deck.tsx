@@ -1213,12 +1213,22 @@ export default function Deck() {
       }
 
       // ── Hard / Good / Easy (2 / 3 / 4) ──────────────────────────────────────
+      // Show a toast warning if the cap is already reached (fast UI feedback).
+      // reviewFlashcard also enforces the cap internally (F12) and returns
+      // { applied: false, reason: 'cap' } — we MUST check before advancing.
       const cap = settings.dailyReviewCap;
       if (cap !== null && todayReviews >= cap) {
         toast.warning(`Daily review cap (${cap}) reached!`);
         return;
       }
-      await reviewFlashcard(currentCardId, rating);
+      const result = await reviewFlashcard(currentCardId, rating);
+      if (!result.applied) {
+        // Cap was hit in the window between the check above and the async call.
+        if (result.reason === 'cap') {
+          toast.warning(`Daily review cap (${cap}) reached!`);
+        }
+        return; // Do NOT advance the queue — the card was not reviewed.
+      }
       setSessionReviewed((prev) => prev + 1);
       setRequeuedWordIds((prev) => {
         const next = new Set(prev);

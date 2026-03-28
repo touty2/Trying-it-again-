@@ -68,8 +68,13 @@ interface AppState {
   getStoryDeckWordIds: (storyId: string) => Promise<string[]>;
   addManualWord: (word: Omit<Word, "id" | "createdAt">) => Promise<Word>;
   removeWord: (wordId: string) => Promise<void>;
-  /** Review a flashcard by its cardId. rating: 0=Don't Know, 2=Know. sessionMissed: true if card was missed earlier this session. */
-  reviewFlashcard: (cardId: string, rating: FSRSRating) => Promise<void>;
+  /**
+   * Review a flashcard by its cardId.
+   * Returns { applied: true } on success, or { applied: false, reason: 'cap' } when
+   * the daily review cap has been reached (rating !== 1 only — Again is always applied).
+   * Callers MUST check the return value before advancing the session queue.
+   */
+  reviewFlashcard: (cardId: string, rating: FSRSRating) => Promise<{ applied: boolean; reason?: 'cap' }>;
   updateSettings: (settings: Settings) => Promise<void>;
   refreshAll: () => Promise<void>;
   isWordInDeck: (hanzi: string) => boolean;
@@ -137,6 +142,11 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const todayNewWordsRef = useRef(0);
   todayNewWordsRef.current = todayNewWords;
+
+  // F12: keep a ref so reviewFlashcard can read the current count without
+  // being listed as a dependency (avoids stale-closure issues).
+  const todayReviewsRef = useRef(0);
+  todayReviewsRef.current = todayReviews;
 
   const wordMistakesRef = useRef<WordMistake[]>([]);
   wordMistakesRef.current = wordMistakes;
@@ -405,9 +415,21 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setFlashcards((prev) => prev.filter((c) => c.wordId !== wordId));
   }, []);
 
-  const reviewFlashcard = useCallback(async (cardId: string, rating: FSRSRating): Promise<void> => {
+  const reviewFlashcard = useCallback(async (cardId: string, rating: FSRSRating): Promise<{ applied: boolean; reason?: 'cap' }> => {
     const card = flashcardsRef.current.find((c) => c.cardId === cardId);
-    if (!card) return;
+    if (!card) return { applied: false };
+
+    // F12 fix: enforce the daily review cap centrally so every caller is gated
+    // (Deck.tsx UI, keyboard shortcuts, any future callers).
+    // Again (rating 1) is exempt — requeueing for short-term relearning must
+    // never be blocked; only completed reviews (2/3/4) count toward the cap.
+    if (rating !== 1) {
+      const cap = settingsRef.current.dailyReviewCap;
+      if (cap !== null && todayReviewsRef.current >= cap) {
+        // Return a typed result so callers can avoid advancing the session queue.
+        return { applied: false, reason: 'cap' };
+      }
+    }
 
     const wordId = card.wordId;
     const oldInterval = card.interval;
@@ -467,6 +489,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     );
     setTodayReviews((prev) => prev + 1);
     ReviewLogDB.getStreak().then(setStreak);
+    return { applied: true };
   }, []);
 
   const updateSettings = useCallback(async (newSettings: Settings): Promise<void> => {
@@ -475,11 +498,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const getDueCards = useCallback((): Flashcard[] => {
-    // F12 note: getDueCards returns ALL due cards without applying the daily cap.
-    // The daily review cap (settings.dailyReviewCap) is enforced at the UI layer
-    // in Deck.tsx handleReview — it blocks the reviewFlashcard call when the cap
-    // is reached. This is intentional: the queue is pre-loaded in full so that
-    // the session can resume after a cap reset without a page reload.
+    // getDueCards returns ALL due cards without applying the daily cap.
+    // The daily review cap is now enforced inside reviewFlashcard (F12 fix) AND
+    // also at the UI layer in Deck.tsx for the toast warning. The queue is still
+    // pre-loaded in full so the session can resume after a cap reset without a reload.
     // The daily new-word cap (settings.dailyNewWordCap) is enforced in addWordToDeck
     // and addManualWord before cards are created, so it gates card creation, not review.
     // Include ALL cards due now or in the past (no arbitrary cap).
