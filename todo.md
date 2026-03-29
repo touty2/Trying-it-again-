@@ -122,3 +122,8 @@
 - [x] BUG-2: Same card appears multiple times within a single session (duplication)
 - [x] BUG-3: New cards don't show up consistently — same small block keeps repeating
 - [x] BUG-4: Due count jumps unpredictably and queue changes on refresh (should be locked for the day)
+
+## SRS Queue Diagnosis — Data-Confirmed Bugs (2026-03-29)
+- [x] BUG-A: flashcardSource='vocab' filter silently hides 66 due cards — added warning banner with 'Show All' button; getDueStats now uses filtered count so Dashboard matches Deck
+- [x] BUG-B: 185 reviewed cards correctly scheduled in future (FSRS working) — explained to user; no code change needed
+- [x] BUG-C: dailyNewWordCap=20 only gates addWordToDeck/addManualWord (correct) — does NOT limit review queue; all 101 state=0 cards appear in queue when source='both'

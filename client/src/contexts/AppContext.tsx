@@ -532,9 +532,15 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
    * Called on every render of Dashboard and Deck without any DB round-trip.
    */
   const getDueStatsCallback = useCallback(
-    (): { dueToday: number; overdue: number; newCards: number; leechCards: number } =>
-      getDueStats(flashcardsRef.current, completedWordIdsRef.current),
-    []
+    (): { dueToday: number; overdue: number; newCards: number; leechCards: number } => {
+      // BUG-A fix: use getDueCards() (which applies the flashcardSource filter) so the
+      // Dashboard stats match exactly what the user will see in the Deck queue.
+      // Previously getDueStats used flashcardsRef.current directly, ignoring the source
+      // filter — so Dashboard showed 105 due while Deck showed 39 (flashcardSource='vocab').
+      const filteredDue = getDueCards();
+      return getDueStats(filteredDue, completedWordIdsRef.current);
+    },
+    [getDueCards]
   );
 
   const getWordById = useCallback((id: string): Word | undefined => {

@@ -1150,6 +1150,18 @@ export default function Deck() {
 
   const dueCards = useMemo(() => getFilteredDueCards(), [getFilteredDueCards, flashcards, completedWordIds, storyWordIds]);
 
+  // BUG-A fix: compute how many due cards are hidden by the flashcardSource filter.
+  // When source !== 'both', cards from other sources are silently excluded from the queue.
+  // We surface this as a warning banner so the user can see why their queue looks wrong.
+  const hiddenBySourceFilter = useMemo(() => {
+    const source = settings.flashcardSource ?? "both";
+    if (source === "both" || storyFilter) return 0;
+    // getDueCards already applies the source filter — count what 'both' would return minus current
+    const now = Date.now();
+    const allDue = flashcards.filter((c) => !c.isLeech && c.dueDate <= now);
+    return allDue.length - dueCards.length;
+  }, [flashcards, dueCards, settings.flashcardSource, storyFilter]);
+
   // Leech cards: excluded from normal queue, shown separately for manual review
   const leechCards = useMemo(
     () => flashcards.filter((c) => c.isLeech),
@@ -1438,6 +1450,23 @@ export default function Deck() {
           </div>
         </div>
       </div>
+
+      {/* BUG-A fix: Source filter warning banner — shown whenever a non-'both' filter is hiding due cards */}
+      {hiddenBySourceFilter > 0 && (
+        <div className="mb-4 flex items-center gap-2 rounded-lg border border-amber-400/40 bg-amber-50 dark:bg-amber-950/30 px-4 py-2.5 text-sm text-amber-800 dark:text-amber-300">
+          <AlertTriangle size={14} className="shrink-0" />
+          <span>
+            <strong>{hiddenBySourceFilter} due card{hiddenBySourceFilter !== 1 ? "s" : ""} are hidden</strong> because the source filter is set to
+            {" "}<strong>"{settings.flashcardSource}"</strong>. Switch to <strong>"All"</strong> to see your full queue.
+          </span>
+          <button
+            onClick={() => handleSourceChange("both")}
+            className="ml-auto shrink-0 rounded bg-amber-200 dark:bg-amber-800 px-2 py-0.5 text-xs font-medium hover:bg-amber-300 dark:hover:bg-amber-700 transition-colors"
+          >
+            Show All
+          </button>
+        </div>
+      )}
 
       {/* Session-restored banner */}
       {sessionRestored && (
