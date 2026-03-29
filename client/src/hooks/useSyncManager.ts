@@ -130,7 +130,6 @@ function applyCloudPreferences(data: Record<string, unknown>): void {
           ...(patch.testingMode !== undefined          && { testingMode:          patch.testingMode as string }),
           ...(patch.cardSize !== undefined             && { cardSize:             patch.cardSize as 1 | 2 | 3 }),
           ...(patch.enableReversibleCards !== undefined && { enableReversibleCards: patch.enableReversibleCards as boolean }),
-          ...(patch.flashcardSource !== undefined      && { flashcardSource:      patch.flashcardSource as string }),
           // F1 fix: restore desiredRetention from cloud
           ...(patch.desiredRetention !== undefined         && { desiredRetention:      patch.desiredRetention as number }),
         };
@@ -501,7 +500,6 @@ export function useSyncManager(userId: number | null | undefined) {
         testingMode:         localSettings.testingMode,
         cardSize:            localSettings.cardSize,
         enableReversibleCards: localSettings.enableReversibleCards,
-        flashcardSource:     localSettings.flashcardSource,
         // F1 fix: include desiredRetention so it survives cross-device sync
         desiredRetention:    localSettings.desiredRetention,
       };

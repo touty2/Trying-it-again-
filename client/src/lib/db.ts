@@ -35,6 +35,19 @@ function getScheduler(desiredRetention = 0.85): FSRS {
 }
 
 /**
+ * Graduation threshold — if a card in New/Learning state has accumulated this many lapses
+ * and the user answers Good or Easy, it is force-promoted to Review state with a 1-day
+ * interval. This breaks the "stuck in Learning forever" cycle for words the user partially
+ * knows but keeps answering Again on.
+ *
+ * Rationale: FSRS keeps state=0/1 cards in short Learning steps until they pass cleanly.
+ * With 101 state=0 cards all answered Again repeatedly, they never graduate. This threshold
+ * gives them a path out: after GRADUATION_LAPSE_THRESHOLD lapses, a single Good answer
+ * promotes them to Review so they enter the normal spaced-repetition schedule.
+ */
+export const GRADUATION_LAPSE_THRESHOLD = 8;
+
+/**
  * Progressive interval cap — prevents cards from disappearing too quickly
  * before they're truly known. FSRS computes the theoretically optimal interval,
  * but we clamp it based on how many successful reviews the card has accumulated.
@@ -131,7 +144,6 @@ export interface Flashcard {
 }
 
 export type TestingMode = "forward" | "reverse" | "random";
-export type FlashcardSource = "texts" | "vocab" | "both" | "user";
 
 /** VocabIgnored — tracks which themed vocab words the user has chosen to ignore */
 export interface VocabIgnored {
@@ -145,7 +157,6 @@ export interface Settings {
   dailyReviewCap: number | null;  // null = unlimited
   showCapReachedPopup: boolean;
   testingMode: TestingMode;       // flashcard direction mode
-  flashcardSource: FlashcardSource; // which pool to draw from
   /** Flashcard card size: 1=Small, 2=Medium (default), 3=Large */
   cardSize: 1 | 2 | 3;
   /** When true, each word gets both a recognition (CN→EN) and production (EN→CN) card */
@@ -282,11 +293,22 @@ export function applyFSRS(card: Flashcard, rating: FSRSRating, desiredRetention 
 
   const newLapses = rating === Rating.Again ? (card.lapses ?? 0) + 1 : (card.lapses ?? 0);
 
+  // FEAT-2: Force-graduate stuck New/Learning cards.
+  // If the card is in state 0 (New) or 1 (Learning), has accumulated >= GRADUATION_LAPSE_THRESHOLD
+  // lapses, and the user just answered Good or Easy, promote it to Review state (2) with a 1-day
+  // interval. This breaks the infinite Learning loop for partially-known words.
+  const isStuckInLearning =
+    (card.state === 0 || card.state === 1) &&
+    (card.lapses ?? 0) >= GRADUATION_LAPSE_THRESHOLD &&
+    rating >= Rating.Good;
+
   // Apply progressive interval cap — keeps cards coming back until truly known
   const rawDays = scheduled.scheduledDays;
   const cappedDays = rating === Rating.Again
     ? rawDays  // Again is always short-term, leave as-is
-    : capInterval(rawDays, scheduled.reps);
+    : isStuckInLearning
+      ? 1       // Graduated card starts Review schedule at 1 day
+      : capInterval(rawDays, scheduled.reps);
 
   // Recompute due date using the capped interval
   const newDueDate = cappedDays === rawDays
@@ -301,6 +323,9 @@ export function applyFSRS(card: Flashcard, rating: FSRSRating, desiredRetention 
     ? scheduled.stability
     : scheduled.stability * (cappedDays / Math.max(rawDays, 1));
 
+  // FEAT-2: Override state to Review (2) when graduating a stuck card
+  const finalState = isStuckInLearning ? 2 : (scheduled.state as number);
+
   return {
     stability:    cappedStability,
     difficulty:   scheduled.difficulty,
@@ -309,7 +334,7 @@ export function applyFSRS(card: Flashcard, rating: FSRSRating, desiredRetention 
     reps:         scheduled.reps,
     lapses:       newLapses,
     isLeech:      newLapses >= LEECH_THRESHOLD,
-    state:        scheduled.state as number,
+    state:        finalState,
     // Due date uses capped interval
     dueDate:      newDueDate,
     nextReviewDate: toISODate(newDueDate),
@@ -815,7 +840,6 @@ const DEFAULT_SETTINGS: Settings = {
   dailyReviewCap: null,
   showCapReachedPopup: true,
   testingMode: "forward",
-  flashcardSource: "both",
   cardSize: 2,
   enableReversibleCards: false,
   desiredRetention: 0.85,

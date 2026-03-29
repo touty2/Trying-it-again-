@@ -68,7 +68,8 @@ import { useTTS } from "@/hooks/useTTS";
 import { useAudioSettings } from "@/hooks/useAudioSettings";
 import { useFlashcardDirection } from "@/hooks/useFlashcardDirection";
 import { CompletedWordDB } from "@/lib/db";
-import type { Flashcard, Word, TestingMode, FlashcardSource } from "@/lib/db";
+import type { Flashcard, Word, TestingMode } from "@/lib/db";
+import { GRADUATION_LAPSE_THRESHOLD } from "@/lib/db";
 import { loadAndMergeSession, useDeckSessionPersistence, clearSession, saveSession, SESSION_COMPLETE } from "../hooks/useDeckSession";
 import { toTonePinyin } from "@/lib/pinyin";
 import { useDecks } from "@/hooks/useDecks";
@@ -869,41 +870,6 @@ function WordListItem({
   );
 }
 
-// ─── Flashcard Source Selector ───────────────────────────────────────────────
-const SOURCE_OPTIONS: { value: FlashcardSource; label: string; title: string }[] = [
-  { value: "both", label: "All", title: "Draw from all sources" },
-  { value: "texts", label: "Texts", title: "Only words added from reading sessions" },
-  { value: "vocab", label: "Vocab", title: "Only words added from vocabulary pages" },
-  { value: "user", label: "My Words", title: "Only manually added words" },
-];
-function FlashcardSourceSelector({
-  value,
-  onChange,
-}: {
-  value: FlashcardSource;
-  onChange: (source: FlashcardSource) => void;
-}) {
-  return (
-    <div className="flex rounded-lg border border-border overflow-hidden" role="group" aria-label="Flashcard source">
-      {SOURCE_OPTIONS.map((opt) => (
-        <button
-          key={opt.value}
-          onClick={() => onChange(opt.value)}
-          title={opt.title}
-          className={[
-            "px-3 py-1.5 text-xs font-medium transition-colors",
-            value === opt.value
-              ? "bg-secondary text-secondary-foreground"
-              : "text-muted-foreground hover:text-foreground",
-          ].join(" ")}
-        >
-          {opt.label}
-        </button>
-      ))}
-    </div>
-  );
-}
-
 // ─── Testing Mode Selector ────────────────────────────────────────────────────
 const MODE_OPTIONS: { value: TestingMode; label: string; title: string }[] = [
   { value: "forward", label: "ZH→EN", title: "Chinese to English" },
@@ -1150,18 +1116,6 @@ export default function Deck() {
 
   const dueCards = useMemo(() => getFilteredDueCards(), [getFilteredDueCards, flashcards, completedWordIds, storyWordIds]);
 
-  // BUG-A fix: compute how many due cards are hidden by the flashcardSource filter.
-  // When source !== 'both', cards from other sources are silently excluded from the queue.
-  // We surface this as a warning banner so the user can see why their queue looks wrong.
-  const hiddenBySourceFilter = useMemo(() => {
-    const source = settings.flashcardSource ?? "both";
-    if (source === "both" || storyFilter) return 0;
-    // getDueCards already applies the source filter — count what 'both' would return minus current
-    const now = Date.now();
-    const allDue = flashcards.filter((c) => !c.isLeech && c.dueDate <= now);
-    return allDue.length - dueCards.length;
-  }, [flashcards, dueCards, settings.flashcardSource, storyFilter]);
-
   // Leech cards: excluded from normal queue, shown separately for manual review
   const leechCards = useMemo(
     () => flashcards.filter((c) => c.isLeech),
@@ -1211,17 +1165,7 @@ export default function Deck() {
     },
     [settings, updateSettings, resetDirections]
   );
-  const handleSourceChange = useCallback(
-    async (source: FlashcardSource) => {
-      clearSession();
-      await updateSettings({ ...settings, flashcardSource: source });
-      const due = getDueCards().map((c) => c.cardId);
-      setReviewQueue(due);
-      setCurrentIdx(0);
-      setSessionReviewed(0);
-    },
-    [settings, updateSettings, getDueCards]
-  );
+
 
   const handleReview = useCallback(
     async (rating: 1 | 2 | 3 | 4) => {
@@ -1257,6 +1201,14 @@ export default function Deck() {
         toast.warning(`Daily review cap (${cap}) reached!`);
         return;
       }
+      // FEAT-2: Check if this review will trigger graduation before writing
+      const cardForGrad = flashcards.find((c) => c.cardId === currentCardId);
+      const willGraduate =
+        cardForGrad &&
+        (cardForGrad.state === 0 || cardForGrad.state === 1) &&
+        (cardForGrad.lapses ?? 0) >= GRADUATION_LAPSE_THRESHOLD &&
+        rating >= 3;
+
       const result = await reviewFlashcard(currentCardId, rating);
       if (!result.applied) {
         // Cap was hit in the window between the check above and the async call.
@@ -1265,6 +1217,16 @@ export default function Deck() {
         }
         return; // Do NOT advance the queue — the card was not reviewed.
       }
+
+      // FEAT-2: Show graduation toast when a stuck card is promoted to Review
+      if (willGraduate && cardForGrad) {
+        const word = words.find((w) => w.id === cardForGrad.wordId);
+        toast.success(
+          `${word?.hanzi ?? "Card"} graduated to Review — it will now follow the full SRS schedule`,
+          { duration: 3000 }
+        );
+      }
+
       // BUG-2/4 FIX: Mark this card as reviewed so the visibilitychange handler
       // won't re-append it to the queue when the user returns to the tab.
       reviewedThisSessionRef.current.add(currentCardId);
@@ -1411,8 +1373,6 @@ export default function Deck() {
           )}
         </div>
         <div className="flex items-center gap-2 flex-wrap">
-          {/* Flashcard source selector */}
-          <FlashcardSourceSelector value={settings.flashcardSource ?? "both"} onChange={handleSourceChange} />
           {/* Testing mode selector */}
           <TestingModeSelector value={testingMode} onChange={handleModeChange} />
           <Button
@@ -1450,23 +1410,6 @@ export default function Deck() {
           </div>
         </div>
       </div>
-
-      {/* BUG-A fix: Source filter warning banner — shown whenever a non-'both' filter is hiding due cards */}
-      {hiddenBySourceFilter > 0 && (
-        <div className="mb-4 flex items-center gap-2 rounded-lg border border-amber-400/40 bg-amber-50 dark:bg-amber-950/30 px-4 py-2.5 text-sm text-amber-800 dark:text-amber-300">
-          <AlertTriangle size={14} className="shrink-0" />
-          <span>
-            <strong>{hiddenBySourceFilter} due card{hiddenBySourceFilter !== 1 ? "s" : ""} are hidden</strong> because the source filter is set to
-            {" "}<strong>"{settings.flashcardSource}"</strong>. Switch to <strong>"All"</strong> to see your full queue.
-          </span>
-          <button
-            onClick={() => handleSourceChange("both")}
-            className="ml-auto shrink-0 rounded bg-amber-200 dark:bg-amber-800 px-2 py-0.5 text-xs font-medium hover:bg-amber-300 dark:hover:bg-amber-700 transition-colors"
-          >
-            Show All
-          </button>
-        </div>
-      )}
 
       {/* Session-restored banner */}
       {sessionRestored && (

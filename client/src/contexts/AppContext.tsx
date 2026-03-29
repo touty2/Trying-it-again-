@@ -113,7 +113,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     dailyReviewCap: null,
     showCapReachedPopup: true,
     testingMode: "forward",
-    flashcardSource: "both",
     cardSize: 2,
     enableReversibleCards: false,
     desiredRetention: 0.85,
@@ -507,19 +506,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     // Include ALL cards due now or in the past (no arbitrary cap).
     // Sort oldest-due first so the most overdue cards are reviewed first.
     const now = Date.now();
-    const source = settingsRef.current.flashcardSource ?? "both";
+    // FEAT-1: flashcardSource filter removed — always show all due cards regardless of source.
+    // The filter caused silent data loss (e.g. 66 of 105 due cards hidden when set to 'vocab').
     const due = flashcardsRef.current.filter((c) => {
       if (c.dueDate > now) return false;
       // NOTE: completedWordIds is a visual "mastery" badge only — completed words
       // still appear in the SRS queue on their scheduled due date.
       // Only leech cards (too many lapses) are suppressed from the normal queue.
-      if (c.isLeech) return false; // leech cards excluded from normal queue
-      if (source === "both") return true;
-      const word = wordsRef.current.find((w) => w.id === c.wordId);
-      if (!word) return true;
-      if (source === "texts") return word.sourceTextId !== null && !word.addedManually;
-      if (source === "vocab") return word.sourceTextId === null && !word.addedManually;
-      if (source === "user") return word.addedManually === true;
+      if (c.isLeech) return false;
       return true;
     });
     due.sort((a, b) => a.dueDate - b.dueDate);
@@ -533,12 +527,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
    */
   const getDueStatsCallback = useCallback(
     (): { dueToday: number; overdue: number; newCards: number; leechCards: number } => {
-      // BUG-A fix: use getDueCards() (which applies the flashcardSource filter) so the
-      // Dashboard stats match exactly what the user will see in the Deck queue.
-      // Previously getDueStats used flashcardsRef.current directly, ignoring the source
-      // filter — so Dashboard showed 105 due while Deck showed 39 (flashcardSource='vocab').
-      const filteredDue = getDueCards();
-      return getDueStats(filteredDue, completedWordIdsRef.current);
+      // FEAT-1: getDueCards() now always returns all due cards (no source filter).
+      // getDueStats and getDueCards are always in sync.
+      return getDueStats(getDueCards(), completedWordIdsRef.current);
     },
     [getDueCards]
   );
