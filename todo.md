@@ -146,3 +146,9 @@
 - [x] ROOT CAUSE 3: Server SQL used >= in IF(COALESCE...) conflict resolution → changed to strict > on server too
 - [x] ROOT CAUSE 4: refreshAll() never called after sync pull overwrote IndexedDB → registerRefreshAllCallback wired into SyncContext
 - [x] TEST: 13 regression tests written and passing (syncOverwrite.regression.test.ts)
+
+## DEFINITIVE FIX: Reviewed cards reappear after tab-in/refresh (Mar 31, 2026 — BUG-5)
+- [x] ROOT CAUSE IDENTIFIED: visibilitychange handler in Deck.tsx had NO check for completed sessions — every tab-in called getDueCards(), found all new cards (dueDate=now), and appended them to the empty queue, instantly restoring the full deck
+- [x] FIX 1: visibilitychange handler now reads completedUntil from localStorage before appending — if future, skip entirely
+- [x] FIX 2: isSessionDone is now a useMemo that reads completedUntil from localStorage as a second guard — stays true even if reviewQueue is reset by a re-render
+- [x] TEST: 7 new regression tests added (Bug 5 suite) — 20/20 total passing

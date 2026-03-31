@@ -1307,7 +1307,25 @@ export default function Deck() {
     notifyChange();
   }, [currentWordId, currentDirection, isRandom, markWordCompleted, notifyChange, currentIdx, reviewQueue.length]);
 
-  const isSessionDone = currentIdx >= reviewQueue.length;
+  // BUG-5 FIX: isSessionDone is true when:
+  //   a) The queue is exhausted (currentIdx >= reviewQueue.length), OR
+  //   b) completedUntil is set in localStorage and is still in the future.
+  // Without (b), a sync-triggered refreshAll() or a tab-in that updates
+  // flashcards state could cause the rendering condition to skip the done
+  // screen and fall through to the card view.
+  const isSessionDone = useMemo(() => {
+    if (currentIdx >= reviewQueue.length && reviewQueue.length > 0) return true;
+    try {
+      const raw = localStorage.getItem("cr-deck-session-v2");
+      if (raw) {
+        const parsed = JSON.parse(raw) as { completedUntil?: number };
+        if (parsed.completedUntil && parsed.completedUntil > Date.now()) return true;
+      }
+    } catch {
+      // ignore
+    }
+    return false;
+  }, [currentIdx, reviewQueue.length]);
 
   // Dismiss the "session restored" banner after 4 seconds
   useEffect(() => {
@@ -1316,21 +1334,37 @@ export default function Deck() {
     return () => clearTimeout(t);
   }, [sessionRestored]);
 
-  // ── BUG-2/4 FIX: Visibility handler with proper deduplication ─────────────
-  // OLD BUG: The handler used `new Set(prev)` to deduplicate, but prev includes
-  // cards that were requeued via "Again" (still in the array at a later index).
-  // A card reviewed earlier in the session could be in getDueCards() if its new
-  // dueDate is still <= now (e.g. Again sets interval=1 day but dueDate=now).
-  // That card would be appended again, causing duplication.
+  // ── BUG-2/4/5 FIX: Visibility handler with proper deduplication ──────────────
+  // BUG-5 (root cause of cards reappearing after session complete):
+  //   After finishing all cards, markSessionComplete() sets completedUntil in
+  //   localStorage and reviewQueue becomes []. But the old handler had NO check
+  //   for a completed session — every tab-in called getDueCards(), found all
+  //   cards still due (new cards always have dueDate=now until reviewed), and
+  //   appended them all to the empty queue, instantly restoring the full deck.
   //
-  // FIX: Also exclude cards already reviewed this session (reviewedThisSessionRef)
-  // and cards that are already in the queue at any position (not just prev).
-  // Skip the append entirely if the session hasn't been initialized yet.
+  // FIX: Read completedUntil from localStorage before appending. If it is in
+  //   the future, the session was completed today — skip the append entirely.
+  //   Also keep the existing deduplication guards (reviewed set, existing queue).
   useEffect(() => {
     const handleVisibility = () => {
       if (document.visibilityState !== "visible") return;
       if (!queueInitialized.current) return; // don't append before init
       if (isStoryMode) return; // story queue is managed separately
+
+      // BUG-5 FIX: If the session was completed today, never re-populate the queue.
+      // This is the primary guard against reviewed cards reappearing after tab-in.
+      try {
+        const raw = localStorage.getItem("cr-deck-session-v2");
+        if (raw) {
+          const parsed = JSON.parse(raw) as { completedUntil?: number };
+          if (parsed.completedUntil && parsed.completedUntil > Date.now()) {
+            return; // session done today — do not append any cards
+          }
+        }
+      } catch {
+        // ignore parse errors
+      }
+
       setReviewQueue((prev) => {
         const currentDue = getDueCards().map((c) => c.cardId);
         const existingSet = new Set(prev); // all cards currently in queue (incl. requeued)

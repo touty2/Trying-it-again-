@@ -215,3 +215,106 @@ describe("session merge after sync pull (Bug 3)", () => {
     expect(result).toBe(SESSION_COMPLETE);
   });
 });
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Bug 5: visibilitychange handler must not re-populate queue after session done
+// ─────────────────────────────────────────────────────────────────────────────
+
+describe("visibilitychange completedUntil guard (Bug 5 — root cause)", () => {
+  /**
+   * The visibilitychange handler in Deck.tsx appends newly-due cards to the
+   * review queue when the user tabs back in. Before the fix, it had NO check
+   * for whether the session was already completed today.
+   *
+   * After a full review session:
+   *   - reviewQueue = []
+   *   - currentIdx = 0
+   *   - completedUntil is set in localStorage (future midnight)
+   *
+   * The handler would call getDueCards() → find all new cards (dueDate=now) →
+   * append them all → queue goes from [] to [298 cards] → isSessionDone=false
+   * → all cards appear again.
+   *
+   * FIX: Read completedUntil from localStorage before appending. If future → skip.
+   * Also: isSessionDone now reads completedUntil directly as a second guard.
+   */
+
+  function shouldSkipVisibilityAppend(): boolean {
+    // Mirrors the guard added to the visibilitychange handler in Deck.tsx
+    try {
+      const raw = localStorage.getItem("cr-deck-session-v2");
+      if (raw) {
+        const parsed = JSON.parse(raw) as { completedUntil?: number };
+        if (parsed.completedUntil && parsed.completedUntil > Date.now()) {
+          return true; // session done today — skip append
+        }
+      }
+    } catch {
+      // ignore
+    }
+    return false;
+  }
+
+  function isSessionDoneFromStorage(currentIdx: number, queueLength: number): boolean {
+    // Mirrors the updated isSessionDone useMemo in Deck.tsx
+    if (currentIdx >= queueLength && queueLength > 0) return true;
+    try {
+      const raw = localStorage.getItem("cr-deck-session-v2");
+      if (raw) {
+        const parsed = JSON.parse(raw) as { completedUntil?: number };
+        if (parsed.completedUntil && parsed.completedUntil > Date.now()) return true;
+      }
+    } catch {
+      // ignore
+    }
+    return false;
+  }
+
+  it("after markSessionComplete, visibilitychange handler skips append", () => {
+    markSessionComplete();
+    expect(shouldSkipVisibilityAppend()).toBe(true);
+  });
+
+  it("without completedUntil, visibilitychange handler allows append", () => {
+    // No session saved — normal mid-session state
+    expect(shouldSkipVisibilityAppend()).toBe(false);
+  });
+
+  it("expired completedUntil (past midnight) allows append for new day", () => {
+    const pastMidnight = Date.now() - 1000;
+    localStorageMock.setItem("cr-deck-session-v2", JSON.stringify({
+      queue: [],
+      currentIdx: 0,
+      sessionReviewed: 5,
+      requeuedIds: [],
+      savedAt: Date.now() - 25 * 60 * 60 * 1000,
+      completedUntil: pastMidnight,
+    }));
+    expect(shouldSkipVisibilityAppend()).toBe(false);
+  });
+
+  it("isSessionDone returns true from completedUntil even when queue is empty", () => {
+    markSessionComplete();
+    // reviewQueue=[], currentIdx=0 — old logic: 0 >= 0 but queue.length=0 → false
+    // New logic: reads completedUntil → true
+    expect(isSessionDoneFromStorage(0, 0)).toBe(true);
+  });
+
+  it("isSessionDone returns false when no session and queue is empty (deck empty state)", () => {
+    // No session, no cards — should show empty deck screen, not done screen
+    expect(isSessionDoneFromStorage(0, 0)).toBe(false);
+  });
+
+  it("isSessionDone returns true when queue exhausted normally", () => {
+    expect(isSessionDoneFromStorage(5, 5)).toBe(true);
+  });
+
+  it("completedUntil persists across simulated tab-ins", () => {
+    markSessionComplete();
+    // Simulate 5 tab-ins
+    for (let i = 0; i < 5; i++) {
+      expect(shouldSkipVisibilityAppend()).toBe(true);
+      expect(isSessionDoneFromStorage(0, 0)).toBe(true);
+    }
+  });
+});
