@@ -70,7 +70,7 @@ import { useFlashcardDirection } from "@/hooks/useFlashcardDirection";
 import { CompletedWordDB } from "@/lib/db";
 import type { Flashcard, Word, TestingMode } from "@/lib/db";
 import { GRADUATION_LAPSE_THRESHOLD } from "@/lib/db";
-import { loadAndMergeSession, useDeckSessionPersistence, clearSession, saveSession, SESSION_COMPLETE } from "../hooks/useDeckSession";
+import { loadAndMergeSession, useDeckSessionPersistence, clearSession, saveSession, markSessionComplete, SESSION_COMPLETE } from "../hooks/useDeckSession";
 import { toTonePinyin } from "@/lib/pinyin";
 import { useDecks } from "@/hooks/useDecks";
 import { DecksSidebar } from "@/components/DecksSidebar";
@@ -1236,7 +1236,18 @@ export default function Deck() {
         next.delete(currentCardId);
         return next;
       });
-      setCurrentIdx((prev) => prev + 1);
+      const nextIdx = currentIdx + 1;
+      setCurrentIdx(nextIdx);
+
+      // FIX: If this was the last card, immediately write the completedUntil marker
+      // to localStorage BEFORE the sync fires. The 200ms debounce in
+      // useDeckSessionPersistence is too slow — the sync pull can run first and
+      // overwrite IndexedDB with stale pre-review dueDates, making all cards
+      // appear due again on the next page load.
+      if (nextIdx >= reviewQueue.length) {
+        markSessionComplete();
+      }
+
       notifyChange();
     },
     [currentCardId, reviewFlashcard, requeuedWordIds, settings.dailyReviewCap, todayReviews, currentIdx, notifyChange]
@@ -1286,10 +1297,15 @@ export default function Deck() {
       toast.success("Marked as learned ✓ — SRS will keep scheduling it");
     }
 
+    const nextMarkIdx = currentIdx + 1;
     setSessionReviewed((prev) => prev + 1);
-    setCurrentIdx((prev) => prev + 1);
+    setCurrentIdx(nextMarkIdx);
+    // FIX: Same as handleReview — immediately write completedUntil on last card
+    if (nextMarkIdx >= reviewQueue.length) {
+      markSessionComplete();
+    }
     notifyChange();
-  }, [currentWordId, currentDirection, isRandom, markWordCompleted, notifyChange]);
+  }, [currentWordId, currentDirection, isRandom, markWordCompleted, notifyChange, currentIdx, reviewQueue.length]);
 
   const isSessionDone = currentIdx >= reviewQueue.length;
 

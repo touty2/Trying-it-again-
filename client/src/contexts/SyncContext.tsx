@@ -11,8 +11,9 @@
 
 import { createContext, useContext, useEffect, type ReactNode } from "react";
 import { useAuth } from "@/_core/hooks/useAuth";
-import { useSyncManager, registerMergeGrammarCallback, type SyncState } from "@/hooks/useSyncManager";
+import { useSyncManager, registerMergeGrammarCallback, registerRefreshAllCallback, type SyncState } from "@/hooks/useSyncManager";
 import { useGrammarProgress } from "@/contexts/GrammarProgressContext";
+import { useApp } from "@/hooks/useApp";
 
 // ─── Context Types ────────────────────────────────────────────────────────────
 
@@ -46,6 +47,14 @@ export function SyncProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     registerMergeGrammarCallback(mergeFromCloud);
   }, [mergeFromCloud]);
+
+  // Register refreshAll so the sync manager can reload in-memory flashcard state
+  // after the pull phase writes to IndexedDB. This prevents stale in-memory state
+  // from causing all cards to appear due again on the next page load.
+  const { refreshAll } = useApp();
+  useEffect(() => {
+    registerRefreshAllCallback(refreshAll);
+  }, [refreshAll]);
 
   return (
     <SyncContext.Provider value={{ syncState, triggerSync, notifyChange, isSyncing, userId }}>

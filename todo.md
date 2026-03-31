@@ -131,3 +131,18 @@
 ## User-Requested Features (2026-03-29)
 - [x] FEAT-1: Remove flashcardSource filter UI entirely — always use 'both', remove from Settings type, getDueCards, sync, and Deck header
 - [x] FEAT-2: Graduate state=0 cards — after GRADUATION_LAPSE_THRESHOLD (8) lapses + Good/Easy answer, force state to Review (2) so stuck New cards stop cycling
+
+## Manus Scaffold Re-Restoration (Mar 31, 2026)
+- [x] Restored from Trying-it-again--main(5).zip into fresh web-db-user scaffold
+- [x] All 14 database tables re-applied via webdev_execute_sql
+- [x] All dependencies installed (fsrs-algorithm, bcryptjs, ai, streamdown, etc.)
+- [x] TypeScript compiles with 0 errors
+- [x] Auth tests: 3/3 passing
+- [x] Dev server running and UI confirmed healthy
+
+## Critical Bug: Reviewed cards reappear after page refresh (Mar 31, 2026) — FIXED
+- [x] ROOT CAUSE 1: cloudLR >= localLR in useSyncManager allowed equal timestamps to overwrite local reviewed state → changed to strict >
+- [x] ROOT CAUSE 2: markSessionComplete() only called via 200ms debounce — sync pull could fire first → now called immediately on last card review in handleReview and handleMarkCompleted
+- [x] ROOT CAUSE 3: Server SQL used >= in IF(COALESCE...) conflict resolution → changed to strict > on server too
+- [x] ROOT CAUSE 4: refreshAll() never called after sync pull overwrote IndexedDB → registerRefreshAllCallback wired into SyncContext
+- [x] TEST: 13 regression tests written and passing (syncOverwrite.regression.test.ts)

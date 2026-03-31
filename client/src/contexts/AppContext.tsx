@@ -191,6 +191,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   // Refresh flashcards when the user returns to the tab (e.g. after leaving overnight)
   // This ensures newly-due cards appear without requiring a full page reload.
+  // NOTE: We do NOT call this during an active sync — refreshAll() is called by the
+  // sync manager after the pull phase completes, which is more accurate.
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.visibilityState === "visible") {

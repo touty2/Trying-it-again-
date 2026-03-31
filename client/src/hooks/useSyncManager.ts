@@ -76,6 +76,19 @@ export function registerMergeGrammarCallback(fn: MergeGrammarCallback) {
   _mergeGrammarFromCloud = fn;
 }
 
+/**
+ * Callback registered by AppContext so the sync manager can call refreshAll()
+ * after the pull phase overwrites IndexedDB cards. Without this, in-memory
+ * flashcard state stays stale (post-review) while IndexedDB has been overwritten
+ * with cloud data, causing a mismatch that shows all cards due again on next load.
+ */
+type RefreshAllCallback = () => Promise<void>;
+let _refreshAllFromSync: RefreshAllCallback | null = null;
+
+export function registerRefreshAllCallback(fn: RefreshAllCallback) {
+  _refreshAllFromSync = fn;
+}
+
 // ─── localStorage keys for preferences ───────────────────────────────────────
 
 const PREF_KEYS = [
@@ -248,11 +261,12 @@ export function useSyncManager(userId: number | null | undefined) {
         const cloudKey = (cloudCard as { cardId?: string }).cardId ?? cloudCard.wordId;
         const localCard = localFlashcardMap.get(cloudKey) ?? localFlashcardMap.get(cloudCard.wordId);
 
-        // Bug fix: use lastReviewed as tiebreaker; if equal, prefer the cloud card
-        // (ensures a card that exists only on cloud is always pulled down)
+        // Conflict resolution: cloud wins only when it is STRICTLY NEWER than local.
+        // Equal timestamps mean local is at least as fresh (just reviewed and pushed),
+        // so local wins. Cards that exist only on cloud (no localCard) always pull down.
         const localLR = localCard?.lastReviewed ?? 0;
         const cloudLR = cloudCard.lastReviewed ?? 0;
-        const cloudWins = !localCard || cloudLR >= localLR;
+        const cloudWins = !localCard || cloudLR > localLR;
 
         if (cloudWins) {
           if (!localWordMap.has(cloudCard.wordId)) {
@@ -398,6 +412,15 @@ export function useSyncManager(userId: number | null | undefined) {
       }
       if (newStoryRows.length > 0) {
         await putManyStudiedRows(newStoryRows);
+      }
+
+      // ── Post-pull: refresh in-memory React state so it matches what was just
+      // written to IndexedDB. Without this, the in-memory flashcards array stays
+      // at the post-review state while IndexedDB may have been overwritten by the
+      // pull. The next page load then reads stale IndexedDB data and shows all
+      // cards as due again.
+      if (_refreshAllFromSync) {
+        try { await _refreshAllFromSync(); } catch { /* best-effort */ }
       }
 
       // ── 9. Merge vocab ignored (cloud → local, OR logic: once ignored stays) ─

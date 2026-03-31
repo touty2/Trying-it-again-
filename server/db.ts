@@ -178,33 +178,38 @@ export async function upsertSyncFlashcards(
           examplePairsJson: sql`VALUES(examplePairsJson)`,
           addedManually: sql`VALUES(addedManually)`,
           //
-          // ── Conflict resolution: last-review-wins ────────────────────────────
+          // ── Conflict resolution: last-review-wins (STRICT greater-than) ─────
           // SRS progress fields are only updated when the incoming lastReviewed
-          // is MORE RECENT than what is already stored. This prevents a stale
-          // sync from an older device from overwriting a newer review.
+          // is STRICTLY MORE RECENT than what is already stored.
           //
-          // Pattern: IF(VALUES(lastReviewed) > lastReviewed, VALUES(x), x)
-          // When lastReviewed is NULL on either side, COALESCE to 0 so the
-          // comparison still works correctly.
+          // Using >= caused a critical bug: after a full review session, the client
+          // pushes cards with lastReviewed=T. On the next page load the pull fetches
+          // those same cards back and the >= condition means they overwrite local
+          // IndexedDB (same timestamp = cloud wins), restoring the pre-review dueDate
+          // and making all cards appear due again.
           //
-          easeFactor:    sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(easeFactor),    easeFactor)`,
-          interval:      sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(\`interval\`),  \`interval\`)`,
-          repetition:    sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(repetition),    repetition)`,
-          dueDate:       sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(dueDate),       dueDate)`,
-          lastReviewed:  sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(lastReviewed),  lastReviewed)`,
-          isCompleted:   sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(isCompleted),   isCompleted)`,
-          completedAt:   sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(completedAt),   completedAt)`,
-          completedForward:  sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(completedForward),  completedForward)`,
-          completedReverse:  sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(completedReverse),  completedReverse)`,
+          // With strict >, equal timestamps mean "already up to date" and the stored
+          // value is kept. New cards (both sides NULL → both COALESCE to 0, 0 > 0 = false)
+          // are handled by the INSERT path (no existing row), so they are always inserted.
+          //
+          easeFactor:    sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(easeFactor),    easeFactor)`,
+          interval:      sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(\`interval\`),  \`interval\`)`,
+          repetition:    sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(repetition),    repetition)`,
+          dueDate:       sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(dueDate),       dueDate)`,
+          lastReviewed:  sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(lastReviewed),  lastReviewed)`,
+          isCompleted:   sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(isCompleted),   isCompleted)`,
+          completedAt:   sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(completedAt),   completedAt)`,
+          completedForward:  sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(completedForward),  completedForward)`,
+          completedReverse:  sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(completedReverse),  completedReverse)`,
           // FSRS fields (also gated on lastReviewed)
-          stability:     sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(stability),     stability)`,
-          difficulty:    sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(difficulty),    difficulty)`,
-          scheduledDays: sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(scheduledDays), scheduledDays)`,
-          elapsedDays:   sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(elapsedDays),   elapsedDays)`,
-          reps:          sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(reps),          reps)`,
-          lapses:        sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(lapses),        lapses)`,
-          isLeech:       sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(isLeech),       isLeech)`,
-          state:         sql`IF(COALESCE(VALUES(lastReviewed),0) >= COALESCE(lastReviewed,0), VALUES(state),         state)`,
+          stability:     sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(stability),     stability)`,
+          difficulty:    sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(difficulty),    difficulty)`,
+          scheduledDays: sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(scheduledDays), scheduledDays)`,
+          elapsedDays:   sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(elapsedDays),   elapsedDays)`,
+          reps:          sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(reps),          reps)`,
+          lapses:        sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(lapses),        lapses)`,
+          isLeech:       sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(isLeech),       isLeech)`,
+          state:         sql`IF(COALESCE(VALUES(lastReviewed),0) > COALESCE(lastReviewed,0), VALUES(state),         state)`,
         },
       });
   }
