@@ -576,6 +576,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const resetDueDates = useCallback(async (): Promise<void> => {
     await FlashcardDB.resetDueDates();
+    // Also clear learned badges so they don't persist after a due-date reset
+    const allCompleted = await CompletedWordDB.getAll();
+    await Promise.all(allCompleted.map((cw) => CompletedWordDB.unmarkCompleted(cw.wordId)));
     await refreshAll();
   }, [refreshAll]);
 

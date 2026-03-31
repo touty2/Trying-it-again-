@@ -160,3 +160,7 @@
 - [x] Hero card: shows "X cards ready" + Review button when due, countdown when all caught up, Get Started when deck empty
 - [x] Keep: Continue Reading shortcut, Band Breakdown, Today's Activity bars
 - [x] Remove: Texts Completed, Suggested Re-reads, Overdue/Due Today/New breakdown row
+
+## "Marked as learned" badge bug (Apr 2026)
+- [x] BUG: "Marked as learned" labels persist on cards after Reset Due Dates — CompletedWordDB was not cleared by resetDueDates(), only by resetDeck()
+- [x] FIX: resetDueDates() in AppContext.tsx now clears CompletedWordDB the same way resetDeck() does — both resets now fully wipe learned badges
