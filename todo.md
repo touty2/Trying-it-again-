@@ -152,3 +152,11 @@
 - [x] FIX 1: visibilitychange handler now reads completedUntil from localStorage before appending — if future, skip entirely
 - [x] FIX 2: isSessionDone is now a useMemo that reads completedUntil from localStorage as a second guard — stays true even if reviewQueue is reset by a re-render
 - [x] TEST: 7 new regression tests added (Bug 5 suite) — 20/20 total passing
+
+## Dashboard Redesign (requested)
+- [x] Remove clutter: collapsed 9 stat cards into 3 (Words in Deck, In Rotation, Streak)
+- [x] Replace "Words Learned" (rep>=2) with "In Rotation" (lastReviewed !== null) — accurate SRS framing
+- [x] Add countdown timer to next scheduled review (reads min future dueDate, updates every 30s)
+- [x] Hero card: shows "X cards ready" + Review button when due, countdown when all caught up, Get Started when deck empty
+- [x] Keep: Continue Reading shortcut, Band Breakdown, Today's Activity bars
+- [x] Remove: Texts Completed, Suggested Re-reads, Overdue/Due Today/New breakdown row

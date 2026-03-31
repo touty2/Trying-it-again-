@@ -1,34 +1,30 @@
 /**
- * Dashboard Tab
- * Design: Structured Scholar
- *  - Words Learned progress bar
- *  - Total learned count
- *  - Review streak
- *  - Due cards today
- *  - Completed texts count
- *  - Suggested re-reads count
- *  - Band breakdown
+ * Dashboard — clean redesign
+ *
+ * Layout:
+ *  1. Countdown hero  — time until next review (or "Review now" CTA)
+ *  2. Three stat cards — Words in Deck · In Rotation · Streak
+ *  3. Today's Activity — cards reviewed + new words added (progress bars)
+ *  4. Continue Reading shortcut (if a story was opened before)
+ *  5. Words by Band breakdown (only when data exists)
  */
 
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "wouter";
 import {
   BookOpen,
   Flame,
-  CheckCircle2,
   Clock,
-  TrendingUp,
   BarChart3,
   Layers,
-  BookMarked,
-  RotateCcw,
-  AlertCircle,
-  Sparkles,
   ChevronRight,
+  ArrowRight,
+  RefreshCw,
 } from "lucide-react";
 import { useApp } from "@/contexts/AppContext";
 import type { HskBand } from "@/lib/db";
+import { Button } from "@/components/ui/button";
 
 // ─── Band Config ──────────────────────────────────────────────────────────────
 
@@ -50,7 +46,68 @@ const BAND_LABELS: Record<HskBand, string> = {
   "HSK5-II": "HSK 5-II",
 };
 
-// ─── Stat Card ────────────────────────────────────────────────────────────────
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+/** Format a millisecond duration as "Xh Ym" or "Xm" */
+function formatDuration(ms: number): string {
+  const totalMinutes = Math.ceil(ms / 60_000);
+  if (totalMinutes <= 0) return "now";
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  if (hours === 0) return `${minutes}m`;
+  if (minutes === 0) return `${hours}h`;
+  return `${hours}h ${minutes}m`;
+}
+
+/** Format an absolute timestamp as a friendly time string */
+function formatTime(ts: number): string {
+  return new Date(ts).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+}
+
+// ─── Countdown Hook ───────────────────────────────────────────────────────────
+
+/**
+ * Returns the milliseconds until the nearest future dueDate across all
+ * flashcards that have been reviewed at least once (state > 0).
+ * Updates every 30 seconds. Returns null if no future reviews are scheduled.
+ */
+function useNextReviewCountdown(flashcards: { dueDate: number; lastReviewed: number | null }[]) {
+  const getMs = useCallback(() => {
+    const now = Date.now();
+    // Only look at cards that have been reviewed at least once and are scheduled in the future
+    const futureDueDates = flashcards
+      .filter((c) => c.lastReviewed !== null && c.dueDate > now)
+      .map((c) => c.dueDate);
+    if (futureDueDates.length === 0) return null;
+    return Math.min(...futureDueDates) - now;
+  }, [flashcards]);
+
+  const [msUntilNext, setMsUntilNext] = useState<number | null>(getMs);
+
+  useEffect(() => {
+    setMsUntilNext(getMs());
+    const id = setInterval(() => setMsUntilNext(getMs()), 30_000);
+    return () => clearInterval(id);
+  }, [getMs]);
+
+  return msUntilNext;
+}
+
+// ─── Sub-components ───────────────────────────────────────────────────────────
+
+function ProgressBar({ value, max, color = "bg-primary" }: { value: number; max: number; color?: string }) {
+  const pct = max > 0 ? Math.min(100, (value / max) * 100) : 0;
+  return (
+    <div className="h-2 bg-muted rounded-full overflow-hidden">
+      <motion.div
+        className={`h-full rounded-full ${color}`}
+        initial={{ width: 0 }}
+        animate={{ width: `${pct}%` }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      />
+    </div>
+  );
+}
 
 interface StatCardProps {
   icon: React.ReactNode;
@@ -64,34 +121,18 @@ interface StatCardProps {
 function StatCard({ icon, label, value, sub, accent = "text-primary", delay = 0 }: StatCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay }}
       className="rounded-xl border border-border bg-card p-5 shadow-sm"
     >
-      <div className="w-9 h-9 rounded-lg flex items-center justify-center mb-3 bg-primary/10">
+      <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-3 bg-muted">
         <span className={accent}>{icon}</span>
       </div>
-      <p className="text-2xl font-bold text-foreground">{value}</p>
+      <p className="text-2xl font-bold text-foreground tabular-nums">{value}</p>
       <p className="text-sm text-muted-foreground mt-0.5">{label}</p>
-      {sub && <p className="text-xs text-muted-foreground/70 mt-1">{sub}</p>}
+      {sub && <p className="text-xs text-muted-foreground/60 mt-1">{sub}</p>}
     </motion.div>
-  );
-}
-
-// ─── Progress Bar ─────────────────────────────────────────────────────────────
-
-function ProgressBar({ value, max, color = "bg-primary" }: { value: number; max: number; color?: string }) {
-  const pct = max > 0 ? Math.min(100, (value / max) * 100) : 0;
-  return (
-    <div className="h-2.5 bg-muted rounded-full overflow-hidden">
-      <motion.div
-        className={`h-full rounded-full ${color}`}
-        initial={{ width: 0 }}
-        animate={{ width: `${pct}%` }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      />
-    </div>
   );
 }
 
@@ -106,35 +147,41 @@ export default function Dashboard() {
     todayReviews,
     settings,
     texts,
-    completedTextIds,
-    getSuggestedRereadTexts,
     getDueStats,
   } = useApp();
 
-  // Date-based SRS counts — computed fresh on every render from real-world date
+  const [, navigate] = useLocation();
+
+  // ── Due counts ──────────────────────────────────────────────────────────────
   const { dueToday, overdue, newCards } = useMemo(
     () => getDueStats(),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [getDueStats, flashcards]
   );
+  const dueNow = dueToday + overdue + newCards;
 
-  // Total actionable cards (due today + overdue + new)
-  const dueCount = dueToday + overdue + newCards;
+  // ── "In Rotation" — cards reviewed at least once ────────────────────────────
+  // This is a truthful SRS metric: the card has entered the spaced repetition
+  // schedule. It does not claim mastery — just that the system is tracking it.
+  const inRotation = useMemo(
+    () => flashcards.filter((c) => c.lastReviewed !== null).length,
+    [flashcards]
+  );
 
-  const learnedCount = useMemo(() => {
-    return flashcards.filter((c) => c.repetition >= 2).length;
+  // ── Next review countdown ───────────────────────────────────────────────────
+  const msUntilNext = useNextReviewCountdown(flashcards);
+
+  // Compute the absolute timestamp of the next review for the subtitle
+  const nextReviewTs = useMemo(() => {
+    const now = Date.now();
+    const futureDueDates = flashcards
+      .filter((c) => c.lastReviewed !== null && c.dueDate > now)
+      .map((c) => c.dueDate);
+    if (futureDueDates.length === 0) return null;
+    return Math.min(...futureDueDates);
   }, [flashcards]);
 
-  const completedTextsCount = completedTextIds.size;
-
-  const suggestedRereadCount = useMemo(() => {
-    return getSuggestedRereadTexts().length;
-  }, [getSuggestedRereadTexts]);
-
-  const totalWords = words.length;
-  const learnedGoal = Math.max(totalWords, 100);
-
-  // Band breakdown
+  // ── Band breakdown ──────────────────────────────────────────────────────────
   const bandBreakdown = useMemo(() => {
     const counts: Partial<Record<HskBand, number>> = {};
     words.forEach((w) => {
@@ -146,188 +193,197 @@ export default function Dashboard() {
     return counts;
   }, [words, texts]);
 
-  // Daily cap progress
-  const newWordCap = settings.dailyNewWordCap;
-
-  // Continue Reading — last story opened, persisted in localStorage
+  // ── Continue Reading ────────────────────────────────────────────────────────
   const [lastReadStoryId, setLastReadStoryId] = useState<string | null>(null);
   useEffect(() => {
     setLastReadStoryId(localStorage.getItem("lastReadStoryId"));
   }, []);
   const lastReadStory = lastReadStoryId ? texts.find((t) => t.id === lastReadStoryId) : null;
-  const [, navigate] = useLocation();
+
+  // ── Daily cap ───────────────────────────────────────────────────────────────
+  const newWordCap = settings.dailyNewWordCap;
+
+  // ── Countdown hero content ──────────────────────────────────────────────────
+  const heroContent = useMemo(() => {
+    if (dueNow > 0) {
+      return {
+        type: "due" as const,
+        headline: `${dueNow} card${dueNow !== 1 ? "s" : ""} ready`,
+        sub: overdue > 0 ? `${overdue} overdue` : "Scheduled for today",
+      };
+    }
+    if (msUntilNext === null) {
+      // No reviewed cards at all — deck is empty or never started
+      return {
+        type: "empty" as const,
+        headline: words.length === 0 ? "Add words to get started" : "Start your first review",
+        sub: words.length === 0 ? "Read a story and tap words to add them" : `${words.length} word${words.length !== 1 ? "s" : ""} in your deck`,
+      };
+    }
+    return {
+      type: "countdown" as const,
+      headline: formatDuration(msUntilNext),
+      sub: nextReviewTs ? `Next review at ${formatTime(nextReviewTs)}` : "Until your next review",
+    };
+  }, [dueNow, overdue, msUntilNext, nextReviewTs, words.length]);
 
   return (
-    <div>
-      <div className="mb-6">
-        <h2 className="text-xl font-bold text-foreground mb-1">Dashboard</h2>
-        <p className="text-sm text-muted-foreground">Your learning progress at a glance.</p>
+    <div className="space-y-4">
+      <div className="mb-2">
+        <h2 className="text-xl font-bold text-foreground">Dashboard</h2>
       </div>
 
-      {/* Continue Reading Card */}
-      {lastReadStory && (
-        <motion.button
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.25 }}
-          onClick={() => navigate(`/story/${lastReadStory.id}`)}
-          className="w-full flex items-center justify-between rounded-xl border border-primary/30 bg-primary/5 hover:bg-primary/10 transition-colors px-5 py-4 mb-5 text-left group"
-        >
-          <div className="flex items-center gap-3 min-w-0">
-            <div className="w-9 h-9 rounded-lg bg-primary/15 flex items-center justify-center shrink-0">
-              <BookOpen size={17} className="text-primary" />
+      {/* ── Hero: countdown / due now ─────────────────────────────────────── */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className={`rounded-xl border p-6 shadow-sm ${
+          heroContent.type === "due"
+            ? "border-primary/30 bg-primary/5"
+            : heroContent.type === "countdown"
+            ? "border-border bg-card"
+            : "border-border bg-card"
+        }`}
+      >
+        <div className="flex items-center justify-between gap-4">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2 mb-1">
+              {heroContent.type === "due" ? (
+                <RefreshCw size={15} className="text-primary shrink-0" />
+              ) : (
+                <Clock size={15} className="text-muted-foreground shrink-0" />
+              )}
+              <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                {heroContent.type === "due" ? "Ready to review" : heroContent.type === "countdown" ? "Next review in" : "Get started"}
+              </span>
             </div>
-            <div className="min-w-0">
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-primary/70 mb-0.5">Continue Reading</p>
-              <p className="text-sm font-semibold text-foreground truncate">{lastReadStory.englishTitle ?? lastReadStory.title}</p>
-              <p className="text-xs text-muted-foreground truncate">{lastReadStory.title}</p>
-            </div>
+            <p className={`text-3xl font-bold tabular-nums ${heroContent.type === "due" ? "text-primary" : "text-foreground"}`}>
+              {heroContent.headline}
+            </p>
+            <p className="text-sm text-muted-foreground mt-1">{heroContent.sub}</p>
           </div>
-          <ChevronRight size={16} className="text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
-        </motion.button>
-      )}
+          {(heroContent.type === "due" || heroContent.type === "empty") && (
+            <Button
+              size="sm"
+              className="shrink-0 gap-1.5"
+              onClick={() => navigate("/deck")}
+            >
+              {heroContent.type === "due" ? "Review" : "Go to Deck"}
+              <ArrowRight size={14} />
+            </Button>
+          )}
+        </div>
+      </motion.div>
 
-      {/* Stat Cards — Row 1: Core learning stats */}
-      <div className="grid grid-cols-2 gap-3 mb-3 sm:grid-cols-4">
+      {/* ── Three stat cards ──────────────────────────────────────────────── */}
+      <div className="grid grid-cols-3 gap-3">
         <StatCard
-          icon={<BookOpen size={18} />}
+          icon={<BookOpen size={16} />}
           label="Words in Deck"
-          value={totalWords}
+          value={words.length}
           accent="text-primary"
-          delay={0}
-        />
-        <StatCard
-          icon={<CheckCircle2 size={18} />}
-          label="Words Learned"
-          value={learnedCount}
-          sub="≥2 successful reviews"
-          accent="text-emerald-500 dark:text-emerald-400"
           delay={0.05}
         />
         <StatCard
-          icon={<Flame size={18} />}
-          label="Review Streak"
-          value={`${streak}d`}
-          sub={streak > 0 ? "Keep it up!" : "Start reviewing!"}
-          accent="text-orange-500"
+          icon={<RefreshCw size={16} />}
+          label="In Rotation"
+          value={inRotation}
+          sub="Reviewed at least once"
+          accent="text-teal-500 dark:text-teal-400"
           delay={0.1}
         />
         <StatCard
-          icon={<Clock size={18} />}
-          label="Total Due"
-          value={dueCount}
-          sub={dueCount > 0 ? `${overdue > 0 ? overdue + " overdue" : "all on time"}` : "All caught up!"}
-          accent={overdue > 0 ? "text-red-500 dark:text-red-400" : "text-amber-600"}
+          icon={<Flame size={16} />}
+          label="Streak"
+          value={`${streak}d`}
+          sub={streak > 0 ? "Keep it up!" : "Start today"}
+          accent="text-orange-500"
           delay={0.15}
         />
       </div>
 
-      {/* Stat Cards — Row 2: SRS queue breakdown */}
-      <div className="grid grid-cols-3 gap-3 mb-3">
-        <StatCard
-          icon={<Clock size={18} />}
-          label="Due Today"
-          value={dueToday}
-          sub={dueToday > 0 ? "Scheduled today" : "None today"}
-          accent="text-amber-600"
-          delay={0.2}
-        />
-        <StatCard
-          icon={<AlertCircle size={18} />}
-          label="Overdue"
-          value={overdue}
-          sub={overdue > 0 ? "Missed days" : "All caught up!"}
-          accent={overdue > 0 ? "text-red-500 dark:text-red-400" : "text-emerald-500 dark:text-emerald-400"}
-          delay={0.25}
-        />
-        <StatCard
-          icon={<Sparkles size={18} />}
-          label="New"
-          value={newCards}
-          sub={newCards > 0 ? "Never reviewed" : "None pending"}
-          accent="text-indigo-500 dark:text-indigo-400"
-          delay={0.3}
-        />
-      </div>
-
-      {/* Stat Cards — Row 3: Reading progress */}
-      <div className="grid grid-cols-2 gap-3 mb-6">
-        <StatCard
-          icon={<BookMarked size={18} />}
-          label="Texts Completed"
-          value={completedTextsCount}
-          sub={completedTextsCount > 0 ? "Stories finished" : "Start reading!"}
-          accent="text-teal-500 dark:text-teal-400"
-          delay={0.35}
-        />
-        <StatCard
-          icon={<RotateCcw size={18} />}
-          label="Suggested Re-reads"
-          value={suggestedRereadCount}
-          sub={suggestedRereadCount > 0 ? "Texts with tricky words" : "No re-reads needed"}
-          accent="text-violet-500 dark:text-violet-400"
-          delay={0.4}
-        />
-      </div>
-
-      {/* Words Learned Progress */}
-      <div className="rounded-xl border border-border bg-card p-5 mb-4 shadow-sm">
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-2">
-            <TrendingUp size={16} className="text-primary" />
-            <h3 className="font-semibold text-foreground text-sm">Words Learned</h3>
-          </div>
-          <span className="text-sm font-bold text-primary">{learnedCount} / {learnedGoal}</span>
-        </div>
-        <ProgressBar value={learnedCount} max={learnedGoal} color="bg-primary" />
-        <p className="text-xs text-muted-foreground mt-2">
-          {learnedGoal - learnedCount > 0
-            ? `${learnedGoal - learnedCount} more to reach your goal`
-            : "Goal reached! Set a higher target."}
-        </p>
-      </div>
-
-      {/* Today's Progress */}
-      <div className="rounded-xl border border-border bg-card p-5 mb-4 shadow-sm">
+      {/* ── Today's Activity ──────────────────────────────────────────────── */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        className="rounded-xl border border-border bg-card p-5 shadow-sm"
+      >
         <div className="flex items-center gap-2 mb-4">
-          <BarChart3 size={16} className="text-indigo-600" />
+          <BarChart3 size={15} className="text-indigo-500" />
           <h3 className="font-semibold text-foreground text-sm">Today's Activity</h3>
         </div>
         <div className="space-y-4">
           <div>
             <div className="flex justify-between text-sm mb-1.5">
+              <span className="text-muted-foreground">Cards reviewed</span>
+              <span className="font-semibold text-foreground tabular-nums">
+                {todayReviews}
+                {settings.dailyReviewCap !== null && (
+                  <span className="text-muted-foreground font-normal"> / {settings.dailyReviewCap}</span>
+                )}
+              </span>
+            </div>
+            {settings.dailyReviewCap !== null ? (
+              <ProgressBar value={todayReviews} max={settings.dailyReviewCap} color="bg-primary" />
+            ) : (
+              <div className="h-2 bg-muted rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-primary rounded-full transition-all duration-700"
+                  style={{ width: todayReviews > 0 ? "100%" : "0%" }}
+                />
+              </div>
+            )}
+          </div>
+          <div>
+            <div className="flex justify-between text-sm mb-1.5">
               <span className="text-muted-foreground">New words added</span>
-              <span className="font-medium text-foreground">
+              <span className="font-semibold text-foreground tabular-nums">
                 {todayNewWords}
-                {newWordCap !== null && <span className="text-muted-foreground"> / {newWordCap}</span>}
+                {newWordCap !== null && (
+                  <span className="text-muted-foreground font-normal"> / {newWordCap}</span>
+                )}
               </span>
             </div>
             {newWordCap !== null && (
               <ProgressBar value={todayNewWords} max={newWordCap} color="bg-indigo-500" />
             )}
           </div>
-          <div>
-            <div className="flex justify-between text-sm mb-1.5">
-              <span className="text-muted-foreground">Cards reviewed</span>
-              <span className="font-medium text-foreground">
-                {todayReviews}
-                {settings.dailyReviewCap !== null && (
-                  <span className="text-muted-foreground"> / {settings.dailyReviewCap}</span>
-                )}
-              </span>
-            </div>
-            {settings.dailyReviewCap !== null && (
-              <ProgressBar value={todayReviews} max={settings.dailyReviewCap} color="bg-primary" />
-            )}
-          </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Band Breakdown */}
+      {/* ── Continue Reading ──────────────────────────────────────────────── */}
+      {lastReadStory && (
+        <motion.button
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25 }}
+          onClick={() => navigate(`/story/${lastReadStory.id}`)}
+          className="w-full flex items-center justify-between rounded-xl border border-border bg-card hover:bg-muted/50 transition-colors px-5 py-4 text-left group shadow-sm"
+        >
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center shrink-0">
+              <BookOpen size={15} className="text-muted-foreground" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-0.5">Continue Reading</p>
+              <p className="text-sm font-semibold text-foreground truncate">{lastReadStory.englishTitle ?? lastReadStory.title}</p>
+            </div>
+          </div>
+          <ChevronRight size={15} className="text-muted-foreground group-hover:translate-x-0.5 transition-transform shrink-0 ml-2" />
+        </motion.button>
+      )}
+
+      {/* ── Words by Band ─────────────────────────────────────────────────── */}
       {Object.keys(bandBreakdown).length > 0 && (
-        <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="rounded-xl border border-border bg-card p-5 shadow-sm"
+        >
           <div className="flex items-center gap-2 mb-4">
-            <Layers size={16} className="text-violet-600" />
+            <Layers size={15} className="text-violet-500" />
             <h3 className="font-semibold text-foreground text-sm">Words by Band</h3>
           </div>
           <div className="space-y-3">
@@ -335,23 +391,24 @@ export default function Dashboard() {
               <div key={band}>
                 <div className="flex justify-between text-xs mb-1">
                   <span className="text-muted-foreground">{BAND_LABELS[band]}</span>
-                  <span className="font-medium text-foreground">{count}</span>
+                  <span className="font-semibold text-foreground tabular-nums">{count}</span>
                 </div>
                 <ProgressBar
                   value={count}
-                  max={Math.max(...Object.values(bandBreakdown) as number[])}
+                  max={Math.max(...(Object.values(bandBreakdown) as number[]))}
                   color={BAND_COLORS[band]}
                 />
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       )}
 
-      {totalWords === 0 && (
-        <div className="text-center py-8 text-muted-foreground">
-          <BookOpen size={32} className="mx-auto mb-2 opacity-30" />
-          <p className="text-sm">Start reading and adding words to see your progress here.</p>
+      {/* ── Empty state ───────────────────────────────────────────────────── */}
+      {words.length === 0 && (
+        <div className="text-center py-10 text-muted-foreground">
+          <BookOpen size={28} className="mx-auto mb-2 opacity-30" />
+          <p className="text-sm">Read a story and tap words to add them to your deck.</p>
         </div>
       )}
     </div>
