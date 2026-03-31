@@ -89,6 +89,15 @@ export function registerRefreshAllCallback(fn: RefreshAllCallback) {
   _refreshAllFromSync = fn;
 }
 
+/**
+ * Module-level flag: true while a sync is in progress.
+ * AppContext reads this to skip the visibilitychange flashcard reload during
+ * an active sync — the sync manager calls refreshAll() itself after the pull,
+ * so a concurrent reload would race and could restore stale pre-review state.
+ */
+let _isSyncActive = false;
+export function isSyncActive(): boolean { return _isSyncActive; }
+
 // ─── localStorage keys for preferences ───────────────────────────────────────
 
 const PREF_KEYS = [
@@ -207,6 +216,7 @@ export function useSyncManager(userId: number | null | undefined) {
     }
 
     isSyncingRef.current = true;
+    _isSyncActive = true;
     setSyncState({ status: "syncing", lastSyncTime: null, error: null });
 
     try {
@@ -602,6 +612,7 @@ export function useSyncManager(userId: number | null | undefined) {
       hasSyncedRef.current = false;
     } finally {
       isSyncingRef.current = false;
+      _isSyncActive = false;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId, utils]);

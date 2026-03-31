@@ -36,6 +36,7 @@ import {
   type WordMistake,
 } from "@/lib/db";
 import { CONTENT_TEXTS } from "@/lib/contentData";
+import { isSyncActive } from "@/hooks/useSyncManager";
 import { lookupWord } from "@/lib/dictionary";
 import { loadCedict, loadCedictMulti, cedictLookup, getAllReadings } from "@/lib/cedict";
 import { rankReadings } from "@/lib/definitionRanker";
@@ -191,11 +192,12 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   // Refresh flashcards when the user returns to the tab (e.g. after leaving overnight)
   // This ensures newly-due cards appear without requiring a full page reload.
-  // NOTE: We do NOT call this during an active sync — refreshAll() is called by the
-  // sync manager after the pull phase completes, which is more accurate.
+  // GUARD: Skip during an active sync — the sync manager calls refreshAll() itself
+  // after the pull phase, so a concurrent reload here would race and could restore
+  // stale pre-review card state from IndexedDB before the push has completed.
   useEffect(() => {
     const handleVisibilityChange = () => {
-      if (document.visibilityState === "visible") {
+      if (document.visibilityState === "visible" && !isSyncActive()) {
         // Only reload flashcard data (lightweight — no dictionary reload)
         FlashcardDB.getAll().then((cards) => setFlashcards(cards));
       }
