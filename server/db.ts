@@ -579,3 +579,43 @@ export async function getUserByOpenId(openId: string) {
 export async function upsertUser(_data: Record<string, unknown>): Promise<void> {
   // no-op in standalone email/password auth mode
 }
+
+/**
+ * Delete ALL user data across every sync table.
+ * Called when the user resets their deck or due dates — ensures the cloud
+ * cannot restore stale data on the next sync pull.
+ *
+ * Tables cleared (all scoped to userId):
+ *   sync_flashcards, sync_completed_texts, sync_word_mistakes,
+ *   sync_preferences, grammar_progress, story_grammar_studied,
+ *   sync_vocab_ignored, sync_segmentation_overrides,
+ *   story_deck_words (via story_decks), story_decks
+ */
+export async function deleteAllUserData(userId: number): Promise<void> {
+  const db = await getDb();
+  if (!db) return;
+
+  // Delete story deck words first (FK dependency on story_decks)
+  const userDecks = await db
+    .select({ id: storyDecks.id })
+    .from(storyDecks)
+    .where(eq(storyDecks.userId, userId));
+  if (userDecks.length > 0) {
+    const deckIds = userDecks.map((d) => d.id);
+    await db.delete(storyDeckWords).where(
+      sql`${storyDeckWords.storyDeckId} IN (${sql.join(deckIds.map((id) => sql`${id}`), sql`, `)})`
+    );
+  }
+
+  await Promise.all([
+    db.delete(syncFlashcards).where(eq(syncFlashcards.userId, userId)),
+    db.delete(syncCompletedTexts).where(eq(syncCompletedTexts.userId, userId)),
+    db.delete(syncWordMistakes).where(eq(syncWordMistakes.userId, userId)),
+    db.delete(syncPreferences).where(eq(syncPreferences.userId, userId)),
+    db.delete(grammarProgress).where(eq(grammarProgress.userId, userId)),
+    db.delete(storyGrammarStudied).where(eq(storyGrammarStudied.userId, userId)),
+    db.delete(syncVocabIgnored).where(eq(syncVocabIgnored.userId, userId)),
+    db.delete(syncSegmentationOverrides).where(eq(syncSegmentationOverrides.userId, userId)),
+    db.delete(storyDecks).where(eq(storyDecks.userId, userId)),
+  ]);
+}

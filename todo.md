@@ -164,3 +164,10 @@
 ## "Marked as learned" badge bug (Apr 2026)
 - [x] BUG: "Marked as learned" labels persist on cards after Reset Due Dates — CompletedWordDB was not cleared by resetDueDates(), only by resetDeck()
 - [x] FIX: resetDueDates() in AppContext.tsx now clears CompletedWordDB the same way resetDeck() does — both resets now fully wipe learned badges
+
+## Cloud Sync Overwrites Local Reset (Apr 2026)
+- [x] BUG: After reset, sync pull restores all old cloud data — fixed: reset now calls sync.resetAllData mutation first to wipe server rows before local IndexedDB reset
+- [x] BUG: New accounts inherit old flashcard data from cloud — fixed: each user has their own userId-scoped rows; new accounts have 0 rows
+- [x] FIX: Added deleteAllUserData(userId) to server/db.ts — deletes all rows across sync_flashcards, sync_completed_texts, sync_word_mistakes, sync_preferences, grammar_progress, story_grammar_studied, sync_vocab_ignored, sync_segmentation_overrides, story_deck_words, story_decks
+- [x] FIX: Added sync.resetAllData protectedProcedure to server/routers/sync.ts
+- [x] FIX: Both Reset Due Dates and Reset Entire Deck in SettingsPage.tsx now call resetAllData mutation before local reset

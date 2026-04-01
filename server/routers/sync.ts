@@ -35,6 +35,7 @@ import {
   addWordToStoryDeck,
   removeWordFromStoryDeck,
   getAllStoryDecks,
+  deleteAllUserData,
 } from "../db";
 
 // ─── Input Schemas ────────────────────────────────────────────────────────────
@@ -242,6 +243,17 @@ export const syncRouter = router({
     const decks = await getAllStoryDecks(ctx.user.id);
     return { decks };
   }),
+
+  /**
+   * Wipe ALL cloud data for the authenticated user.
+   * Called by the client before a local reset so the sync pull cannot
+   * restore stale data on the next sync cycle.
+   */
+  resetAllData: protectedProcedure
+    .mutation(async ({ ctx }) => {
+      await deleteAllUserData(ctx.user.id);
+      return { success: true };
+    }),
 
   /** Push (upsert) all story deck memberships from the client. */
   pushStoryDecks: protectedProcedure

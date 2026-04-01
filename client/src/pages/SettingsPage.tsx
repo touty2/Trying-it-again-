@@ -46,6 +46,7 @@ import { useSync } from "@/contexts/SyncContext";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { SettingsDB, WordDB, FlashcardDB, ReviewLogDB, CompletedTextDB, WordMistakeDB } from "@/lib/db";
 import { clearSession } from "@/hooks/useDeckSession";
+import { trpc } from "@/lib/trpc";
 
 // ─── Collapsible Section ──────────────────────────────────────────────────────
 
@@ -519,10 +520,15 @@ export default function SettingsPage() {
   const { settings, updateSettings, words, flashcards, refreshAll, resetDueDates, resetDeck } = useApp();
   const { settings: typo, update: updateTypo, reset: resetTypo } = useTypography();
   const { settings: theme, update: updateTheme, reset: resetTheme } = useThemeCtx();
+  const { userId } = useSync();
   const [showResetDialog, setShowResetDialog] = useState(false);
   const [showResetDueDatesDialog, setShowResetDueDatesDialog] = useState(false);
   const [showResetDeckDialog, setShowResetDeckDialog] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
+
+  // Server-side reset — wipes all cloud data for the current user so the
+  // sync pull cannot restore stale data after a local reset.
+  const resetAllDataMutation = trpc.sync.resetAllData.useMutation();
   const [importing, setImporting] = useState(false);
   const importInputRef = useRef<HTMLInputElement>(null);
 
@@ -1401,6 +1407,11 @@ export default function SettingsPage() {
               onClick={async () => {
                 setIsResetting(true);
                 try {
+                  // 1. Wipe cloud data first so the next sync pull returns empty
+                  if (userId) {
+                    try { await resetAllDataMutation.mutateAsync(); } catch { /* non-fatal — local reset still proceeds */ }
+                  }
+                  // 2. Reset local IndexedDB
                   await resetDueDates();
                   clearSession(); // wipe stale session so a fresh deterministic queue is built on next Deck visit
                   toast.success(`All ${flashcards.length} cards are now due today`);
@@ -1451,6 +1462,11 @@ export default function SettingsPage() {
               onClick={async () => {
                 setIsResetting(true);
                 try {
+                  // 1. Wipe cloud data first so the next sync pull returns empty
+                  if (userId) {
+                    try { await resetAllDataMutation.mutateAsync(); } catch { /* non-fatal — local reset still proceeds */ }
+                  }
+                  // 2. Reset local IndexedDB
                   await resetDeck();
                   clearSession(); // wipe stale session so a fresh deterministic queue is built on next Deck visit
                   toast.success(`Deck reset — all ${flashcards.length} cards start fresh`);
