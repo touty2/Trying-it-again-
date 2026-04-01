@@ -171,3 +171,5 @@
 - [x] FIX: Added deleteAllUserData(userId) to server/db.ts — deletes all rows across sync_flashcards, sync_completed_texts, sync_word_mistakes, sync_preferences, grammar_progress, story_grammar_studied, sync_vocab_ignored, sync_segmentation_overrides, story_deck_words, story_decks
 - [x] FIX: Added sync.resetAllData protectedProcedure to server/routers/sync.ts
 - [x] FIX: Both Reset Due Dates and Reset Entire Deck in SettingsPage.tsx now call resetAllData mutation before local reset
+
+- [x] BUG FIXED: Reset All Progress — handleReset was missing the resetAllDataMutation call; cloud still had all 298 cards so sync pull recreated every word/card from sync_flashcards. Fixed by calling resetAllDataMutation BEFORE clearing local IndexedDB in handleReset.

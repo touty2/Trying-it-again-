@@ -638,11 +638,18 @@ export default function SettingsPage() {
   };
 
   const handleReset = async () => {
+    // 1. Wipe cloud data FIRST so the next sync pull returns empty and cannot
+    //    recreate words/cards from the server.
+    if (userId) {
+      try { await resetAllDataMutation.mutateAsync(); } catch { /* non-fatal — local reset still proceeds */ }
+    }
+    // 2. Clear local IndexedDB
     const allWords = await WordDB.getAll();
     const allCards = await FlashcardDB.getAll();
     for (const w of allWords) await WordDB.delete(w.id);
     for (const c of allCards) await FlashcardDB.delete(c.wordId);
     await SettingsDB.reset();
+    clearSession();
     await refreshAll();
     toast.success("All progress reset");
     setShowResetDialog(false);
